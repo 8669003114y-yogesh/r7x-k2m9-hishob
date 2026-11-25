@@ -1,0 +1,1406 @@
+<!doctype html>
+<html lang="mr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0f1114"><meta name="color-scheme" content="dark light">
+<link rel="manifest" href="manifest.json">
+<title>रायडर हिशोब</title>
+<style>
+:root{--bg:#0f1114;--card:#181b21;--card2:#21252d;--line:#2b303a;--tx:#f5f6f8;--mut:#9ba3b3;--ac:#2fd18a;--red:#ff5d6c;--blue:#4cb8ff;--r:22px;--pc:#ff7a1a;--g:linear-gradient(135deg,#ff8f26,#ff5a1f);--hg:linear-gradient(135deg,#1fbf7a,#0c7f56);--glow:#ff7a1a44;--sh:0 10px 30px #0007}
+html[data-th=light]{--bg:#f6f4ef;--card:#fff;--card2:#f1eee7;--line:#e7e2d8;--tx:#1d1b18;--mut:#6f6a61;--ac:#0f9a62;--red:#e0414d;--sh:0 8px 24px #3a2a1214}
+html[data-ac=green]{--pc:#16a34a;--g:linear-gradient(135deg,#22c55e,#15803d);--hg:linear-gradient(135deg,#15803d,#0b5a2b);--glow:#16a34a44}
+html[data-ac=blue]{--pc:#2563eb;--g:linear-gradient(135deg,#3b82f6,#1d4ed8);--hg:linear-gradient(135deg,#1d4ed8,#1e3a8a);--glow:#2563eb44}
+html[data-ac=purple]{--pc:var(--pc);--g:linear-gradient(135deg,#6d5dfc,#b44bff 60%,#ff5fa2);--hg:linear-gradient(135deg,#6d5dfc,#b44bff 60%,#ff5fa2);--glow:var(--glow)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans Devanagari",sans-serif;padding-bottom:104px}
+header{display:flex;align-items:center;gap:10px;padding:calc(14px + env(safe-area-inset-top)) 16px 6px;max-width:560px;margin:0 auto}
+.logo{width:42px;height:42px;border-radius:14px;background:var(--g);display:grid;place-items:center;font-size:22px;box-shadow:0 8px 18px var(--glow);flex:none}
+header h1{margin:0;font-size:19px;flex:1;line-height:1.1}header h1 span{color:var(--ac)}header h1 small{display:block;font-size:11.5px;color:var(--mut);font-weight:600;margin-top:4px}
+.gear{background:var(--card);border:1px solid var(--line);color:var(--tx);border-radius:14px;width:42px;height:42px;font-size:18px;box-shadow:var(--sh)}
+main{padding:0 14px;max-width:560px;margin:0 auto}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;margin:12px 0;box-shadow:var(--sh)}
+.card h2{margin:0 0 6px;font-size:19px}.card h3{margin:0 0 8px;font-size:14px;color:var(--mut);font-weight:700}
+.hero{background:var(--hg);border:0;color:#fff;position:relative;overflow:hidden}.hero h3,.hero .mut,.hero .grid3 span{color:#ffffffc8}
+.hero::after{content:"";position:absolute;right:-40px;top:-40px;width:150px;height:150px;border-radius:50%;background:#ffffff1c}.hero>*{position:relative;z-index:1}
+.row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.big{font-size:44px;font-weight:800;letter-spacing:.5px;color:var(--ac);font-variant-numeric:tabular-nums;margin:2px 0 10px}.hero .big{color:#fff}
+.ring{width:76px;height:76px;border-radius:50%;background:conic-gradient(#fff calc(var(--p,0)*1%),#ffffff33 0);display:grid;place-items:center;flex:none}.ring b{width:60px;height:60px;border-radius:50%;background:rgba(0,0,0,.28);display:grid;place-items:center;font-size:15px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center;margin-top:8px}.grid3>div{background:#ffffff1f;border-radius:14px;padding:9px 4px}
+.grid3 b{display:block;font-size:19px}.grid3 span{font-size:11.5px;color:var(--mut)}
+label{display:block;font-size:13px;color:var(--mut);margin:12px 0 5px;font-weight:600}
+input,select,textarea{width:100%;background:var(--card2);border:1.5px solid var(--line);color:var(--tx);border-radius:14px;padding:13px 12px;font-size:17px;outline:none;font-family:inherit}
+input:focus,select:focus,textarea:focus{border-color:var(--pc);box-shadow:0 0 0 4px var(--glow)}
+input[type=file]{padding:10px;font-size:14px}
+.chk{display:flex;gap:10px;align-items:center;color:var(--tx);font-size:15px}.chk input{width:22px;height:22px;accent-color:var(--pc)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn{width:100%;border:0;border-radius:16px;padding:14px;font-size:16px;font-weight:700;background:var(--g);color:#fff;margin-top:14px;box-shadow:0 8px 20px var(--glow)}
+.btn.big{padding:18px;font-size:19px;font-variant-numeric:normal;margin:14px 0 0;letter-spacing:0;color:#fff}.btn.red{background:linear-gradient(135deg,#ff5d73,#ff8a5c);box-shadow:0 8px 20px #ff5d7344}
+.btn.ghost{background:var(--card2);color:var(--tx);border:1px solid var(--line);box-shadow:none}.btn.sm{width:auto;padding:8px 14px;font-size:14px;margin:0}
+.seg{display:flex;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:4px;margin:12px 0;gap:4px}
+.seg button{flex:1;border:0;background:none;color:var(--mut);padding:10px 4px;border-radius:12px;font-size:14px;font-weight:700}.seg button.on{background:var(--g);color:#fff}
+nav{position:fixed;left:12px;right:12px;bottom:calc(10px + env(safe-area-inset-bottom));max-width:536px;margin:0 auto;display:flex;background:var(--card);border:1px solid var(--line);border-radius:26px;padding:6px;z-index:5;box-shadow:var(--sh)}
+nav button{flex:1;background:none;border:0;color:var(--mut);font-size:10.5px;padding:7px 0;display:flex;flex-direction:column;align-items:center;gap:2px;border-radius:20px;font-weight:700}
+nav button i{font-style:normal;font-size:21px}nav button.on{background:var(--g);color:#fff}
+.chip{display:inline-block;padding:7px 12px;border-radius:99px;background:var(--card2);border:1px solid var(--line);font-size:13px;margin:0 6px 6px 0;font-weight:600}
+.item{display:flex;gap:10px;align-items:center;padding:11px 0;border-top:1px solid var(--line)}.item:first-child{border-top:0}.item .m{flex:1;min-width:0}
+.item .t{font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.item .s{font-size:12px;color:var(--mut)}.item .v{font-weight:800;color:var(--ac);white-space:nowrap}
+.x{background:none;border:0;color:var(--mut);font-size:19px;padding:4px 7px}
+.pill{font-size:11px;padding:2px 8px;border-radius:99px;border:1px solid var(--line);color:var(--mut);margin-left:6px}.pill.sw{color:#ff9a3c;border-color:#ff9a3c66}.pill.zo{color:#ff6b7f;border-color:#ff6b7f66}
+.mut{color:var(--mut);font-size:13px}
+.out{display:grid;grid-template-columns:1fr 1fr;gap:10px}.out div{background:var(--card2);border-radius:16px;padding:12px}.out b{display:block;font-size:20px}.out span{font-size:12px;color:var(--mut)}
+.out .w{grid-column:1/-1;background:#2ee6a61c;border:1px solid #2ee6a655}.out .w b{color:var(--ac);font-size:26px}
+.bar{display:flex;align-items:center;gap:8px;margin:8px 0;font-size:14px}.bar .n{width:42%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.bar .b{flex:1;height:10px;background:var(--card2);border-radius:9px;overflow:hidden}.bar .b i{display:block;height:100%;background:var(--g);border-radius:9px}.bar .c{width:78px;text-align:right;font-size:12px;color:var(--mut)}
+.hours{display:flex;align-items:flex-end;gap:3px;height:90px;margin-top:8px}.hours div{flex:1;background:var(--g);border-radius:4px 4px 0 0;min-height:2px}
+.hl{display:flex;gap:3px;font-size:9px;color:var(--mut)}.hl span{flex:1;text-align:center}
+.thumb{width:46px;height:46px;border-radius:12px;object-fit:cover;background:var(--card2);border:1px solid var(--line)}
+#modal{position:fixed;inset:0;background:#000a;display:none;align-items:flex-end;justify-content:center;z-index:20}#modal.on{display:flex}
+#modal .box{background:var(--card);border-radius:26px 26px 0 0;padding:18px;width:100%;max-width:560px;max-height:88vh;overflow:auto;border:1px solid var(--line)}#modal img{width:100%;border-radius:14px}
+#toast{position:fixed;left:50%;bottom:104px;transform:translateX(-50%);background:var(--tx);color:var(--bg);padding:10px 16px;border-radius:99px;font-weight:700;z-index:30;display:none;max-width:90%}
+svg.map{width:100%;height:170px;background:var(--card2);border-radius:16px}
+.sum{display:grid;grid-template-columns:1fr auto;gap:6px 12px;font-size:15px}.sum b{text-align:right}
+
+.tog{display:flex;align-items:center;gap:14px;padding:16px;border-radius:24px;background:var(--card2);border:1px solid var(--line);margin:12px 0;cursor:pointer;box-shadow:var(--sh)}
+.tog.on{background:linear-gradient(135deg,#12b886,#2ee6a6);color:#06281c;border-color:transparent}
+.tog b{display:block;font-size:21px}.tog span{font-size:12.5px;opacity:.8}
+.knob{width:60px;height:34px;border-radius:20px;background:#8e9bc4;position:relative;flex:none}.knob::after{content:"";position:absolute;top:4px;left:4px;width:26px;height:26px;border-radius:50%;background:#fff;transition:.2s}
+.tog.on .knob{background:#0a6b4c}.tog.on .knob::after{left:30px}
+.qg{display:grid;grid-template-columns:1fr 1fr;gap:10px}.qb{padding:18px 8px;border-radius:20px;border:0;background:var(--g);color:#fff;font-size:18px;font-weight:800;box-shadow:0 8px 20px var(--glow)}.qb small{display:block;font-weight:600;opacity:.85;font-size:12px;margin-top:2px}
+.al{border-color:#ffb02066;background:#ffb02012}.alr{display:flex;gap:10px;padding:8px 0;border-top:1px solid var(--line);font-size:14px;align-items:center}.alr:first-child{border-top:0}.alr i{font-style:normal;font-size:19px}
+.pbar{height:10px;background:var(--card2);border-radius:9px;overflow:hidden}.pbar i{display:block;height:100%;background:var(--g);border-radius:9px}
+.gear.sos{background:#ff5d73;color:#fff;border-color:#ff5d73;font-size:14px}
+#lock{position:fixed;inset:0;z-index:100;background:var(--g);display:none;place-items:center;padding:20px}.lockbox{background:var(--card);border-radius:28px;padding:28px;width:min(320px,100%);text-align:center}.lockbox input{text-align:center;font-size:26px;letter-spacing:10px;margin-top:10px}
+details summary{cursor:pointer;padding:8px 0}
+.btn,input,select{min-height:50px}.chk input[type=checkbox]{width:22px;min-height:22px}
+html[data-big="1"] body{zoom:1.18}
+optgroup{font-style:normal}
+.qb{position:relative}.qe{position:absolute;top:6px;right:10px;font-style:normal;opacity:.9;padding:2px 6px}
+.mic{font-size:64px;text-align:center;animation:pulse 1.1s infinite}@keyframes pulse{50%{transform:scale(1.15);opacity:.7}}
+.fab{position:fixed;right:16px;bottom:96px;width:60px;height:60px;border-radius:50%;border:0;background:var(--g);color:#fff;font-size:26px;box-shadow:0 10px 24px var(--glow);z-index:6}
+#toast button{margin-left:12px;background:#ffffff30;color:inherit;border:0;border-radius:99px;padding:6px 12px;font-weight:800}
+svg.map{color:var(--pc)}
+.more{margin:12px 0}.more>summary{padding:14px 16px;background:var(--card);border:1px solid var(--line);border-radius:18px;font-weight:700;list-style:none;box-shadow:var(--sh)}.more>summary::after{content:" ▾";color:var(--mut)}.more[open]>summary{margin-bottom:4px}
+#toast{white-space:normal;max-width:88vw;text-align:center}.fab{width:54px;height:54px;font-size:24px}main{padding-bottom:70px}
+</style>
+</head>
+<body>
+<header><div class="logo">🛵</div><h1>रायडर <span>हिशोब</span><small id="hd"></small></h1><button class="gear sos" onclick="openSOS()" aria-label="SOS">🆘</button><button class="gear" onclick="cycleLang()" aria-label="language">🌐</button><button class="gear" onclick="tab='set';render();scrollTo(0,0)" aria-label="settings">⚙</button></header>
+<main id="main"></main>
+<nav id="nav"></nav>
+<div id="modal" onclick="if(event.target===this)closeModal()"><div class="box" id="mbox"></div></div>
+<div id="toast"></div>
+<button class="fab" id="fab" onclick="voiceQuick()" aria-label="voice order">🎤</button>
+<div id="lock"><div class="lockbox"><div style="font-size:42px">🛵</div><h2>PIN टाका</h2><input id="lockPin" type="password" inputmode="numeric" maxlength="4" autocomplete="off" onkeydown="if(event.key==='Enter')unlock()"><button class="btn" onclick="unlock()">उघडा</button><p class="mut" id="lockMsg"></p></div></div>
+
+<script>
+const R=["McDonald's","KFC","Domino's Pizza","Pizza Hut","Burger King","Subway","Starbucks","Haldiram's","Barbeque Nation","Behrouz Biryani","Faasos","Box8","Oven Story Pizza","La Pino'z Pizza","Wow! Momo","Wow! China","Chaayos","Chai Point","Theobroma","Baskin Robbins","Giani","Naturals Ice Cream","Mad Over Donuts","Dunkin'","Krispy Kreme","Burger Singh","Biryani By Kilo","Biryani Blues","Paradise Biryani","Mojo Pizza","Lunchbox","Freshmenu","Sagar Ratna","Saravana Bhavan","Goli Vada Pav","JumboKing","Kaati Zone","Rolls Mania","Taco Bell","Wendy's","Papa John's","Slice of Italy","Biryani Zone","Hotel Vaishali","Roopali","Goodluck Cafe","Chitale Bandhu","Kayani Bakery","Cafe Coffee Day","Barista","Third Wave Coffee","Blue Tokai","Bikanervala","Punjabi Tadka","Dhaba","Local Hotel","Bakery","Juice Centre","Chinese Corner","Mess / Tiffin","Pav Bhaji Centre","Misal House","Vada Pav Stall","Sweet Mart","Tea Stall"];
+const K='rt_v2';
+const DEF={duty:null,duties:[],orders:[],fuels:[],incs:[],slabs:[{n:10,a:100},{n:15,a:200},{n:20,a:350}],set:{},cash:0,rests:[],deposits:[],svc:{odo:0,every:3000},lastBackup:0,slabsBy:{},exps:[],rej:[],svcs:[],trk:[{"k": "oil", "n": "ऑइल चेंज", "every": 3000, "odo": 0}, {"k": "svc", "n": "फुल सर्व्हिसिंग", "every": 6000, "odo": 0}, {"k": "brake", "n": "ब्रेक पॅड", "every": 12000, "odo": 0}, {"k": "tyre", "n": "टायर", "every": 25000, "odo": 0}, {"k": "chain", "n": "चेन / बेल्ट", "every": 20000, "odo": 0}, {"k": "bat", "n": "बॅटरी", "every": 30000, "odo": 0}],docs:[{"name": "DL (लायसन्स)", "no": "", "exp": ""}, {"name": "RC", "no": "", "exp": ""}, {"name": "इन्शुरन्स", "no": "", "exp": ""}, {"name": "PUC", "no": "", "exp": ""}, {"name": "वॉरंटी", "no": "", "exp": ""}],chl:[],addrs:[],emis:[],fests:[],pre:{},pp:{},wt:0,cashBy:{Swiggy:0,Zomato:0,Zepto:0,BigBasket:0,Other:0},cashLog:[]};
+const fresh=()=>JSON.parse(JSON.stringify(DEF));
+let S;try{S=Object.assign(fresh(),JSON.parse(localStorage.getItem(K)||'{}'))}catch(e){S=fresh()}
+const save=()=>{try{localStorage.setItem(K,JSON.stringify(S))}catch(e){toast('साठवणूक भरली!')}};
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const inr=n=>'₹'+Math.round(n||0).toLocaleString('en-IN');
+const num=v=>parseFloat(v)||0;
+const r1=n=>(Math.round(n*10)/10);
+const sameDay=(a,b)=>new Date(a).toDateString()===new Date(b==null?Date.now():b).toDateString();
+const hhmm=t=>new Date(t).toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'});
+const dmy=t=>new Date(t).toLocaleDateString('en-IN',{day:'2-digit',month:'short'});
+const dur=ms=>{let s=Math.max(0,Math.floor(ms/1000));return String(Math.floor(s/3600)).padStart(2,'0')+':'+String(Math.floor(s/60)%60).padStart(2,'0')+':'+String(s%60).padStart(2,'0')};
+const durH=ms=>{const m=Math.round(ms/60000);return Math.floor(m/60)+'h '+(m%60)+'m'};
+const lIso=d=>{d=new Date(d);d.setMinutes(d.getMinutes()-d.getTimezoneOffset());return d.toISOString().slice(0,16)};
+function toast(m){const t=$('#toast');t.textContent=m;t.style.display='block';clearTimeout(toast.h);toast.h=setTimeout(()=>t.style.display='none',2600)}
+function openModal(h){$('#mbox').innerHTML=h;$('#modal').classList.add('on')}
+function closeModal(){$('#modal').classList.remove('on')}
+
+/* ---------- receipts in IndexedDB ---------- */
+const idb=()=>new Promise((res,rej)=>{const r=indexedDB.open('rt',1);r.onupgradeneeded=()=>r.result.createObjectStore('r');r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)});
+async function rPut(k,v){const d=await idb();return new Promise(r=>{const t=d.transaction('r','readwrite');t.objectStore('r').put(v,String(k));t.oncomplete=()=>r()})}
+async function rGet(k){const d=await idb();return new Promise(r=>{const q=d.transaction('r').objectStore('r').get(String(k));q.onsuccess=()=>r(q.result);q.onerror=()=>r(null)})}
+async function rDel(k){const d=await idb();return new Promise(r=>{const t=d.transaction('r','readwrite');t.objectStore('r').delete(String(k));t.oncomplete=()=>r()})}
+async function rAll(){const d=await idb();return new Promise(r=>{const o={};const q=d.transaction('r').objectStore('r').openCursor();q.onsuccess=()=>{const c=q.result;if(c){o[c.key]=c.value;c.continue()}else r(o)}})}
+function shrink(file){return new Promise(res=>{const im=new Image(),u=URL.createObjectURL(file);im.onload=()=>{const m=1000,s=Math.min(1,m/Math.max(im.width,im.height));const c=document.createElement('canvas');c.width=im.width*s;c.height=im.height*s;c.getContext('2d').drawImage(im,0,0,c.width,c.height);URL.revokeObjectURL(u);res(c.toDataURL('image/jpeg',.7))};im.src=u})}
+
+/* ---------- GPS ---------- */
+let wid=null,wake=null;
+const hav=(a,b,c,d)=>{const t=x=>x*Math.PI/180,R=6371,dl=t(c-a),dn=t(d-b);const h=Math.sin(dl/2)**2+Math.cos(t(a))*Math.cos(t(c))*Math.sin(dn/2)**2;return 2*R*Math.asin(Math.sqrt(h))};
+function startGPS(){
+  if(!navigator.geolocation){toast('या फोनवर GPS नाही');return}
+  if(wid!=null)return;
+  wid=navigator.geolocation.watchPosition(p=>{
+    const a=p.coords.latitude,b=p.coords.longitude,c=p.coords.accuracy;
+    S.cur={a,b,t:Date.now()};
+    if(!S.duty||c>60)return;
+    const pts=S.duty.pts,l=pts[pts.length-1];
+    if(!l)pts.push([a,b]);
+    else{const d=hav(l[0],l[1],a,b);if(d>=0.02&&d<2){S.duty.gps+=d;pts.push([a,b]);if(pts.length>3000)pts.splice(1,1)}}
+    save();if(tab==='duty')updLive();
+  },e=>toast('GPS: '+(e.code===1?'परवानगी द्या (Location allow)':e.message)),{enableHighAccuracy:true,maximumAge:5000,timeout:30000});
+}
+function stopGPS(){if(wid!=null)navigator.geolocation.clearWatch(wid);wid=null}
+async function getWake(){try{if(navigator.wakeLock)wake=await navigator.wakeLock.request('screen')}catch(e){}}
+document.addEventListener('visibilitychange',()=>{if(!document.hidden&&S.duty)getWake()});
+
+/* ---------- stats ---------- */
+function dutyStats(d,end){end=end||Date.now();
+  const f=a=>a.filter(x=>x.ts>=d.t&&x.ts<=end+60000);
+  const os=f(S.orders),is=f(S.incs),fs=f(S.fuels);
+  return{orders:os.length,earn:os.reduce((s,o)=>s+o.earn,0),cod:os.reduce((s,o)=>s+(o.cod||0),0),inc:is.reduce((s,o)=>s+o.amt,0),fuel:fs.reduce((s,o)=>s+o.a,0)};
+}
+const todayOrders=()=>S.orders.filter(o=>sameDay(o.ts));
+const avg=(arr,fn)=>{const v=arr.map(fn).filter(x=>x>0);return v.length?v.reduce((a,b)=>a+b,0)/v.length:0};
+function expectedInc(cnt){let a=0,n=0;[...S.slabs].sort((x,y)=>x.n-y.n).forEach(s=>{if(cnt>=s.n){a=s.a;n=s.n}});return{a,n}}
+function calcMil(){const f=[...S.fuels].filter(x=>x.odo>0).sort((a,b)=>a.odo-b.odo);let km=0,l=0;for(let i=1;i<f.length;i++){const d=f[i].odo-f[i-1].odo;if(d>0&&f[i].l>0){km+=d;l+=f[i].l}}return l>0?km/l:0}
+function incPerOrder(){const n=S.orders.length,t=S.incs.reduce((s,i)=>s+i.amt,0);return n&&t?t/n:0}
+
+/* ---------- nav / render ---------- */
+let tab='duty',sub='o',dPlat='all',dPer='7',showAll=false,manualT=false;
+const TABS=[['duty','🏍','ड्युटी'],['ord','🧾','ऑर्डर'],['fuel','⛽','पेट्रोल'],['calc','🧮','कॅल्क'],['rep','📊','रिपोर्ट'],['dem','🔥','डिमांड']];
+function render(){
+  const hd=$('#hd');if(hd)hd.textContent=new Date().toLocaleDateString('mr-IN',{weekday:'long',day:'numeric',month:'short'});
+  $('#nav').innerHTML=TABS.map(t=>`<button class="${tab===t[0]?'on':''}" onclick="tab='${t[0]}';manualT=false;render();scrollTo(0,0)"><i>${t[1]}</i>${t[2]}</button>`).join('');
+  $('#main').innerHTML=({duty:vDuty,ord:vOrders,fuel:vFuel,calc:vCalc,rep:vRep,dem:vDemand})[tab]();
+  if(tab==='duty')updLive();
+  if(tab==='fuel')loadThumbs();
+  if(tab==='calc')calc();
+}
+
+/* ---------- DUTY ---------- */
+function vDuty(){
+  const d=S.duty;
+  if(!d)return `<div class="card"><h2>ड्युटी सुरू करा</h2>
+    <label>ओडोमीटर आत्ता (km)</label><input id="so" type="number" inputmode="decimal" value="${lastOdo()||''}" placeholder="उदा. 12450">
+    <label>हातात कॅश (₹)</label><input id="sc" type="number" inputmode="decimal" value="${S.cash||''}" placeholder="0">
+    <button class="btn big" onclick="startDuty()">▶ Start Duty</button>
+    <p class="mut">Start केल्यावर GPS चालू होईल. ट्रॅकिंगसाठी ही app उघडी ठेवा (स्क्रीन चालू).</p></div>`+bkBanner()+svcCard()+histHtml();
+  return `<div class="card hero"><div class="mut">ड्युटी चालू • सुरू ${hhmm(d.t)} • ओडो ${d.odo}</div>
+    <div class="row"><div class="big" id="tm">00:00:00</div><div class="ring" id="rg"><b id="rgp">—</b></div></div>
+    <div class="grid3"><div><b id="gk">0</b><span>GPS km</span></div><div><b id="oc">0</b><span>ऑर्डर</span></div><div><b id="ea">₹0</b><span>कमाई</span></div></div>
+    <div class="grid3"><div><b id="ph">₹0</b><span>₹ / तास</span></div><div><b id="pk">₹0</b><span>₹ / km</span></div><div><b id="nf">₹0</b><span>निव्वळ</span></div></div></div>
+    <details class="more" ${ADV()?'open':''}><summary>🗺 GPS रस्ता</summary><div class="card"><div id="map"></div></div></details>
+    ${cashCard()}
+    <div class="card"><h2>ड्युटी संपवा</h2><label>ओडोमीटर शेवटचे (km)</label><input id="eo" type="number" inputmode="decimal" placeholder="उदा. ${d.odo+80}">
+    <button class="btn red big" onclick="endDuty()">■ End Duty</button></div>`;
+}
+function histHtml(){
+  if(!S.duties.length)return '';
+  return `<div class="card"><h3>मागच्या ड्युट्या</h3>`+S.duties.slice(0,7).map(d=>`<div class="item"><div class="m"><div class="t">${dmy(d.t)} • ${durH(d.end-d.t)}</div><div class="s">${d.odoKm} km (ओडो) • GPS ${r1(d.gps)} km • ${d.orders} ऑर्डर${d.end>d.t?' • ₹'+Math.round(d.net/((d.end-d.t)/36e5))+'/तास':''}</div></div><div class="v">${inr(d.net)}</div></div>`).join('')+`<p class="mut">उजवीकडे = निव्वळ (कमाई + इन्सेंटिव्ह − पेट्रोल)</p></div>`;
+}
+function updLive(){
+  const d=S.duty;if(!d||tab!=='duty')return;
+  const st=dutyStats(d),t=$('#tm');if(!t)return;
+  t.textContent=dur(Date.now()-d.t);$('#gk').textContent=r1(d.gps);$('#oc').textContent=st.orders;$('#ea').textContent=inr(st.earn);
+  const tot=st.earn+st.inc,hrs=(Date.now()-d.t)/36e5,gl=num(S.set.goal);
+  $('#ph').textContent=inr(hrs>0.05?tot/hrs:0);$('#pk').textContent=inr(d.gps>0.3?tot/d.gps:0);$('#nf').textContent=inr(tot-st.fuel);
+  const rg=$('#rg');if(rg){rg.style.setProperty('--p',gl?Math.min(100,tot/gl*100):0);$('#rgp').textContent=gl?Math.round(tot/gl*100)+'%':'—'}
+  const gs=$('#gpsS');if(gs)gs.innerHTML=tx(gpsHtml());const m=$('#map'),sig=d.pts.length;if(m&&m.dataset.n!=sig){m.dataset.n=sig;m.innerHTML=tx(pathSvg(d.pts))}
+}
+setInterval(()=>{const d=S.duty,t=$('#tm');if(d&&t)t.textContent=dur(Date.now()-d.t)},1000);
+function pathSvg(p){
+  if(p.length<2)return '<div class="mut">GPS ची वाट बघतोय… थोडे चालल्यावर रस्ता दिसेल.</div>';
+  const w=320,h=170,pd=14,la=p.map(x=>x[0]),lo=p.map(x=>x[1]);
+  const a0=Math.min(...la),a1=Math.max(...la),o0=Math.min(...lo),o1=Math.max(...lo),kx=Math.cos((a0+a1)/2*Math.PI/180);
+  const sc=Math.min((w-2*pd)/(((o1-o0)*kx)||1e-6),(h-2*pd)/((a1-a0)||1e-6));
+  const pt=x=>[(pd+(x[1]-o0)*kx*sc).toFixed(1),(h-pd-(x[0]-a0)*sc).toFixed(1)];
+  const q=p.map(pt),e=q[q.length-1];
+  return `<svg class="map" viewBox="0 0 ${w} ${h}"><polyline points="${q.map(x=>x.join(',')).join(' ')}" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><circle cx="${q[0][0]}" cy="${q[0][1]}" r="5" fill="#5cc8ff"/><circle cx="${e[0]}" cy="${e[1]}" r="7" fill="#ff6b57"/></svg>`;
+}
+function startDuty(){
+  const odo=num($('#so').value);if(!odo){toast('ओडोमीटर टाका');return}
+  S.cash=num($('#sc').value);
+  S.duty={id:Date.now(),t:Date.now(),odo,gps:0,pts:[],cash0:S.cash};
+  save();startGPS();getWake();render();toast('ड्युटी सुरू — GPS चालू');
+}
+function endDuty(){
+  const d=S.duty,eo=num($('#eo').value);
+  if(!eo||eo<d.odo){toast('शेवटचे ओडोमीटर चुकीचे आहे');return}
+  const end=Date.now(),st=dutyStats(d,end),net=st.earn+st.inc-st.fuel;
+  const rec={id:d.id,t:d.t,end,odo:d.odo,odoEnd:eo,odoKm:eo-d.odo,gps:d.gps,orders:st.orders,earn:st.earn,inc:st.inc,fuel:st.fuel,net,cash0:d.cash0,cash1:S.cash};
+  S.duties.unshift(rec);S.duty=null;save();stopGPS();if(wake){try{wake.release()}catch(e){}wake=null}
+  render();
+  openModal(`<h2>ड्युटी पूर्ण ✅</h2><div class="sum">
+  <span>ड्युटी वेळ</span><b>${durH(end-d.t)}</b>
+  <span>ओडोमीटर</span><b>${d.odo} → ${eo} (${rec.odoKm} km)</b>
+  <span>GPS अंतर</span><b>${r1(d.gps)} km</b>
+  <span>ऑर्डर</span><b>${st.orders}</b>
+  <span>कमाई</span><b>${inr(st.earn)}</b>
+  <span>इन्सेंटिव्ह</span><b>${inr(st.inc)}</b>
+  <span>पेट्रोल खर्च</span><b>${inr(st.fuel)}</b>
+  <span>निव्वळ नफा</span><b style="color:var(--ac)">${inr(net)}</b>
+  <span>हातात कॅश</span><b>${inr(S.cash)}</b></div>
+  <button class="btn" onclick="closeModal()">ठीक आहे</button>`);
+}
+
+
+/* ---------- extras: cash, service, backup banner ---------- */
+const lastOdo=()=>Math.max(S.duty?S.duty.odo:0,...S.duties.map(d=>d.odoEnd||0),...S.fuels.map(f=>f.odo||0),0);
+function cashCard(){return `<div class="card"><h3>💰 कॅश आणि टार्गेट</h3><div class="two"><div><label>हातात कॅश ₹</label><input type="number" inputmode="decimal" value="${S.cash||''}" onchange="S.cash=num(this.value);save();toast('कॅश अपडेट')"></div><div><label>आजचे टार्गेट ₹</label><input type="number" inputmode="decimal" value="${S.set.goal||''}" placeholder="1500" onchange="S.set.goal=num(this.value);save();updLive()"></div></div><button class="btn ghost" onclick="depositCash()">⬇ कॅश जमा केली (डिपॉझिट)</button>${S.deposits.slice(0,3).map(x=>`<div class="item"><div class="m"><div class="t">जमा</div><div class="s">${dmy(x.ts)} ${hhmm(x.ts)}</div></div><div class="v">${inr(x.amt)}</div></div>`).join('')}</div>`}
+function depositCash(){const v=prompt('किती ₹ कॅश जमा केली?');if(v===null)return;const n=parseFloat(v);if(!(n>0)){toast('चुकीची रक्कम');return}S.deposits.unshift({id:Date.now(),ts:Date.now(),amt:n});S.cash=(S.cash||0)-n;save();render();toast('जमा नोंदवले')}
+function svcCard(){const sv=S.svc,lo=lastOdo(),rem=sv.odo?sv.odo+sv.every-lo:null;
+  return `<div class="card"><h3>🔧 सर्व्हिसिंग रिमाइंडर</h3>${rem===null?'<p class="mut">शेवटची सर्व्हिसिंग कधी झाली (ओडो) ते टाका.</p>':`<div class="big" style="font-size:30px;color:${rem<=0?'var(--red)':rem<300?'#ffb020':'var(--ac)'}">${rem<=0?'सर्व्हिसिंग ओव्हरड्यू! '+Math.abs(Math.round(rem))+' km':Math.round(rem)+' km बाकी'}</div>`}
+  <div class="two"><div><label>शेवटची सर्व्हिस (ओडो)</label><input type="number" inputmode="decimal" value="${sv.odo||''}" onchange="S.svc.odo=num(this.value);save();render()"></div><div><label>दर किती km</label><input type="number" inputmode="decimal" value="${sv.every}" onchange="S.svc.every=num(this.value)||3000;save();render()"></div></div>
+  <button class="btn ghost" onclick="S.svc.odo=lastOdo();save();render();toast('सर्व्हिसिंग नोंदवली')">आत्ता सर्व्हिसिंग केली (ओडो ${lo||'—'})</button></div>`}
+function bkBanner(){return (Date.now()-(S.lastBackup||0)>7*864e5&&(S.orders.length||S.fuels.length))?`<div class="card" style="border-color:#ffb020"><b>⚠️ बॅकअप घेऊन ७ दिवसांपेक्षा जास्त झाले</b><button class="btn" onclick="exportBackup()">⬇ आत्ता बॅकअप घ्या</button></div>`:''}
+function toggleTheme(){const t=document.documentElement.dataset.th==='light'?'dark':'light';document.documentElement.dataset.th=t;try{localStorage.setItem('rt_theme',t)}catch(e){}}
+function editOrder(id){const o=S.orders.find(x=>x.id===id);if(!o)return;const v=prompt('नवीन कमाई ₹',o.earn);if(v===null)return;const n=parseFloat(v);if(!(n>=0)){toast('चुकीची रक्कम');return}o.earn=n;save();render()}
+
+/* ---------- REPORT ---------- */
+let rPer='7';
+function rangeLim(p){const n=new Date();if(p==='1')return new Date(n.getFullYear(),n.getMonth(),n.getDate()).getTime();if(p==='7')return Date.now()-7*864e5;if(p==='30')return new Date(n.getFullYear(),n.getMonth(),1).getTime();return 0}
+function vRep(){
+  const lim=rangeLim(rPer),os=S.orders.filter(o=>o.ts>=lim),is=S.incs.filter(i=>i.ts>=lim),fs=S.fuels.filter(f=>f.ts>=lim),ds=S.duties.filter(d=>d.t>=lim);
+  const earn=os.reduce((s,o)=>s+o.earn,0),inc=is.reduce((s,i)=>s+i.amt,0),fuel=fs.reduce((s,f)=>s+f.a,0),net=earn+inc-fuel;
+  const hrs=ds.reduce((s,d)=>s+(d.end-d.t),0)/36e5,km=ds.reduce((s,d)=>s+d.odoKm,0);
+  const days={};os.forEach(o=>{const k=new Date(o.ts).toDateString();days[k]=(days[k]||0)+o.earn});const best=Object.entries(days).sort((a,b)=>b[1]-a[1])[0];
+  const pl={};os.forEach(o=>pl[o.pl]=(pl[o.pl]||0)+o.earn);
+  const seg=`<div class="seg">${[['1','आज'],['7','७ दिवस'],['30','या महिन्यात'],['all','सर्व']].map(x=>`<button class="${rPer===x[0]?'on':''}" onclick="rPer='${x[0]}';render()">${x[1]}</button>`).join('')}</div>`;
+  return seg+`<div class="card hero"><h3>निव्वळ नफा</h3><div class="big">${inr(net)}</div><div class="mut">कमाई + इन्सेंटिव्ह − पेट्रोल</div></div>
+  <div class="card"><div class="out"><div><b>${inr(earn)}</b><span>ऑर्डर कमाई (${os.length})</span></div><div><b>${inr(inc)}</b><span>इन्सेंटिव्ह</span></div><div><b>${inr(fuel)}</b><span>पेट्रोल खर्च</span></div><div><b>${r1(hrs)} तास</b><span>ड्युटी वेळ (${ds.length} ड्युटी)</span></div><div><b>${hrs>0?inr(net/hrs):'—'}</b><span>निव्वळ ₹ / तास</span></div><div><b>${km>0?inr(net/km):'—'}</b><span>निव्वळ ₹ / km (${r1(km)} km)</span></div>${best?`<div class="w"><span>सर्वोत्तम दिवस</span><b>${inr(best[1])} • ${dmy(new Date(best[0]).getTime())}</b></div>`:''}</div></div>
+  ${os.length?`<div class="card"><h3>प्लॅटफॉर्मनुसार कमाई</h3>${bars(Object.entries(pl).sort((a,b)=>b[1]-a[1]),x=>inr(x[1]))}</div>`:'<div class="card"><p class="mut">या काळात नोंद नाही.</p></div>'}
+  <button class="btn ghost" onclick="exportCsv()">📊 Excel (CSV) डाउनलोड</button>`;
+}
+function exportCsv(){const q=v=>{let t=String(v==null?'':v);if(/^[=+\-@]/.test(t))t="'"+t;return '"'+t.replace(/"/g,'""')+'"'},lim=rangeLim(rPer),rows=[['तारीख','वेळ','प्रकार','प्लॅटफॉर्म','नाव / एरिया','रक्कम']];
+  S.orders.filter(o=>o.ts>=lim).forEach(o=>rows.push([dmy(o.ts),hhmm(o.ts),'ऑर्डर',o.pl,o.rest+(o.area?' / '+o.area:''),o.earn]));
+  S.incs.filter(i=>i.ts>=lim).forEach(i=>rows.push([dmy(i.ts),hhmm(i.ts),'इन्सेंटिव्ह',i.pl,i.note||'',i.amt]));
+  S.fuels.filter(f=>f.ts>=lim).forEach(f=>rows.push([dmy(f.ts),hhmm(f.ts),'पेट्रोल','',r1(f.l)+' L',f.a]));
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['\ufeff'+rows.map(r=>r.map(q).join(',')).join('\n')],{type:'text/csv;charset=utf-8'}));a.download='rider-report.csv';document.body.appendChild(a);a.click();a.remove()}
+function addRests(){const t=($('#rb')||{}).value||'';const add=t.split('\n').map(x=>x.trim().slice(0,60)).filter(Boolean);let n=0;add.forEach(x=>{if(!S.rests.includes(x)&&!R.includes(x)){S.rests.push(x);n++}});save();toast(n+' नावे जोडली');openSettings()}
+
+/* ---------- ORDERS + INCENTIVE ---------- */
+function vOrders(){
+  const seg=`<div class="seg"><button class="${sub==='o'?'on':''}" onclick="sub='o';render()">ऑर्डर रेकॉर्ड</button><button class="${sub==='i'?'on':''}" onclick="sub='i';render()">इन्सेंटिव्ह</button></div>`;
+  return seg+(sub==='o'?vOrd():vInc());
+}
+function vOrd(){
+  manualT=false;
+  const rc={};S.orders.forEach(o=>rc[o.rest]=(rc[o.rest]||0)+1);const top=Object.entries(rc).sort((a,b)=>b[1]-a[1]).slice(0,6).map(x=>x[0]);
+  const rests=[...new Set([...top,...S.rests,...R])],areas=[...new Set(S.orders.map(o=>o.area).filter(Boolean))];
+  const to=todayOrders(),ls=(showAll?S.orders:to).slice().sort((a,b)=>b.ts-a.ts).slice(0,showAll?80:60);
+  return `<div class="card"><h2>नवीन ऑर्डर</h2>
+  <label>रेस्टॉरंट (लिहा किंवा निवडा) <button class="x" style="float:right;padding:0 8px" onclick="voiceInto('or')">🎤</button></label><input id="or" list="rl" placeholder="उदा. McDonald's" autocomplete="off"><datalist id="rl">${rests.map(r=>`<option value="${esc(r)}">`).join('')}</datalist>
+  <div style="margin-top:8px">${top.map(r=>`<span class="chip" onclick="$('#or').value=this.textContent">${esc(r)}</span>`).join('')}</div>
+  <div class="two"><div><label>प्लॅटफॉर्म</label><select id="op">${['Swiggy','Zomato','Other'].map(p=>`<option${S.set.lastPl===p?' selected':''}>${p}</option>`).join('')}</select></div>
+  <div><label>एरिया</label><input id="oa" list="al" placeholder="उदा. Kothrud"><datalist id="al">${areas.map(r=>`<option value="${esc(r)}">`).join('')}</datalist></div></div>
+  <div class="two"><div><label>कमाई ₹</label><input id="oe" type="number" inputmode="decimal"></div><div><label>अंतर km</label><input id="ok" type="number" step="any" inputmode="decimal"></div></div>
+  <label>COD कॅश घेतली (असेल तर ₹)</label><input id="oc2" type="number" inputmode="decimal" placeholder="0">
+  <label>वेळ (आपोआप — हवे तर बदला)</label><input id="ot" type="datetime-local" value="${lIso(Date.now())}" oninput="manualT=true">
+  <button class="btn" onclick="addOrder()">+ ऑर्डर सेव्ह</button></div>
+  <div class="card"><h3>${showAll?'सर्व ऑर्डर':'आजच्या ऑर्डर'} • ${to.length} आज • ${inr(to.reduce((s,o)=>s+o.earn,0))}</h3>
+  ${ls.length?ls.map(o=>`<div class="item"><div class="m"><div class="t">${esc(o.rest)}<span class="pill ${o.pl==='Swiggy'?'sw':o.pl==='Zomato'?'zo':''}">${esc(o.pl)}</span></div><div class="s">${showAll||!sameDay(o.ts)?dmy(o.ts)+' ':''}${hhmm(o.ts)}${o.area?' • '+esc(o.area):''}${o.km?' • '+o.km+' km':''}${o.cod?' • COD '+inr(o.cod):''}</div></div><div class="v">${inr(o.earn)}</div><button class="x" onclick="editOrder(${o.id})">✎</button><button class="x" onclick="delOrder(${o.id})">✕</button></div>`).join(''):'<p class="mut">अजून ऑर्डर नाही.</p>'}
+  <button class="btn ghost" onclick="showAll=!showAll;renderKeep()">${showAll?'फक्त आज दाखवा':'सर्व इतिहास दाखवा'}</button></div>`;
+}
+function addOrder(){
+  const rest=$('#or').value.trim();if(!rest){toast('रेस्टॉरंट नाव टाका');return}
+  const ts=manualT?new Date($('#ot').value).getTime()||Date.now():Date.now();
+  const cod=num($('#oc2').value),cur=S.cur&&Date.now()-S.cur.t<600000?S.cur:null;
+  S.set.lastPl=$('#op').value;S.orders.push({id:Date.now(),ts,rest,pl:$('#op').value,area:$('#oa').value.trim(),earn:num($('#oe').value),km:num($('#ok').value),cod,lat:cur?cur.a:null,lng:cur?cur.b:null});
+  if(!R.includes(rest)&&!S.rests.includes(rest))S.rests.push(rest);
+  if(cod)S.cash=(S.cash||0)+cod;
+  save();render();toast('ऑर्डर सेव्ह झाली');
+}
+function delOrder(id){const o=S.orders.find(x=>x.id===id);if(!o||!confirm('ही ऑर्डर डिलीट करायची?'))return;if(o.cod)cashAdd(o.pl,-o.cod);S.orders=S.orders.filter(x=>x.id!==id);save();render()}
+
+function vInc(){
+  const cnt=todayOrders().length,ex=expectedInc(cnt),sl=[...S.slabs].sort((a,b)=>a.n-b.n),nx=sl.find(s=>s.n>cnt);
+  const tI=S.incs.filter(i=>sameDay(i.ts)).reduce((s,i)=>s+i.amt,0),all=S.incs.reduce((s,i)=>s+i.amt,0);
+  return `<div class="card hero"><h3>आजचे इन्सेंटिव्ह</h3><div class="big">${inr(ex.a)}</div>
+  <div class="mut">आज ${cnt} ऑर्डर ${ex.n?'• '+ex.n+'+ चा स्लॅब पूर्ण':''}${nx?' • पुढचा स्लॅब: '+(nx.n-cnt)+' ऑर्डर बाकी → '+inr(nx.a):''}</div></div>
+  <div class="card"><h2>इन्सेंटिव्ह रेकॉर्ड जोडा</h2>
+  <div class="two"><div><label>प्लॅटफॉर्म</label><select id="ip"><option>Swiggy</option><option>Zomato</option><option>Other</option></select></div><div><label>रक्कम ₹</label><input id="ia" type="number" inputmode="decimal" value="${ex.a||''}"></div></div>
+  <label>नोट (उदा. Peak/Weekly bonus)</label><input id="in" placeholder="ऐच्छिक">
+  <button class="btn" onclick="addInc()">+ रेकॉर्डमध्ये जोडा</button></div>
+  <div class="card"><h3>स्लॅब (तुमच्या कंपनीप्रमाणे बदला)</h3>
+  ${sl.map((s,i)=>`<div class="item"><div class="m"><span class="mut">ऑर्डर</span> <input style="width:80px;display:inline-block;padding:8px" type="number" value="${s.n}" onchange="setSlab(${i},'n',this.value)"> <span class="mut">→ ₹</span> <input style="width:90px;display:inline-block;padding:8px" type="number" value="${s.a}" onchange="setSlab(${i},'a',this.value)"></div><button class="x" onclick="delSlab(${i})">✕</button></div>`).join('')}
+  <button class="btn ghost" onclick="S.slabs.push({n:25,a:500});save();render()">+ स्लॅब जोडा</button>
+  <p class="mut">हे आकडे फक्त उदाहरण आहेत — तुमच्या Swiggy/Zomato च्या खऱ्या स्लॅबने बदला.</p></div>
+  <div class="card"><h3>नोंदी • आज ${inr(tI)} • एकूण ${inr(all)}</h3>
+  ${S.incs.length?S.incs.slice().sort((a,b)=>b.ts-a.ts).slice(0,40).map(i=>`<div class="item"><div class="m"><div class="t">${esc(i.pl)}${i.note?' • '+esc(i.note):''}</div><div class="s">${dmy(i.ts)} ${hhmm(i.ts)}</div></div><div class="v">${inr(i.amt)}</div><button class="x" onclick="editRec('i',${i.id})">✎</button><button class="x" onclick="delInc(${i.id})">✕</button></div>`).join(''):'<p class="mut">अजून नोंद नाही.</p>'}</div>`;
+}
+function setSlab(i,k,v){const s=[...S.slabs].sort((a,b)=>a.n-b.n);s[i][k]=num(v);S.slabs=s;save();render()}
+function delSlab(i){const s=[...S.slabs].sort((a,b)=>a.n-b.n);s.splice(i,1);S.slabs=s;save();render()}
+function addInc(){const a=num($('#ia').value);if(!a){toast('रक्कम टाका');return}S.incs.push({id:Date.now(),ts:Date.now(),pl:$('#ip').value,amt:a,note:$('#in').value.trim()});save();render();toast('इन्सेंटिव्ह जोडले')}
+function delInc(id){if(!confirm('डिलीट करायचे?'))return;S.incs=S.incs.filter(x=>x.id!==id);save();render()}
+
+/* ---------- FUEL ---------- */
+function vFuel(){
+  const mil=calcMil(),fs=S.fuels.slice().sort((a,b)=>b.ts-a.ts);
+  return `<div class="card"><h2>पेट्रोल भरले</h2>
+  <div class="two"><div><label>लिटर</label><input id="fl" type="number" step="any" inputmode="decimal" oninput="fAuto('l')"></div><div><label>रेट ₹/लि</label><input id="fr" type="number" step="any" inputmode="decimal" value="${S.set.price||''}" oninput="fAuto('l')"></div></div>
+  <label>एकूण रक्कम ₹</label><input id="fa" type="number" step="any" inputmode="decimal" oninput="fAuto('a')">
+  <label>ओडोमीटर (km)</label><input id="fo" type="number" inputmode="decimal" placeholder="${S.duty?S.duty.odo:''}">
+  <label class="chk"><input type="checkbox" id="fc"> कॅशमधून दिले (हातातील कॅश कमी होईल)</label>
+  <label>पावतीचा फोटो</label><input id="fp" type="file" accept="image/*" capture="environment">
+  <button class="btn" onclick="addFuel()">+ सेव्ह</button></div>
+  ${svcCard()}${mil?`<div class="card"><h3>तुमचे मायलेज (ओडोमीटरवरून)</h3><div class="big" style="font-size:34px">${r1(mil)} km/लि</div><button class="btn ghost sm" onclick="S.set.mil=${r1(mil)};save();toast('कॅल्क मध्ये वापरले')">कॅल्क मध्ये वापरा</button></div>`:''}
+  <div class="card"><h3>पेट्रोल नोंदी • एकूण ${inr(S.fuels.reduce((s,f)=>s+f.a,0))}</h3>
+  ${fs.length?fs.map(f=>`<div class="item">${f.rc?`<img class="thumb" id="rc${f.id}" onclick="viewRc(${f.id})" alt="">`:''}<div class="m"><div class="t">${r1(f.l)} लि @ ₹${f.r}</div><div class="s">${dmy(f.ts)} ${hhmm(f.ts)}${f.odo?' • ओडो '+f.odo:''}${f.cash?' • कॅश':''}</div></div><div class="v">${inr(f.a)}</div><button class="x" onclick="editRec('f',${f.id})">✎</button><button class="x" onclick="delFuel(${f.id})">✕</button></div>`).join(''):'<p class="mut">अजून नोंद नाही.</p>'}</div>`;
+}
+function fAuto(w){const l=num($('#fl').value),r=num($('#fr').value),a=num($('#fa').value);if(w==='l'&&l&&r)$('#fa').value=Math.round(l*r);if(w==='a'&&a&&r)$('#fl').value=(a/r).toFixed(2)}
+async function addFuel(){
+  let l=num($('#fl').value),r=num($('#fr').value),a=num($('#fa').value);
+  if(!a&&l&&r)a=Math.round(l*r);if(!l&&a&&r)l=a/r;if(!a){toast('लिटर/रक्कम टाका');return}
+  if(!r&&l)r=Math.round(a/l*100)/100;
+  const id=Date.now(),file=$('#fp').files[0],cash=$('#fc').checked;
+  if(file){try{await rPut(id,await shrink(file))}catch(e){toast('फोटो साठवता आला नाही')}}
+  S.fuels.push({id,ts:id,l,r,a,odo:num($('#fo').value),cash,rc:!!file});
+  if(r)S.set.price=r;if(cash)cashAdd('Other',-a);
+  save();render();toast('पेट्रोल नोंद सेव्ह');
+}
+function loadThumbs(){S.fuels.filter(f=>f.rc).forEach(f=>rGet(f.id).then(s=>{const e=$('#rc'+f.id);if(e&&s)e.src=s}))}
+function viewRc(id){rGet(id).then(s=>openModal(`<img src="${s}" alt="receipt"><button class="btn ghost" onclick="closeModal()">बंद करा</button>`))}
+function delFuel(id){const f=S.fuels.find(x=>x.id===id);if(!f||!confirm('ही नोंद डिलीट करायची?'))return;if(f.cash)cashAdd('Other',f.a);if(f.rc)rDel(id);S.fuels=S.fuels.filter(x=>x.id!==id);save();render()}
+
+/* ---------- CALCULATOR ---------- */
+function autoDefaults(force){
+  const o=S.orders,st=S.set,d={earn:avg(o,x=>x.earn),km:avg(o,x=>x.km),inc:incPerOrder(),mil:calcMil()||45,price:(S.fuels.length?S.fuels.slice().sort((a,b)=>b.ts-a.ts)[0].r:0)||105};
+  Object.keys(d).forEach(k=>{if(force||st[k]===undefined||st[k]==='')st[k]=r1(d[k])});
+  if(st.target===undefined)st.target='';
+  save();
+}
+function vCalc(){
+  autoDefaults(false);const st=S.set;
+  const f=(k,l,v)=>`<div><label>${l}</label><input type="number" step="any" inputmode="decimal" value="${v}" oninput="setv('${k}',this.value)"></div>`;
+  return `<div class="card"><h2>कॅल्क्युलेटर</h2>
+  <div class="two">${f('target','क्लिअर करायची रक्कम ₹',st.target)}${f('cash','हातात कॅश ₹',S.cash||'')}</div>
+  <div class="two">${f('earn','प्रति ऑर्डर कमाई ₹',st.earn)}${f('km','प्रति ऑर्डर km',st.km)}</div>
+  <div class="two">${f('inc','प्रति ऑर्डर इन्सेंटिव्ह ₹',st.inc)}${f('price','पेट्रोल ₹/लि',st.price)}</div>
+  ${f('mil','बाईक मायलेज km/लि',st.mil)}
+  <button class="btn ghost" onclick="autoDefaults(true);render()">माझ्या रेकॉर्डवरून आपोआप भरा</button></div>
+  <div class="card"><h3>निकाल</h3><div class="out" id="out"></div></div>`;
+}
+function setv(k,v){if(k==='cash')cashAdd('Other',num(v)-cashTotal());else S.set[k]=v;save();calc()}
+function calc(){
+  const g=k=>num(S.set[k]),cash=S.cash||0,tg=g('target'),earn=g('earn'),km=g('km'),inc=g('inc'),pr=g('price'),mil=g('mil');
+  const ppo=mil>0?km/mil*pr:0,net=earn+inc-ppo,rem=Math.max(0,tg-cash);
+  const n=rem===0?0:(net>0?Math.ceil(rem/net):null);
+  const tkm=n?n*km:0,lit=mil>0?tkm/mil:0,pc=lit*pr;
+  const litCash=pr>0?cash/pr:0;
+  const o=$('#out');if(!o)return;
+  o.innerHTML=`
+  <div class="w"><span>${rem===0&&tg?'टार्गेट कॅशने आधीच क्लिअर ✅':'क्लिअर करायला लागतील'}</span><b>${n===null?'—':n+' ऑर्डर'}</b></div>
+  <div><b>${inr(rem)}</b><span>अजून बाकी (टार्गेट − कॅश)</span></div>
+  <div><b>${inr(ppo)}</b><span>पेट्रोल खर्च / ऑर्डर</span></div>
+  <div><b>${inr(net)}</b><span>निव्वळ / ऑर्डर (पेट्रोल वजा)</span></div>
+  <div><b>${r1(lit)} लि</b><span>पेट्रोल लागेल (${n||0} ऑर्डरला)</span></div>
+  <div><b>${inr(pc)}</b><span>त्या पेट्रोलचे पैसे</span></div>
+  <div><b>${r1(tkm)} km</b><span>एकूण फिरावे लागेल</span></div>
+  <div><b>${r1(litCash)} लि</b><span>हातातील कॅशचे पेट्रोल (${Math.round(litCash*mil)} km)</span></div>
+  <div><b>${inr(earn+inc)}</b><span>कमाई + इन्सेंटिव्ह / ऑर्डर</span></div>
+  ${net<=0&&rem>0?'<div class="w" style="background:#3a1712;border-color:#6b2a20"><b style="color:var(--red)">पेट्रोलच जास्त पडतेय!</b><span>कमाई कमी किंवा km जास्त — नफा होत नाही.</span></div>':''}`;
+}
+
+/* ---------- DEMAND ---------- */
+function bars(list,fmt){const mx=Math.max(...list.map(x=>x[1]),1);return list.map(x=>`<div class="bar"><div class="n">${esc(x[0])}</div><div class="b"><i style="width:${x[1]/mx*100}%"></i></div><div class="c">${fmt(x)}</div></div>`).join('')}
+function vDemand(){
+  const lim=dPer==='7'?Date.now()-7*864e5:0;
+  const os=S.orders.filter(o=>o.ts>=lim&&(dPlat==='all'||o.pl===dPlat));
+  const seg=`<div class="seg">${['all','Swiggy','Zomato','Zepto','BigBasket'].map(p=>`<button class="${dPlat===p?'on':''}" onclick="dPlat='${p}';render()">${p==='all'?'सर्व':p}</button>`).join('')}</div>
+  <div class="seg"><button class="${dPer==='7'?'on':''}" onclick="dPer='7';render()">गेले ७ दिवस</button><button class="${dPer==='all'?'on':''}" onclick="dPer='all';render()">सर्व</button></div>`;
+  const note=`<div class="card"><p class="mut" style="margin:0">⚠ Swiggy/Zomato चा लाइव्ह डेटा app मध्ये घेता येत नाही (त्यांचे ओपन API नाहीत). ही आकडेवारी <b>तुमच्या स्वतःच्या ऑर्डर रेकॉर्डवरून</b> आहे — एरिया नीट टाकत राहा, जितका जास्त डेटा तितके अचूक.</p></div>`;
+  if(!os.length)return seg+note+`<div class="card"><p class="mut">या फिल्टरसाठी ऑर्डर नाही. आधी ऑर्डर टॅबमध्ये नोंदी करा.</p></div>`;
+  const grp=(fn)=>{const m={};os.forEach(o=>{const k=fn(o);(m[k]=m[k]||{c:0,e:0}).c++;m[k].e+=o.earn});return Object.entries(m).map(([k,v])=>[k,v.c,v.e]).sort((a,b)=>b[1]-a[1])};
+  const areas=grp(o=>o.area||'(एरिया नाही)').slice(0,8),rs=grp(o=>o.rest||'').filter(x=>x[0]&&!BADREST.includes(x[0])).slice(0,8);
+  const hrs=Array(24).fill(0);os.forEach(o=>hrs[new Date(o.ts).getHours()]++);
+  const mh=Math.max(...hrs),top=hrs.map((c,h)=>[h,c]).sort((a,b)=>b[1]-a[1]).slice(0,3).filter(x=>x[1]>0).map(x=>x[0]+':00').join(', ');
+  const pl=grp(o=>o.pl);
+  const gm={};os.filter(o=>o.lat!=null).forEach(o=>{const k=o.lat.toFixed(2)+','+o.lng.toFixed(2),g=gm[k]=gm[k]||{c:0,e:0,a:{}};g.c++;g.e+=o.earn;if(o.area)g.a[o.area]=(g.a[o.area]||0)+1});
+  const hs=Object.entries(gm).map(([k,g])=>[(Object.entries(g.a).sort((a,b)=>b[1]-a[1])[0]||['📍 '+k])[0],g.c,g.e]).sort((a,b)=>b[1]-a[1]).slice(0,6);
+  return seg+note+`<div class="card"><h3>एकूण ${os.length} ऑर्डर • सरासरी ${inr(os.reduce((s,o)=>s+o.earn,0)/os.length)}/ऑर्डर</h3>${bars(pl,x=>x[1]+' ऑर्डर')}</div>
+  <div class="card"><h3>कुठे ऑर्डर जास्त (एरिया)</h3>${bars(areas,x=>x[1]+' • '+inr(x[2]/x[1]))}</div>
+  ${hs.length?`<div class="card"><h3>📍 GPS हॉटस्पॉट (~१ km क्षेत्र)</h3>${bars(hs,x=>x[1]+' • '+inr(x[2]/x[1]))}</div>`:''}
+  <div class="card"><h3>कोणत्या वेळी जास्त</h3><div class="mut">सर्वात बिझी: <b style="color:var(--ac)">${top||'—'}</b></div>
+  <div class="hours">${hrs.map(c=>`<div style="height:${c/mh*100}%"></div>`).join('')}</div><div class="hl">${hrs.map((c,h)=>`<span>${h%6===0?h:''}</span>`).join('')}</div></div>
+  <div class="card"><h3>टॉप रेस्टॉरंट</h3>${bars(rs,x=>x[1]+' ऑर्डर')}</div>`;
+}
+
+/* ---------- SETTINGS / BACKUP ---------- */
+function openSettings(){
+  openModal(`<h2>बॅकअप / सेटिंग</h2>
+  <p class="mut">सगळा डेटा (पावतीचे फोटो सहित) एका फाइलमध्ये सेव्ह होतो. फोन बदलला तर ती फाइल Restore करा.${S.lastBackup?' शेवटचा बॅकअप: '+dmy(S.lastBackup)+' '+hhmm(S.lastBackup):''}</p>
+  <button class="btn" onclick="exportBackup()">⬇ बॅकअप फाइल डाउनलोड</button>
+  <button class="btn ghost" onclick="shareBackup()">📤 बॅकअप शेअर करा (WhatsApp / Drive)</button>
+  <label>Restore (बॅकअप .json निवडा)</label><input type="file" accept=".json,application/json" onchange="importBackup(this.files[0])">
+  <label>रेस्टॉरंट लिस्ट जोडा (एका ओळीत एक नाव)</label><textarea id="rb" rows="4" placeholder="Swiggy वरची नावे इथे paste करा"></textarea>
+  <button class="btn ghost" onclick="addRests()">+ लिस्टमध्ये जोडा (${S.rests.length} सेव्ह)</button>
+  <button class="btn red" onclick="resetAll()">सगळा डेटा पुसा</button>
+  <button class="btn ghost" onclick="closeModal()">बंद करा</button>`);
+}
+async function backupFile(){S.lastBackup=Date.now();save();const data=JSON.stringify({v:3,at:Date.now(),S,receipts:await rAll()});return new File([data],'rider-backup-'+lIso(Date.now()).slice(0,10)+'.json',{type:'application/json'})}
+async function exportBackup(){const f=await backupFile(),a=document.createElement('a');a.href=URL.createObjectURL(f);a.download=f.name;document.body.appendChild(a);a.click();a.remove();toast('बॅकअप डाउनलोड झाला');render()}
+async function shareBackup(){const f=await backupFile();try{if(navigator.canShare&&navigator.canShare({files:[f]}))await navigator.share({files:[f],title:'रायडर हिशोब बॅकअप'});else exportBackup()}catch(e){}}
+function importBackup(f){
+  if(!f)return;const r=new FileReader();
+  r.onerror=()=>toast('फाइल वाचता आली नाही');
+  r.onload=async()=>{let j;try{j=JSON.parse(String(r.result).replace(/^\uFEFF/,''))}catch(e){toast('ही JSON बॅकअप फाइल नाही');return}
+    try{
+      if(j&&j.S&&typeof j.S==='object'){if(!confirm('सध्याचा डेटा बदलून बॅकअप वापरायचा?'))return;
+        S=Object.assign(fresh(),j.S);save();for(const k in (j.receipts||{}))await rPut(k,j.receipts[k]);closeModal();render();toast('Restore पूर्ण');return}
+      if(j&&(Array.isArray(j.orders)||Array.isArray(j.expenses)||Array.isArray(j.fuelLog))){importDS(j);return}
+      toast('ही रायडर हिशोब किंवा Delivery Saathi ची बॅकअप फाइल नाही')
+    }catch(e){toast('Restore अयशस्वी: '+(e&&e.message?e.message:'फाइल चुकीची आहे'))}};
+  r.readAsText(f);
+}
+/* Delivery Saathi (V12-V17) backup -> merge into Rider Hishob */
+function importDS(j){
+  if(!confirm('हा Delivery Saathi चा बॅकअप आहे. ऑर्डर आणि खर्च सध्याच्या डेटामध्ये जोडायचे? (आधीच आणलेले दोनदा येणार नाहीत)'))return;
+  S.impIds=S.impIds||{};let nid=Date.now(),o=0,i=0,x=0,fu=0,skip=0;const mk=()=>++nid;
+  const tsOf=(d,t)=>{const m=new Date((d||dIso(Date.now()))+'T'+(/^\d\d:\d\d/.test(t||'')?t.slice(0,5):'12:00')+':00').getTime();return isFinite(m)?m:Date.now()};
+  const once=k=>{if(S.impIds[k])return false;S.impIds[k]=1;return true};
+  (j.orders||[]).forEach(a=>{if(!a||!(+a.amount>=0))return;if(a.status==='pending'){skip++;return}const k='o'+(a.id||a.date+a.amount+(a.details||''));if(!once(k))return;const ts=tsOf(a.date,a.time),p=String(a.platform||'');
+    if(/bonus|incentive/i.test(p)){S.incs.push({id:mk(),ts,pl:'Other',via:'',ty:'नियमित',amt:+a.amount,note:a.details||''});i++;return}
+    S.orders.push({id:mk(),ts,rest:a.details||'(Delivery Saathi)',pl:['Swiggy','Zomato','Zepto','BigBasket'].includes(p)?p:'Other',via:p==='Shadowfax'?'Shadowfax':'',area:a.area||'',earn:+a.amount,km:0,cod:0,tip:0,tm:+a.tm||0});o++});
+  const catMap={'Food':'जेवण','Repair':'पंक्चर / छोटी दुरुस्ती','Mobile Recharge':'मोबाईल रिचार्ज','Parking / Toll':'पार्किंग / टोल'},hasLog=Array.isArray(j.fuelLog)&&j.fuelLog.length;
+  (j.expenses||[]).forEach(e=>{if(!e||!(+e.amount>0))return;const k='e'+(e.id||e.date+e.amount+(e.details||''));if(e.type==='Petrol / Fuel'&&hasLog&&/\sL\s·\s.*km/.test(e.details||''))return;if(!once(k))return;const ts=tsOf(e.date);
+    if(e.type==='Petrol / Fuel'){S.fuels.push({id:mk(),ts,l:0,r:0,a:+e.amount,odo:0,cash:false,rc:false});fu++}else{S.exps.push({id:mk(),ts,cat:catMap[e.type]||'इतर',amt:+e.amount,note:e.details||'',cash:false});x++}});
+  (j.fuelLog||[]).forEach(f=>{if(!f||!(+f.litres>0)||!(+f.amt>0))return;if(!once('f'+(f.id||f.date+f.odo)))return;S.fuels.push({id:mk(),ts:tsOf(f.date),l:+f.litres,r:Math.round(f.amt/f.litres*100)/100,a:+f.amt,odo:+f.odo||0,cash:false,rc:false});fu++});
+  save();closeModal();render();toast(`आणले: ${o} ऑर्डर, ${i} इन्सेंटिव्ह, ${x} खर्च, ${fu} पेट्रोल${skip?' • '+skip+' प्रलंबित वगळले':''}`)}
+function resetAll(){if(!confirm('खरंच सगळा डेटा पुसायचा? आधी बॅकअप घ्या!'))return;stopGPS();S=fresh();save();indexedDB.deleteDatabase('rt');closeModal();render()}
+
+/* ================= V3 CORE ================= */
+const sum=(a,k)=>a.reduce((s,x)=>s+(+x[k]||0),0);
+const COS=['Swiggy','Zomato','Zepto','BigBasket','Other'],PLS=['Swiggy','Zomato','Zepto','BigBasket','Shadowfax','Other'];
+const cpill=c=>c==='Swiggy'?'sw':c==='Zomato'?'zo':'';
+const dIso=t=>{const d=new Date(t);d.setMinutes(d.getMinutes()-d.getTimezoneOffset());return d.toISOString().slice(0,10)};
+const isoMs=s=>s?new Date(s+'T12:00:00').getTime():0;
+const dayStart=t=>{const d=new Date(t);return new Date(d.getFullYear(),d.getMonth(),d.getDate()).getTime()};
+const daysTo=iso=>Math.ceil((isoMs(iso)-Date.now())/864e5);
+const FEST=[[1,1,'नववर्ष'],[1,14,'मकर संक्रांत'],[1,26,'प्रजासत्ताक दिन'],[2,14,'व्हॅलेंटाइन डे'],[5,1,'महाराष्ट्र दिन'],[8,15,'स्वातंत्र्य दिन'],[10,2,'गांधी जयंती'],[12,24,'ख्रिसमस ईव्ह'],[12,25,'ख्रिसमस'],[12,31,'न्यू इयर ईव्ह']];
+let xs='p',rs='a',bs='m',sCo='Swiggy',rM='';
+const setO=v=>{sub=v;render()},setX=v=>{xs=v;render()},setR=v=>{rs=v;render()},setB=v=>{bs=v;render()};
+const segH=(arr,cur,fn)=>`<div class="seg">${arr.map(x=>`<button class="${cur===x[0]?'on':''}" onclick="${fn}('${x[0]}')">${x[1]}</button>`).join('')}</div>`;
+const fld=(k,l,t,ph,extra)=>`<div><label>${l}</label><input type="${t||'number'}" ${t==='text'?'':'inputmode="decimal" step="any"'} value="${esc(S.set[k]===undefined?'':S.set[k])}" placeholder="${ph||''}" onchange="S.set['${k}']=${t==='text'?'this.value':'num(this.value)'};save();${extra||''}"></div>`;
+
+/* slabs per company */
+const slabsOf=c=>{S.slabsBy=S.slabsBy||{};return S.slabsBy[c]||S.slabs};
+function expectedIncC(c,cnt){let a=0,n=0;[...slabsOf(c)].sort((x,y)=>x.n-y.n).forEach(s=>{if(cnt>=s.n){a=s.a;n=s.n}});return{a,n}}
+const todayCo=c=>todayOrders().filter(o=>o.pl===c);
+function slabMsg(c){const cnt=todayCo(c).length,nx=[...slabsOf(c)].sort((a,b)=>a.n-b.n).find(s=>s.n>cnt),cur=expectedIncC(c,cnt);return nx?`${c}: आणखी ${nx.n-cnt} ऑर्डर = +${inr(nx.a-cur.a)} जास्त (${inr(nx.a)})`:''}
+function mutSlabs(fn){const a=JSON.parse(JSON.stringify(slabsOf(sCo))).sort((x,y)=>x.n-y.n);fn(a);S.slabsBy=S.slabsBy||{};S.slabsBy[sCo]=a;save();render()}
+function setSlab(i,k,v){mutSlabs(a=>a[i][k]=num(v))}
+function delSlab(i){mutSlabs(a=>a.splice(i,1))}
+function addSlab(){mutSlabs(a=>a.push({n:a.length?a[a.length-1].n+5:10,a:100}))}
+
+/* period calc (real profit) */
+function per(lim,end){end=end||Infinity;const f=a=>a.filter(x=>x.ts>=lim&&x.ts<end),g=a=>a.map(x=>({...x,ts:isoMs(x.date)})).filter(x=>x.ts>=lim&&x.ts<end);
+  const os=f(S.orders),is=f(S.incs),fs=f(S.fuels),es=f(S.exps),ss=g(S.svcs),ch=g(S.chl).filter(x=>x.paid);
+  const earn=sum(os,'earn'),tip=sum(os,'tip'),inc=sum(is,'amt'),fuel=sum(fs,'a'),ex=sum(es,'amt'),sv=sum(ss,'cost'),fine=sum(ch,'amt');
+  return{os,is,fs,es,ss,ch,earn,tip,inc,fuel,ex,sv,fine,gross:earn+tip+inc,net:earn+tip+inc-fuel-ex-sv-fine}}
+const dutyHrs=(lim,end)=>{let h=S.duties.filter(d=>d.t>=lim&&(!end||d.t<end)).reduce((s,d)=>s+(d.end-d.t),0);if(S.duty&&S.duty.t>=lim&&(!end||S.duty.t<end))h+=Date.now()-S.duty.t;return h/36e5};
+function dutyStats(d,end){end=end||Date.now();const f=a=>a.filter(x=>x.ts>=d.t&&x.ts<=end+60000),os=f(S.orders);return{orders:os.length,earn:sum(os,'earn'),tip:sum(os,'tip'),cod:sum(os,'cod'),inc:sum(f(S.incs),'amt'),fuel:sum(f(S.fuels),'a'),exp:sum(f(S.exps),'amt')}}
+function payoutInfo(){const pd=S.set.payDay;if(pd===undefined||pd==='')return null;const lp=S.set.lastPayout||0,os=S.orders.filter(o=>o.via==='Shadowfax'&&o.ts>lp),is=S.incs.filter(o=>o.via==='Shadowfax'&&o.ts>lp);const t=new Date(),d=(+pd-t.getDay()+7)%7;return{pending:sum(os,'earn')+sum(os,'tip')+sum(is,'amt'),days:d,date:new Date(t.getFullYear(),t.getMonth(),t.getDate()+d)}}
+function streakInfo(){const g=+S.set.ogoal||0;if(!g)return{st:0,g};const m={};S.orders.forEach(o=>{const k=dIso(o.ts);m[k]=(m[k]||0)+1});let st=0,d=new Date();if((m[dIso(d)]||0)<g)d.setDate(d.getDate()-1);while((m[dIso(d)]||0)>=g){st++;d.setDate(d.getDate()-1)}return{st,g}}
+const badge=st=>st>=30?'🏆':st>=14?'🥇':st>=7?'🥈':st>=3?'🥉':'';
+
+/* alerts */
+function alertsHtml(){const a=[],t0=dayStart(Date.now()),yr=new Date().getFullYear();
+  [...FEST.flatMap(f=>[yr,yr+1].map(y=>({n:f[2],d:new Date(y,f[0]-1,f[1]).getTime()}))),...S.fests.map(f=>({n:f.name,d:dayStart(isoMs(f.date))}))].forEach(f=>{const k=Math.round((f.d-t0)/864e5);if(k>=0&&k<=2)a.push(['🎉',`${k===0?'आज':k===1?'उद्या':'परवा'}: ${esc(f.n)} — डिमांड जास्त असू शकते`])});
+  S.emis.forEach(e=>{const d=new Date(new Date().getFullYear(),new Date().getMonth(),e.day);if(d.getTime()<t0)d.setMonth(d.getMonth()+1);const k=Math.round((d-t0)/864e5);if(k<=3)a.push(['💳',`${esc(e.name)} हप्ता ${inr(e.amt)} — ${k===0?'आज':k+' दिवसात'}`])});
+  S.docs.forEach(d=>{if(!d.exp)return;const k=daysTo(d.exp);if(k<=30)a.push(['📄',`${esc(d.name)} ${k<0?'एक्स्पायर झाले ('+(-k)+' दिवस)':'रिन्यूअल '+k+' दिवसात'}`])});
+  const lo=lastOdo();S.trk.forEach(t=>{if(!t.odo)return;const rem=t.odo+t.every-lo;if(rem<=Math.max(200,t.every*.1))a.push(['🔧',`${esc(t.n)}: ${rem<=0?'ओव्हरड्यू '+Math.abs(Math.round(rem))+' km':Math.round(rem)+' km बाकी'}`])});
+  const unp=S.chl.filter(c=>!c.paid);if(unp.length)a.push(['🚨',`${unp.length} चलन बाकी • ${inr(sum(unp,'amt'))}`]);
+  if((S.orders.length||S.fuels.length)&&Date.now()-(S.lastBackup||0)>2*864e5)a.push(['💾','बॅकअप जुना झाला <button class="x" onclick="autoDl(true,true).then(()=>{toast(\'बॅकअप फाईल सेव्ह केली\');render()})">आत्ता घ्या</button>']);
+  CASHCO.forEach(c=>{const lim=+S.set['lim_'+c]||0,fl=(S.cashBy||{})[c]||0;if(lim&&fl>=lim*.8)a.push(['💰',`${c} फ्लोटिंग कॅश ${inr(fl)} / ${inr(lim)} — डिपॉझिट करा`])});const pp=payoutInfo();if(pp&&pp.pending>0&&pp.days<=1)a.push(['💸',`Shadowfax पेआउट ${pp.days===0?'आज':'उद्या'} • बाकी ${inr(pp.pending)}`]);
+  return a.length?`<div class="card al">${a.slice(0,4).map(x=>`<div class="alr"><i>${x[0]}</i><span>${x[1]}</span></div>`).join('')}${a.length>4?`<div class="mut">+${a.length-4} आणखी सूचना</div>`:''}</div>`:''}
+
+/* goals / compare */
+function goalsCard(){const si=streakInfo(),t=new Date(),wk=dayStart(Date.now()-((t.getDay()+6)%7)*864e5),mo=new Date(t.getFullYear(),t.getMonth(),1).getTime(),pw=S.orders.filter(o=>o.ts>=wk).length,pm=per(mo),wg=+S.set.wgoal||0,sv=+S.set.save||0;
+  const bar=(l,v,g,f)=>`<div style="margin:10px 0"><div class="row"><span>${l}</span><b>${f(v)} / ${f(g)}</b></div><div class="pbar"><i style="width:${Math.min(100,g?v/g*100:0)}%"></i></div></div>`;
+  return `<div class="card"><h3>🎯 लक्ष्य आणि स्ट्रीक</h3>${si.g?`<div class="row"><span>सलग दिवस (रोज ${si.g}+ ऑर्डर)</span><b style="font-size:22px">${badge(si.st)} ${si.st}</b></div>`:'<p class="mut">सेटिंगमध्ये रोजचे ऑर्डर टार्गेट टाका.</p>'}${wg?bar('या आठवड्याच्या ऑर्डर',pw,wg,x=>x):''}${sv?bar('महिन्याची बचत (निव्वळ)',Math.max(0,pm.net),sv,inr):''}</div>`}
+function cmpCard(){const t0=dayStart(Date.now()),y0=t0-864e5,w0=t0-7*864e5,A=per(t0),B=per(y0,t0),C=per(w0,w0+864e5);
+  const row=(l,p,h)=>`<div class="item"><div class="m"><div class="t">${l}</div><div class="s">${p.os.length} ऑर्डर • ${r1(h)} तास</div></div><div class="v">${inr(p.gross)}</div></div>`;
+  const d1=A.gross-B.gross,d2=A.gross-C.gross;
+  return `<div class="card"><h3>📈 आज विरुद्ध काल / गेल्या आठवड्याचा तोच दिवस</h3>${row('आज',A,dutyHrs(t0))}${row('काल',B,dutyHrs(y0,t0))}${row('गेल्या आठवड्याचा तोच वार',C,dutyHrs(w0,w0+864e5))}<p class="mut">कालपेक्षा <b style="color:${d1>=0?'var(--ac)':'var(--red)'}">${d1>=0?'+':'−'}${inr(Math.abs(d1))}</b> • गेल्या आठवड्यापेक्षा <b style="color:${d2>=0?'var(--ac)':'var(--red)'}">${d2>=0?'+':'−'}${inr(Math.abs(d2))}</b></p></div>`}
+
+/* ================= DUTY ================= */
+function svcCard(){return ''}
+function cashCard(){const o=todayOrders(),cod=sum(o,'cod'),dep=sum(S.deposits.filter(x=>sameDay(x.ts)),'amt');return `<div class="card"><h3>💰 कॅश (COD) आणि टार्गेट</h3><div class="two"><div><label>हातात कॅश ₹</label><input type="number" inputmode="decimal" value="${S.cash||''}" onchange="S.cash=num(this.value);save();toast('कॅश अपडेट')"></div><div><label>आजचे टार्गेट ₹</label><input type="number" inputmode="decimal" value="${S.set.goal||''}" placeholder="1500" onchange="S.set.goal=num(this.value);save();updLive()"></div></div><p class="mut">आज COD गोळा ${inr(cod)} • जमा केले ${inr(dep)} • कंपनीला द्यायचे (हातात) <b>${inr(S.cash||0)}</b></p><button class="btn ghost" onclick="depositCash()">⬇ कॅश जमा केली (डिपॉझिट)</button>${S.deposits.slice(0,3).map(x=>`<div class="item"><div class="m"><div class="t">जमा</div><div class="s">${dmy(x.ts)} ${hhmm(x.ts)}</div></div><div class="v">${inr(x.amt)}</div></div>`).join('')}</div>`}
+const qAmt=c=>{const v=S.set['q_'+c];if(v)return +v;return Math.round(avg(S.orders.filter(o=>o.pl===c),x=>x.earn))||0};
+function quickCard(){return `<div class="card"><h3>⚡ वन-टॅप ऑर्डर</h3><div class="chk" style="margin-bottom:8px"><input type="checkbox" ${S.set.viaSf?'checked':''} onchange="S.set.viaSf=this.checked;save()"> Shadowfax मार्फत</div><div class="qg">${COS.slice(0,4).map(c=>`<button class="qb" onclick="quickAdd('${c}')">${c}<small>${inr(qAmt(c))}</small></button>`).join('')}</div><div class="two"><button class="btn ghost" onclick="voiceQuick()">🎤 बोलून ऑर्डर</button><button class="btn ghost" onclick="undoLast()">↩ शेवटची Undo</button></div></div>`}
+function quickAdd(c,amt,rest){const cur=S.cur&&Date.now()-S.cur.t<600000?S.cur:null;S.orders.push({id:Date.now(),ts:Date.now(),rest:rest||'Quick',pl:c,via:S.set.viaSf?'Shadowfax':'',area:'',earn:amt!=null?amt:qAmt(c),km:0,cod:0,tip:0,lat:cur?cur.a:null,lng:cur?cur.b:null});save();render();toast(c+' ऑर्डर नोंदवली ✔ '+slabMsg(c));if(navigator.vibrate)navigator.vibrate(40)}
+function undoLast(){const o=S.orders.slice().sort((a,b)=>b.id-a.id)[0];if(!o){toast('ऑर्डर नाही');return}if(o.cod)cashAdd(o.pl,-o.cod);S.orders=S.orders.filter(x=>x.id!==o.id);save();render();toast('Undo: '+o.rest+' '+inr(o.earn))}
+function voiceQuick(){const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){toast('या ब्राउझरमध्ये आवाज सुविधा नाही.');return}const r=new SR();r.lang={mr:'mr-IN',hi:'hi-IN',en:'en-IN'}[S.set.lang||'mr'];r.interimResults=false;toast('ऐकत आहे… बोला');
+  r.onresult=ev=>{let t=ev.results[0][0].transcript.replace(/[०-९]/g,c=>'०१२३४५६७८९'.indexOf(c)),l=t.toLowerCase(),m=t.match(/\d+(\.\d+)?/);const c=/swiggy|स्विगी/.test(l)?'Swiggy':/zomato|झोमॅटो|झोमाटो/.test(l)?'Zomato':/zepto|झेप्टो/.test(l)?'Zepto':/big ?basket|बिगबास्केट|बिग बास्केट/.test(l)?'BigBasket':null;if(!c||!m){toast('"Swiggy 60" असे बोला');return}quickAdd(c,+m[0],t.replace(m[0],'').replace(/swiggy|zomato|zepto|big ?basket|स्विगी|झोमॅटो|झोमाटो|झेप्टो|बिगबास्केट/ig,'').trim()||'Voice')};
+  r.onerror=()=>toast('आवाज ओळखता आला नाही.');r.start()}
+function vDuty(){const d=S.duty,tog=`<div class="tog ${d?'on':''}" onclick="${d?'askEnd()':'askStart()'}"><div class="knob"></div><div><b>${d?'ON DUTY':'OFF DUTY'}</b><span>${d?'ड्युटी संपवण्यासाठी टॅप करा':'ड्युटी सुरू करण्यासाठी टॅप करा'}</span></div></div>`;
+  if(!d){const A=per(dayStart(Date.now()));return tog+`<p style="text-align:center;margin:0 0 6px"><a onclick="helpModal()" style="color:var(--pc);text-decoration:underline">❓ कसे वापरायचे (४ पायऱ्या)</a></p>`+alertsHtml()+quickCard()+`<div class="card"><h3>आजचा सारांश</h3><div class="out"><div><b>${A.os.length}</b><span>ऑर्डर</span></div><div><b>${inr(A.gross)}</b><span>कमाई (इन्सेंटिव्ह+टिप सहित)</span></div><div><b>${inr(A.fuel+A.ex)}</b><span>पेट्रोल + इतर खर्च</span></div><div><b>${inr(A.net)}</b><span>टेक-होम</span></div></div><button class="btn ghost" onclick="shareToday()">📤 आजचा हिशोब शेअर करा</button></div>`+`<details class="more" ${ADV()?'open':''}><summary>📈 अधिक माहिती (तुलना, लक्ष्य, इतिहास)</summary>${cmpCard()+goalsCard()+histHtml()}</details>`}
+  return tog+`<div class="card hero"><div class="mut">ड्युटी चालू • सुरू ${hhmm(d.t)} • ओडो ${d.odo}</div><div class="row"><div class="big" id="tm">00:00:00</div><div class="ring" id="rg"><b id="rgp">—</b></div></div><div class="grid3"><div><b id="gk">0</b><span>GPS km</span></div><div><b id="oc">0</b><span>ऑर्डर</span></div><div><b id="ea">₹0</b><span>कमाई</span></div></div><div class="grid3"><div><b id="ph">₹0</b><span>₹ / तास</span></div><div><b id="pk">₹0</b><span>₹ / km</span></div><div><b id="nf">₹0</b><span>टेक-होम</span></div></div><p class="mut" id="lf" style="margin:10px 0 0"></p><div id="gpsS" style="margin-top:8px;font-size:13px"></div></div><div id="lv"></div>`+quickCard()+`<details class="more" ${ADV()?'open':''}><summary>🗺 GPS रस्ता</summary><div class="card"><div id="map"></div></div></details>`+cashCard()+(ADV()?`<button class="btn ghost" onclick="bs='c';tab='bike';render()">✅ ड्युटीपूर्व चेकलिस्ट ${S.pre[dIso(Date.now())]?'(आज पूर्ण ✔)':''}</button>`:'')}
+function askStart(){openModal(`<h2>ड्युटी सुरू करा</h2><label>ओडोमीटर आत्ता (km)</label><input id="so" type="number" inputmode="decimal" value="${lastOdo()||''}"><label>हातात कॅश (₹)</label><input id="sc" type="number" inputmode="decimal" value="${S.cash||''}"><button class="btn big" onclick="startDuty()">▶ Start Duty</button><button class="btn ghost" onclick="closeModal()">रद्द</button>`)}
+function startDuty(){const odo=num($('#so').value);if(!odo){toast('ओडोमीटर टाका');return}cashAdd('Other',num($('#sc').value)-cashTotal());S.duty={id:Date.now(),t:Date.now(),odo,gps:0,pts:[],cash0:S.cash,br:Date.now()};save();closeModal();startGPS();getWake();render();toast('ड्युटी सुरू — GPS चालू')}
+function askEnd(){const d=S.duty;openModal(`<h2>ड्युटी संपवा</h2><label>ओडोमीटर शेवटचे (km)</label><input id="eo" type="number" inputmode="decimal" placeholder="उदा. ${d.odo+80}"><button class="btn red big" onclick="endDuty()">■ End Duty</button><button class="btn ghost" onclick="closeModal()">रद्द</button>`)}
+function endDuty(){const d=S.duty,eo=num($('#eo').value);if(!eo||eo<d.odo){toast('शेवटचे ओडोमीटर चुकीचे आहे');return}
+  const end=Date.now(),st=dutyStats(d,end),net=st.earn+st.tip+st.inc-st.fuel-st.exp,hrs=(end-d.t)/36e5;
+  const rec={id:d.id,t:d.t,end,odo:d.odo,odoEnd:eo,odoKm:eo-d.odo,gps:d.gps,orders:st.orders,earn:st.earn,tip:st.tip,inc:st.inc,fuel:st.fuel,exp:st.exp,net,cash0:d.cash0,cash1:S.cash};
+  S.duties.unshift(rec);S.duty=null;save();stopGPS();if(wake){try{wake.release()}catch(e){}wake=null}render();autoDl(true);
+  openModal(`<h2>ड्युटी पूर्ण ✅</h2><div class="sum"><span>ड्युटी वेळ</span><b>${durH(end-d.t)}</b><span>ओडोमीटर</span><b>${d.odo} → ${eo} (${rec.odoKm} km)</b><span>GPS अंतर</span><b>${r1(d.gps)} km</b><span>ऑर्डर</span><b>${st.orders}</b><span>कमाई</span><b>${inr(st.earn)}</b><span>टिप</span><b>${inr(st.tip)}</b><span>इन्सेंटिव्ह</span><b>${inr(st.inc)}</b><span>पेट्रोल</span><b>${inr(st.fuel)}</b><span>इतर खर्च (जेवण, चहा…)</span><b>${inr(st.exp)}</b><span>टेक-होम नफा</span><b style="color:var(--ac)">${inr(net)}</b><span>₹ / तास</span><b>${hrs>0.05?inr(net/hrs):'—'}</b><span>हातात कॅश</span><b>${inr(S.cash)}</b></div><button class="btn" onclick="closeModal()">ठीक आहे</button>`)}
+function histHtml(){if(!S.duties.length)return '';return `<div class="card"><h3>मागच्या ड्युट्या</h3>`+S.duties.slice(0,7).map(d=>`<div class="item"><div class="m"><div class="t">${dmy(d.t)} • ${durH(d.end-d.t)}</div><div class="s">${d.odoKm} km (ओडो) • GPS ${r1(d.gps)} km • ${d.orders} ऑर्डर${d.end>d.t?' • ₹'+Math.round(d.net/((d.end-d.t)/36e5))+'/तास':''}</div></div><div class="v">${inr(d.net)}</div></div>`).join('')+`<p class="mut">उजवीकडे = टेक-होम (कमाई + टिप + इन्सेंटिव्ह − पेट्रोल − इतर खर्च)</p></div>`}
+function updLive(){const d=S.duty;if(!d||tab!=='duty')return;const st=dutyStats(d),t=$('#tm');if(!t)return;t.textContent=dur(Date.now()-d.t);$('#gk').textContent=r1(d.gps);$('#oc').textContent=st.orders;$('#ea').textContent=inr(st.earn);
+  const tot=st.earn+st.tip+st.inc,hrs=(Date.now()-d.t)/36e5,gl=num(S.set.goal);$('#ph').textContent=inr(hrs>0.05?tot/hrs:0);$('#pk').textContent=inr(d.gps>0.3?tot/d.gps:0);$('#nf').textContent=inr(tot-st.fuel-st.exp);
+  const rg=$('#rg');if(rg){rg.style.setProperty('--p',gl?Math.min(100,tot/gl*100):0);$('#rgp').textContent=gl?Math.round(tot/gl*100)+'%':'—'}const lf=$('#lf');if(lf)lf.textContent=gl?tx(tot>=gl?'टार्गेट पूर्ण 🎉':'टार्गेटला बाकी '+inr(gl-tot)):'';
+  const gs=$('#gpsS');if(gs)gs.innerHTML=tx(gpsHtml());const m=$('#map'),sig=d.pts.length;if(m&&m.dataset.n!=sig){m.dataset.n=sig;m.innerHTML=tx(pathSvg(d.pts))}liveAlerts()}
+function liveAlerts(){const d=S.duty,el=$('#lv');if(!d||!el)return;const m=[],hrs=(Date.now()-d.t)/36e5,lo=+S.set.lowH||0;
+  if(lo&&hrs>=1){const h1=Date.now()-36e5,w=S.orders.filter(o=>o.ts>=h1),e=sum(w,'earn')+sum(w,'tip');if(e<lo)m.push(['⚠️',`गेल्या १ तासात फक्त ${inr(e)} — मर्यादा ${inr(lo)}/तास. जागा बदलून बघा`])}
+  const rh=+S.set.restH||3,since=(Date.now()-(d.br||d.t))/36e5;if(since>=rh){m.push(['☕',`${r1(since)} तास सलग — थोडा ब्रेक घ्या, पाणी प्या <button class="x" onclick="S.duty.br=Date.now();S.duty.bv=0;save();render()">ब्रेक घेतला</button>`]);if(!d.bv){if(navigator.vibrate)navigator.vibrate([300,150,300]);d.bv=1;save()}}
+  COS.slice(0,4).forEach(c=>{if(todayCo(c).length){const s=slabMsg(c);if(s)m.push(['🎯',esc(s)])}});
+  el.innerHTML=m.length?tx(`<div class="card al">${m.map(x=>`<div class="alr"><i>${x[0]}</i><span>${x[1]}</span></div>`).join('')}</div>`):''}
+setInterval(()=>{if(S.duty&&tab==='duty')liveAlerts()},30000);
+
+/* ================= ORDERS ================= */
+function vOrders(){if(!ADV()&&(sub==='s'||sub==='a'))sub='o';return segH([['o','ऑर्डर'],['i','इन्सेंटिव्ह'],...(ADV()?[['s','Shadowfax'],['a','पत्ते']]:[])],sub,'setO')+(sub==='o'?vOrd():sub==='i'?vInc():sub==='s'?vSf():vAddr())}
+function ordMeta(o){const mil=num(S.set.mil)||calcMil()||45,pr=num(S.set.price)||105,fc=o.km>0?o.km/mil*pr:0,p=[];
+  if(o.via)p.push('SF');if(o.km)p.push(o.km+' km');if(o.km>0)p.push('₹'+r1(o.earn/o.km)+'/km');if(o.tm)p.push(o.tm+' min'+(o.tm>0?' • ₹'+Math.round(o.earn/(o.tm/60))+'/तास':''));if(o.wait)p.push('वेट '+o.wait+' min');if(o.tip)p.push('टिप '+inr(o.tip));if(o.cod)p.push('COD '+inr(o.cod));if(o.hard)p.push('⚠ कठीण पत्ता');
+  return{txt:p.join(' • '),loss:o.km>0&&o.earn+(o.tip||0)-fc<=0}}
+function vOrd(){const rc={};S.orders.forEach(o=>{if(o.rest&&!BADREST.includes(o.rest))rc[o.rest]=(rc[o.rest]||0)+1});const top=Object.entries(rc).sort((a,b)=>b[1]-a[1]).slice(0,6).map(x=>x[0]);
+  const rests=[...new Set([...top,...S.rests,...R])],areas=[...new Set(S.orders.map(o=>o.area).filter(Boolean))],to=todayOrders(),ls=(showAll?S.orders:to).slice().sort((a,b)=>b.ts-a.ts).slice(0,showAll?80:60);
+  const rj=S.rej.filter(r=>sameDay(r.ts)),rN=rj.filter(r=>r.t==='r').length,cN=rj.length-rN;let eff=0;COS.forEach(c=>{const rc2=rj.filter(r=>r.pl===c).length;if(rc2){const n=todayCo(c).length;eff+=expectedIncC(c,n+rc2).a-expectedIncC(c,n).a}});
+  const wt=S.wt?Math.round((Date.now()-S.wt)/60000):0;
+  return quickCard()+`<div class="card"><h2>नवीन ऑर्डर</h2>
+  <label>रेस्टॉरंट <button class="x" style="float:right;padding:0 8px" onclick="voiceInto('or')">🎤</button></label><input id="or" list="rl" placeholder="उदा. McDonald's" autocomplete="off"><datalist id="rl">${rests.map(r=>`<option value="${esc(r)}">`).join('')}</datalist><div style="margin-top:8px">${top.map(r=>`<span class="chip" onclick="$('#or').value=this.textContent">${esc(r)}</span>`).join('')}</div>
+  <div class="two"><div><label>कंपनी</label><select id="op" onchange="$('#osw').style.display=this.value==='Shadowfax'?'block':'none'">${PLS.map(p=>`<option${S.set.lastPl===p?' selected':''}>${p}</option>`).join('')}</select></div><div><label>कमाई ₹</label><input id="oe" type="number" inputmode="decimal"></div></div>
+  <div id="osw" style="display:${S.set.lastPl==='Shadowfax'?'block':'none'}"><label>Shadowfax मधून कोणत्या कंपनीची ऑर्डर?</label><select id="os">${COS.slice(0,4).map(p=>`<option${S.set.lastSub===p?' selected':''}>${p}</option>`).join('')}</select></div>
+  <label>COD कॅश ₹ (असेल तर)</label><input id="oc2" type="number" inputmode="decimal" placeholder="0">
+  <details style="margin-top:10px"><summary class="mut">अधिक तपशील (बिल फोटो, किमी, टिप, वेटिंग…)</summary>
+  <label>🧾 रेस्टॉरंट बिलाचा फोटो (ऑटो-नाव)</label><input id="obf" type="file" accept="image/*" capture="environment" onchange="billScan(this.files[0])"><div class="mut" id="obs"></div>
+  <div class="two"><div><label>एरिया</label><input id="oa" list="al" placeholder="उदा. Kothrud"><datalist id="al">${areas.map(r=>`<option value="${esc(r)}">`).join('')}</datalist></div><div><label>अंतर km</label><input id="ok" type="number" step="any" inputmode="decimal"></div></div>
+  <div class="two"><div><label>टिप ₹ (असेल तर)</label><input id="otp" type="number" inputmode="decimal" placeholder="0"></div><div><label>वेटिंग (मिनिट)</label><input id="ow" type="number" inputmode="decimal" value="${wt||''}"></div></div>
+  <label>ट्रिप वेळ (मिनिट)</label><input id="otm" type="number" inputmode="decimal">
+  <label>कस्टमर पत्ता नोंद (गेट / लँडमार्क)</label><input id="on" placeholder="उदा. B विंग, लिफ्ट बंद"><label class="chk"><input type="checkbox" id="oh"> कठीण पत्ता म्हणून चिन्हांकित करा</label>
+  <label>वेळ (आपोआप — हवे तर बदला)</label><input id="ot" type="datetime-local" value="${lIso(Date.now())}" oninput="manualT=true">
+  <div class="two"><button class="btn ghost" onclick="S.wt=Date.now();save();renderKeep();toast('वेटिंग टायमर सुरू')">📍 रेस्टॉरंटला पोहोचलो</button><button class="btn ghost" onclick="stopWait()">${S.wt?'✅ ऑर्डर मिळाली ('+wt+' मि)':'✅ ऑर्डर मिळाली'}</button></div>
+  <div class="two"><button class="btn ghost" onclick="logRej('r')">❌ रिजेक्ट केली</button><button class="btn ghost" onclick="logRej('c')">🚫 कॅन्सल झाली</button></div>
+  <p class="mut">आज: रिजेक्ट ${rN} • कॅन्सल ${cN}${rj.length?' • मोजल्या असत्या तर इन्सेंटिव्ह +'+inr(eff):''}</p></details>
+  <button class="btn" onclick="addOrder()">+ ऑर्डर सेव्ह</button></div>
+  <div class="card"><h3>${showAll?'सर्व ऑर्डर':'आजच्या ऑर्डर'} • ${to.length} आज • ${inr(sum(to,'earn'))}</h3>
+  ${ls.length?ls.map(o=>{const m=ordMeta(o);return `<div class="item">${o.bill?`<img class="thumb" id="ob${o.id}" onclick="viewImg('ob${o.id}')" alt="">`:''}<div class="m"><div class="t">${esc(o.rest||'—')}<span class="pill ${cpill(o.pl)}">${esc(o.pl)}</span>${m.loss?'<span class="pill" style="color:var(--red);border-color:var(--red)">तोट्यात</span>':''}</div><div class="s">${showAll||!sameDay(o.ts)?dmy(o.ts)+' ':''}${hhmm(o.ts)}${o.area?' • '+esc(o.area):''}${m.txt?' • '+m.txt:''}${o.an?' • 📝 '+esc(o.an):''}</div></div><div class="v">${inr(o.earn)}</div><button class="x" onclick="editOrder(${o.id})">✎</button><button class="x" onclick="delOrder(${o.id})">✕</button></div>`}).join(''):'<p class="mut">अजून ऑर्डर नाही.</p>'}
+  <button class="btn ghost" onclick="showAll=!showAll;renderKeep()">${showAll?'फक्त आज दाखवा':'सर्व इतिहास दाखवा'}</button></div>`}
+function stopWait(){if(!S.wt){toast('आधी "पोहोचलो" दाबा');return}const m=Math.round((Date.now()-S.wt)/60000);S.wt=0;save();renderKeep();if($('#ow'))$('#ow').value=m;toast('वेटिंग '+m+' मिनिट')}
+function logRej(t){const c=prompt('कोणती कंपनी? (Swiggy / Zomato / Zepto / BigBasket)',S.set.lastSub||S.set.lastPl||'Swiggy');if(c===null)return;const co=COS.find(x=>x.toLowerCase()===c.trim().toLowerCase())||'Other';S.rej.push({id:Date.now(),ts:Date.now(),pl:co,t});save();renderKeep();toast(t==='r'?'रिजेक्ट नोंदवली':'कॅन्सल नोंदवली')}
+function addOrder(){const rest=$('#or').value.trim();if(!rest){toast('रेस्टॉरंट नाव टाका');return}const ts=manualT?new Date($('#ot').value).getTime()||Date.now():Date.now(),cod=num($('#oc2').value),cur=S.cur&&Date.now()-S.cur.t<600000?S.cur:null;
+  let pl=$('#op').value,via='';if(pl==='Shadowfax'){via='Shadowfax';pl=$('#os').value;S.set.lastSub=pl}S.set.lastPl=$('#op').value;
+  const o={id:Date.now(),ts,rest,pl,via,area:$('#oa').value.trim(),earn:num($('#oe').value),km:num($('#ok').value),cod,tip:num($('#otp').value),wait:num($('#ow').value),tm:num($('#otm').value),an:$('#on').value.trim(),hard:$('#oh').checked,lat:cur?cur.a:null,lng:cur?cur.b:null};
+  S.orders.push(o);if(window._bill){o.bill=true;rPut('ob'+o.id,window._bill);window._bill=null}if(o.an||o.hard)S.addrs.push({id:o.id,ts,rest,area:o.area,note:o.an,hard:o.hard,lat:o.lat,lng:o.lng});
+  if(!R.includes(rest)&&!S.rests.includes(rest))S.rests.push(rest);if(cod)cashAdd(pl,cod);manualT=false;S.wt=0;save();render();toast('ऑर्डर सेव्ह झाली. '+slabMsg(pl))}
+function vAddr(){const q=(window._aq||'').toLowerCase(),l=S.addrs.filter(a=>!q||(a.note+a.rest+a.area).toLowerCase().includes(q)).sort((a,b)=>(b.hard?1:0)-(a.hard?1:0)||b.ts-a.ts);
+  return `<div class="card"><h2>📍 पत्ता नोंदी</h2><p class="mut">ऑर्डर नोंदवताना "अधिक तपशील" मध्ये गेट/लँडमार्क किंवा कठीण पत्ता टाका — इथे दिसेल.</p><input placeholder="शोधा (रेस्टॉरंट / एरिया / नोंद)" value="${esc(window._aq||'')}" oninput="window._aq=this.value;render();$('#main input').focus()"></div><div class="card">${l.length?l.map(a=>`<div class="item"><div class="m"><div class="t">${a.hard?'⚠ ':''}${esc(a.area||a.rest)}</div><div class="s">${esc(a.note||'—')} • ${dmy(a.ts)}${a.lat!=null?` • <a style="color:var(--blue)" href="https://maps.google.com/?q=${a.lat},${a.lng}" target="_blank">📍 नकाशा</a>`:''}</div></div><button class="x" onclick="S.addrs=S.addrs.filter(x=>x.id!==${a.id});save();render()">✕</button></div>`).join(''):'<p class="mut">अजून नोंद नाही.</p>'}</div>`}
+
+function vInc(){const c=sCo,cnt=todayCo(c).length,ex=expectedIncC(c,cnt),sl=[...slabsOf(c)].sort((a,b)=>a.n-b.n),nx=sl.find(s=>s.n>cnt),now=S.incs.filter(i=>sameDay(i.ts)).reduce((s,i)=>s+i.amt,0),all=sum(S.incs,'amt'),bt={};S.incs.forEach(i=>{const k=i.ty||'नियमित';bt[k]=(bt[k]||0)+i.amt});
+  return `<div class="seg">${COS.map(x=>`<button class="${sCo===x?'on':''}" onclick="sCo='${x}';render()">${x}</button>`).join('')}</div>
+  <div class="card hero"><h3>${c} — आजचे इन्सेंटिव्ह</h3><div class="big">${inr(ex.a)}</div><div class="mut">आज ${cnt} ऑर्डर ${ex.n?'• '+ex.n+'+ चा स्लॅब पूर्ण':''}${nx?' • पुढचा स्लॅब: '+(nx.n-cnt)+' ऑर्डर बाकी → +'+inr(nx.a-ex.a):''}</div></div>
+  <div class="card"><h2>इन्सेंटिव्ह रेकॉर्ड जोडा</h2><div class="two"><div><label>कंपनी</label><select id="ip">${COS.map(x=>`<option${x===c?' selected':''}>${x}</option>`).join('')}</select></div><div><label>रक्कम ₹</label><input id="ia" type="number" inputmode="decimal" value="${ex.a||''}"></div></div>
+  <label>प्रकार</label><select id="it">${['नियमित','Surge / पाऊस','Peak / ट्रॅफिक बोनस','Weekly','इतर'].map(x=>`<option>${x}</option>`).join('')}</select><label class="chk"><input type="checkbox" id="iv" ${S.set.viaSf?'checked':''}> Shadowfax मार्फत</label>
+  <label>नोट</label><input id="in" placeholder="ऐच्छिक"><button class="btn" onclick="addInc()">+ रेकॉर्डमध्ये जोडा</button></div>
+  <div class="card"><h3>${c} चे स्लॅब (तुमच्या कंपनीप्रमाणे बदला)</h3>${sl.map((s,i)=>`<div class="item"><div class="m"><span class="mut">ऑर्डर</span> <input style="width:78px;display:inline-block;padding:8px" type="number" value="${s.n}" onchange="setSlab(${i},'n',this.value)"> <span class="mut">→ ₹</span> <input style="width:88px;display:inline-block;padding:8px" type="number" value="${s.a}" onchange="setSlab(${i},'a',this.value)"><div class="s">सरासरी इन्सेंटिव्ह / ऑर्डर: <b>${s.n?inr(s.a/s.n):'—'}</b></div></div><button class="x" onclick="delSlab(${i})">✕</button></div>`).join('')}<button class="btn ghost" onclick="addSlab()">+ स्लॅब जोडा</button><p class="mut">हे आकडे फक्त उदाहरण आहेत — प्रत्येक कंपनीचे स्वतंत्र स्लॅब टाका (Zepto आणि Swiggy वेगळे असतात).</p></div>
+  <div class="card"><h3>नोंदी • आज ${inr(now)} • एकूण ${inr(all)}</h3>${Object.keys(bt).length?`<div>${Object.entries(bt).map(([k,v])=>`<span class="chip">${esc(k)} ${inr(v)}</span>`).join('')}</div>`:''}
+  ${S.incs.length?S.incs.slice().sort((a,b)=>b.ts-a.ts).slice(0,40).map(i=>`<div class="item"><div class="m"><div class="t">${esc(i.pl)}${i.via?' (SF)':''} • ${esc(i.ty||'नियमित')}${i.note?' • '+esc(i.note):''}</div><div class="s">${dmy(i.ts)} ${hhmm(i.ts)}</div></div><div class="v">${inr(i.amt)}</div><button class="x" onclick="editRec('i',${i.id})">✎</button><button class="x" onclick="delInc(${i.id})">✕</button></div>`).join(''):'<p class="mut">अजून नोंद नाही.</p>'}</div>`}
+function addInc(){const a=num($('#ia').value);if(!a){toast('रक्कम टाका');return}S.incs.push({id:Date.now(),ts:Date.now(),pl:$('#ip').value,via:$('#iv').checked?'Shadowfax':'',ty:$('#it').value,amt:a,note:$('#in').value.trim()});save();render();toast('इन्सेंटिव्ह जोडले')}
+
+function vSf(){const pi=payoutInfo(),m=S.orders.filter(o=>o.via==='Shadowfax'),by={};m.forEach(o=>{by[o.pl]=(by[o.pl]||0)+o.earn});
+  const km=num($('#sfk')&&$('#sfk').value),rt=num(S.set.sfRate);
+  return `<div class="card hero"><h3>💸 Shadowfax पेआउट</h3>${pi?`<div class="big">${inr(pi.pending)}</div><div class="mut">बाकी (शेवटच्या पेआउटनंतर) • पुढचा पेआउट: ${pi.date.toLocaleDateString({mr:'mr-IN',hi:'hi-IN',en:'en-IN'}[S.set.lang||'mr'],{weekday:'long',day:'numeric',month:'short'})}${pi.days===0?' (आज)':''}</div><button class="btn ghost" onclick="S.set.lastPayout=Date.now();save();render();toast('पेआउट मिळाला नोंदवला')">✔ पेआउट मिळाला</button>`:'<p class="mut">पेआउटचा वार खाली निवडा.</p>'}</div>
+  <div class="card"><label>पेआउटचा वार</label><select onchange="S.set.payDay=this.value===''?'':+this.value;save();render()"><option value="">निवडा</option>${['रवि','सोम','मंगळ','बुध','गुरु','शुक्र','शनि'].map((d,i)=>`<option value="${i}"${S.set.payDay===i?' selected':''}>${d}</option>`).join('')}</select></div>
+  <div class="card"><h2>📏 प्रति-किमी रेट कॅल्क्युलेटर</h2><div class="two"><div><label>किमी</label><input id="sfk" type="number" step="any" inputmode="decimal" oninput="sfCalc()"></div><div><label>रेट ₹ / km</label><input id="sfr" type="number" step="any" inputmode="decimal" value="${rt||''}" oninput="sfCalc()"></div></div><div class="big" id="sft" style="font-size:34px">₹0</div><div class="two"><select id="sfc">${COS.slice(0,4).map(x=>`<option>${x}</option>`).join('')}</select><button class="btn sm" onclick="sfSave()">ऑर्डर म्हणून सेव्ह</button></div></div>
+  <div class="card"><h3>Shadowfax द्वारे कंपनीनुसार कमाई</h3>${Object.keys(by).length?bars(Object.entries(by).sort((a,b)=>b[1]-a[1]),x=>inr(x[1])):'<p class="mut">अजून नोंद नाही.</p>'}</div>`}
+function sfCalc(){const t=num($('#sfk').value)*num($('#sfr').value);S.set.sfRate=num($('#sfr').value);$('#sft').textContent=inr(t);save()}
+function sfSave(){const t=Math.round(num($('#sfk').value)*num($('#sfr').value));if(!t){toast('किमी आणि रेट टाका');return}S.orders.push({id:Date.now(),ts:Date.now(),rest:'Per-km trip',pl:$('#sfc').value,via:'Shadowfax',area:'',earn:t,km:num($('#sfk').value),cod:0,tip:0});save();render();toast('सेव्ह '+inr(t))}
+
+/* ================= EXPENSES ================= */
+function vExp(){if(!ADV()&&xs==='e')xs='p';return segH([['p','⛽ पेट्रोल'],['o','🍵 इतर खर्च'],['c','💰 कॅश'],...(ADV()?[['e','💳 हप्ते (EMI)']]:[])],xs,'setX')+(xs==='p'?vFuel():xs==='o'?vOth():xs==='c'?vCash():vEmi())}
+const XCAT=['जेवण','चहा / नाश्ता','मोबाईल रिचार्ज','पार्किंग / टोल','पंक्चर / छोटी दुरुस्ती','इतर'];
+function vOth(){const A=per(dayStart(Date.now())),es=S.exps.slice().sort((a,b)=>b.ts-a.ts).slice(0,40);
+  return `<div class="card hero"><h3>आजचा टेक-होम अंदाज</h3><div class="big">${inr(A.net)}</div><div class="mut">कमाई ${inr(A.gross)} − पेट्रोल ${inr(A.fuel)} − इतर खर्च ${inr(A.ex)}${A.sv?' − सर्व्हिस '+inr(A.sv):''}</div></div>
+  <div class="card"><h2>इतर खर्च जोडा</h2><div class="two"><div><label>प्रकार</label><select id="xc">${XCAT.map(x=>`<option>${x}</option>`).join('')}</select></div><div><label>रक्कम ₹</label><input id="xa" type="number" inputmode="decimal"></div></div><label>नोट</label><input id="xn" placeholder="ऐच्छिक"><label class="chk"><input type="checkbox" id="xk"> कॅशमधून दिले</label><button class="btn" onclick="addExp()">+ सेव्ह</button></div>
+  <div class="card"><h3>खर्चाच्या नोंदी • आज ${inr(A.ex)}</h3>${es.length?es.map(x=>`<div class="item"><div class="m"><div class="t">${esc(x.cat)}</div><div class="s">${dmy(x.ts)} ${hhmm(x.ts)}${x.note?' • '+esc(x.note):''}${x.cash?' • कॅश':''}</div></div><div class="v">${inr(x.amt)}</div><button class="x" onclick="editRec('x',${x.id})">✎</button><button class="x" onclick="delExp(${x.id})">✕</button></div>`).join(''):'<p class="mut">अजून नोंद नाही.</p>'}</div>`}
+function addExp(){const a=num($('#xa').value);if(!a){toast('रक्कम टाका');return}const k=$('#xk').checked;S.exps.push({id:Date.now(),ts:Date.now(),cat:$('#xc').value,amt:a,note:$('#xn').value.trim(),cash:k});if(k)cashAdd('Other',-a);save();render();toast('खर्च नोंदवला')}
+function delExp(id){const x=S.exps.find(e=>e.id===id);if(!x)return;if(x.cash)cashAdd('Other',x.amt);S.exps=S.exps.filter(e=>e.id!==id);save();render()}
+function vEmi(){const t0=dayStart(Date.now());return `<div class="card"><h2>💳 बाईक / इतर हप्ते (EMI)</h2><label>नाव</label><input id="en" placeholder="उदा. बाईक EMI"><div class="two"><div><label>रक्कम ₹</label><input id="ea2" type="number" inputmode="decimal"></div><div><label>दर महिन्याची तारीख</label><input id="ed" type="number" min="1" max="28" inputmode="numeric" placeholder="5"></div></div><button class="btn" onclick="addEmi()">+ हप्ता जोडा</button></div><div class="card"><h3>हप्ते • महिन्याला ${inr(sum(S.emis,'amt'))}</h3>${S.emis.length?S.emis.map(e=>{const d=new Date(new Date().getFullYear(),new Date().getMonth(),e.day);if(d.getTime()<t0)d.setMonth(d.getMonth()+1);const k=Math.round((d-t0)/864e5);return `<div class="item"><div class="m"><div class="t">${esc(e.name)}</div><div class="s">दर महिन्याला ${e.day} तारखेला • पुढचा ${k===0?'आज':k+' दिवसात'}</div></div><div class="v">${inr(e.amt)}</div><button class="x" onclick="S.emis=S.emis.filter(x=>x.id!==${e.id});save();render()">✕</button></div>`}).join(''):'<p class="mut">अजून नोंद नाही.</p>'}<p class="mut">हप्त्याच्या ३ दिवस आधी आठवण दिसेल.</p></div>`}
+function addEmi(){const n=$('#en').value.trim(),a=num($('#ea2').value),d=Math.min(28,Math.max(1,Math.round(num($('#ed').value))));if(!n||!a||!d){toast('नाव, रक्कम आणि तारीख टाका');return}S.emis.push({id:Date.now(),name:n,amt:a,day:d});save();render()}
+
+/* ================= REPORTS ================= */
+const setP=v=>{rPer=v;render()};
+const segP=()=>segH([['1','आज'],['7','७ दिवस'],['30','या महिन्यात'],['pm','मागचा महिना'],['all','सर्व']],rPer,'setP');
+function rangeBounds(p){const n=new Date();if(p==='1')return[dayStart(Date.now())];if(p==='7')return[Date.now()-7*864e5];if(p==='30')return[new Date(n.getFullYear(),n.getMonth(),1).getTime()];if(p==='pm')return[new Date(n.getFullYear(),n.getMonth()-1,1).getTime(),new Date(n.getFullYear(),n.getMonth(),1).getTime()];return[0]}
+function vRep(){if(!ADV()&&rs==='c')rs='a';return segH([['a','हिशोब'],...(ADV()?[['c','कंपनी']]:[]),['k','कॅल्क'],['d','डिमांड']],rs,'setR')+(rs==='a'?vRepA():rs==='c'?vRepC():rs==='k'?vCalc():vDem())}
+function vRepA(){const [l,e]=rangeBounds(rPer),P=per(l,e),hrs=dutyHrs(l,e),ds=S.duties.filter(d=>d.t>=l&&(!e||d.t<e)),km=sum(ds,'odoKm'),mo=dIso(Date.now()).slice(0,7);
+  return segP()+`<div class="card hero"><h3>खरा निव्वळ नफा</h3><div class="big">${inr(P.net)}</div><div class="mut">कमाई + टिप + इन्सेंटिव्ह − पेट्रोल − इतर खर्च − सर्व्हिसिंग − दंड</div></div>
+  <div class="card"><div class="out"><div><b>${inr(P.earn)}</b><span>ऑर्डर कमाई (${P.os.length})</span></div><div><b>${inr(P.inc)}</b><span>इन्सेंटिव्ह</span></div><div><b>${inr(P.tip)}</b><span>टिप (वेगळी)</span></div><div><b>${inr(P.fuel)}</b><span>पेट्रोल खर्च</span></div><div><b>${inr(P.ex)}</b><span>इतर खर्च</span></div><div><b>${inr(P.sv)}</b><span>बाईक सर्व्हिसिंग</span></div><div><b>${inr(P.fine)}</b><span>दंड / चलन (भरलेले)</span></div><div><b>${r1(hrs)} तास</b><span>ड्युटी वेळ (${ds.length})</span></div><div><b>${hrs>0?inr(P.net/hrs):'—'}</b><span>निव्वळ ₹ / तास</span></div><div><b>${km>0?inr(P.net/km):'—'}</b><span>निव्वळ ₹ / km (${r1(km)} km)</span></div></div>${rPer!=='all'&&sum(S.emis,'amt')&&(rPer==='30'||rPer==='pm')?`<p class="mut">या महिन्याचे हप्ते (वेगळे, नफ्यातून वजा नाहीत): ${inr(sum(S.emis,'amt'))}</p>`:''}</div>`+cmpCard()+goalsCard()+
+  `<div class="card"><h2>📄 एक्स्पोर्ट</h2><label>महिना</label><input id="sm" type="month" value="${mo}"><button class="btn" onclick="monthPdf()">📄 मासिक हिशोब PDF</button><button class="btn ghost" onclick="exportCsv()">📊 Excel (CSV)</button><button class="btn ghost" onclick="statementPdf()">🏦 उत्पन्न स्टेटमेंट (लोन / बँकेसाठी)</button><p class="mut">PDF साठी उघडलेल्या पानावर "Print → Save as PDF" निवडा.</p></div>`}
+const mkey=()=>($('#sm')&&$('#sm').value)||dIso(Date.now()).slice(0,7);
+const monthB=m=>{const [y,mo]=m.split('-').map(Number);return[new Date(y,mo-1,1).getTime(),new Date(y,mo,1).getTime()]};
+function exportCsv(){const m=mkey(),[l,e]=monthB(m),P=per(l,e),q=v=>{let t=String(v==null?'':v);if(/^[=+\-@]/.test(t))t="'"+t;return '"'+t.replace(/"/g,'""')+'"'},rows=[['तारीख','वेळ','प्रकार','कंपनी','नाव / एरिया / नोट','रक्कम']];
+  P.os.forEach(o=>{rows.push([dmy(o.ts),hhmm(o.ts),'ऑर्डर',o.pl+(o.via?' (SF)':''),o.rest+(o.area?' / '+o.area:''),o.earn]);if(o.tip)rows.push([dmy(o.ts),hhmm(o.ts),'टिप',o.pl,o.rest,o.tip])});
+  P.is.forEach(i=>rows.push([dmy(i.ts),hhmm(i.ts),'इन्सेंटिव्ह',i.pl,(i.ty||'')+' '+(i.note||''),i.amt]));P.fs.forEach(f=>rows.push([dmy(f.ts),hhmm(f.ts),'पेट्रोल','',r1(f.l)+' L',-f.a]));P.es.forEach(x=>rows.push([dmy(x.ts),hhmm(x.ts),'खर्च','',x.cat+' '+(x.note||''),-x.amt]));P.ss.forEach(x=>rows.push([x.date,'','सर्व्हिसिंग',x.garage||'',x.work||'',-x.cost]));
+  const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['\ufeff'+rows.map(r=>r.map(q).join(',')).join('\n')],{type:'text/csv;charset=utf-8'}));a.download='rider-'+m+'.csv';document.body.appendChild(a);a.click();a.remove()}
+function printDoc(title,body){title=tx(title);body=tx(body);const w=window.open('','_blank');if(!w){toast('PDF साठी पॉप-अप परवानगी द्या.');return}w.document.write(`<!doctype html><html lang="mr"><head><meta charset="utf-8"><title>${title}</title><style>body{font:14px system-ui,"Noto Sans Devanagari",sans-serif;padding:24px;color:#111}h1{font-size:20px}table{width:100%;border-collapse:collapse;margin:12px 0}th,td{border:1px solid #ccc;padding:6px 8px;text-align:left}th{background:#f1f1f5}.r{text-align:right}.k{display:flex;gap:12px;flex-wrap:wrap}.k div{border:1px solid #ccc;border-radius:8px;padding:8px 12px}@media print{button{display:none}}</style></head><body>${body}<p style="color:#666;font-size:12px">${tx('हा हिशोब रायडरने स्वतः नोंदवलेल्या डेटावर आधारित आहे.')}</p><button onclick="window.print()">Print / Save as PDF</button><script>setTimeout(function(){window.print()},400)<\/script></body></html>`);w.document.close()}
+function monthPdf(){const m=mkey(),[l,e]=monthB(m),P=per(l,e),days={};P.os.forEach(o=>{const k=dIso(o.ts),b=days[k]=days[k]||{n:0,e:0,t:0,i:0};b.n++;b.e+=o.earn;b.t+=o.tip||0});P.is.forEach(i=>{const k=dIso(i.ts),b=days[k]=days[k]||{n:0,e:0,t:0,i:0};b.i+=i.amt});
+  printDoc('रायडर हिशोब '+m,`<h1>${esc(S.set.name||'रायडर')} — मासिक हिशोब ${m}</h1><div class="k"><div>कमाई <b>${inr(P.earn)}</b></div><div>इन्सेंटिव्ह <b>${inr(P.inc)}</b></div><div>टिप <b>${inr(P.tip)}</b></div><div>पेट्रोल <b>${inr(P.fuel)}</b></div><div>इतर खर्च <b>${inr(P.ex)}</b></div><div>सर्व्हिसिंग <b>${inr(P.sv)}</b></div><div>दंड <b>${inr(P.fine)}</b></div><div>निव्वळ नफा <b>${inr(P.net)}</b></div></div><table><tr><th>तारीख</th><th class="r">ऑर्डर</th><th class="r">कमाई</th><th class="r">टिप</th><th class="r">इन्सेंटिव्ह</th></tr>${Object.keys(days).sort().map(k=>{const b=days[k];return `<tr><td>${k}</td><td class="r">${b.n}</td><td class="r">${inr(b.e)}</td><td class="r">${inr(b.t)}</td><td class="r">${inr(b.i)}</td></tr>`}).join('')}</table>`)}
+function statementPdf(){const rows=[];const n=new Date();for(let i=0;i<6;i++){const d=new Date(n.getFullYear(),n.getMonth()-i,1),m=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0'),[l,e]=monthB(m),P=per(l,e);rows.push([m,P.os.length,P.earn,P.inc,P.tip,P.gross,P.net])}
+  const tot=rows.reduce((s,r)=>s+r[5],0);printDoc('उत्पन्न स्टेटमेंट',`<h1>उत्पन्न स्टेटमेंट (Income Statement)</h1><p>नाव: <b>${esc(S.set.name||'________________')}</b> • तारीख: ${dmy(Date.now())}</p><table><tr><th>महिना</th><th class="r">ऑर्डर</th><th class="r">ऑर्डर कमाई</th><th class="r">इन्सेंटिव्ह</th><th class="r">टिप</th><th class="r">एकूण उत्पन्न</th><th class="r">खर्चानंतर निव्वळ</th></tr>${rows.map(r=>`<tr><td>${r[0]}</td><td class="r">${r[1]}</td><td class="r">${inr(r[2])}</td><td class="r">${inr(r[3])}</td><td class="r">${inr(r[4])}</td><td class="r">${inr(r[5])}</td><td class="r">${inr(r[6])}</td></tr>`).join('')}<tr><th colspan="5">गेल्या ६ महिन्यांचे एकूण उत्पन्न</th><th class="r">${inr(tot)}</th><th class="r">सरासरी ${inr(tot/6)}/महिना</th></tr></table><p>सही: ____________________</p>`)}
+function pie(list){const t=list.reduce((s,x)=>s+x[1],0)||1,cols=['#6d5dfc','#ff5fa2','#2ee6a6','#ffb020','#5cc8ff','#b44bff'];let a=-Math.PI/2,o='';list.forEach((x,i)=>{const f=x[1]/t,b=a+f*2*Math.PI;o+=f>=.9999?`<circle cx="60" cy="60" r="50" fill="${cols[i%6]}"/>`:`<path d="M60 60L${60+50*Math.cos(a)} ${60+50*Math.sin(a)}A50 50 0 ${f>.5?1:0} 1 ${60+50*Math.cos(b)} ${60+50*Math.sin(b)}Z" fill="${cols[i%6]}"/>`;a=b});
+  return `<div class="row" style="align-items:center"><svg viewBox="0 0 120 120" style="width:140px;height:140px;flex:none">${o}</svg><div>${list.map((x,i)=>`<div style="margin:5px 0"><i style="display:inline-block;width:11px;height:11px;border-radius:50%;background:${cols[i%6]};margin-right:6px"></i>${esc(x[0])} <b>${Math.round(x[1]/t*100)}%</b> • ${inr(x[1])}</div>`).join('')}</div></div>`}
+function vRepC(){const [l,e]=rangeBounds(rPer),os=S.orders.filter(o=>o.ts>=l&&(!e||o.ts<e)),is=S.incs.filter(o=>o.ts>=l&&(!e||o.ts<e)),by={};
+  os.forEach(o=>{const b=by[o.pl]=by[o.pl]||{n:0,e:0,t:0,i:0,km:0};b.n++;b.e+=o.earn;b.t+=o.tip||0;b.km+=o.km||0});is.forEach(i=>{const b=by[i.pl]=by[i.pl]||{n:0,e:0,t:0,i:0,km:0};b.i+=i.amt});
+  const hrs=dutyHrs(l,e),tn=os.length||1,list=Object.entries(by).map(([k,b])=>[k,b.e+b.t+b.i]).sort((a,b)=>b[1]-a[1]);
+  if(!list.length)return segP()+'<div class="card"><p class="mut">या काळात नोंद नाही.</p></div>';
+  const wm={};os.filter(o=>o.wait>0).forEach(o=>{const b=wm[o.rest]=wm[o.rest]||{n:0,m:0};b.n++;b.m+=o.wait});const wl=Object.entries(wm).map(([k,b])=>[k,b.m/b.n,b.n]).sort((a,b)=>b[1]-a[1]).slice(0,6);
+  const pk=Object.keys(by).map(c=>{const h={};os.filter(o=>o.pl===c).forEach(o=>{const k=new Date(o.ts).getHours();h[k]=(h[k]||0)+1});return [c,Object.entries(h).sort((a,b)=>b[1]-a[1]).slice(0,3).map(x=>x[0]+':00').join(', ')]});
+  return segP()+`<div class="card"><h3>कंपनीनुसार कमाई (ऑर्डर + इन्सेंटिव्ह + टिप)</h3>${pie(list)}</div>
+  <div class="card"><h3>कंपनी तुलना (₹ / तास साठी ड्युटी तास ऑर्डर संख्येनुसार वाटले आहेत)</h3>${Object.entries(by).sort((a,b)=>(b[1].e+b[1].t+b[1].i)-(a[1].e+a[1].t+a[1].i)).map(([k,b])=>{const h=hrs*b.n/tn;return `<div class="item"><div class="m"><div class="t">${esc(k)}</div><div class="s">${b.n} ऑर्डर • सरासरी ${inr(b.e/Math.max(1,b.n))}/ऑर्डर${b.km?' • ₹'+r1(b.e/b.km)+'/km':''} • इन्सेंटिव्ह ${inr(b.i)}</div></div><div class="v">${h>0.05?inr((b.e+b.t+b.i)/h)+'/तास':'—'}</div></div>`}).join('')}</div>
+  <div class="card"><h3>कंपनीनुसार सर्वात बिझी वेळ</h3>${pk.map(x=>`<div class="item"><div class="m"><div class="t">${esc(x[0])}</div></div><div class="v" style="font-size:14px">${x[1]||'—'}</div></div>`).join('')}</div>
+  <div class="card"><h3>⏱ रेस्टॉरंट वेटिंग (सर्वात जास्त सरासरी)</h3>${wl.length?bars(wl,x=>r1(x[1])+' min • '+x[2]+'x'):'<p class="mut">ऑर्डर नोंदवताना "अधिक तपशील" मध्ये वेटिंग मिनिटे टाका (किंवा "पोहोचलो/ऑर्डर मिळाली" बटणे वापरा).</p>'}</div>`}
+function vDem(){return vDemand()+extraDem()}
+function extraDem(){const lim=dPer==='7'?Date.now()-7*864e5:0,os=S.orders.filter(o=>o.ts>=lim&&(dPlat==='all'||o.pl===dPlat));if(!os.length)return '';
+  const dc=new Set(os.map(o=>dIso(o.ts))).size||1,h={};os.forEach(o=>{const k=new Date(o.ts).getHours();h[k]=(h[k]||0)+o.earn});const hl=Object.entries(h).map(([k,v])=>[k+':00 – '+(+k+1)+':00',v/dc]).sort((a,b)=>b[1]-a[1]).slice(0,5);
+  const ar={};os.forEach(o=>{if(!o.area)return;const b=ar[o.area]=ar[o.area]||{n:0,e:0,tm:0};b.n++;b.e+=o.earn;b.tm+=o.tm||0});const al=Object.entries(ar).filter(x=>x[1].n>=2).map(([k,b])=>[k,b.tm>0?b.e/(b.tm/60):b.e/b.n,b.tm>0]).sort((a,b)=>b[1]-a[1]).slice(0,6);
+  return `<div class="card"><h3>💰 सर्वात फायदेशीर वेळ (प्रति दिवस सरासरी कमाई)</h3>${bars(hl,x=>inr(x[1]))}</div>${al.length?`<div class="card"><h3>💰 सर्वात फायदेशीर एरिया (${al.some(x=>x[2])?'₹ / तास — ट्रिप वेळेवरून':'सरासरी ₹ / ऑर्डर'})</h3>${bars(al,x=>inr(x[1]))}</div>`:''}`}
+
+/* ================= BIKE ================= */
+const MODELS={'स्कूटर (125cc)':['Suzuki Access 125','Honda Activa 125','Honda Dio 125','TVS Jupiter 125','TVS Ntorq 125','Suzuki Burgman Street 125','Suzuki Avenis 125','Hero Destini 125','Yamaha Fascino 125','Yamaha RayZR 125','Aprilia SR 125'],'स्कूटर (110cc)':['Honda Activa 6G','Honda Dio','TVS Jupiter','TVS Scooty Pep+','Hero Maestro Edge 110','Hero Pleasure+ 110','Hero Xoom 110'],'मोटरसायकल (कम्युटर)':['Hero Splendor Plus','Hero HF Deluxe','Hero Passion','Hero Glamour','Honda Shine 125','Honda SP 125','Honda Livo','Bajaj Platina','Bajaj CT 100','Bajaj Pulsar 125','Bajaj Pulsar 150','TVS Star City+','TVS Radeon','TVS Raider 125','Yamaha FZ-S','Suzuki Gixxer'],'मोटरसायकल (स्पोर्ट/क्रूझर)':['Bajaj Pulsar NS200','TVS Apache RTR 160','TVS Apache RTR 200','Yamaha R15','Yamaha MT-15','KTM Duke 200','Royal Enfield Classic 350','Royal Enfield Hunter 350','Royal Enfield Bullet 350','Honda Hornet 2.0'],'इलेक्ट्रिक':['Ola S1 Pro','Ather 450X','TVS iQube','Bajaj Chetak','Hero Vida V1','Revolt RV400'],'इतर':['इतर स्कूटर','इतर मोटरसायकल','इतर इलेक्ट्रिक']};
+const CATN={sc:'स्कूटर',co:'कम्युटर मोटरसायकल',sp:'स्पोर्ट / क्रूझर मोटरसायकल',ev:'इलेक्ट्रिक'};
+const PARTS={
+sc:[['इंजिन ऑइल',300,550],['एअर फिल्टर',120,300],['स्पार्क प्लग',150,400],['फ्रंट ब्रेक पॅड / शू',200,500],['रिअर ब्रेक शू',200,450],['ड्राइव्ह बेल्ट (CVT)',800,1800],['रोलर / व्हेरिएटर सेट',600,1500],['क्लच शू / स्प्रिंग',600,1300],['बॅटरी',1200,2500],['टायर (एक)',1400,2800],['केबल (थ्रॉटल / ब्रेक)',100,300],['बल्ब / हेडलाईट',150,600],['लेबर (जनरल सर्व्हिस)',400,800]],
+co:[['इंजिन ऑइल',300,500],['एअर फिल्टर',100,300],['स्पार्क प्लग',100,300],['ब्रेक पॅड / शू',150,450],['चेन-स्प्रॉकेट किट',900,2200],['क्लच प्लेट सेट',500,1100],['बॅटरी',1000,2200],['टायर (एक)',1300,2600],['केबल (क्लच / ब्रेक)',100,250],['बल्ब / हेडलाईट',100,400],['लेबर (जनरल सर्व्हिस)',300,700]],
+sp:[['इंजिन ऑइल',500,1000],['एअर फिल्टर',200,600],['स्पार्क प्लग',200,600],['ब्रेक पॅड',300,900],['चेन-स्प्रॉकेट किट',1500,4000],['क्लच प्लेट सेट',1000,2500],['बॅटरी',1500,3500],['टायर (एक)',2000,5000],['लेबर (जनरल सर्व्हिस)',500,1200]],
+ev:[['ब्रेक पॅड',200,600],['टायर (एक)',1500,3500],['12V ऑक्स बॅटरी',600,1500],['ब्रेक फ्लुइड / सर्व्हिस किट',200,500],['लेबर (जनरल सर्व्हिस)',300,800]]};
+const TIPS={sc:['ऑइल मॅन्युअलनुसार ठरावीक km ला बदला (साधारण ३००० – ५००० km)','CVT बेल्ट आणि रोलर साधारण २०,००० km च्या आसपास तपासा','धुळीच्या रस्त्यावर एअर फिल्टर लवकर साफ / बदला','टायर प्रेशर आठवड्यातून एकदा तपासा; ओव्हरलोड ऑर्डरमध्ये मागचे प्रेशर थोडे वाढवा','ब्रेक पॅड पातळ झाले की लगेच बदला — आवाज आल्यास थांबू नका'],
+co:['ऑइल मॅन्युअलनुसार ठरावीक km ला बदला','चेन दर ५०० km ला ल्युब्रिकेट करा आणि ताण तपासा','क्लच केबलला फ्री-प्ले ठेवा','एअर फिल्टर साफ ठेवा — मायलेज वाढते','टायरवर क्रॅक किंवा टक्कल दिसले की बदला'],
+sp:['चांगल्या दर्जाचे ऑइल आणि वेळेवर बदल','चेन-स्प्रॉकेट एकत्र बदला','ब्रेक फ्लुइड वेळोवेळी तपासा','कूलंट (असल्यास) लेव्हल पाहा','टायर प्रेशर रोज तपासा'],
+ev:['बॅटरी १००% पर्यंत रोज चार्ज करणे टाळा, शक्यतो ८०–९०%','पावसात चार्जिंग पोर्ट कोरडे ठेवा','टायर प्रेशर आणि ब्रेक नियमित तपासा','अधिकृत सर्व्हिस सेंटरमधून सॉफ्टवेअर अपडेट करा','जास्त वेगात रेंज झपाट्याने घटते']};
+const ppOf=(m,p)=>{const v=S.pp&&S.pp[m+'|'+p[0]];return v?+v:Math.round((p[1]+p[2])/2)};
+function catOfModel(m){const g=Object.keys(MODELS).find(k=>MODELS[k].includes(m)),mp={'स्कूटर (125cc)':'sc','स्कूटर (110cc)':'sc','मोटरसायकल (कम्युटर)':'co','मोटरसायकल (स्पोर्ट/क्रूझर)':'sp','इलेक्ट्रिक':'ev'};return m==='इतर स्कूटर'?'sc':m==='इतर इलेक्ट्रिक'?'ev':mp[g]||'co'}
+function vBike(){if(!ADV()&&'gcn'.includes(bs))bs='m';return segH([['m','सर्व्हिस'],['p','पार्ट्स'],['d','कागदपत्र'],...(ADV()?[['g','गॅरेज'],['c','चेकलिस्ट'],['n','जवळचे']]:[])],bs,'setB')+({m:bMain,g:bGar,p:bParts,d:bDocs,c:bChk,n:bNear})[bs]()}
+function trkCard(){const lo=lastOdo();return `<div class="card"><h2>🔧 रिमाइंडर आणि पार्ट्स लाइफ (km)</h2><p class="mut">सध्याचे ओडो: <b>${lo||'—'}</b>. "बदलले" दाबल्यावर आत्ताचे ओडो नोंदवले जाते.</p>${S.trk.map((t,i)=>{const rem=t.odo?t.odo+t.every-lo:null,pc=t.odo?Math.min(100,Math.max(0,(lo-t.odo)/t.every*100)):0,col=rem===null?'var(--mut)':rem<=0?'var(--red)':rem<=Math.max(200,t.every*.1)?'#ffb020':'var(--ac)';return `<div style="margin:14px 0"><div class="row"><b>${esc(t.n)}</b><span style="color:${col};font-weight:700">${rem===null?'ओडो नोंदवा':rem<=0?'ओव्हरड्यू '+Math.abs(Math.round(rem))+' km':Math.round(rem)+' km बाकी'}</span></div><div class="pbar"><i style="width:${pc}%;background:${col}"></i></div><div class="two" style="margin-top:6px"><input type="number" inputmode="decimal" placeholder="शेवटचे ओडो" value="${t.odo||''}" onchange="S.trk[${i}].odo=num(this.value);save();render()"><input type="number" inputmode="decimal" placeholder="दर किती km" value="${t.every}" onchange="S.trk[${i}].every=num(this.value)||1;save();render()"></div><button class="btn ghost sm" style="margin-top:6px" onclick="S.trk[${i}].odo=lastOdo();save();render();toast('नोंदवले')">✔ आत्ता बदलले (ओडो ${lo||'—'})</button></div>`}).join('')}<p class="mut">डीफॉल्ट km अंदाजे आहेत — तुमच्या बाईकच्या मॅन्युअलनुसार बदला.</p></div>`}
+function bMain(){const ss=S.svcs.slice().sort((a,b)=>b.date.localeCompare(a.date)),yr=String(new Date().getFullYear());
+  return trkCard()+`<div class="card"><h2>सर्व्हिस नोंद जोडा</h2><div class="two"><div><label>तारीख</label><input id="vd" type="date" value="${dIso(Date.now())}"></div><div><label>ओडो (km)</label><input id="vo" type="number" inputmode="decimal" value="${lastOdo()||''}"></div></div><label>काम काय केले</label><input id="vw" placeholder="उदा. ऑइल चेंज, ब्रेक पॅड"><div class="two"><div><label>खर्च ₹</label><input id="vc" type="number" inputmode="decimal"></div><div><label>रेटिंग (१-५ ⭐)</label><select id="vr">${[5,4,3,2,1].map(x=>`<option>${x}</option>`).join('')}</select></div></div>
+  <label>गॅरेजचे नाव</label><input id="vg" list="gl" placeholder="गॅरेज"><datalist id="gl">${[...new Set(S.svcs.map(x=>x.garage).filter(Boolean))].map(x=>`<option value="${esc(x)}">`).join('')}</datalist><div class="two"><div><label>मेकॅनिकचे नाव</label><input id="vm"></div><div><label>फोन नंबर</label><input id="vp" type="tel" inputmode="tel"></div></div><label>पत्ता</label><input id="va"><p class="mut" id="gs">📍 GPS लोकेशन घेत आहे…</p><button class="btn ghost" onclick="capGps()">📍 लोकेशन पुन्हा घ्या</button>
+  <label>अनुभव / नोट</label><input id="vn" placeholder="ऐच्छिक"><label>बिलाचा फोटो (मेकॅनिकची पावती)</label><input id="vf" type="file" accept="image/*" capture="environment"><button class="btn" onclick="addSvc()">+ सेव्ह</button></div>
+  <div class="card"><h3>सर्व्हिस इतिहास • या वर्षी ${inr(sum(S.svcs.filter(x=>x.date.startsWith(yr)),'cost'))} • एकूण ${inr(sum(S.svcs,'cost'))}</h3>${ss.length?ss.map(x=>`<div class="item">${x.rc?`<img class="thumb" id="bl${x.id}" onclick="viewImg('sv${x.id}')" alt="">`:''}<div class="m"><div class="t">${esc(x.work||'सर्व्हिस')} ${x.rate?'⭐'.repeat(x.rate):''}</div><div class="s">${x.date} • ${x.odo||'—'} km • ${esc(x.garage||'')}${x.mech?' • '+esc(x.mech):''}${x.phone?` • <a style="color:var(--blue)" href="tel:${esc(x.phone)}">${esc(x.phone)}</a>`:''}${x.lat!=null?` • <a style="color:var(--blue)" href="https://maps.google.com/?q=${x.lat},${x.lng}" target="_blank">📍</a>`:''}</div></div><div class="v">${inr(x.cost)}</div><button class="x" onclick="delSvc(${x.id})">✕</button></div>`).join(''):'<p class="mut">अजून नोंद नाही.</p>'}<p class="mut">सर्व्हिसिंगचा खर्च रिपोर्टमध्ये नफ्यातून वजा होतो.</p></div>`}
+function capGps(){if(!navigator.geolocation){return}navigator.geolocation.getCurrentPosition(p=>{window._sg={a:p.coords.latitude,b:p.coords.longitude};const s=$('#gs');if(s)s.textContent='📍 लोकेशन मिळाले ✅ ('+p.coords.latitude.toFixed(4)+', '+p.coords.longitude.toFixed(4)+')'},()=>{const s=$('#gs');if(s)s.textContent='⚠ लोकेशन मिळाले नाही — परवानगी द्या'},{enableHighAccuracy:true,timeout:10000})}
+async function addSvc(){const cost=num($('#vc').value);if(!$('#vw').value.trim()&&!cost){toast('काम किंवा खर्च टाका');return}const id=Date.now(),f=$('#vf').files[0];if(f){try{await rPut('sv'+id,await shrink(f))}catch(e){toast('फोटो साठवता आला नाही')}}
+  const g=window._sg||(S.cur&&Date.now()-S.cur.t<600000?{a:S.cur.a,b:S.cur.b}:null);S.svcs.push({id,date:$('#vd').value||dIso(Date.now()),odo:num($('#vo').value),work:$('#vw').value.trim(),cost,rate:+$('#vr').value,garage:$('#vg').value.trim(),mech:$('#vm').value.trim(),phone:$('#vp').value.trim(),addr:$('#va').value.trim(),lat:g?g.a:null,lng:g?g.b:null,note:$('#vn').value.trim(),rc:!!f});window._sg=null;save();render();toast('सर्व्हिस सेव्ह')}
+function delSvc(id){const x=S.svcs.find(s=>s.id===id);if(!x||!confirm('ही नोंद डिलीट करायची?'))return;if(x.rc)rDel('sv'+id);S.svcs=S.svcs.filter(s=>s.id!==id);save();render()}
+function viewImg(k){rGet(k).then(s=>s&&openModal(`<img src="${s}" alt=""><button class="btn ghost" onclick="closeModal()">बंद करा</button>`))}
+function loadBills(){S.svcs.filter(x=>x.rc).forEach(x=>rGet('sv'+x.id).then(s=>{const e=$('#bl'+x.id);if(e&&s)e.src=s}))}
+function garMap(pts){if(!pts.length)return '<p class="mut">लोकेशनसह गॅरेज नोंद नाही.</p>';const w=320,h=200,pd=24,la=pts.map(p=>p.a),lo=pts.map(p=>p.b),a0=Math.min(...la),a1=Math.max(...la),o0=Math.min(...lo),o1=Math.max(...lo),kx=Math.cos((a0+a1)/2*Math.PI/180),sc=Math.min((w-2*pd)/(((o1-o0)*kx)||1e-4),(h-2*pd)/((a1-a0)||1e-4)),pt=p=>[pd+(p.b-o0)*kx*sc+((w-2*pd)-(o1-o0)*kx*sc)/2,h-pd-(p.a-a0)*sc-((h-2*pd)-(a1-a0)*sc)/2];
+  return `<svg class="map" viewBox="0 0 ${w} ${h}" style="height:200px">${pts.map(p=>{const q=pt(p);return p.me?`<circle cx="${q[0]}" cy="${q[1]}" r="7" fill="#5cc8ff"/><text x="${q[0]+10}" y="${q[1]+4}" font-size="11" fill="currentColor">मी</text>`:`<circle cx="${q[0]}" cy="${q[1]}" r="10" fill="#ff5d73"/><text x="${q[0]}" y="${q[1]+4}" font-size="11" fill="#fff" text-anchor="middle">${p.i}</text>`}).join('')}</svg>`}
+function bGar(){const g={};S.svcs.forEach(x=>{const k=(x.garage||'—').trim(),b=g[k]=g[k]||{n:0,c:0,r:0,rn:0,x:null};b.n++;b.c+=x.cost;if(x.rate){b.r+=x.rate;b.rn++}if(x.lat!=null)b.x=x;if(x.phone)b.ph=x.phone;if(x.addr)b.ad=x.addr;if(x.mech)b.me=x.mech});
+  const list=Object.entries(g).sort((a,b)=>(b[1].rn?b[1].r/b[1].rn:0)-(a[1].rn?a[1].r/a[1].rn:0)),pts=[];list.forEach(([k,b],i)=>{if(b.x)pts.push({a:b.x.lat,b:b.x.lng,i:i+1})});if(S.cur)pts.push({a:S.cur.a,b:S.cur.b,me:1});
+  return `<div class="card"><h2>🏪 माझे गॅरेज (नकाशा)</h2>${garMap(pts)}<p class="mut">लाल = गॅरेज (क्रमांक यादीप्रमाणे), निळा = मी. गॅरेज जोडताना GPS लोकेशन आपोआप सेव्ह होते.</p></div><div class="card"><h3>गॅरेज रेटिंग आणि खर्च</h3>${list.length?list.map(([k,b],i)=>{const d=b.x&&S.cur?hav(S.cur.a,S.cur.b,b.x.lat,b.x.lng):null;return `<div class="item"><div class="m"><div class="t">${i+1}. ${esc(k)} ${b.rn?'⭐'+r1(b.r/b.rn):''}</div><div class="s">${b.n} भेटी • सरासरी ${inr(b.c/b.n)}${b.me?' • '+esc(b.me):''}${b.ph?` • <a style="color:var(--blue)" href="tel:${esc(b.ph)}">${esc(b.ph)}</a>`:''}${b.ad?' • '+esc(b.ad):''}${d!=null?' • '+r1(d)+' km दूर':''}</div>${b.x?`<div class="s"><a style="color:var(--blue)" href="https://maps.google.com/?q=${b.x.lat},${b.x.lng}" target="_blank">📍 नकाशा</a> • <a style="color:var(--blue)" href="https://www.google.com/maps/dir/?api=1&destination=${b.x.lat},${b.x.lng}" target="_blank">🧭 रस्ता</a></div>`:''}</div></div>`}).join(''):'<p class="mut">"सर्व्हिस" टॅबमध्ये सर्व्हिस नोंदवा — गॅरेज इथे दिसेल.</p>'}</div>`}
+function bParts(){const m=S.set.model||'Suzuki Access 125',cat=m==='__c'?(S.set.ccat||'sc'):catOfModel(m),P=PARTS[cat],sel=window._sel=window._sel||{},fac=num(S.set.mult)||1.25;let lo=0,hi=0,me=0;P.forEach((p,i)=>{if(sel[i]){lo+=p[1];hi+=p[2];me+=ppOf(m,p)}});
+  return `<div class="card"><h2>🏍 बाईक मॉडेल</h2><select onchange="S.set.model=this.value;window._sel={};save();render()">${Object.entries(MODELS).map(([g,l])=>`<optgroup label="${g}">${l.map(x=>`<option${m===x?' selected':''}>${x}</option>`).join('')}</optgroup>`).join('')}</select><p class="mut">डीफॉल्ट: Suzuki Access 125 • श्रेणी: ${CATN[cat]}</p></div>
+  <div class="card"><h3>🛠 देखभाल टिप्स (${CATN[cat]})</h3>${TIPS[cat].map(t=>`<div class="item"><div class="m">• ${t}</div></div>`).join('')}<p class="mut">तुमच्या बाईकच्या मालक-पुस्तिकेतले अंतर वापरा; वरील सामान्य सूचना आहेत.</p></div>
+  <div class="card"><h3>💰 पार्ट्सचे अंदाजे दर — ${esc(m)}</h3><p class="mut">☑ निवडा = सर्व्हिस खर्च अंदाज. "तुमचा दर" मध्ये तुमच्या गॅरेजचा खरा दर टाका — ओव्हरचार्ज ओळखायला उपयोगी.</p>${P.map((p,i)=>`<div class="item"><label class="chk" style="margin:0;flex:1"><input type="checkbox" ${sel[i]?'checked':''} onchange="window._sel[${i}]=this.checked;render()"><span>${p[0]}<div class="s">₹${p[1]} – ₹${p[2]}</div></span></label><input style="width:92px;padding:8px" type="number" inputmode="decimal" placeholder="${Math.round((p[1]+p[2])/2)}" value="${(S.pp&&S.pp[m+'|'+p[0]])||''}" onchange="S.pp=S.pp||{};S.pp['${m}|${p[0]}']=num(this.value);save();render()"></div>`).join('')}<p class="mut">ही बाजारातली अंदाजे श्रेणी आहे; शहर, ब्रँड आणि मॉडेलनुसार बदलते.</p></div>
+  <div class="card hero"><h3>अंदाजे सर्व्हिस खर्च (निवडलेले पार्ट्स + लेबर)</h3><div class="big">${inr(lo)} – ${inr(hi)}</div><div class="mut">तुमच्या दरांनुसार: ${inr(me)} • शोरूम अंदाज (कमाल × ${fac}): ${inr(hi*fac)}</div></div>
+  <div class="card">${fld('mult','शोरूम गुणक (तुमच्या शोरूमप्रमाणे बदला)','number','1.25')}</div>`}
+function bDocs(){return `<div class="card"><h2>📄 कागदपत्रे आणि रिन्यूअल</h2>${S.docs.map((d,i)=>{const k=d.exp?daysTo(d.exp):null;return `<div style="margin:12px 0"><div class="row"><b>${esc(d.name)}</b><span style="color:${k===null?'var(--mut)':k<0?'var(--red)':k<=30?'#ffb020':'var(--ac)'};font-weight:700">${k===null?'तारीख टाका':k<0?'एक्स्पायर '+(-k)+' दिवस':k+' दिवस बाकी'}</span></div><div class="two"><input placeholder="नंबर" value="${esc(d.no||'')}" onchange="S.docs[${i}].no=this.value;save()"><input type="date" value="${d.exp||''}" onchange="S.docs[${i}].exp=this.value;save();render()"></div></div>`}).join('')}<p class="mut">एक्स्पायरीच्या ३० दिवस आधी आठवण दिसेल.</p></div>
+  <div class="card"><h2>🚨 चलन (दंड) नोंद</h2><div class="two"><input id="cd" type="date" value="${dIso(Date.now())}"><input id="ca" type="number" inputmode="decimal" placeholder="दंड ₹"></div><input id="cp" style="margin-top:8px" placeholder="जागा / कारण"><button class="btn" onclick="addChl()">+ चलन जोडा</button><p class="mut">बाकी: ${inr(sum(S.chl.filter(c=>!c.paid),'amt'))} • भरलेले: ${inr(sum(S.chl.filter(c=>c.paid),'amt'))} (भरलेले दंड नफ्यातून वजा होतात)</p>${S.chl.slice().sort((a,b)=>b.date.localeCompare(a.date)).map(c=>`<div class="item"><div class="m"><div class="t">${esc(c.place||'चलन')}</div><div class="s">${c.date} • ${c.paid?'भरले ✔':'बाकी'}</div></div><div class="v">${inr(c.amt)}</div><button class="x" onclick="S.chl.find(x=>x.id===${c.id}).paid=!${!!c.paid};save();render()">${c.paid?'↺':'✔'}</button><button class="x" onclick="S.chl=S.chl.filter(x=>x.id!==${c.id});save();render()">✕</button></div>`).join('')}</div>`}
+function addChl(){const a=num($('#ca').value);if(!a){toast('दंड रक्कम टाका');return}S.chl.push({id:Date.now(),date:$('#cd').value||dIso(Date.now()),amt:a,place:$('#cp').value.trim(),paid:false});save();render()}
+const CHK=['टायर प्रेशर ठीक','ब्रेक काम करतात','लाईट / इंडिकेटर / हॉर्न','इंजिन ऑइल पुरेसे','पेट्रोल / चार्ज पुरेसा','हेल्मेट आणि कागदपत्रे जवळ'];
+function bChk(){const k=dIso(Date.now()),done=S.pre[k];return `<div class="card"><h2>✅ ड्युटीपूर्व चेकलिस्ट (२ मिनिट)</h2>${done?`<p style="color:var(--ac);font-weight:700">आज पूर्ण केली ✔ (${hhmm(done)})</p>`:''}${CHK.map((c,i)=>`<label class="chk" style="margin:12px 0"><input type="checkbox" class="ck"> ${c}</label>`).join('')}<button class="btn" onclick="if([...document.querySelectorAll('.ck')].every(x=>x.checked)){S.pre['${k}']=Date.now();save();render();toast('चेकलिस्ट पूर्ण ✔')}else toast('सगळे तपासा')">चेकलिस्ट पूर्ण</button><p class="mut">गेल्या ७ दिवसांत ${Array.from({length:7},(_,i)=>dIso(Date.now()-i*864e5)).filter(d=>S.pre[d]).length} दिवस केली.</p></div>`}
+function nearby(q){const go=(a,b)=>window.open(`https://www.google.com/maps/search/${encodeURIComponent(q)}/@${a},${b},15z`,'_blank');if(S.cur&&Date.now()-S.cur.t<300000)return go(S.cur.a,S.cur.b);navigator.geolocation.getCurrentPosition(p=>go(p.coords.latitude,p.coords.longitude),()=>window.open('https://www.google.com/maps/search/'+encodeURIComponent(q),'_blank'),{timeout:8000})}
+function bNear(){return `<div class="card"><h2>📍 जवळचे शोधा (GPS)</h2><p class="mut">तुमच्या सध्याच्या लोकेशनवरून Google Maps मध्ये उघडते. स्वस्त पंप ओळखण्यासाठी नकाशावरील रेटिंग आणि रिव्ह्यू बघा.</p>${[['⛽','petrol pump','जवळचा पेट्रोल पंप'],['🛞','puncture repair shop','पंक्चर शॉप'],['🔧','two wheeler garage','बाईक गॅरेज'],['🏧','ATM','ATM'],['🍽','restaurant','रेस्टॉरंट']].map(x=>`<button class="btn ghost" onclick="nearby('${x[1]}')">${x[0]} ${x[2]}</button>`).join('')}</div>`}
+
+/* ================= SETTINGS / LOCK / SOS / LANG ================= */
+const NAV=[['duty','🏍','ड्युटी'],['ord','🧾','ऑर्डर'],['exp','💸','खर्च'],['rep','📊','रिपोर्ट'],['bike','🔧','बाईक']];
+function render(){ensureCash();autoSnap();const hd=$('#hd');if(hd)hd.textContent=new Date().toLocaleDateString({mr:'mr-IN',hi:'hi-IN',en:'en-IN'}[S.set.lang||'mr'],{weekday:'long',day:'numeric',month:'short'})+(navigator.onLine?'':' • 📴 ऑफलाइन');
+  $('#nav').innerHTML=NAV.map(t=>`<button class="${tab===t[0]?'on':''}" onclick="tab='${t[0]}';manualT=false;render();scrollTo(0,0)"><i>${t[1]}</i>${t[2]}</button>`).join('');
+  $('#main').innerHTML=({duty:vDuty,ord:vOrders,exp:vExp,rep:vRep,bike:vBike,set:vSet})[tab]();
+  if(tab==='duty')updLive();if(tab==='exp'&&xs==='p')loadThumbs();if(tab==='rep'&&rs==='k')calc();if(tab==='ord')loadObills();if(tab==='set')fillSnaps();if(tab==='bike'){loadBills();if(bs==='m'&&!window._sg)capGps()}document.getElementById('fab').style.display=(tab==='duty'||tab==='ord')?'block':'none';applyLang()}
+function openSettings(){tab='set';render()}
+function openModal(h){$('#mbox').innerHTML=h;$('#modal').classList.add('on');applyLang()}
+function toast(m){const t=$('#toast');t.textContent=tx(m);t.style.display='block';clearTimeout(toast.h);toast.h=setTimeout(()=>t.style.display='none',2800)}
+function addFest(){const n=$('#fn').value.trim(),d=$('#fdt').value;if(!n||!d){toast('नाव आणि तारीख टाका');return}S.fests.push({id:Date.now(),name:n,date:d});save();render()}
+function vSet(){const l=S.set.lang||'mr';return `<div class="card"><h2>🧭 मोड</h2><div class="seg"><button class="${ADV()?'':'on'}" onclick="S.set.adv=false;save();render()">सोपा</button><button class="${ADV()?'on':''}" onclick="S.set.adv=true;save();render()">पूर्ण (सर्व पर्याय)</button></div><p class="mut">सोपा = रोजच्या वापराचे कमी पर्याय. पूर्ण = कंपनी रिपोर्ट, Shadowfax, पत्ते, गॅरेज नकाशा, चेकलिस्ट इ.</p><button class="btn ghost" onclick="helpModal()">❓ कसे वापरायचे</button></div>
+  <div class="card"><h2>भाषा / Language</h2><div class="seg">${[['mr','मराठी'],['hi','हिंदी'],['en','English']].map(x=>`<button class="${l===x[0]?'on':''}" onclick="setLang('${x[0]}')">${x[1]}</button>`).join('')}</div><label class="chk"><input type="checkbox" ${S.set.big?'checked':''} onchange="S.set.big=this.checked;save();render()"> मोठे अक्षर मोड</label><button class="btn ghost" onclick="toggleTheme()">🌓 थीम बदला (डार्क / लाईट)</button></div>
+  <div class="card"><h2>🎨 रंग (थीम)</h2><div class="seg">${[['orange','केशरी'],['green','हिरवा'],['blue','निळा'],['purple','जांभळा']].map(x=>`<button class="${(S.set.ac||'orange')===x[0]?'on':''}" onclick="S.set.ac='${x[0]}';save();render()">${x[1]}</button>`).join('')}</div></div>
+  <details class="more"><summary>🎯 लक्ष्य, अलर्ट, क्विक रक्कम</summary><div class="card"><h2>प्रोफाइल आणि लक्ष्य</h2>${fld('name','तुमचे नाव (स्टेटमेंटसाठी)','text')}<div class="two">${fld('ogoal','रोजचे ऑर्डर टार्गेट','number','10')}${fld('wgoal','आठवड्याचे ऑर्डर टार्गेट','number','60')}</div><div class="two">${fld('save','महिन्याची बचत टार्गेट ₹','number','5000')}${fld('lowH','कमी कमाई अलर्ट (₹/तास खाली)','number','80')}</div>${fld('restH','ब्रेक रिमाइंडर (किती तासांनी)','number','3')}</div>
+  <div class="card"><h2>क्विक ऑर्डर रक्कम (₹)</h2><label class="chk" style="margin:0 0 10px"><input type="checkbox" ${S.set.voiceAuto?'checked':''} onchange="S.set.voiceAuto=this.checked;save()"> आवाजाने ऑर्डर कन्फर्म न विचारता आपोआप सेव्ह करा</label><div class="two">${COS.slice(0,4).map(c=>fld('q_'+c,c,'number',String(qAmt(c)||''))).join('')}</div></div>
+  </details><details class="more"><summary>🆘 SOS, 🔒 PIN, 🎉 सण</summary><div class="card"><h2>🆘 SOS</h2><p class="mut">कुटुंबाचे नंबर (स्वल्पविरामाने). SOS दाबल्यावर तुमचे लोकेशन SMS / WhatsApp ने पाठवता येईल.</p>${fld('sosNums','नंबर','text','9876543210, 9123456780')}<button class="btn red" onclick="openSOS()">SOS टेस्ट करा</button></div>
+  <div class="card"><h2>🔒 अॅप लॉक (PIN)</h2><button class="btn ghost" onclick="pinToggle()">${S.set.pin?'🔓 PIN काढा':'🔒 PIN सेट करा'}</button></div>
+  <div class="card"><h2>🎉 सण / सुट्टीचे रिमाइंडर</h2><p class="mut">निश्चित तारखेचे सण आधीच आहेत. दिवाळी, गणपती यांसारखे सण तारीख टाकून जोडा.</p><div class="two"><input id="fn" placeholder="नाव"><input id="fdt" type="date"></div><button class="btn ghost" onclick="addFest()">+ सण जोडा</button>${S.fests.map(f=>`<div class="item"><div class="m"><div class="t">${esc(f.name)}</div><div class="s">${f.date}</div></div><button class="x" onclick="S.fests=S.fests.filter(x=>x.id!==${f.id});save();render()">✕</button></div>`).join('')}</div>
+  </details>${offlineCard()}
+  <div class="card"><h2>💾 बॅकअप आणि ऑफलाइन</h2><p class="mut">ॲप ऑफलाइन चालते — सगळी नोंद फोनवर सेव्ह होते. ${navigator.onLine?'🟢 ऑनलाइन':'🔴 ऑफलाइन'}. ${S.lastBackup?'शेवटचा बॅकअप: '+dmy(S.lastBackup)+' '+hhmm(S.lastBackup):'अजून बॅकअप नाही.'}</p><button class="btn" onclick="exportBackup()">⬇ बॅकअप डाउनलोड</button><button class="btn ghost" onclick="shareBackup()">📤 बॅकअप शेअर (Google Drive / WhatsApp)</button><p class="mut">Drive ला थेट ऑटो-बॅकअपसाठी Google खाते जोडावे लागते, जे या ॲपमध्ये नाही. शेअर शीटमध्ये "Drive मध्ये सेव्ह करा" निवडा. ऑनलाइन आल्यावर बॅकअप जुना असेल तर आठवण येते.</p><label>Restore (.json)</label><input type="file" accept=".json,application/json" onchange="importBackup(this.files[0])"><label>रेस्टॉरंट लिस्ट जोडा (एका ओळीत एक नाव)</label><textarea id="rb" rows="3" placeholder="Swiggy वरची नावे इथे paste करा"></textarea><button class="btn ghost" onclick="addRests()">+ लिस्टमध्ये जोडा (${S.rests.length} सेव्ह)</button><button class="btn red" onclick="resetAll()">सगळा डेटा पुसा</button></div>`}
+function setLang(l){S.set.lang=l;save();render()}
+function cycleLang(){setLang({mr:'hi',hi:'en',en:'mr'}[S.set.lang||'mr'])}
+const hp=t=>{let h=5381;for(const c of 'rs'+t)h=((h<<5)+h+c.charCodeAt(0))>>>0;return String(h)};
+function pinToggle(){if(S.set.pin){const v=prompt('सध्याचा PIN टाका:');if(v===null)return;if(hp(v)===S.set.pin){S.set.pin='';save();render();toast('PIN काढला')}else toast('चुकीचा PIN')}else{const v=prompt('नवीन 4 अंकी PIN:');if(v===null)return;if(/^\d{4}$/.test(v)){S.set.pin=hp(v);save();render();toast('PIN सेट झाला.')}else toast('PIN 4 अंकी असावा.')}}
+function lockCheck(){if(S.set.pin){$('#lock').style.display='grid';$('#lockPin').value='';setTimeout(()=>$('#lockPin').focus(),50)}}
+function unlock(){if(hp($('#lockPin').value)===S.set.pin)$('#lock').style.display='none';else{$('#lockMsg').textContent=tx('चुकीचा PIN');$('#lockPin').value=''}}
+let hiddenAt=0;document.addEventListener('visibilitychange',()=>{if(document.hidden)hiddenAt=Date.now();else if(hiddenAt&&Date.now()-hiddenAt>60000)lockCheck()});
+function openSOS(){openModal(`<h2 style="color:var(--red)">🆘 SOS</h2><p class="mut" id="sosS">लोकेशन घेत आहे…</p><div id="sosB"></div><button class="btn ghost" onclick="closeModal()">बंद करा</button>`);
+  const fin=(a,b)=>sosReady(a,b);if(!navigator.geolocation)return fin(S.cur?S.cur.a:null,S.cur?S.cur.b:null);navigator.geolocation.getCurrentPosition(p=>fin(p.coords.latitude,p.coords.longitude),()=>fin(S.cur?S.cur.a:null,S.cur?S.cur.b:null),{enableHighAccuracy:true,timeout:8000})}
+function sosReady(a,b){const link=a!=null?`https://maps.google.com/?q=${a},${b}`:'(लोकेशन मिळाले नाही)';window._sos=`🆘 मी अडचणीत आहे / अपघात झाला आहे. माझे लोकेशन: ${link}`;const s=$('#sosS');if(!s)return;s.textContent=a!=null?'लोकेशन तयार ✅':'GPS मिळाले नाही — शेवटचे ज्ञात लोकेशन वापरले जाईल';
+  const nums=(S.set.sosNums||'').split(/[,\s]+/).filter(Boolean),A='display:block;text-align:center;text-decoration:none';
+  $('#sosB').innerHTML=(nums.map(n=>`<a class="btn red" style="${A}" href="sms:${esc(n)}?&body=${encodeURIComponent(window._sos)}">📩 SMS ${esc(n)}</a><a class="btn ghost" style="${A}" href="https://wa.me/${(n.replace(/\D/g,'').length===10?'91':'')+n.replace(/\D/g,'')}?text=${encodeURIComponent(window._sos)}" target="_blank">WhatsApp ${esc(n)}</a>`).join('')||'<p class="mut">सेटिंगमध्ये कुटुंबाचे नंबर टाका.</p>')+`<button class="btn" onclick="navigator.share?navigator.share({text:window._sos}).catch(()=>{}):toast('शेअर उपलब्ध नाही')">📤 शेअर करा</button><a class="btn red" style="${A}" href="tel:112">📞 112 वर कॉल</a><p class="mut">लाईव्ह लोकेशन सतत पाठवण्यासाठी WhatsApp मध्ये "Share live location" वापरा. हे ॲप फक्त आत्ताचे लोकेशन पाठवते.</p>`}
+function handleHash(){const h=location.hash.slice(1);if(!h)return;if(h==='sos')openSOS();else if(h==='duty'){tab='duty';render()}else if(h.startsWith('q=')){const c=decodeURIComponent(h.slice(2));if(COS.includes(c))quickAdd(c)}history.replaceState(null,'',location.pathname)}
+window.addEventListener('online',()=>{render();if(S.orders.length&&Date.now()-(S.lastBackup||0)>864e5)toast('ऑनलाइन — बॅकअप घ्या (सेटिंग)')});window.addEventListener('offline',render);
+const _al=window.alert.bind(window),_co=window.confirm.bind(window),_pr=window.prompt.bind(window);window.alert=m=>_al(tx(m));window.confirm=m=>_co(tx(m));window.prompt=(m,d)=>_pr(tx(m),d);
+
+/* ================= QUICK ORDER + VOICE (v3.1) ================= */
+const BADREST=['Quick','Voice','Per-km trip','(Delivery Saathi)','—',''];
+function renderKeep(){const v={};document.querySelectorAll('#main input[id],#main select[id],#main textarea[id]').forEach(e=>{if(e.type!=='file')v[e.id]=e.type==='checkbox'?e.checked:e.value});const y=scrollY;render();Object.keys(v).forEach(k=>{const e=document.getElementById(k);if(!e)return;if(e.type==='checkbox')e.checked=v[k];else e.value=v[k]});scrollTo(0,y)}
+function toast(m,act,fn){const t=$('#toast');t.textContent=tx(m);if(act){const b=document.createElement('button');b.type='button';b.textContent=tx(act);b.onclick=()=>{t.style.display='none';fn()};t.appendChild(b)}t.style.display='block';clearTimeout(toast.h);toast.h=setTimeout(()=>t.style.display='none',act?5500:2800)}
+function quickCard(){return `<div class="card"><h3>⚡ वन-टॅप ऑर्डर</h3><label class="chk" style="margin:0 0 10px"><input type="checkbox" ${S.set.viaSf?'checked':''} onchange="S.set.viaSf=this.checked;save()"> Shadowfax मार्फत</label><div class="qg">${COS.slice(0,4).map(c=>{const a=qAmt(c);return `<button class="qb" onclick="quickTap('${c}')">${c}<small>${a?inr(a):'रक्कम टाका'}</small><i class="qe" onclick="event.stopPropagation();quickModal('${c}',${a},'',${!!S.set.viaSf})">✎</i></button>`}).join('')}</div><div class="two"><button class="btn ghost" onclick="voiceQuick()">🎤 बोलून ऑर्डर</button><button class="btn ghost" onclick="undoLast()">↩ शेवटची Undo</button></div><p class="mut" style="margin:8px 0 0">रक्कम सेट असेल तर १ टॅप = ऑर्डर सेव्ह. ✎ ने रक्कम बदला.</p></div>`}
+function quickTap(c){const a=qAmt(c);if(a>0)quickAdd(c,a,'',false);else quickModal(c,0,'',!!S.set.viaSf)}
+function quickAdd(c,amt,rest,remember){const cur=S.cur&&Date.now()-S.cur.t<600000?S.cur:null,earn=amt!=null&&amt>0?amt:qAmt(c);if(!(earn>0)){quickModal(c,0,rest,!!S.set.viaSf);return}
+  const o={id:Date.now(),ts:Date.now(),rest:rest||'',pl:c,via:S.set.viaSf?'Shadowfax':'',area:'',earn,km:0,cod:0,tip:0,lat:cur?cur.a:null,lng:cur?cur.b:null};S.orders.push(o);S.set.lastQ=c;save();renderKeep();
+  toast(c+' '+inr(earn)+' ✔ ऑर्डर नोंदवली. '+slabMsg(c),'↩ Undo',()=>undoLast());if(navigator.vibrate)navigator.vibrate(40)}
+function undoLast(){const o=S.orders.slice().sort((a,b)=>b.id-a.id)[0];if(!o){toast('ऑर्डर नाही');return}if(o.cod)cashAdd(o.pl,-o.cod);S.orders=S.orders.filter(x=>x.id!==o.id);save();renderKeep();toast('Undo झाले: '+inr(o.earn))}
+function quickModal(c,amt,rest,via,heard){window._qc=c||S.set.lastQ||'Swiggy';openModal(`<h2>⚡ ऑर्डर नोंदवा</h2>${heard?`<p class="mut">ऐकले: "${esc(heard)}"</p>`:''}<div class="seg" id="qmc">${COS.slice(0,4).map(x=>`<button class="${x===window._qc?'on':''}" onclick="qmSel('${x}')">${x}</button>`).join('')}</div><label>कमाई ₹</label><input id="qma" type="number" inputmode="decimal" value="${amt||''}" placeholder="0"><div style="margin-top:8px">${[30,40,50,60,80,100].map(v=>`<span class="chip" onclick="$('#qma').value=${v}">₹${v}</span>`).join('')}</div><label>रेस्टॉरंट (ऐच्छिक)</label><input id="qmr" value="${esc(rest||'')}"><label class="chk"><input type="checkbox" id="qmv" ${via?'checked':''}> Shadowfax मार्फत</label><button class="btn big" onclick="qmSave()">✔ ऑर्डर सेव्ह</button><button class="btn ghost" onclick="closeModal()">रद्द</button>`);setTimeout(()=>{const a=$('#qma');if(a&&!a.value)a.focus()},150)}
+function qmSel(c){window._qc=c;document.querySelectorAll('#qmc button').forEach(b=>b.classList.toggle('on',b.textContent===c));const a=$('#qma');if(a&&!a.value&&qAmt(c))a.value=qAmt(c)}
+function qmSave(){const a=num($('#qma').value);if(!(a>0)){toast('कमाई ₹ टाका');return}const c=window._qc||'Swiggy';S.set['q_'+c]=a;S.set.viaSf=$('#qmv').checked;const r=$('#qmr').value.trim();closeModal();quickAdd(c,a,r,true)}
+/* voice */
+const NW={zero:0,one:1,two:2,three:3,four:4,five:5,six:6,seven:7,eight:8,nine:9,ten:10,eleven:11,twelve:12,thirteen:13,fourteen:14,fifteen:15,sixteen:16,seventeen:17,eighteen:18,nineteen:19,twenty:20,thirty:30,forty:40,fifty:50,sixty:60,seventy:70,eighty:80,ninety:90,hundred:100,
+ दहा:10,वीस:20,तीस:30,चाळीस:40,पन्नास:50,साठ:60,सत्तर:70,ऐंशी:80,नव्वद:90,शंभर:100,पाच:5,पंधरा:15,पंचवीस:25,पस्तीस:35,पंचेचाळीस:45,पंचावन्न:55,पासष्ट:65,पंच्याहत्तर:75,पंचाऐंशी:85,पंचाण्णव:95,
+ दस:10,बीस:20,चालीस:40,पचास:50,सौ:100,पंद्रह:15,पच्चीस:25,पैंतीस:35,पैंतालीस:45,पचपन:55,पैंसठ:65,पचहत्तर:75,पिचासी:85,पंचानवे:95,पांच:5};
+function wordsNum(l){let tot=0,f=0,any=false;l.split(/[\s,.]+/).forEach(w=>{if(NW[w]!==undefined){any=true;const v=NW[w];if(v===100){tot+=(f||1)*100;f=0}else f+=v}});return any?tot+f:0}
+const CO_RE=[['Swiggy',/swig+y|स्विगी|स्वीगी|सविगी/i],['Zomato',/zomato|झोमॅटो|झोमाटो|जोमॅटो|जोमाटो|ज़ोमैटो|जोमैटो/i],['Zepto',/zepto|झेप्टो|जेप्टो|ज़ेप्टो/i],['BigBasket',/big ?basket|बिग ?बास्केट|बिग ?बॅस्केट|बिग ?बास्कट/i]];
+function parseOrder(alts){let best=null;alts.forEach(t0=>{const t=t0.replace(/[०-९]/g,c=>'०१२३४५६७८९'.indexOf(c)),c=(CO_RE.find(x=>x[1].test(t))||[])[0],m=t.match(/\d+(\.\d+)?/),a=m?+m[0]:wordsNum(t.toLowerCase()),s=(c?1:0)+(a?1:0);if(!best||s>best.s)best={s,c,a,t}});
+  let rest=best.t;CO_RE.forEach(x=>{rest=rest.replace(x[1],' ')});rest=rest.replace(/\d+(\.\d+)?/g,' ').replace(/(rupees?|rs\.?|रुपये|रुपए|रु\.?|₹)/ig,' ').split(/\s+/).filter(w=>w&&NW[w.toLowerCase()]===undefined).join(' ').trim();return{c:best.c,a:best.a,rest,heard:best.t}}
+function listen(onText){const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){toast('या ब्राउझरमध्ये आवाज सुविधा नाही. Chrome वापरा.');return}
+  if(window.isSecureContext===false){toast('आवाजासाठी https लिंक लागते (netlify वर ठेवा)');return}
+  const r=new SR();r.lang={mr:'mr-IN',hi:'hi-IN',en:'en-IN'}[S.set.lang||'mr'];r.interimResults=false;r.maxAlternatives=3;let got=false;
+  openModal(`<h2>🎤 बोला…</h2><div class="mic">🎙</div><p class="mut" style="text-align:center">उदा. "Swiggy 60" किंवा "Zomato पन्नास McDonald's"</p><button class="btn ghost" id="micx">रद्द</button>`);$('#micx').onclick=()=>{try{r.abort()}catch(e){}closeModal()};
+  r.onresult=ev=>{got=true;closeModal();onText([...ev.results[0]].map(a=>a.transcript))};
+  r.onerror=e=>{got=true;closeModal();toast({'not-allowed':'माइक परवानगी द्या (ब्राउझर सेटिंग → साइट → माइक)','service-not-allowed':'माइक परवानगी द्या','no-speech':'आवाज ऐकू आला नाही — पुन्हा बोला','network':'आवाजासाठी इंटरनेट लागते','audio-capture':'माइक सापडला नाही'}[e.error]||'आवाज ओळखता आला नाही')};
+  r.onend=()=>{if(!got){closeModal()}};try{r.start()}catch(e){closeModal();toast('माइक सुरू करता आला नाही')}}
+function voiceQuick(){listen(alts=>{const p=parseOrder(alts);if(S.set.voiceAuto&&p.c&&p.a>0)quickAdd(p.c,p.a,p.rest,true);else quickModal(p.c,p.a||0,p.rest,!!S.set.viaSf,p.heard)})}
+function voiceInto(id){listen(alts=>{const e=document.getElementById(id);if(e)e.value=alts[0].replace(/[०-९]/g,c=>'०१२३४५६७८९'.indexOf(c))})}
+
+/* ================= v3.2: GPS, CASH, EDIT, OCR, OFFLINE, AUTO-BACKUP ================= */
+/* ---- GPS (robust) ---- */
+window._g={st:'wait',acc:0,t:0};
+function startGPS(){if(!navigator.geolocation){window._g={st:'none',acc:0,t:0};return}if(wid!=null)return;window._g={st:'wait',acc:0,t:0};
+  wid=navigator.geolocation.watchPosition(p=>{const a=p.coords.latitude,b=p.coords.longitude,c=p.coords.accuracy,now=Date.now();S.cur={a,b,t:now};window._g={st:c<=100?'ok':'weak',acc:Math.round(c),t:now};
+    if(S.duty&&c<=100){const pts=S.duty.pts,l=pts[pts.length-1];if(!l)pts.push([a,b,now]);else{const d=hav(l[0],l[1],a,b),dt=(now-(l[2]||now-1000))/36e5,sp=dt>0?d/dt:0;if(d>=0.015){if(d<2||sp<=110){S.duty.gps+=d;pts.push([a,b,now])}else if(c<=30)pts.push([a,b,now])}if(pts.length>3000)pts.splice(1,1)}}
+    if(now-(window._ls||0)>5000){window._ls=now;save()}if(tab==='duty')updLive()},
+  e=>{window._g.st=e.code===1?'denied':'err';window._g.err=e.message;if(tab==='duty')updLive()},{enableHighAccuracy:true,maximumAge:2000,timeout:30000})}
+function stopGPS(){if(wid!=null)navigator.geolocation.clearWatch(wid);wid=null}
+function restartGPS(q){stopGPS();startGPS();if(!q)toast('GPS पुन्हा सुरू केले')}
+function gpsHtml(){const g=window._g||{},age=Math.round((Date.now()-(g.t||0))/1000),B='<button class="x" onclick="restartGPS()">पुन्हा सुरू करा</button>';
+  if(window.isSecureContext===false)return '<span>⚠ GPS साठी https लिंक लागते — ॲप netlify वर ठेवा (फाईलमधून GPS चालत नाही)</span>';
+  if(g.st==='denied')return '<span>🚫 Location परवानगी नाही — Chrome → साइट सेटिंग → Location → Allow</span> <button class="x" onclick="restartGPS()">पुन्हा प्रयत्न</button>';
+  if(g.st==='none')return '<span>⚠ या फोनमध्ये GPS नाही</span>';
+  if(!g.t)return '<span>📡 GPS शोधत आहे… मोकळ्या जागेत या</span> '+B;
+  if(age>90)return `<span>⚠ GPS अपडेट थांबले (${age} सेकंद)</span> `+B;
+  if(g.st==='weak')return `<span>📡 GPS कमकुवत (±${g.acc} m) — रस्ता मोजला जात नाही</span>`;
+  return `<span>🟢 GPS चालू (±${g.acc} m)</span>`}
+setInterval(()=>{if(S.duty&&wid!=null&&window._g&&window._g.t&&Date.now()-window._g.t>120000)restartGPS(true)},20000);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden&&S.duty)restartGPS(true)});
+/* ---- cash per company (floating cash) ---- */
+const CASHCO=['Swiggy','Zomato','Zepto','BigBasket','Other'];
+const cashTotal=()=>CASHCO.reduce((s,c)=>s+(+S.cashBy[c]||0),0);
+function ensureCash(){S.cashBy=S.cashBy||{};CASHCO.forEach(c=>S.cashBy[c]=+S.cashBy[c]||0);S.cashLog=S.cashLog||[];const d=(+S.cash||0)-cashTotal();if(Math.abs(d)>0.005)S.cashBy.Other+=d;S.cash=cashTotal()}
+function cashAdd(c,amt){ensureCash();c=CASHCO.includes(c)?c:'Other';S.cashBy[c]+=amt;S.cash=cashTotal()}
+function cashCard(){ensureCash();const o=todayOrders(),cod=sum(o,'cod'),dep=sum(S.deposits.filter(x=>sameDay(x.ts)),'amt');
+  return `<div class="card"><h3>💰 कॅश (फ्लोटिंग) आणि टार्गेट</h3><div class="two"><div><label>एकूण हातात कॅश ₹</label><input type="number" inputmode="decimal" value="${Math.round(S.cash)||''}" onchange="cashAdd('Other',num(this.value)-cashTotal());save();render();toast('कॅश अपडेट')"></div><div><label>आजचे टार्गेट ₹</label><input type="number" inputmode="decimal" value="${S.set.goal||''}" placeholder="1500" onchange="S.set.goal=num(this.value);save();updLive()"></div></div>
+  <div style="margin:8px 0">${CASHCO.filter(c=>S.cashBy[c]).map(c=>`<span class="chip">${c} ${inr(S.cashBy[c])}</span>`).join('')||'<span class="mut">कंपनीनुसार कॅश नाही</span>'}</div>
+  <p class="mut">आज COD गोळा ${inr(cod)} • जमा केले ${inr(dep)}</p><div class="two"><button class="btn ghost" onclick="depositModal()">⬇ डिपॉझिट</button><button class="btn ghost" onclick="tab='exp';xs='c';render()">💰 कॅश टॅब</button></div></div>`}
+function depositModal(c){ensureCash();c=c||CASHCO.slice().sort((a,b)=>S.cashBy[b]-S.cashBy[a])[0];window._dc=c;openModal(`<h2>⬇ कॅश डिपॉझिट</h2><label>कंपनी</label><div class="seg" id="dcs">${CASHCO.map(x=>`<button class="${x===c?'on':''}" onclick="dcSel('${x}')">${x}</button>`).join('')}</div><p class="mut" id="dcf">फ्लोटिंग: ${inr(S.cashBy[c])}</p><label>रक्कम ₹</label><input id="dca" type="number" inputmode="decimal" value="${S.cashBy[c]>0?Math.round(S.cashBy[c]):''}"><button class="btn big" onclick="dcSave()">✔ जमा नोंदवा</button><button class="btn ghost" onclick="closeModal()">रद्द</button>`)}
+function dcSel(c){window._dc=c;document.querySelectorAll('#dcs button').forEach(b=>b.classList.toggle('on',b.textContent===c));$('#dcf').textContent=tx('फ्लोटिंग: ')+inr(S.cashBy[c]);$('#dca').value=S.cashBy[c]>0?Math.round(S.cashBy[c]):''}
+function dcSave(){const a=num($('#dca').value);if(!(a>0)){toast('रक्कम टाका');return}const c=window._dc;S.deposits.unshift({id:Date.now(),ts:Date.now(),amt:a,c});cashAdd(c,-a);save();closeModal();render();toast('जमा नोंदवले')}
+function depositCash(){depositModal()}
+function adjModal(c){window._ac=c;openModal(`<h2>± कॅश दुरुस्ती</h2><div class="seg" id="acs">${CASHCO.map(x=>`<button class="${x===c?'on':''}" onclick="window._ac='${x}';document.querySelectorAll('#acs button').forEach(b=>b.classList.toggle('on',b.textContent==='${x}'))">${x}</button>`).join('')}</div><label>रक्कम (+ वाढ / − घट)</label><input id="aca" type="number" inputmode="decimal" placeholder="उदा. 200 किंवा -150"><label>कारण (ऐच्छिक)</label><input id="acn"><button class="btn big" onclick="adjSave()">✔ सेव्ह</button><button class="btn ghost" onclick="closeModal()">रद्द</button>`)}
+function adjSave(){const a=num($('#aca').value);if(!a){toast('रक्कम टाका');return}const c=window._ac;S.cashLog.unshift({id:Date.now(),ts:Date.now(),c,amt:a,note:$('#acn').value.trim()});cashAdd(c,a);save();closeModal();render();toast('कॅश दुरुस्त केली')}
+function undoCash(k,id){if(!confirm('ही नोंद रद्द करायची? (कॅश परत बदलेल)'))return;if(k==='d'){const d=S.deposits.find(x=>x.id===id);if(d){cashAdd(d.c||'Other',d.amt);S.deposits=S.deposits.filter(x=>x.id!==id)}}else{const d=S.cashLog.find(x=>x.id===id);if(d){cashAdd(d.c,-d.amt);S.cashLog=S.cashLog.filter(x=>x.id!==id)}}save();render()}
+function vCash(){ensureCash();const t0=dayStart(Date.now());
+  const card=c=>{const col=sum(S.orders.filter(o=>o.pl===c),'cod'),ct=sum(S.orders.filter(o=>o.pl===c&&o.ts>=t0),'cod'),dep=sum(S.deposits.filter(d=>(d.c||'Other')===c),'amt'),fl=S.cashBy[c]||0,lim=+S.set['lim_'+c]||0,pc=lim?Math.min(100,fl/lim*100):0,cl=!lim?'var(--ac)':fl>=lim?'var(--red)':fl>=lim*.8?'#ffb020':'var(--ac)';
+    return `<div class="card"><div class="row"><h3 style="margin:0">${c}</h3><b style="font-size:24px;color:${cl}">${inr(fl)}</b></div><p class="mut">फ्लोटिंग कॅश (हातात) • आज COD ${inr(ct)} • एकूण COD ${inr(col)} • जमा केले ${inr(dep)}</p>${lim?`<div class="pbar"><i style="width:${pc}%;background:${cl}"></i></div>`:''}<label>फ्लोटिंग मर्यादा ₹</label><input type="number" inputmode="decimal" value="${lim||''}" placeholder="0" onchange="S.set['lim_${c}']=num(this.value);save();render()"><div class="two"><button class="btn ghost" onclick="depositModal('${c}')">⬇ डिपॉझिट</button><button class="btn ghost" onclick="adjModal('${c}')">± दुरुस्ती</button></div></div>`};
+  const led=[...S.deposits.map(d=>({k:'d',id:d.id,ts:d.ts,c:d.c||'Other',amt:-d.amt,n:'जमा'})),...S.cashLog.map(d=>({k:'a',id:d.id,ts:d.ts,c:d.c,amt:d.amt,n:d.note||'दुरुस्ती'}))].sort((a,b)=>b.ts-a.ts).slice(0,15);
+  return `<div class="card hero"><h3>एकूण हातातील कॅश (फ्लोटिंग)</h3><div class="big">${inr(cashTotal())}</div><div class="mut">कंपनीला द्यायचे / डिपॉझिट करायचे</div></div>${CASHCO.map(card).join('')}<div class="card"><h3>कॅश नोंदी</h3>${led.length?led.map(x=>`<div class="item"><div class="m"><div class="t">${esc(x.c)} • ${esc(x.n)}</div><div class="s">${dmy(x.ts)} ${hhmm(x.ts)}</div></div><div class="v" style="color:${x.amt<0?'var(--red)':'var(--ac)'}">${x.amt<0?'−':'+'}${inr(Math.abs(x.amt))}</div><button class="x" onclick="undoCash('${x.k}',${x.id})">✕</button></div>`).join(''):'<p class="mut">अजून नोंद नाही.</p>'}</div>`}
+/* ---- full edit modals ---- */
+function editOrder(id){const o=S.orders.find(x=>x.id===id);if(!o)return;window._eo=id;openModal(`<h2>✎ ऑर्डर एडिट</h2><label>रेस्टॉरंट</label><input id="eR" value="${esc(o.rest)}"><div class="two"><div><label>कंपनी</label><select id="eP">${COS.map(x=>`<option${x===o.pl?' selected':''}>${x}</option>`).join('')}</select></div><div><label>एरिया</label><input id="eA" value="${esc(o.area||'')}"></div></div><label class="chk"><input type="checkbox" id="eV" ${o.via?'checked':''}> Shadowfax मार्फत</label><div class="two"><div><label>कमाई ₹</label><input id="eE" type="number" inputmode="decimal" value="${o.earn}"></div><div><label>अंतर km</label><input id="eK" type="number" step="any" inputmode="decimal" value="${o.km||''}"></div></div><div class="two"><div><label>टिप ₹</label><input id="eT" type="number" inputmode="decimal" value="${o.tip||''}"></div><div><label>COD कॅश ₹</label><input id="eC" type="number" inputmode="decimal" value="${o.cod||''}"></div></div><div class="two"><div><label>वेटिंग (मि)</label><input id="eW" type="number" inputmode="decimal" value="${o.wait||''}"></div><div><label>ट्रिप वेळ (मि)</label><input id="eM" type="number" inputmode="decimal" value="${o.tm||''}"></div></div><label>पत्ता नोंद</label><input id="eN" value="${esc(o.an||'')}"><label>वेळ</label><input id="eD" type="datetime-local" value="${lIso(o.ts)}"><button class="btn big" onclick="saveEditOrder()">✔ सेव्ह</button><button class="btn ghost" onclick="closeModal()">रद्द</button>`)}
+function saveEditOrder(){const o=S.orders.find(x=>x.id===window._eo);if(!o)return;const oc=o.cod||0,op=o.pl;o.rest=$('#eR').value.trim();o.pl=$('#eP').value;o.via=$('#eV').checked?'Shadowfax':'';o.area=$('#eA').value.trim();o.earn=num($('#eE').value);o.km=num($('#eK').value);o.tip=num($('#eT').value);o.cod=num($('#eC').value);o.wait=num($('#eW').value);o.tm=num($('#eM').value);o.an=$('#eN').value.trim();const ts=new Date($('#eD').value).getTime();if(isFinite(ts))o.ts=ts;cashAdd(op,-oc);cashAdd(o.pl,o.cod);save();closeModal();render();toast('एडिट सेव्ह झाले')}
+function editRec(k,id){const L=k==='x'?S.exps:k==='i'?S.incs:S.fuels,r=L.find(x=>x.id===id);if(!r)return;window._er=[k,id];
+  const body=k==='x'?`<label>प्रकार</label><select id="rC">${XCAT.map(x=>`<option${x===r.cat?' selected':''}>${x}</option>`).join('')}</select><label>रक्कम ₹</label><input id="rA" type="number" inputmode="decimal" value="${r.amt}"><label>नोट</label><input id="rN" value="${esc(r.note||'')}">`:k==='i'?`<label>कंपनी</label><select id="rP">${COS.map(x=>`<option${x===r.pl?' selected':''}>${x}</option>`).join('')}</select><label>रक्कम ₹</label><input id="rA" type="number" inputmode="decimal" value="${r.amt}"><label>नोट</label><input id="rN" value="${esc(r.note||'')}">`:`<div class="two"><div><label>लिटर</label><input id="rL" type="number" step="any" inputmode="decimal" value="${r.l||''}"></div><div><label>रक्कम ₹</label><input id="rA" type="number" inputmode="decimal" value="${r.a}"></div></div><label>ओडोमीटर (km)</label><input id="rO" type="number" inputmode="decimal" value="${r.odo||''}">`;
+  openModal(`<h2>✎ ${k==='x'?'खर्च':k==='i'?'इन्सेंटिव्ह':'पेट्रोल'} एडिट</h2>${body}<button class="btn big" onclick="saveRec()">✔ सेव्ह</button><button class="btn ghost" onclick="closeModal()">रद्द</button>`)}
+function saveRec(){const [k,id]=window._er,L=k==='x'?S.exps:k==='i'?S.incs:S.fuels,r=L.find(x=>x.id===id);if(!r)return;const a=num($('#rA').value);if(!(a>0)){toast('रक्कम टाका');return}
+  if(k==='x'){if(r.cash)cashAdd('Other',r.amt-a);r.cat=$('#rC').value;r.amt=a;r.note=$('#rN').value.trim()}else if(k==='i'){r.pl=$('#rP').value;r.amt=a;r.note=$('#rN').value.trim()}else{if(r.cash)cashAdd('Other',r.a-a);r.a=a;r.l=num($('#rL').value);r.r=r.l>0?Math.round(a/r.l*100)/100:r.r;r.odo=num($('#rO').value)}
+  save();closeModal();render();toast('एडिट सेव्ह झाले')}
+/* ---- bill photo + OCR restaurant name ---- */
+window._bill=null;
+function lev(a,b){const m=a.length,n=b.length;if(!m)return n;if(!n)return m;let p=Array.from({length:n+1},(_,i)=>i);for(let i=1;i<=m;i++){let c=[i];for(let j=1;j<=n;j++)c[j]=Math.min(p[j]+1,c[j-1]+1,p[j-1]+(a[i-1]===b[j-1]?0:1));p=c}return p[n]}
+const simil=(a,b)=>(a.includes(b)&&b.length>=4)||(b.includes(a)&&a.length>=4)?1:1-lev(a,b)/Math.max(a.length,b.length);
+function pickRest(text){const lines=String(text).split(/\n/).map(l=>l.replace(/[^A-Za-z0-9&'’.\-\s\u0900-\u097F]/g,' ').replace(/\s+/g,' ').trim()).filter(l=>l.length>=3),bad=/invoice|bill|receipt|tax|gst|gstin|fssai|date|time|order|table|phone|tel|mob|cash|total|qty|item|amount|thank|www|http|address|customer|token|kot|cin|pvt|ltd/i;
+  const cands=lines.slice(0,8).filter(l=>!bad.test(l)&&/[A-Za-z\u0900-\u097F]{3}/.test(l)&&!/\d{5,}/.test(l)).slice(0,4),known=[...new Set([...S.rests,...R])];let best=null;
+  lines.slice(0,14).forEach(l=>known.forEach(k=>{const sc=simil(l.toLowerCase(),k.toLowerCase());if(sc>.72&&(!best||sc>best.sc))best={name:k,sc}}));return{best:best&&best.name,cands}}
+function loadTess(){return window.Tesseract?Promise.resolve():new Promise((res,rej)=>{const s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/tesseract.js@5.1.1/dist/tesseract.min.js';s.onload=res;s.onerror=()=>rej(new Error('load'));document.head.appendChild(s)})}
+async function ocrText(url){if('TextDetector' in window){try{const td=new TextDetector(),bmp=await createImageBitmap(await (await fetch(url)).blob()),r=await td.detect(bmp);if(r.length)return r.map(x=>x.rawValue).join('\n')}catch(e){}}
+  if(!navigator.onLine)throw new Error('offline');await loadTess();const w=await Tesseract.createWorker('eng');try{const {data}=await w.recognize(url);return data.text}finally{try{await w.terminate()}catch(e){}}}
+async function billScan(f){const st=$('#obs');if(!f)return;if(st)st.textContent=tx('बिल स्कॅन करत आहे…');try{window._bill=await shrink(f)}catch(e){if(st)st.textContent=tx('फोटो वाचता आला नाही');return}
+  try{const t=await ocrText(window._bill),p=pickRest(t),name=p.best||p.cands[0];if(name){$('#or').value=name;if(st)st.innerHTML=tx('नाव सुचवले — तपासा')+(p.cands.length?' • '+tx('सुचवलेली नावे:')+' '+p.cands.map(c=>`<span class="chip" onclick="$('#or').value=this.textContent">${esc(c)}</span>`).join(''):'')}else if(st)st.textContent=tx('बिल वाचता आले नाही — नाव हाताने टाका')}
+  catch(e){if(st)st.textContent=e.message==='offline'?tx('स्कॅनसाठी इंटरनेट लागते (फोटो सेव्ह होईल) — नाव हाताने टाका'):tx('बिल वाचता आले नाही — नाव हाताने टाका')}}
+async function loadObills(){S.orders.filter(o=>o.bill).slice(-60).forEach(o=>rGet('ob'+o.id).then(s=>{const e=$('#ob'+o.id);if(e&&s)e.src=s}))}
+/* ---- offline + auto backup ---- */
+const sdb=()=>new Promise((res,rej)=>{const r=indexedDB.open('rt_snap',1);r.onupgradeneeded=()=>r.result.createObjectStore('s');r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error)});
+async function snapPut(){try{const d=await sdb(),ts=Date.now();await new Promise(r=>{const t=d.transaction('s','readwrite'),st=t.objectStore('s');st.put({ts,n:S.orders.length,x:S.exps.length,json:JSON.stringify(S)},String(ts));const q=st.getAllKeys();q.onsuccess=()=>{const ks=q.result.sort();while(ks.length>10)st.delete(ks.shift())};t.oncomplete=r;t.onerror=r})}catch(e){}}
+function autoSnap(){if(Date.now()-(S.set.lastSnap||0)>3*3600e3&&(S.orders.length||S.exps.length||S.fuels.length)){S.set.lastSnap=Date.now();save();snapPut()}}
+async function snapList(){try{const d=await sdb();return await new Promise(r=>{const q=d.transaction('s').objectStore('s').getAll();q.onsuccess=()=>r((q.result||[]).sort((a,b)=>b.ts-a.ts));q.onerror=()=>r([])})}catch(e){return[]}}
+async function snapRestore(ts){const d=await sdb(),v=await new Promise(r=>{const q=d.transaction('s').objectStore('s').get(String(ts));q.onsuccess=()=>r(q.result);q.onerror=()=>r(null)});if(!v||!confirm('या स्नॅपशॉटवर परत जायचे? सध्याचा डेटा बदलेल.'))return;S=Object.assign(fresh(),JSON.parse(v.json));ensureCash();save();render();toast('Restore पूर्ण')}
+async function fillSnaps(){const el=$('#snapL');if(!el)return;const l=await snapList();el.innerHTML=l.length?l.map(x=>`<div class="item"><div class="m"><div class="t">${dmy(x.ts)} ${hhmm(x.ts)}</div><div class="s">${x.n} orders • ${x.x} exp</div></div><button class="btn sm" onclick="snapRestore(${x.ts})">Restore</button></div>`).join(''):'<p class="mut">अजून स्नॅपशॉट नाही.</p>';applyLang()}
+const bkSig=()=>[S.orders.length,S.exps.length,S.fuels.length,S.incs.length,S.svcs.length,Math.round(S.cash)].join('|');
+async function silentDl(){const f=await backupFile(),a=document.createElement('a');a.href=URL.createObjectURL(f);a.download=f.name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),4000)}
+async function autoDl(force,manual){if(!manual&&S.set.autoDl===false)return;if(!force&&Date.now()-(S.lastBackup||0)<20*3600e3)return;if(!force&&S.set.lastSig===bkSig())return;S.set.lastSig=bkSig();await silentDl()}
+
+function swState(){return !('serviceWorker' in navigator)?'no':!window.isSecureContext?'insecure':navigator.serviceWorker.controller?'ok':'wait'}
+function offlineCard(){const s=swState();return `<div class="card"><h2>📴 ऑफलाइन आणि ऑटो बॅकअप</h2><p class="mut">${window._persist?'🔐 डेटा सुरक्षित साठवण: चालू — ब्राउझर तो आपोआप पुसणार नाही':'🔐 डेटा सुरक्षित साठवण: बंद — ॲप होम स्क्रीनवर जोडा आणि नियमित बॅकअप घ्या'}</p><p style="font-weight:700;color:${s==='ok'?'var(--ac)':'#ffb020'}">${s==='ok'?'✅ ऑफलाइन तयार — इंटरनेट बंद असले तरी ॲप उघडते':s==='wait'?'⏳ ऑफलाइनसाठी तयारी सुरू — एकदा पेज रिफ्रेश करा':'⚠ ऑफलाइनसाठी ॲप https लिंकवर (netlify) sw.js सह ठेवा'}</p><label class="chk"><input type="checkbox" ${S.set.autoDl===false?'':'checked'} onchange="S.set.autoDl=this.checked;save()"> बॅकअप फाईल आपोआप फोनच्या Downloads (अंतर्गत मेमरी) मध्ये सेव्ह करा — ड्युटी संपल्यावर</label><p class="mut">Android Chrome वेबसाईटला बॅकग्राउंडमध्ये थेट फोल्डरमध्ये लिहू देत नाही, म्हणून ही फाईल तुमच्या टॅपच्या वेळी सेव्ह होते. पहिल्यांदा "अनेक फाईल डाउनलोड" ची परवानगी विचारेल.</p><button class="btn ghost" onclick="autoDl(true,true).then(()=>toast('बॅकअप फाईल सेव्ह केली'))">⬇ आत्ता फाईल सेव्ह करा</button><h3 style="margin-top:14px">ॲपमधील ऑटो स्नॅपशॉट (दर ३ तासांनी, शेवटचे १०)</h3><div id="snapL"></div><button class="btn ghost" onclick="snapPut().then(()=>{S.set.lastSnap=Date.now();save();fillSnaps();toast('स्नॅपशॉट घेतला')})">📸 आत्ता स्नॅपशॉट घ्या</button></div>`}
+
+/* ================= v3.3: SIMPLE MODE + HELP + SMALL FIXES ================= */
+const ADV=()=>!!S.set.adv;
+function helpModal(){openModal(`<h2>❓ कसे वापरायचे</h2>${[['१. ड्युटी सुरू करा','🏍 ड्युटी टॅबमधील मोठा स्विच दाबा आणि ओडोमीटर टाका.'],['२. ऑर्डर नोंदवा','ऑर्डर आली की Swiggy / Zomato चे मोठे बटण दाबा. पहिल्यांदा रक्कम विचारेल, नंतर १ टॅप. चूक झाली तर Undo.'],['३. खर्च नोंदवा','💸 खर्च टॅबमध्ये पेट्रोल, जेवण आणि कॅश (COD) नोंदवा.'],['४. ड्युटी संपवा','स्विच पुन्हा दाबा. आजचा नफा दिसेल आणि बॅकअप फाईल आपोआप सेव्ह होते.']].map(x=>`<div class="item"><div class="m"><div class="t">${x[0]}</div><div class="s" style="white-space:normal">${x[1]}</div></div></div>`).join('')}<p class="mut">जास्त पर्याय हवेत? ⚙ सेटिंग → "पूर्ण" मोड निवडा.</p><button class="btn big" onclick="closeModal()">समजले</button>`)}
+function delOrder(id){const o=S.orders.find(x=>x.id===id);if(!o)return;S.orders=S.orders.filter(x=>x.id!==id);if(o.cod)cashAdd(o.pl,-o.cod);save();renderKeep();toast('ऑर्डर हटवली','↩ Undo',()=>{S.orders.push(o);if(o.cod)cashAdd(o.pl,o.cod);save();renderKeep()})}
+function shareToday(){const A=per(dayStart(Date.now())),t=`📅 ${dmy(Date.now())} — रायडर हिशोब\nऑर्डर: ${A.os.length}\nकमाई: ${inr(A.earn)} (टिप ${inr(A.tip)}, इन्सेंटिव्ह ${inr(A.inc)})\nपेट्रोल: ${inr(A.fuel)} • इतर खर्च: ${inr(A.ex)}\nटेक-होम: ${inr(A.net)}\nहातात कॅश: ${inr(S.cash)}`;(navigator.share?navigator.share({text:tx(t)}):Promise.reject()).catch(()=>{try{navigator.clipboard.writeText(tx(t));toast('कॉपी केले')}catch(e){}})}
+window._persist=null;try{if(navigator.storage&&navigator.storage.persist){navigator.storage.persisted().then(p=>p?p:navigator.storage.persist()).then(r=>{window._persist=!!r}).catch(()=>{})}}catch(e){}
+
+/* ================= LANGUAGE ================= */
+const DICT_RAW=`(एरिया नाही)|(no area)|(एरिया नहीं)
++ ऑर्डर सेव्ह|+ Save order|+ ऑर्डर सेव करें
++ चलन जोडा|+ Add challan|+ चालान जोड़ें
++ रेकॉर्डमध्ये जोडा|+ Add to records|+ रिकॉर्ड में जोड़ें
++ लिस्टमध्ये जोडा|+ Add to list|+ लिस्ट में जोड़ें
++ सण जोडा|+ Add festival|+ त्योहार जोड़ें
++ स्लॅब जोडा|+ Add slab|+ स्लैब जोड़ें
++ हप्ता जोडा|+ Add instalment|+ किस्त जोड़ें
++ सेव्ह|+ Save|+ सेव करें
+ सेव्ह)| saved)| सेव)
+ ऑर्डर •| orders •| ऑर्डर •
+सेव्ह करा|Save|सेव करें
+ऑर्डर कमाई|Order earnings|ऑर्डर कमाई
+सरासरी|avg|औसत
+/ऑर्डर|/order|/ऑर्डर
+इन्सेंटिव्ह रेकॉर्ड जोडा|Add incentive record|इंसेंटिव रिकॉर्ड जोड़ें
+इन्सेंटिव्ह|Incentive|इंसेंटिव
+भेटी|visits|विज़िट
+दूर|away|दूर
+COD कॅश ₹|COD cash ₹|COD कैश ₹
+Drive ला थेट ऑटो-बॅकअपसाठी Google खाते जोडावे लागते, जे या ॲपमध्ये नाही. शेअर शीटमध्ये "Drive मध्ये सेव्ह करा" निवडा. ऑनलाइन आल्यावर बॅकअप जुना असेल तर आठवण येते.|Direct auto-backup to Drive needs a Google account sign-in, which this app does not have. In the share sheet choose "Save to Drive". When you are back online you will be reminded if the backup is old.|Drive में सीधे ऑटो-बैकअप के लिए Google खाता जोड़ना पड़ता है, जो इस ऐप में नहीं है। शेयर शीट में "Drive में सेव करें" चुनें। ऑनलाइन आने पर बैकअप पुराना हो तो याद दिलाया जाएगा।
+PDF साठी उघडलेल्या पानावर "Print → Save as PDF" निवडा.|On the page that opens choose "Print → Save as PDF".|खुले पेज पर "Print → Save as PDF" चुनें।
+SOS टेस्ट करा|Test SOS|SOS टेस्ट करें
+Shadowfax द्वारे कंपनीनुसार कमाई|Earnings by company via Shadowfax|Shadowfax से कंपनी के अनुसार कमाई
+Shadowfax मधून कोणत्या कंपनीची ऑर्डर?|Which company's order via Shadowfax?|Shadowfax से किस कंपनी का ऑर्डर?
+Surge / पाऊस|Surge / Rain|Surge / बारिश
+Peak / ट्रॅफिक बोनस|Peak / Traffic bonus|Peak / ट्रैफिक बोनस
+चे स्लॅब (तुमच्या कंपनीप्रमाणे बदला)| slabs (edit as per your company)|के स्लैब (अपनी कंपनी के अनुसार बदलें)
+— आजचे इन्सेंटिव्ह|— today's incentive|— आज का इंसेंटिव
+अंतर km|Distance km|दूरी km
+अंदाजे सर्व्हिस खर्च (निवडलेले पार्ट्स + लेबर)|Estimated service cost (selected parts + labour)|अनुमानित सर्विस खर्च (चुने पार्ट्स + लेबर)
+अजून नोंद नाही.|No entries yet.|अभी कोई एंट्री नहीं।
+अजून बॅकअप नाही.|No backup yet.|अभी बैकअप नहीं।
+अजून बाकी (टार्गेट − कॅश)|Still to clear (target − cash)|अभी बाकी (लक्ष्य − कैश)
+अधिक तपशील (ट्रिप वेळ, वेटिंग, पत्ता नोंद)|More details (trip time, waiting, address note)|अधिक विवरण (ट्रिप समय, वेटिंग, पता नोट)
+अनुभव / नोट|Experience / note|अनुभव / नोट
+आज: रिजेक्ट|Today: rejected|आज: रिजेक्ट
+कॅन्सल|cancelled|कैंसल
+मोजल्या असत्या तर इन्सेंटिव्ह|if counted, incentive|गिनते तो इंसेंटिव
+आजचा टेक-होम अंदाज|Today's take-home estimate|आज का टेक-होम अनुमान
+आजच्या ऑर्डर|Today's orders|आज के ऑर्डर
+आठवड्याचे ऑर्डर टार्गेट|Weekly order target|साप्ताहिक ऑर्डर लक्ष्य
+आज ऑर्डर| today orders|आज ऑर्डर
+पुढचा स्लॅब|Next slab|अगला स्लैब
+बाकी →|left →|बाकी →
+आज|Today|आज
+इतर इलेक्ट्रिक|Other electric|अन्य इलेक्ट्रिक
+इतर मोटरसायकल|Other motorcycle|अन्य मोटरसायकल
+इतर स्कूटर|Other scooter|अन्य स्कूटर
+इतर खर्च जोडा|Add other expense|अन्य खर्च जोड़ें
+इतर खर्च|Other expenses|अन्य खर्च
+इतर|Other|अन्य
+इन्शुरन्स|Insurance|इंश्योरेंस
+एकूण फिरावे लागेल|Total ride needed|कुल चलना पड़ेगा
+एकूण रक्कम ₹|Total amount ₹|कुल रकम ₹
+एकूण|Total|कुल
+एक्स्पायरीच्या ३० दिवस आधी आठवण दिसेल.|A reminder shows 30 days before expiry.|एक्सपायरी से 30 दिन पहले याद दिलाया जाएगा।
+एरिया|Area|एरिया
+ऑइल चेंज|Oil change|ऑयल चेंज
+ऑर्डर नोंदवताना "अधिक तपशील" मध्ये गेट/लँडमार्क किंवा कठीण पत्ता टाका — इथे दिसेल.|While adding an order, put gate/landmark or a difficult address under "More details" — it will show here.|ऑर्डर दर्ज करते समय "अधिक विवरण" में गेट/लैंडमार्क या कठिन पता डालें — यहां दिखेगा।
+ऑर्डर नोंदवताना "अधिक तपशील" मध्ये वेटिंग मिनिटे टाका (किंवा "पोहोचलो/ऑर्डर मिळाली" बटणे वापरा).|Enter waiting minutes under "More details" while adding an order (or use the "Arrived / Got order" buttons).|ऑर्डर दर्ज करते समय "अधिक विवरण" में वेटिंग मिनट डालें (या "पहुंचा / ऑर्डर मिला" बटन इस्तेमाल करें)।
+ऑर्डर म्हणून सेव्ह|Save as order|ऑर्डर के रूप में सेव करें
+ओडो (km)|Odo (km)|ओडो (km)
+ओडो नोंदवा|Enter odo|ओडो दर्ज करें
+ओडोमीटर (km)|Odometer (km)|ओडोमीटर (km)
+कंपनी तुलना (₹ / तास साठी ड्युटी तास ऑर्डर संख्येनुसार वाटले आहेत)|Company comparison (duty hours are split by order count for ₹/hr)|कंपनी तुलना (₹/घंटा के लिए ड्यूटी घंटे ऑर्डर संख्या के अनुसार बांटे हैं)
+कंपनीनुसार कमाई (ऑर्डर + इन्सेंटिव्ह + टिप)|Earnings by company (orders + incentive + tips)|कंपनी के अनुसार कमाई (ऑर्डर + इंसेंटिव + टिप)
+कंपनीनुसार सर्वात बिझी वेळ|Busiest hours by company|कंपनी के अनुसार सबसे व्यस्त समय
+कंपनी|Company|कंपनी
+कमाई + इन्सेंटिव्ह / ऑर्डर|Earnings + incentive / order|कमाई + इंसेंटिव / ऑर्डर
+कमाई + टिप + इन्सेंटिव्ह − पेट्रोल − इतर खर्च − सर्व्हिसिंग − दंड|Earnings + tips + incentive − petrol − other expenses − servicing − fines|कमाई + टिप + इंसेंटिव − पेट्रोल − अन्य खर्च − सर्विसिंग − जुर्माना
+कमाई ₹|Earning ₹|कमाई ₹
+कमाई|Earnings|कमाई
+कमी कमाई अलर्ट (₹/तास खाली)|Low-earnings alert (below ₹/hr)|कम कमाई अलर्ट (₹/घंटा से नीचे)
+कस्टमर पत्ता नोंद (गेट / लँडमार्क)|Customer address note (gate / landmark)|कस्टमर पता नोट (गेट / लैंडमार्क)
+कागदपत्र|Documents|दस्तावेज़
+काम काय केले|Work done|क्या काम किया
+काल|Yesterday|कल
+किमी|km|किमी
+कुटुंबाचे नंबर (स्वल्पविरामाने). SOS दाबल्यावर तुमचे लोकेशन SMS / WhatsApp ने पाठवता येईल.|Family numbers (comma separated). When you press SOS your location can be sent by SMS / WhatsApp.|परिवार के नंबर (कॉमा से अलग)। SOS दबाने पर आपकी लोकेशन SMS / WhatsApp से भेजी जा सकेगी।
+कुठे ऑर्डर जास्त (एरिया)|Where orders are high (area)|कहां ऑर्डर ज्यादा (एरिया)
+कॅल्क्युलेटर|Calculator|कैलकुलेटर
+कॅल्क|Calc|कैल्क
+कोणत्या वेळी जास्त|Which time is busier|किस समय ज्यादा
+क्लिअर करायची रक्कम ₹|Amount to clear ₹|क्लियर करने की रकम ₹
+क्लिअर करायला लागतील|Needed to clear|क्लियर करने में लगेंगे
+क्विक ऑर्डर रक्कम (₹)|Quick order amount (₹)|क्विक ऑर्डर रकम (₹)
+खरा निव्वळ नफा|Real net profit|असली शुद्ध मुनाफ़ा
+खर्च ₹|Expense ₹|खर्च ₹
+खर्चाच्या नोंदी|Expense entries|खर्च की एंट्री
+गुरु|Thu|गुरु
+गॅरेज रेटिंग आणि खर्च|Garage ratings & cost|गैरेज रेटिंग और खर्च
+गॅरेजचे नाव|Garage name|गैरेज का नाम
+गॅरेज|Garage|गैरेज
+गेल्या आठवड्याचा तोच वार|Same day last week|पिछले हफ्ते का वही दिन
+गेल्या ७ दिवसांत|In the last 7 days|पिछले 7 दिनों में
+दिवस केली.| days done.|दिन किया।
+गेले ७ दिवस|Last 7 days|पिछले 7 दिन
+चहा / नाश्ता|Tea / snacks|चाय / नाश्ता
+चेकलिस्ट पूर्ण|Checklist done|चेकलिस्ट पूर्ण
+चेकलिस्ट|Checklist|चेकलिस्ट
+चेन / बेल्ट|Chain / belt|चेन / बेल्ट
+जवळचे|Nearby|पास के
+जेवण|Meal|खाना
+टायर|Tyre|टायर
+टिप (वेगळी)|Tips (separate)|टिप (अलग)
+टिप ₹ (असेल तर)|Tip ₹ (if any)|टिप ₹ (हो तो)
+टिप|Tip|टिप
+टॉप रेस्टॉरंट|Top restaurants|टॉप रेस्टोरेंट
+ट्रिप वेळ (मिनिट)|Trip time (minutes)|ट्रिप समय (मिनट)
+डिमांड|Demand|डिमांड
+डीफॉल्ट km अंदाजे आहेत — तुमच्या बाईकच्या मॅन्युअलनुसार बदला.|Default km are approximate — change them as per your bike manual.|डिफ़ॉल्ट km अनुमानित हैं — अपनी बाइक के मैनुअल के अनुसार बदलें।
+डीफॉल्ट: Suzuki Access 125 • श्रेणी: स्कूटर|Default: Suzuki Access 125 • Category: scooter|डिफ़ॉल्ट: Suzuki Access 125 • श्रेणी: स्कूटर
+श्रेणी:|Category:|श्रेणी:
+कम्युटर मोटरसायकल|Commuter motorcycle|कम्यूटर मोटरसायकल
+स्पोर्ट / क्रूझर मोटरसायकल|Sport / cruiser motorcycle|स्पोर्ट / क्रूज़र मोटरसायकल
+स्कूटर|Scooter|स्कूटर
+इलेक्ट्रिक|Electric|इलेक्ट्रिक
+ड्युटी वेळ|Duty time|ड्यूटी समय
+तारीख टाका|Enter date|तारीख डालें
+तारीख|Date|तारीख
+तुमचे नाव (स्टेटमेंटसाठी)|Your name (for statement)|आपका नाम (स्टेटमेंट के लिए)
+तुमच्या दरांनुसार:|As per your rates:|आपके रेट के अनुसार:
+शोरूम अंदाज (कमाल ×|Showroom estimate (max ×|शोरूम अनुमान (अधिकतम ×
+तुमच्या बाईकच्या मालक-पुस्तिकेतले अंतर वापरा; वरील सामान्य सूचना आहेत.|Use the intervals in your bike's owner's manual; the above are general tips.|अपनी बाइक की ओनर्स मैनुअल के अंतर इस्तेमाल करें; ऊपर सामान्य सुझाव हैं।
+तुमच्या सध्याच्या लोकेशनवरून Google Maps मध्ये उघडते. स्वस्त पंप ओळखण्यासाठी नकाशावरील रेटिंग आणि रिव्ह्यू बघा.|Opens in Google Maps from your current location. To spot a cheaper pump, check the ratings and reviews on the map.|आपकी मौजूदा लोकेशन से Google Maps में खुलता है। सस्ता पंप पहचानने के लिए मैप पर रेटिंग और रिव्यू देखें।
+तुमच्या स्वतःच्या ऑर्डर रेकॉर्डवरून|From your own order records|आपके अपने ऑर्डर रिकॉर्ड से
+त्या पेट्रोलचे पैसे|Money for that petrol|उस पेट्रोल के पैसे
+दंड / चलन (भरलेले)|Fines / challan (paid)|जुर्माना / चालान (भरे हुए)
+दर महिन्याची तारीख|Date of every month|हर महीने की तारीख
+दर महिन्याला|Every month on|हर महीने
+तारखेला • पुढचा|• next in|तारीख को • अगला
+दिवसात|days|दिन में
+नंबर|Number|नंबर
+नवीन ऑर्डर|New order|नया ऑर्डर
+नाव|Name|नाम
+निकाल|Result|नतीजा
+नियमित|Regular|नियमित
+निवडा|Select|चुनें
+निव्वळ / ऑर्डर (पेट्रोल वजा)|Net / order (after petrol)|शुद्ध / ऑर्डर (पेट्रोल घटाकर)
+निव्वळ ₹ / km|Net ₹ / km|शुद्ध ₹ / km
+निव्वळ ₹ / तास|Net ₹ / hr|शुद्ध ₹ / घंटा
+निश्चित तारखेचे सण आधीच आहेत. दिवाळी, गणपती यांसारखे सण तारीख टाकून जोडा.|Fixed-date festivals are already included. Add festivals like Diwali, Ganpati with their date.|निश्चित तारीख के त्योहार पहले से हैं। दिवाली, गणपति जैसे त्योहार तारीख डालकर जोड़ें।
+नोंदी|Entries|एंट्री
+नोट|Note|नोट
+पंक्चर / छोटी दुरुस्ती|Puncture / small repair|पंक्चर / छोटी मरम्मत
+पंक्चर शॉप|Puncture shop|पंक्चर शॉप
+पत्ता नोंदी|Address notes|पता नोट
+पत्ता|Address|पता
+पत्ते|Addresses|पते
+पार्किंग / टोल|Parking / toll|पार्किंग / टोल
+पार्ट्सचे अंदाजे दर|Approx. parts prices|पार्ट्स के अनुमानित रेट
+पार्ट्स लाइफ|Parts life|पार्ट्स लाइफ
+पार्ट्स|Parts|पार्ट्स
+पावतीचा फोटो|Receipt photo|रसीद का फोटो
+पेआउटचा वार खाली निवडा.|Choose the payout day below.|पेआउट का दिन नीचे चुनें।
+पेआउटचा वार|Payout day|पेआउट का दिन
+पेआउट|Payout|पेआउट
+पेट्रोल खर्च / ऑर्डर|Petrol cost / order|पेट्रोल खर्च / ऑर्डर
+पेट्रोल खर्च|Petrol cost|पेट्रोल खर्च
+पेट्रोल नोंदी|Petrol entries|पेट्रोल एंट्री
+पेट्रोल भरले|Petrol filled|पेट्रोल भरा
+पेट्रोल लागेल|Petrol needed|पेट्रोल लगेगा
+पेट्रोल ₹/लि|Petrol ₹/L|पेट्रोल ₹/ली
+पेट्रोल|Petrol|पेट्रोल
+प्रकार|Type|प्रकार
+प्रति ऑर्डर km|km per order|प्रति ऑर्डर km
+प्रति ऑर्डर इन्सेंटिव्ह ₹|Incentive per order ₹|प्रति ऑर्डर इंसेंटिव ₹
+प्रति ऑर्डर कमाई ₹|Earning per order ₹|प्रति ऑर्डर कमाई ₹
+प्रति-किमी रेट कॅल्क्युलेटर|Per-km rate calculator|प्रति-किमी रेट कैलकुलेटर
+प्रोफाइल आणि लक्ष्य|Profile & goals|प्रोफ़ाइल और लक्ष्य
+प्लॅटफॉर्म|Platform|प्लेटफ़ॉर्म
+फुल सर्व्हिसिंग|Full servicing|फुल सर्विसिंग
+फोन नंबर|Phone number|फोन नंबर
+बाईक मायलेज km/लि|Bike mileage km/L|बाइक माइलेज km/ली
+बाईक सर्व्हिसिंग|Bike servicing|बाइक सर्विसिंग
+बाईक मॉडेल|Bike model|बाइक मॉडल
+बाईक गॅरेज|Bike garage|बाइक गैरेज
+बाईक|Bike|बाइक
+बाकी:|Pending:|बाकी:
+भरलेले|Paid|भरे हुए
+भरलेले दंड नफ्यातून वजा होतात|paid fines are deducted from profit|भरे जुर्माने मुनाफ़े से घटते हैं
+बिलाचा फोटो (मेकॅनिकची पावती)|Bill photo (mechanic's receipt)|बिल का फोटो (मैकेनिक की रसीद)
+बुध|Wed|बुध
+बॅटरी|Battery|बैटरी
+ब्रेक पॅड|Brake pad|ब्रेक पैड
+ब्रेक रिमाइंडर (किती तासांनी)|Break reminder (after how many hours)|ब्रेक रिमाइंडर (कितने घंटे बाद)
+भाषा / Language|Language|भाषा / Language
+मंगळ|Tue|मंगल
+मराठी|Marathi|मराठी
+मागचा महिना|Last month|पिछला महीना
+महिन्याची बचत टार्गेट ₹|Monthly savings target ₹|मासिक बचत लक्ष्य ₹
+महिन्याचे|Monthly|मासिक
+महिना|Month|महीना
+माझ्या रेकॉर्डवरून आपोआप भरा|Auto-fill from my records|मेरे रिकॉर्ड से अपने आप भरें
+माझे गॅरेज (नकाशा)|My garage (map)|मेरा गैरेज (मैप)
+मी|Me|मैं
+मेकॅनिकचे नाव|Mechanic name|मैकेनिक का नाम
+मोबाईल रिचार्ज|Mobile recharge|मोबाइल रिचार्ज
+या महिन्यात|This month|इस महीने
+रक्कम ₹|Amount ₹|रकम ₹
+रवि|Sun|रवि
+रेट ₹ / km|Rate ₹ / km|रेट ₹ / km
+रेट ₹/लि|Rate ₹/L|रेट ₹/ली
+रेटिंग (१-५ ⭐)|Rating (1-5 ⭐)|रेटिंग (1-5 ⭐)
+रेस्टॉरंट (लिहा किंवा निवडा)|Restaurant (type or select)|रेस्टोरेंट (लिखें या चुनें)
+रेस्टॉरंट लिस्ट जोडा (एका ओळीत एक नाव)|Add restaurant list (one name per line)|रेस्टोरेंट लिस्ट जोड़ें (एक लाइन में एक नाम)
+रेस्टॉरंटला वेटिंग (मिनिट)|Waiting at restaurant (min)|रेस्टोरेंट पर वेटिंग (मिनट)
+रेस्टॉरंट वेटिंग (सर्वात जास्त सरासरी)|Restaurant waiting (longest average)|रेस्टोरेंट वेटिंग (सबसे ज्यादा औसत)
+रेस्टॉरंटला पोहोचलो|Arrived at restaurant|रेस्टोरेंट पहुंचा
+रेस्टॉरंट|Restaurant|रेस्टोरेंट
+रोजचे ऑर्डर टार्गेट|Daily order target|रोज का ऑर्डर लक्ष्य
+लाल = गॅरेज (क्रमांक यादीप्रमाणे), निळा = मी. गॅरेज जोडताना GPS लोकेशन आपोआप सेव्ह होते.|Red = garage (numbered as in the list), blue = me. The GPS location is saved automatically when you add a garage.|लाल = गैरेज (क्रमांक सूची अनुसार), नीला = मैं। गैरेज जोड़ते समय GPS लोकेशन अपने आप सेव हो जाती है।
+लिटर|Litres|लीटर
+वेळ (आपोआप — हवे तर बदला)|Time (auto — change if needed)|समय (अपने आप — चाहें तो बदलें)
+वॉरंटी|Warranty|वारंटी
+शनि|Sat|शनि
+शुक्र|Fri|शुक्र
+शोरूम गुणक (तुमच्या शोरूमप्रमाणे बदला)|Showroom multiplier (change as per your showroom)|शोरूम गुणक (अपने शोरूम के अनुसार बदलें)
+सगळा डेटा पुसा|Erase all data|सारा डेटा मिटाएं
+सर्व इतिहास दाखवा|Show full history|पूरा इतिहास दिखाएं
+सर्व्हिस इतिहास|Service history|सर्विस इतिहास
+सर्व्हिस नोंद जोडा|Add service entry|सर्विस एंट्री जोड़ें
+सर्व्हिसिंगचा खर्च रिपोर्टमध्ये नफ्यातून वजा होतो.|Servicing cost is deducted from profit in reports.|सर्विसिंग खर्च रिपोर्ट में मुनाफ़े से घटता है।
+सर्व्हिस|Service|सर्विस
+या वर्षी|this year|इस साल
+सर्व|All|सभी
+सेटिंगमध्ये रोजचे ऑर्डर टार्गेट टाका.|Set the daily order target in Settings.|सेटिंग में रोज का ऑर्डर लक्ष्य डालें।
+सोम|Mon|सोम
+हप्ते|Instalments|किस्तें
+महिन्याला|per month|प्रति माह
+हप्त्याच्या ३ दिवस आधी आठवण दिसेल.|A reminder shows 3 days before the instalment.|किस्त से 3 दिन पहले याद दिलाया जाएगा।
+हातात कॅश ₹|Cash in hand ₹|हाथ में कैश ₹
+हातातील कॅशचे पेट्रोल|Petrol for cash in hand|हाथ के कैश का पेट्रोल
+हिंदी|Hindi|हिंदी
+हिशोब|Accounts|हिसाब
+ही बाजारातली अंदाजे श्रेणी आहे; शहर, ब्रँड आणि मॉडेलनुसार बदलते.|This is an approximate market range; it varies by city, brand and model.|यह बाज़ार की अनुमानित रेंज है; शहर, ब्रांड और मॉडल के अनुसार बदलती है।
+हे आकडे फक्त उदाहरण आहेत — प्रत्येक कंपनीचे स्वतंत्र स्लॅब टाका (Zepto आणि Swiggy वेगळे असतात).|These figures are only examples — enter separate slabs for each company (Zepto and Swiggy differ).|ये आंकड़े सिर्फ़ उदाहरण हैं — हर कंपनी के अलग स्लैब डालें (Zepto और Swiggy अलग होते हैं)।
+७ दिवस|7 days|7 दिन
+ॲप ऑफलाइन चालते — सगळी नोंद फोनवर सेव्ह होते.|The app works offline — all entries are saved on the phone.|ऐप ऑफ़लाइन चलता है — सारी एंट्री फोन में सेव होती हैं।
+ऑनलाइन|Online|ऑनलाइन
+ऑफलाइन|Offline|ऑफ़लाइन
+• CVT बेल्ट आणि रोलर साधारण २०,००० km च्या आसपास तपासा|• Check the CVT belt and rollers around 20,000 km|• CVT बेल्ट और रोलर लगभग 20,000 km पर जांचें
+• ऑइल मॅन्युअलनुसार ठरावीक km ला बदला (साधारण ३००० – ५००० km)|• Change oil at the km interval in the manual (typically 3000 – 5000 km)|• ऑयल मैनुअल के अनुसार तय km पर बदलें (आमतौर पर 3000 – 5000 km)
+• टायर प्रेशर आठवड्यातून एकदा तपासा; ओव्हरलोड ऑर्डरमध्ये मागचे प्रेशर थोडे वाढवा|• Check tyre pressure weekly; raise rear pressure slightly for heavy orders|• टायर प्रेशर हफ्ते में एक बार जांचें; भारी ऑर्डर में पिछला प्रेशर थोड़ा बढ़ाएं
+• धुळीच्या रस्त्यावर एअर फिल्टर लवकर साफ / बदला|• Clean / replace the air filter sooner on dusty roads|• धूल भरे रास्तों पर एयर फिल्टर जल्दी साफ / बदलें
+• ब्रेक पॅड पातळ झाले की लगेच बदला — आवाज आल्यास थांबू नका|• Replace brake pads as soon as they are thin — do not wait if you hear noise|• ब्रेक पैड पतले होते ही बदलें — आवाज आए तो रुकें नहीं
+• ऑइल मॅन्युअलनुसार ठरावीक km ला बदला|• Change oil at the km interval in the manual|• ऑयल मैनुअल के अनुसार तय km पर बदलें
+• चेन दर ५०० km ला ल्युब्रिकेट करा आणि ताण तपासा|• Lubricate the chain every 500 km and check tension|• चेन हर 500 km पर ल्यूब्रिकेट करें और टेंशन जांचें
+• क्लच केबलला फ्री-प्ले ठेवा|• Keep free play in the clutch cable|• क्लच केबल में फ्री-प्ले रखें
+• एअर फिल्टर साफ ठेवा — मायलेज वाढते|• Keep the air filter clean — mileage improves|• एयर फिल्टर साफ रखें — माइलेज बढ़ता है
+• टायरवर क्रॅक किंवा टक्कल दिसले की बदला|• Replace tyres when you see cracks or bald patches|• टायर पर दरार या घिसाव दिखे तो बदलें
+• चांगल्या दर्जाचे ऑइल आणि वेळेवर बदल|• Use good-quality oil and change on time|• अच्छी क्वालिटी का ऑयल और समय पर बदलाव
+• चेन-स्प्रॉकेट एकत्र बदला|• Replace chain and sprocket together|• चेन-स्प्रॉकेट साथ में बदलें
+• ब्रेक फ्लुइड वेळोवेळी तपासा|• Check brake fluid regularly|• ब्रेक फ्लुइड समय-समय पर जांचें
+• कूलंट (असल्यास) लेव्हल पाहा|• Check coolant level (if fitted)|• कूलेंट (हो तो) लेवल देखें
+• टायर प्रेशर रोज तपासा|• Check tyre pressure daily|• टायर प्रेशर रोज जांचें
+• बॅटरी १००% पर्यंत रोज चार्ज करणे टाळा, शक्यतो ८०–९०%|• Avoid charging to 100% daily; prefer 80–90%|• बैटरी रोज 100% तक चार्ज करने से बचें, बेहतर 80–90%
+• पावसात चार्जिंग पोर्ट कोरडे ठेवा|• Keep the charging port dry in rain|• बारिश में चार्जिंग पोर्ट सूखा रखें
+• टायर प्रेशर आणि ब्रेक नियमित तपासा|• Check tyre pressure and brakes regularly|• टायर प्रेशर और ब्रेक नियमित जांचें
+• अधिकृत सर्व्हिस सेंटरमधून सॉफ्टवेअर अपडेट करा|• Update software at an authorised service centre|• अधिकृत सर्विस सेंटर से सॉफ़्टवेयर अपडेट करें
+• जास्त वेगात रेंज झपाट्याने घटते|• Range drops quickly at high speed|• ज्यादा स्पीड पर रेंज तेज़ी से घटती है
+देखभाल टिप्स|Maintenance tips|देखभाल टिप्स
+☑ निवडा = सर्व्हिस खर्च अंदाज. "तुमचा दर" मध्ये तुमच्या गॅरेजचा खरा दर टाका — ओव्हरचार्ज ओळखायला उपयोगी.|☑ Tick = service cost estimate. Enter your garage's real rate in "Your rate" — useful to spot overcharging.|☑ चुनें = सर्विस खर्च अनुमान। "आपका रेट" में अपने गैरेज का असली रेट डालें — ओवरचार्ज पहचानने में उपयोगी।
+वन-टॅप ऑर्डर|One-tap order|वन-टैप ऑर्डर
+शेवटची Undo|Undo last|आखिरी Undo
+जवळचा पेट्रोल पंप|Nearest petrol pump|पास का पेट्रोल पंप
+ऑर्डर मिळाली|Got the order|ऑर्डर मिली
+रिजेक्ट केली|Rejected|रिजेक्ट किया
+कॅन्सल झाली|Cancelled|कैंसल हुआ
+ड्युटीपूर्व चेकलिस्ट (२ मिनिट)|Pre-duty checklist (2 min)|ड्यूटी से पहले चेकलिस्ट (2 मिनट)
+आत्ता बदलले (ओडो|Replaced now (odo|अभी बदला (ओडो
+बॅकअप डाउनलोड|Download backup|बैकअप डाउनलोड
+थीम बदला (डार्क / लाईट)|Change theme (dark / light)|थीम बदलें (डार्क / लाइट)
+सण / सुट्टीचे रिमाइंडर|Festival / holiday reminders|त्योहार / छुट्टी रिमाइंडर
+बोलून ऑर्डर|Order by voice|बोलकर ऑर्डर
+लक्ष्य आणि स्ट्रीक|Goals & streak|लक्ष्य और स्ट्रीक
+उत्पन्न स्टेटमेंट (लोन / बँकेसाठी)|Income statement (for loan / bank)|आय स्टेटमेंट (लोन / बैंक के लिए)
+सर्वात फायदेशीर वेळ (प्रति दिवस सरासरी कमाई)|Most profitable time (avg earnings per day)|सबसे फायदेमंद समय (प्रति दिन औसत कमाई)
+सर्वात फायदेशीर एरिया|Most profitable area|सबसे फायदेमंद एरिया
+बाईक / इतर हप्ते (EMI)|Bike / other instalments (EMI)|बाइक / अन्य किस्तें (EMI)
+हप्ते (EMI)|Instalments (EMI)|किस्तें (EMI)
+पेआउट|Payout|पेआउट
+मासिक हिशोब PDF|Monthly accounts PDF|मासिक हिसाब PDF
+एक्स्पोर्ट|Export|एक्सपोर्ट
+कागदपत्रे आणि रिन्यूअल|Documents & renewals|दस्तावेज़ और रिन्यूअल
+आज विरुद्ध काल / गेल्या आठवड्याचा तोच दिवस|Today vs yesterday / same day last week|आज बनाम कल / पिछले हफ्ते का वही दिन
+GPS लोकेशन घेत आहे…|Getting GPS location…|GPS लोकेशन ले रहे हैं…
+GPS हॉटस्पॉट (~१ km क्षेत्र)|GPS hotspots (~1 km zone)|GPS हॉटस्पॉट (~1 km क्षेत्र)
+जवळचे शोधा (GPS)|Find nearby (GPS)|पास के खोजें (GPS)
+नकाशा|Map|मैप
+लोकेशन पुन्हा घ्या|Capture location again|लोकेशन फिर से लें
+बॅकअप शेअर|Share backup|बैकअप शेयर
+अॅप लॉक (PIN)|App lock (PIN)|ऐप लॉक (PIN)
+PIN सेट करा|Set PIN|PIN सेट करें
+PIN काढा|Remove PIN|PIN हटाएं
+रिमाइंडर आणि पार्ट्स लाइफ (km)|Reminders & parts life (km)|रिमाइंडर और पार्ट्स लाइफ (km)
+चलन (दंड) नोंद|Challan (fine) log|चालान (जुर्माना) एंट्री
+चलन|Challan|चालान
+दंड|Fines|जुर्माना
+रस्ता|Directions|रास्ता
+ऑर्डर कमाई|Order earnings|ऑर्डर कमाई
+ऑर्डर संख्येनुसार|by order count|ऑर्डर संख्या के अनुसार
+पोहोचलो|Arrived|पहुंचा
+आधी|first|पहले
+ऑर्डर|Order|ऑर्डर
+सुरू|Start|शुरू
+लि @|L @|लि @
+ लि| L| लि
+तास|hr|घंटे
+ओडो|odo|ओडो
+लायसन्स|Licence|लाइसेंस
+ऑर्डरला|orders|ऑर्डर
+बॅकअप आणि|Backup &|बैकअप और
+बॅकअप|Backup|बैकअप
+ऑर्डर नोंदवा|Log order|ऑर्डर दर्ज करें
+कमाई ₹ टाका|Enter earnings ₹|कमाई ₹ डालें
+रक्कम टाका|Enter amount|रकम डालें
+रेस्टॉरंट (ऐच्छिक)|Restaurant (optional)|रेस्टोरेंट (वैकल्पिक)
+✔ ऑर्डर सेव्ह|✔ Save order|✔ ऑर्डर सेव करें
+रद्द|Cancel|रद्द
+ऐकले:|Heard:|सुना:
+बोला…|Speak…|बोलिए…
+उदा. "Swiggy 60" किंवा "Zomato पन्नास McDonald's"|e.g. "Swiggy 60" or "Zomato fifty McDonald's"|जैसे "Swiggy 60" या "Zomato पचास McDonald's"
+माइक परवानगी द्या (ब्राउझर सेटिंग → साइट → माइक)|Allow the microphone (browser settings → site → microphone)|माइक की अनुमति दें (ब्राउज़र सेटिंग → साइट → माइक)
+माइक परवानगी द्या|Allow the microphone|माइक की अनुमति दें
+आवाज ऐकू आला नाही — पुन्हा बोला|No voice heard — speak again|आवाज़ सुनाई नहीं दी — फिर बोलें
+आवाजासाठी इंटरनेट लागते|Voice needs internet|आवाज़ के लिए इंटरनेट चाहिए
+माइक सापडला नाही|Microphone not found|माइक नहीं मिला
+आवाज ओळखता आला नाही|Could not recognise the voice|आवाज़ पहचानी नहीं जा सकी
+माइक सुरू करता आला नाही|Could not start the microphone|माइक शुरू नहीं हो सका
+या ब्राउझरमध्ये आवाज सुविधा नाही. Chrome वापरा.|Voice is not available in this browser. Use Chrome.|इस ब्राउज़र में आवाज़ सुविधा नहीं है। Chrome इस्तेमाल करें।
+आवाजासाठी https लिंक लागते (netlify वर ठेवा)|Voice needs an https link (host it on netlify)|आवाज़ के लिए https लिंक चाहिए (netlify पर रखें)
+रक्कम सेट असेल तर १ टॅप = ऑर्डर सेव्ह. ✎ ने रक्कम बदला.|If an amount is set, 1 tap = order saved. Change the amount with ✎.|रकम सेट हो तो 1 टैप = ऑर्डर सेव। ✎ से रकम बदलें।
+ऑर्डर नोंदवली.|Order logged.|ऑर्डर दर्ज हुआ।
+ऑर्डर नाही|No order|कोई ऑर्डर नहीं
+Undo झाले:|Undone:|Undo हुआ:
+आणखी |Another |और 
+जास्त (|more (|ज्यादा (
+🎨 रंग (थीम)|🎨 Colour (theme)|🎨 रंग (थीम)
+केशरी|Orange|केसरिया
+हिरवा|Green|हरा
+निळा|Blue|नीला
+जांभळा|Purple|बैंगनी
+आवाजाने ऑर्डर कन्फर्म न विचारता आपोआप सेव्ह करा|Save voice orders automatically without confirmation|आवाज़ वाले ऑर्डर बिना पूछे अपने आप सेव करें
+रक्कम टाका|Enter amount|रकम डालें
+ड्युटी सुरू करा|Start duty|ड्यूटी शुरू करें
+ओडोमीटर आत्ता (km)|Odometer now (km)|ओडोमीटर अभी (km)
+हातात कॅश (₹)|Cash in hand (₹)|हाथ में कैश (₹)
+ड्युटी संपवा|End duty|ड्यूटी खत्म करें
+ओडोमीटर शेवटचे (km)|Final odometer (km)|आखिरी ओडोमीटर (km)
+ड्युटी पूर्ण ✅|Duty complete ✅|ड्यूटी पूरी ✅
+GPS अंतर|GPS distance|GPS दूरी
+इतर खर्च (जेवण, चहा…)|Other expenses (food, tea…)|अन्य खर्च (खाना, चाय…)
+टेक-होम नफा|Take-home profit|टेक-होम मुनाफ़ा
+ठीक आहे|OK|ठीक है
+हातात कॅश|Cash in hand|हाथ में कैश
+ड्युटी संपवण्यासाठी टॅप करा|Tap to end duty|ड्यूटी खत्म करने के लिए टैप करें
+ड्युटी सुरू करण्यासाठी टॅप करा|Tap to start duty|ड्यूटी शुरू करने के लिए टैप करें
+ड्युटी चालू • सुरू|Duty on • started|ड्यूटी चालू • शुरू
+GPS रस्ता (progress)|GPS route (progress)|GPS रास्ता (progress)
+टार्गेटला बाकी|Left to target|लक्ष्य तक बाकी
+टार्गेट पूर्ण 🎉|Target reached 🎉|लक्ष्य पूरा 🎉
+कॅश (COD) आणि टार्गेट|Cash (COD) & target|कैश (COD) और लक्ष्य
+आजचे टार्गेट ₹|Today's target ₹|आज का लक्ष्य ₹
+आज COD गोळा|COD collected today|आज COD जमा
+जमा केले|deposited|जमा किया
+कंपनीला द्यायचे (हातात)|To hand over to company (cash)|कंपनी को देना है (हाथ में)
+कॅश जमा केली (डिपॉझिट)|Cash deposited|कैश जमा किया (डिपॉज़िट)
+आजचा सारांश|Today's summary|आज का सारांश
+कमाई (इन्सेंटिव्ह+टिप सहित)|Earnings (incl. incentive + tips)|कमाई (इंसेंटिव + टिप सहित)
+पेट्रोल + इतर खर्च|Petrol + other expenses|पेट्रोल + अन्य खर्च
+टेक-होम|Take-home|टेक-होम
+मागच्या ड्युट्या|Previous duties|पिछली ड्यूटी
+उजवीकडे = टेक-होम|Right = take-home|दाएं = टेक-होम
+कमाई + टिप + इन्सेंटिव्ह − पेट्रोल − इतर खर्च)|earnings + tip + incentive − petrol − other expenses)|कमाई + टिप + इंसेंटिव − पेट्रोल − अन्य खर्च)
+शेवटची Undo|Undo last|आखिरी Undo
+रक्कम टाका|Enter amount|रकम डालें
+लोकेशन घेत आहे…|Getting location…|लोकेशन ले रहे हैं…
+लोकेशन तयार ✅|Location ready ✅|लोकेशन तैयार ✅
+GPS मिळाले नाही — शेवटचे ज्ञात लोकेशन वापरले जाईल|No GPS — last known location will be used|GPS नहीं मिला — आखिरी ज्ञात लोकेशन इस्तेमाल होगी
+सेटिंगमध्ये कुटुंबाचे नंबर टाका.|Add family numbers in Settings.|सेटिंग में परिवार के नंबर डालें।
+शेअर करा|Share|शेयर करें
+112 वर कॉल|Call 112|112 पर कॉल
+लाईव्ह लोकेशन सतत पाठवण्यासाठी WhatsApp मध्ये "Share live location" वापरा. हे ॲप फक्त आत्ताचे लोकेशन पाठवते.|For continuous live location use "Share live location" in WhatsApp. This app only sends the current location.|लगातार लाइव लोकेशन के लिए WhatsApp में "Share live location" इस्तेमाल करें। यह ऐप सिर्फ़ अभी की लोकेशन भेजता है।
+बंद करा|Close|बंद करें
+मी अडचणीत आहे / अपघात झाला आहे. माझे लोकेशन:|I am in trouble / had an accident. My location:|मैं मुश्किल में हूं / दुर्घटना हुई है। मेरी लोकेशन:
+डिमांड जास्त असू शकते|demand may be high|डिमांड ज्यादा हो सकती है
+उद्या|Tomorrow|कल
+परवा|Day after tomorrow|परसों
+ हप्ता | instalment | किस्त 
+ — आज| — today| — आज
+रिन्यूअल|renewal due in|रिन्यूअल
+एक्स्पायर झाले|expired|एक्सपायर हुआ
+ओव्हरड्यू|overdue|ओवरड्यू
+बाकी •|left •|बाकी •
+चलन बाकी|challan(s) pending|चालान बाकी
+बॅकअप घेऊन ७ दिवस झाले — सेटिंगमध्ये बॅकअप घ्या|It has been 7 days since your last backup — take a backup in Settings|बैकअप लिए 7 दिन हो गए — सेटिंग में बैकअप लें
+पेआउट ज|Payout j|पेआउट ज
+गेल्या १ तासात फक्त|Only in the last 1 hour|पिछले 1 घंटे में सिर्फ़
+मर्यादा|limit|सीमा
+जागा बदलून बघा|try changing your spot|जगह बदलकर देखें
+तास सलग — थोडा ब्रेक घ्या, पाणी प्या|hours non-stop — take a short break, drink water|घंटे लगातार — थोड़ा ब्रेक लें, पानी पिएं
+ब्रेक घेतला|Break taken|ब्रेक लिया
+आता|now|अब
+नोंदवले|Noted|दर्ज किया
+मासिक हिशोब|Monthly accounts|मासिक हिसाब
+उत्पन्न स्टेटमेंट (Income Statement)|Income Statement|आय स्टेटमेंट (Income Statement)
+नाव:|Name:|नाम:
+एकूण उत्पन्न|Total income|कुल आय
+खर्चानंतर निव्वळ|Net after expenses|खर्च के बाद शुद्ध
+गेल्या ६ महिन्यांचे एकूण उत्पन्न|Total income of the last 6 months|पिछले 6 महीनों की कुल आय
+सही:|Signature:|हस्ताक्षर:
+हा हिशोब रायडरने स्वतः नोंदवलेल्या डेटावर आधारित आहे.|This statement is based on data entered by the rider.|यह हिसाब राइडर द्वारा खुद दर्ज किए डेटा पर आधारित है।
+GPS ची वाट बघतोय… थोडे चालल्यावर रस्ता दिसेल.|Waiting for GPS… the route shows after you move a little.|GPS का इंतज़ार… थोड़ा चलने पर रास्ता दिखेगा।
+ड्युटीपूर्व|Pre-duty|ड्यूटी से पहले
+दिवस)|days)|दिन)
+एक्स्पायर |expired |एक्सपायर 
+दिवस बाकी|days left|दिन बाकी
+km बाकी|km left|km बाकी
+ • बाकी| • pending| • बाकी
+बाकी (शेवटच्या पेआउटनंतर)|Pending (since last payout)|बाकी (पिछले पेआउट के बाद)
+पुढचा पेआउट:|Next payout:|अगला पेआउट:
+✔ पेआउट मिळाला|✔ Payout received|✔ पेआउट मिला
+वेट |Wait |वेट 
+कठीण पत्ता|Difficult address|कठिन पता
+सलग दिवस (रोज |Day streak (daily |लगातार दिन (रोज 
+ ऑर्डर)| orders)| ऑर्डर)
+या आठवड्याच्या ऑर्डर|This week's orders|इस हफ्ते के ऑर्डर
+महिन्याची बचत (निव्वळ)|Monthly savings (net)|मासिक बचत (शुद्ध)
+दिवस|days|दिन
+बाकी|left|बाकी
+🧾 रेस्टॉरंट बिलाचा फोटो (ऑटो-नाव)|🧾 Restaurant bill photo (auto-name)|🧾 रेस्टोरेंट बिल का फोटो (ऑटो-नाम)
+बिल स्कॅन करत आहे…|Scanning bill…|बिल स्कैन हो रहा है…
+नाव सुचवले — तपासा|Name suggested — please check|नाम सुझाया — जांचें
+सुचवलेली नावे:|Suggested names:|सुझाए नाम:
+बिल वाचता आले नाही — नाव हाताने टाका|Could not read the bill — type the name|बिल पढ़ा नहीं गया — नाम खुद डालें
+स्कॅनसाठी इंटरनेट लागते (फोटो सेव्ह होईल) — नाव हाताने टाका|Scanning needs internet (photo will be saved) — type the name|स्कैन के लिए इंटरनेट चाहिए (फोटो सेव होगा) — नाम खुद डालें
+फोटो वाचता आला नाही|Could not read the photo|फोटो पढ़ा नहीं गया
+✎ ऑर्डर एडिट|✎ Edit order|✎ ऑर्डर एडिट
+खर्च एडिट|Edit expense|खर्च एडिट
+इन्सेंटिव्ह एडिट|Edit incentive|इंसेंटिव एडिट
+पेट्रोल एडिट|Edit petrol|पेट्रोल एडिट
+✔ सेव्ह|✔ Save|✔ सेव करें
+एडिट सेव्ह झाले|Edit saved|एडिट सेव हुआ
+वेटिंग (मि)|Waiting (min)|वेटिंग (मिनट)
+ट्रिप वेळ (मि)|Trip time (min)|ट्रिप समय (मिनट)
+पत्ता नोंद|Address note|पता नोट
+रेस्टॉरंट|Restaurant|रेस्टोरेंट
+💰 कॅश|💰 Cash|💰 कैश
+💰 कॅश (फ्लोटिंग) आणि टार्गेट|💰 Cash (floating) & target|💰 कैश (फ्लोटिंग) और लक्ष्य
+एकूण हातात कॅश ₹|Total cash in hand ₹|कुल हाथ में कैश ₹
+कंपनीनुसार कॅश नाही|No company-wise cash|कंपनी के अनुसार कैश नहीं
+कॅश टॅब|Cash tab|कैश टैब
+⬇ डिपॉझिट|⬇ Deposit|⬇ डिपॉज़िट
+± दुरुस्ती|± Adjust|± सुधार
+⬇ कॅश डिपॉझिट|⬇ Cash deposit|⬇ कैश डिपॉज़िट
+± कॅश दुरुस्ती|± Cash adjustment|± कैश सुधार
+फ्लोटिंग: |Floating: |फ्लोटिंग: 
+✔ जमा नोंदवा|✔ Record deposit|✔ जमा दर्ज करें
+रक्कम (+ वाढ / − घट)|Amount (+ add / − reduce)|रकम (+ बढ़ा / − घटा)
+उदा. 200 किंवा -150|e.g. 200 or -150|जैसे 200 या -150
+कारण (ऐच्छिक)|Reason (optional)|कारण (वैकल्पिक)
+जमा नोंदवले|Deposit recorded|जमा दर्ज हुआ
+कॅश दुरुस्त केली|Cash adjusted|कैश सुधारा गया
+एकूण हातातील कॅश (फ्लोटिंग)|Total cash in hand (floating)|कुल हाथ का कैश (फ्लोटिंग)
+कंपनीला द्यायचे / डिपॉझिट करायचे|To hand over / deposit to company|कंपनी को देना / डिपॉज़िट करना
+फ्लोटिंग कॅश (हातात)|Floating cash (in hand)|फ्लोटिंग कैश (हाथ में)
+एकूण COD|Total COD|कुल COD
+फ्लोटिंग मर्यादा ₹|Floating limit ₹|फ्लोटिंग सीमा ₹
+कॅश नोंदी|Cash entries|कैश एंट्री
+दुरुस्ती|Adjustment|सुधार
+ही नोंद रद्द करायची? (कॅश परत बदलेल)|Cancel this entry? (cash will be reversed)|यह एंट्री रद्द करें? (कैश वापस बदलेगा)
+फ्लोटिंग कॅश|Floating cash|फ्लोटिंग कैश
+— डिपॉझिट करा|— deposit it|— डिपॉज़िट करें
+⚠ GPS साठी https लिंक लागते — ॲप netlify वर ठेवा (फाईलमधून GPS चालत नाही)|⚠ GPS needs an https link — host the app on netlify (GPS does not work from a file)|⚠ GPS के लिए https लिंक चाहिए — ऐप netlify पर रखें (फ़ाइल से GPS नहीं चलता)
+🚫 Location परवानगी नाही — Chrome → साइट सेटिंग → Location → Allow|🚫 Location permission denied — Chrome → site settings → Location → Allow|🚫 Location की अनुमति नहीं — Chrome → साइट सेटिंग → Location → Allow
+पुन्हा प्रयत्न|Try again|फिर कोशिश करें
+⚠ या फोनमध्ये GPS नाही|⚠ This phone has no GPS|⚠ इस फोन में GPS नहीं है
+📡 GPS शोधत आहे… मोकळ्या जागेत या|📡 Searching for GPS… move to open sky|📡 GPS खोज रहा है… खुली जगह में आएं
+पुन्हा सुरू करा|Restart|फिर शुरू करें
+⚠ GPS अपडेट थांबले (|⚠ GPS updates stopped (|⚠ GPS अपडेट रुके (
+सेकंद)|seconds)|सेकंड)
+📡 GPS कमकुवत (±|📡 GPS weak (±|📡 GPS कमज़ोर (±
+) — रस्ता मोजला जात नाही|) — route is not being measured|) — रास्ता नापा नहीं जा रहा
+🟢 GPS चालू (±|🟢 GPS on (±|🟢 GPS चालू (±
+GPS पुन्हा सुरू केले|GPS restarted|GPS फिर शुरू किया
+📴 ऑफलाइन आणि ऑटो बॅकअप|📴 Offline & auto backup|📴 ऑफ़लाइन और ऑटो बैकअप
+✅ ऑफलाइन तयार — इंटरनेट बंद असले तरी ॲप उघडते|✅ Offline ready — the app opens even without internet|✅ ऑफ़लाइन तैयार — इंटरनेट बंद हो तब भी ऐप खुलता है
+⏳ ऑफलाइनसाठी तयारी सुरू — एकदा पेज रिफ्रेश करा|⏳ Getting ready for offline — refresh the page once|⏳ ऑफ़लाइन की तैयारी — पेज एक बार रिफ्रेश करें
+⚠ ऑफलाइनसाठी ॲप https लिंकवर (netlify) sw.js सह ठेवा|⚠ For offline, host the app on an https link (netlify) together with sw.js|⚠ ऑफ़लाइन के लिए ऐप https लिंक (netlify) पर sw.js के साथ रखें
+बॅकअप फाईल आपोआप फोनच्या Downloads (अंतर्गत मेमरी) मध्ये सेव्ह करा — ड्युटी संपल्यावर|Save a backup file automatically to the phone's Downloads (internal memory) — after ending duty|बैकअप फ़ाइल अपने आप फोन के Downloads (इंटरनल मेमोरी) में सेव करें — ड्यूटी खत्म होने पर
+Android Chrome वेबसाईटला बॅकग्राउंडमध्ये थेट फोल्डरमध्ये लिहू देत नाही, म्हणून ही फाईल तुमच्या टॅपच्या वेळी सेव्ह होते. पहिल्यांदा "अनेक फाईल डाउनलोड" ची परवानगी विचारेल.|Android Chrome does not let a website write to a folder in the background, so the file is saved at the time of your tap. The first time it may ask permission for "multiple downloads".|Android Chrome वेबसाइट को बैकग्राउंड में सीधे फ़ोल्डर में लिखने नहीं देता, इसलिए फ़ाइल आपके टैप के समय सेव होती है। पहली बार "कई फ़ाइल डाउनलोड" की अनुमति पूछेगा।
+⬇ आत्ता फाईल सेव्ह करा|⬇ Save file now|⬇ अभी फ़ाइल सेव करें
+ॲपमधील ऑटो स्नॅपशॉट (दर ३ तासांनी, शेवटचे १०)|In-app auto snapshots (every 3 hours, last 10)|ऐप में ऑटो स्नैपशॉट (हर 3 घंटे, आखिरी 10)
+📸 आत्ता स्नॅपशॉट घ्या|📸 Take snapshot now|📸 अभी स्नैपशॉट लें
+स्नॅपशॉट घेतला|Snapshot taken|स्नैपशॉट लिया
+अजून स्नॅपशॉट नाही.|No snapshots yet.|अभी कोई स्नैपशॉट नहीं।
+या स्नॅपशॉटवर परत जायचे? सध्याचा डेटा बदलेल.|Go back to this snapshot? Current data will be replaced.|इस स्नैपशॉट पर वापस जाएं? मौजूदा डेटा बदल जाएगा।
+बॅकअप डाउनलोड झाला|Backup downloaded|बैकअप डाउनलोड हुआ
+शेवटचा बॅकअप:|Last backup:|आखिरी बैकअप:
+बॅकअप फाईल सेव्ह केली|Backup file saved|बैकअप फ़ाइल सेव की
+जमा|Deposit|जमा
+❓ कसे वापरायचे|❓ How to use|❓ कैसे इस्तेमाल करें
+१. ड्युटी सुरू करा|1. Start duty|1. ड्यूटी शुरू करें
+🏍 ड्युटी टॅबमधील मोठा स्विच दाबा आणि ओडोमीटर टाका.|Press the big switch on the Duty tab and enter the odometer.|🏍 ड्यूटी टैब का बड़ा स्विच दबाएं और ओडोमीटर डालें।
+२. ऑर्डर नोंदवा|2. Log orders|2. ऑर्डर दर्ज करें
+ऑर्डर आली की Swiggy / Zomato चे मोठे बटण दाबा. पहिल्यांदा रक्कम विचारेल, नंतर १ टॅप. चूक झाली तर Undo.|When an order comes, press the big Swiggy / Zomato button. It asks the amount the first time, then 1 tap. Undo if you make a mistake.|ऑर्डर आए तो Swiggy / Zomato का बड़ा बटन दबाएं। पहली बार रकम पूछेगा, फिर 1 टैप। गलती हो तो Undo।
+३. खर्च नोंदवा|3. Log expenses|3. खर्च दर्ज करें
+💸 खर्च टॅबमध्ये पेट्रोल, जेवण आणि कॅश (COD) नोंदवा.|In the 💸 Expenses tab log petrol, meals and cash (COD).|💸 खर्च टैब में पेट्रोल, खाना और कैश (COD) दर्ज करें।
+४. ड्युटी संपवा|4. End duty|4. ड्यूटी खत्म करें
+स्विच पुन्हा दाबा. आजचा नफा दिसेल आणि बॅकअप फाईल आपोआप सेव्ह होते.|Press the switch again. Today's profit shows and a backup file is saved automatically.|स्विच फिर दबाएं। आज का मुनाफ़ा दिखेगा और बैकअप फ़ाइल अपने आप सेव होती है।
+जास्त पर्याय हवेत? ⚙ सेटिंग → "पूर्ण" मोड निवडा.|Want more options? ⚙ Settings → choose "Full" mode.|ज्यादा विकल्प चाहिए? ⚙ सेटिंग → "पूर्ण" मोड चुनें।
+समजले|Got it|समझ गया
+ऑर्डर हटवली|Order deleted|ऑर्डर हटाया गया
+कॉपी केले|Copied|कॉपी किया
+❓ कसे वापरायचे (४ पायऱ्या)|❓ How to use (4 steps)|❓ कैसे इस्तेमाल करें (4 कदम)
+📈 अधिक माहिती (तुलना, लक्ष्य, इतिहास)|📈 More info (comparison, goals, history)|📈 अधिक जानकारी (तुलना, लक्ष्य, इतिहास)
+🗺 GPS रस्ता|🗺 GPS route|🗺 GPS रास्ता
+📤 आजचा हिशोब शेअर करा|📤 Share today's accounts|📤 आज का हिसाब शेयर करें
+🧭 मोड|🧭 Mode|🧭 मोड
+सोपा|Simple|सरल
+पूर्ण (सर्व पर्याय)|Full (all options)|पूर्ण (सभी विकल्प)
+सोपा = रोजच्या वापराचे कमी पर्याय. पूर्ण = कंपनी रिपोर्ट, Shadowfax, पत्ते, गॅरेज नकाशा, चेकलिस्ट इ.|Simple = fewer everyday options. Full = company report, Shadowfax, addresses, garage map, checklist etc.|सरल = रोज़ के कम विकल्प। पूर्ण = कंपनी रिपोर्ट, Shadowfax, पते, गैरेज मैप, चेकलिस्ट आदि।
+🎯 लक्ष्य, अलर्ट, क्विक रक्कम|🎯 Goals, alerts, quick amounts|🎯 लक्ष्य, अलर्ट, क्विक रकम
+🆘 SOS, 🔒 PIN, 🎉 सण|🆘 SOS, 🔒 PIN, 🎉 Festivals|🆘 SOS, 🔒 PIN, 🎉 त्योहार
+अधिक तपशील (बिल फोटो, किमी, टिप, वेटिंग…)|More details (bill photo, km, tip, waiting…)|अधिक विवरण (बिल फोटो, किमी, टिप, वेटिंग…)
+COD कॅश ₹ (असेल तर)|COD cash ₹ (if any)|COD कैश ₹ (हो तो)
+वेटिंग (मिनिट)|Waiting (minutes)|वेटिंग (मिनट)
+आणखी सूचना|more alerts|और सूचनाएं
+बॅकअप जुना झाला|Backup is old|बैकअप पुराना हो गया
+आत्ता घ्या|Take now|अभी लें
+कंपनी|Company|कंपनी
+ॲप शोधत असलेली ऑफलाइन साठवण (डेटा सुरक्षा)|Persistent storage (data protection)|स्थायी स्टोरेज (डेटा सुरक्षा)
+🔐 डेटा सुरक्षित साठवण: चालू — ब्राउझर तो आपोआप पुसणार नाही|🔐 Protected storage: ON — the browser will not clear it automatically|🔐 सुरक्षित स्टोरेज: चालू — ब्राउज़र इसे अपने आप नहीं मिटाएगा
+🔐 डेटा सुरक्षित साठवण: बंद — ॲप होम स्क्रीनवर जोडा आणि नियमित बॅकअप घ्या|🔐 Protected storage: OFF — add the app to the home screen and take regular backups|🔐 सुरक्षित स्टोरेज: बंद — ऐप होम स्क्रीन पर जोड़ें और नियमित बैकअप लें
+`;
+const DK=DICT_RAW.trim().split('\n').map(l=>l.split('|')).filter(x=>x.length>=2&&x[0]).sort((a,b)=>b[0].length-a[0].length);
+function tx(s){const l=S.set&&S.set.lang||'mr';if(l==='mr'||typeof s!=='string')return s;const i=l==='en'?1:2;let o=s;DK.forEach(k=>{if(o.includes(k[0])){const r=k[i]||(i===2?null:k[1]);if(r!==null&&r!==undefined)o=o.split(k[0]).join(r)}});return o}
+function applyLang(){const l=S.set.lang||'mr';document.documentElement.lang=l;document.documentElement.dataset.ac=S.set.ac||'orange';document.documentElement.dataset.big=S.set.big?1:0;if(l==='mr')return;
+  const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT),todo=[];let n;while(n=w.nextNode()){if(n.parentElement.closest('script,style,textarea'))continue;if(/[\u0900-\u097F]/.test(n.nodeValue))todo.push(n)}todo.forEach(n=>n.nodeValue=tx(n.nodeValue));
+  document.querySelectorAll('[placeholder]').forEach(e=>{if(/[\u0900-\u097F]/.test(e.placeholder))e.placeholder=tx(e.placeholder)})}
+
+/* ---------- init ---------- */
+document.documentElement.dataset.th=localStorage.getItem('rt_theme')||(matchMedia('(prefers-color-scheme:light)').matches?'light':'dark');
+if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
+if(S.duty){startGPS();getWake()}
+render();lockCheck();handleHash();if(!S.set.helpSeen&&!S.orders.length&&!S.duty){S.set.helpSeen=1;save();setTimeout(helpModal,400)}window.addEventListener('hashchange',handleHash);
+</script>
+</body>
+</html>
