@@ -1,6 +1,46 @@
-const C='rider-hishob-v4',F=['./','index.html','manifest.json','icon-192.png','icon-512.png'];
-self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>Promise.all(F.map(u=>c.add(u).catch(()=>{})))).then(()=>self.skipWaiting()))});
-self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!==C).map(x=>caches.delete(x)))).then(()=>self.clients.claim()))});
-self.addEventListener('fetch',e=>{const r=e.request;if(r.method!=='GET')return;
-  if(r.mode==='navigate'){e.respondWith(fetch(r).then(x=>{const cp=x.clone();caches.open(C).then(c=>c.put('index.html',cp));return x}).catch(()=>caches.match('index.html',{ignoreSearch:true}).then(x=>x||caches.match('./'))));return}
-  e.respondWith(caches.match(r,{ignoreSearch:true}).then(c=>{const net=fetch(r).then(x=>{if(x&&(x.ok||x.type==='opaque')){const cp=x.clone();caches.open(C).then(k=>k.put(r,cp))}return x}).catch(()=>c);return c||net}))});
+/* Rider Saathi Pro V8.2 — safe offline cache */
+const CACHE_NAME = "rider-saathi-v8-2-bugfix-1";
+const APP_SHELL = ["./", "./index.html", "./manifest.webmanifest", "./icon.svg"];
+self.addEventListener("install", event => {
+  event.waitUntil((async () => {
+    const cache = await caches.open(CACHE_NAME);
+    await cache.addAll(APP_SHELL);
+    await self.skipWaiting();
+  })());
+});
+self.addEventListener("activate", event => {
+  event.waitUntil((async () => {
+    const keys = await caches.keys();
+    await Promise.all(keys.filter(key => key.startsWith("rider-saathi-") && key !== CACHE_NAME).map(key => caches.delete(key)));
+    await self.clients.claim();
+  })());
+});
+self.addEventListener("fetch", event => {
+  const request = event.request;
+  if (request.method !== "GET") return;
+  const url = new URL(request.url);
+  if (url.origin !== self.location.origin) return;
+  if (request.mode === "navigate") {
+    event.respondWith((async () => {
+      try {
+        const response = await fetch(request);
+        if (response && response.ok) (await caches.open(CACHE_NAME)).put("./index.html", response.clone());
+        return response;
+      } catch (_) {
+        return (await caches.match(request)) || (await caches.match("./index.html"));
+      }
+    })());
+    return;
+  }
+  event.respondWith((async () => {
+    const cached = await caches.match(request);
+    if (cached) return cached;
+    try {
+      const response = await fetch(request);
+      if (response && response.ok && response.type === "basic") (await caches.open(CACHE_NAME)).put(request, response.clone());
+      return response;
+    } catch (_) {
+      return new Response("Offline", {status: 503, statusText: "Offline"});
+    }
+  })());
+});

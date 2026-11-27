@@ -1,0 +1,19 @@
+{
+  "name": "Rider Saathi Pro V8.2 - BugFix Edition",
+  "short_name": "Rider Saathi V8.2",
+  "description": "Neon rider cockpit with earnings, expenses, GPS, PIN lock, local backups, conflict-safe Firebase sync and analytics",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#080f14",
+  "theme_color": "#0b8f72",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
