@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#075b49">
-<meta name="description" content="Rider Saathi Pro V8.2 - delivery rider earnings, expenses, GPS distance and analytics.">
+<meta name="description" content="Rider Saathi Pro V8.4 - delivery rider earnings, expenses, GPS distance and analytics.">
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="icon" href="./icon.svg" type="image/svg+xml">
 <meta name="color-scheme" content="dark light">
-<title>Rider Saathi Pro V8.2 • BugFix Edition</title>
+<title>Rider Saathi Pro V8.4 • BugFix Edition</title>
 <style>
 :root{--g:#087f63;--gd:#064b3e;--bg:#f2f6f4;--ink:#17231f;--mut:#687670;--line:#e1e9e5;--gold:#ffca4d;--red:#b83240}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans Devanagari",sans-serif}
@@ -113,22 +113,59 @@ body.dark{background:#080f14;color:#e8f4f2}body.dark .card{background:linear-gra
 #rsAuthCard input{margin:7px 0;background:#071317;color:#fff;border:1px solid #315058;letter-spacing:5px;text-align:center}
 #rsAuthMsg{min-height:20px;color:#ffb7a8;font-size:12px}
 .v8-kpis{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:10px}.v8-kpi{background:#102027;border:1px solid #294148;border-radius:12px;padding:12px}.v8-kpi b{display:block;color:#8df6db;font-size:18px}.v8-kpi span{font-size:11px;color:#91aaa7}
+
+/* V8.4 Professional theme — slate surfaces, one amber accent */
+:root{--bg:#0e1418;--s1:#161e24;--s2:#1d2830;--line:#2a3640;--ink:#eaeff2;--mut:#98a7b2;--amber:#f5b83d;--green:#4cc38a;--red:#ef6b6b;--g:#4cc38a;--gold:#f5b83d}
+body,body.dark{background:var(--bg);color:var(--ink);font-variant-numeric:tabular-nums;-webkit-font-smoothing:antialiased}
+header{background:var(--s1);border-bottom:1px solid var(--line);border-radius:0;box-shadow:none;padding:16px 16px 14px}
+.brand{font-size:13px;letter-spacing:0;font-weight:700;color:var(--amber);opacity:1}
+.hero{font-size:20px;font-weight:700;letter-spacing:-.2px;margin:4px 0 2px}.tag{font-size:12px;color:var(--mut)}
+.lang-wrap{margin-top:10px}.lang-wrap label{color:var(--mut);font-weight:600}.lang-wrap select{background:var(--s2);color:var(--ink);border:1px solid var(--line);border-radius:8px}
+.apps{margin:12px 0 10px;padding:0;gap:8px}
+.app,body.dark .app:not(.active){display:flex;align-items:center;justify-content:center;gap:7px;background:var(--s1);color:var(--mut);border:1px solid var(--line);border-radius:10px;box-shadow:none;font-weight:600}
+.app::before{content:"";width:8px;height:8px;border-radius:50%;background:#fc8019}
+.app[data-app=zomato]::before{background:#e23744}.app[data-app=shadowfax]::before{background:#3da874}
+.apps .app[data-app].active,body.dark .apps .app.active{background:var(--s2);color:var(--ink);box-shadow:none;outline:0;border-color:var(--amber)}
+.card,body.dark .card{background:var(--s1);border:1px solid var(--line);border-radius:14px;box-shadow:none;color:var(--ink)}
+.card h2{font-size:15px;font-weight:700;color:var(--ink);letter-spacing:0}
+input,select{background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:10px}
+input:focus,select:focus{outline:2px solid var(--amber);outline-offset:0;border-color:var(--amber)}
+.field label,.hint,.stat span,.order small{color:var(--mut)}
+.total-km,.stat,.chip,.order,body.dark .stat,body.dark .order,body.dark .chip,body.dark .total-km{background:var(--s2);border:1px solid var(--line);color:var(--ink);border-radius:10px}
+.chip{border-radius:8px}.stat b,.total-km strong,.v8-kpi b{color:var(--ink)}
+.result{background:var(--s2);border:1px solid var(--line);border-top:3px solid var(--amber);border-radius:14px;box-shadow:none}
+.result .small{letter-spacing:0;font-weight:600;color:var(--mut);opacity:1}
+.money{color:var(--amber);font-size:40px;font-weight:700}
+.btn{background:var(--amber);color:#1a1300;border-radius:10px;font-weight:700;min-height:46px}
+.btn.soft,.tiny,body.dark .btn.soft,body.dark .tiny{background:var(--s2);color:var(--ink);border:1px solid var(--line)}
+.btn.red{background:transparent;color:var(--red);border:1px solid #5a2f33}
+.bar{background:var(--s2)}.bar i{background:var(--green)}
+.notice{background:#2a2414;border:1px solid #5c4d22;color:#f0d9a0;border-radius:10px}
+.bottom-tabs,body.dark .bottom-tabs{background:#12191ff2;border-top:1px solid var(--line);border-color:var(--line);box-shadow:none}
+.tab-btn,body.dark .tab-btn{position:relative;background:transparent;color:var(--mut);border-radius:0}
+.tab-btn span{display:flex;font-size:0}.tab-btn svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.tab-btn small{font-size:11px;font-weight:600}
+.tab-btn.active,body.dark .tab-btn.active{background:transparent;color:var(--amber)}
+.tab-btn.active::before{content:"";position:absolute;top:-9px;left:30%;right:30%;height:2px;background:var(--amber);border-radius:2px}
+.v8-kpi{background:var(--s2);border-color:var(--line)}
+#rsAuthOverlay{background:var(--bg)}#rsAuthCard{background:var(--s1);border-color:var(--line);border-radius:14px}#rsAuthCard h2{color:var(--ink)}
+.gps-readout,.timer-running{color:var(--green)}footer{color:var(--mut)}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}}
 </style></head>
 <body>
-<header><div class="head"><div class="brand">RIDER SAATHI • PRO EDITION • V8.2 BUGFIX EDITION</div><div class="hero">🛵 KM टाका, कमाई आणि नफा बघा!</div><div class="tag">Pickup + Drop एकत्र • खर्च वजा करून निव्वळ कमाई</div><div class="lang-wrap"><label for="language">🌐 भाषा / Language</label><select id="language" onchange="setLanguage(this.value)"><option value="mr">मराठी</option><option value="en">English</option></select></div></div></header>
+<header><div class="head"><div class="brand">Rider Saathi Pro</div><div class="hero">KM टाका, कमाई आणि नफा बघा!</div><div class="tag">Pickup + Drop एकत्र • खर्च वजा करून निव्वळ कमाई</div><div class="lang-wrap"><label for="language">भाषा / Language</label><select id="language" onchange="setLanguage(this.value)"><option value="mr">मराठी</option><option value="en">English</option></select></div></div></header>
 <main>
-<div class="apps"><button class="app active" data-app="swiggy" onclick="selectApp('swiggy')">🟠 Swiggy</button><button class="app" data-app="zomato" onclick="selectApp('zomato')">🔴 Zomato</button><button class="app" data-app="shadowfax" onclick="selectApp('shadowfax')">🟢 Shadowfax</button></div>
+<div class="apps"><button class="app active" data-app="swiggy" onclick="selectApp('swiggy')">Swiggy</button><button class="app" data-app="zomato" onclick="selectApp('zomato')">Zomato</button><button class="app" data-app="shadowfax" onclick="selectApp('shadowfax')">Shadowfax</button></div>
 <nav class="bottom-tabs" aria-label="मुख्य टॅब">
- <button class="tab-btn active" data-tab="calculate" onclick="switchTab('calculate')"><span>🧮</span><small>हिशोब</small></button>
- <button class="tab-btn" data-tab="orders" onclick="switchTab('orders')"><span>🧾</span><small>ऑर्डर्स</small></button>
- <button class="tab-btn" data-tab="insights" onclick="switchTab('insights')"><span>📈</span><small>रिपोर्ट</small></button>
- <button class="tab-btn" data-tab="assistant" onclick="switchTab('assistant')"><span>🤖</span><small>सहाय्यक</small></button>
- <button class="tab-btn" data-tab="settings" onclick="switchTab('settings')"><span>⚙️</span><small>सेटिंग</small></button>
+ <button class="tab-btn active" data-tab="calculate" onclick="switchTab('calculate')"><span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 12h2M14 12h2M8 16h2M14 16h2"/></svg></span><small>हिशोब</small></button>
+ <button class="tab-btn" data-tab="orders" onclick="switchTab('orders')"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg></span><small>ऑर्डर्स</small></button>
+ <button class="tab-btn" data-tab="insights" onclick="switchTab('insights')"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20v-8M12 20V5M19 20v-5"/></svg></span><small>रिपोर्ट</small></button>
+ <button class="tab-btn" data-tab="assistant" onclick="switchTab('assistant')"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg></span><small>सहाय्यक</small></button>
+ <button class="tab-btn" data-tab="settings" onclick="switchTab('settings')"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2"/><circle cx="9" cy="17" r="2"/></svg></span><small>सेटिंग</small></button>
 </nav>
 
 <section class="card page-panel" data-page="calculate">
-<h2>🧮 ऑर्डर कमाई कॅल्क्युलेटर</h2>
+<h2>ऑर्डर कमाई कॅल्क्युलेटर</h2>
 <div class="grid">
 <div class="field"><label>Pickup पर्यंतचे अंतर (KM)</label><input id="pickup" type="number" min="0" max="500" step=".01" value="1.20" inputmode="decimal"></div>
 <div class="field"><label>Pickup ते Drop (KM)</label><input id="drop" type="number" min="0" max="500" step=".01" value="3.10" inputmode="decimal"></div>
@@ -142,21 +179,21 @@ body.dark{background:#080f14;color:#e8f4f2}body.dark .card{background:linear-gra
 <button class="btn" onclick="addOrder()">＋ आजच्या हिशोबात ऑर्डर जोडा</button>
 </section>
 
-<section class="card page-panel" data-page="settings"><div class="headrow"><h2>⚙️ कंपनीनुसार रेट सेटिंग</h2><button class="tiny" onclick="resetRates()">Default करा</button></div>
+<section class="card page-panel" data-page="settings"><div class="headrow"><h2>कंपनीनुसार रेट सेटिंग</h2><button class="tiny" onclick="resetRates()">Default करा</button></div>
 <div class="hint">सर्व कंपन्यांसाठी बेस पे ₹25 ठेवला आहे. KM रेट नमुना आहेत; प्रत्यक्ष रेटनुसार बदला.</div>
-<div class="settings show" data-settings="swiggy"><strong>🟠 Swiggy</strong><div class="rategrid">
+<div class="settings show" data-settings="swiggy"><strong>Swiggy</strong><div class="rategrid">
 <div class="field"><label>बेस पे ₹</label><input id="swBase" type="number" min="0" value="25"></div><div class="field"><label>बेसमध्ये समाविष्ट KM</label><input id="swFree" type="number" min="0" step=".1" value="1"></div>
 <div class="field"><label>दिवस ₹ / अतिरिक्त KM</label><input id="swDay" type="number" min="0" step=".1" value="9"></div><div class="field"><label>पीक ₹ / अतिरिक्त KM</label><input id="swPeak" type="number" min="0" step=".1" value="10.5"></div><div class="field"><label>रात्र ₹ / अतिरिक्त KM</label><input id="swNight" type="number" min="0" step=".1" value="9"></div></div><p class="hint">तुमच्या स्क्रीनशॉटवरून सेट केलेले सुरुवातीचे Swiggy KM दर: दिवस/रात्र ₹9 आणि पीक ₹10.50. लागू नियम/ऑर्डरनुसार फरक असू शकतो.</p></div>
-<div class="settings" data-settings="zomato"><strong>🔴 Zomato</strong><div class="rategrid">
+<div class="settings" data-settings="zomato"><strong>Zomato</strong><div class="rategrid">
 <div class="field"><label>बेस पे ₹</label><input id="zoBase" type="number" min="0" value="25"></div><div class="field"><label>बेसमध्ये समाविष्ट KM</label><input id="zoFree" type="number" min="0" step=".1" value="1"></div>
 <div class="field"><label>दिवस ₹ / अतिरिक्त KM</label><input id="zoDay" type="number" min="0" step=".1" value="8"></div><div class="field"><label>पीक ₹ / अतिरिक्त KM</label><input id="zoPeak" type="number" min="0" step=".1" value="10"></div><div class="field"><label>रात्र ₹ / अतिरिक्त KM</label><input id="zoNight" type="number" min="0" step=".1" value="8"></div></div><p class="hint">Zomato चे अचूक प्रति KM दर तुमच्या स्क्रीनशॉटमधून स्पष्ट होत नाहीत; हे बदलता येणारे नमुना दर आहेत.</p></div>
-<div class="settings" data-settings="shadowfax"><strong>🟢 Shadowfax</strong><div class="rategrid">
+<div class="settings" data-settings="shadowfax"><strong>Shadowfax</strong><div class="rategrid">
 <div class="field"><label>बेस पे ₹</label><input id="diBase" type="number" min="0" value="25"></div><div class="field"><label>बेसमध्ये समाविष्ट KM</label><input id="diFree" type="number" min="0" step=".1" value="1"></div>
 <div class="field"><label>दिवस ₹ / अतिरिक्त KM</label><input id="diDay" type="number" min="0" step=".1" value="9"></div><div class="field"><label>पीक ₹ / अतिरिक्त KM</label><input id="diPeak" type="number" min="0" step=".1" value="10"></div><div class="field"><label>रात्र ₹ / अतिरिक्त KM</label><input id="diNight" type="number" min="0" step=".1" value="9"></div></div><p class="hint">Shadowfax चे दर नमुना आहेत. तुमच्या Shadowfax ऑर्डर पेमेंटप्रमाणे बदला.</p></div>
 <button class="btn soft" onclick="saveRates()">रेट सेव्ह करा</button><p class="hint">रेट या डिव्हाइसच्या ब्राउझरमध्ये सेव्ह होतील.</p>
 </section>
 
-<section class="card page-panel" data-page="calculate"><h2>⛽ पेट्रोल खर्च आणि निव्वळ नफा</h2><div class="grid">
+<section class="card page-panel" data-page="calculate"><h2>पेट्रोल खर्च आणि निव्वळ नफा</h2><div class="grid">
 <div class="field"><label>मायलेज (KM / लिटर)</label><input id="mileage" type="number" min="1" max="150" step=".1" value="45"></div>
 <div class="field"><label>पेट्रोल दर (₹ / लिटर)</label><input id="fuelPrice" type="number" min="0" max="300" step=".1" value="105"></div>
 <div class="field full"><label>आजचा इतर खर्च (₹) — पार्किंग / देखभाल इ.</label><input id="otherCost" type="number" min="0" value="0"></div></div>
@@ -164,33 +201,33 @@ body.dark{background:#080f14;color:#e8f4f2}body.dark .card{background:linear-gra
 <div class="notice" style="margin-top:10px">पेट्रोल खर्चासाठी Pickup + Drop हे पूर्ण अंतर धरले आहे. आजचा इतर खर्च दैनिक हिशोबात फक्त एकदाच वजा होतो. परतीचा प्रवास किंवा रिकामे KM वेगळे असतील तर तेही एकूण अंतरात जोडा.</div>
 </section>
 
-<section class="card page-panel" data-page="calculate"><h2>🎯 Dinner Peak Incentive</h2><div class="field"><label>7 PM ते 11 PM पूर्ण ऑर्डर्स</label><input id="trips" type="number" min="0" step="1" value="0"></div>
+<section class="card page-panel" data-page="calculate"><h2>Dinner Peak Incentive</h2><div class="field"><label>7 PM ते 11 PM पूर्ण ऑर्डर्स</label><input id="trips" type="number" min="0" step="1" value="0"></div>
 <div class="chips"><span class="chip">4 = ₹110</span><span class="chip">7 = ₹190</span><span class="chip">9 = ₹245</span><span class="chip">11 = ₹300</span></div>
 <div class="result"><div class="small">स्क्रीनशॉटनुसार इन्सेंटिव्ह</div><div class="money" id="incentive">₹0</div><div class="subline" id="nextTarget">4 ऑर्डर्स पूर्ण करा</div></div>
 <button class="btn soft" onclick="addIncentive()">＋ इन्सेंटिव्ह आजच्या हिशोबात जोडा</button><p class="hint">तुमच्या शेअर केलेल्या ऑफर स्क्रीनशॉटमधील टप्पे. पात्रता/लॉगिन/ऑर्डर अटी लागू.</p>
 </section>
 
-<section class="card page-panel" data-page="orders"><h2>📊 आजचा हिशोब</h2><div class="stats"><div class="stat"><b id="count">0</b><span>ऑर्डर्स</span></div><div class="stat"><b id="sumKm">0.00</b><span>एकूण KM</span></div><div class="stat"><b id="sumPay">₹0</b><span>एकूण पे</span></div></div>
+<section class="card page-panel" data-page="orders"><h2>आजचा हिशोब</h2><div class="stats"><div class="stat"><b id="count">0</b><span>ऑर्डर्स</span></div><div class="stat"><b id="sumKm">0.00</b><span>एकूण KM</span></div><div class="stat"><b id="sumPay">₹0</b><span>एकूण पे</span></div></div>
 <div class="stats" style="margin-top:8px"><div class="stat"><b id="sumFuel">₹0</b><span>पेट्रोल + इतर खर्च</span></div><div class="stat"><b id="sumNet">₹0</b><span>निव्वळ कमाई</span></div><div class="stat"><b id="sumIncentive">₹0</b><span>इन्सेंटिव्ह</span></div></div>
 <div class="bar"><i id="goalBar"></i></div><p class="hint" id="goalLabel">दैनिक लक्ष्य सेट करा.</p><div class="field"><label>आजचे कमाईचे लक्ष्य ₹</label><input id="goal" type="number" min="0" value="1000"></div>
 <input class="searchbox" id="historySearch" type="search" placeholder="ऑर्डर / कंपनी शोधा..." oninput="renderHistory()">
 <div id="history"></div>
 <div class="card" style="margin:14px 0;background:#0d1b21;border-color:#315058">
-<h2>💸 खर्च नोंदवा</h2><div class="grid">
+<h2>खर्च नोंदवा</h2><div class="grid">
 <div class="field"><label for="expenseType">खर्चाचा प्रकार</label><select id="expenseType"><option value="Fuel">पेट्रोल</option><option value="Maintenance">सर्व्हिस / दुरुस्ती</option><option value="Toll">टोल / पार्किंग</option><option value="Food">जेवण</option><option value="Other">इतर</option></select></div>
 <div class="field"><label for="expenseAmount">रक्कम (₹)</label><input id="expenseAmount" type="number" min="0.01" step="0.01" placeholder="उदा. 150"></div>
 <div class="field full"><label for="expenseNote">टीप (ऐच्छिक)</label><input id="expenseNote" type="text" maxlength="80" placeholder="उदा. पेट्रोल 1.5 लिटर"></div></div>
 <button class="btn" onclick="addExpense()">＋ खर्च सेव्ह करा</button><div class="stats" style="margin-top:10px"><div class="stat"><b id="expenseTotal">₹0.00</b><span>आजचा नोंदवलेला खर्च</span></div><div class="stat"><b id="expenseCount">0</b><span>खर्च नोंदी</span></div><div class="stat"><b id="expenseNet">₹0.00</b><span>खर्चानंतर नफा</span></div></div><div id="expenseHistory"></div>
 </div>
 <div class="tools" style="margin-top:10px">
-<button class="btn soft" onclick="exportCSV()">⬇ CSV रिपोर्ट</button><button class="btn soft" onclick="exportExcel()">⬇ Excel रिपोर्ट</button>
-<button class="btn soft" onclick="exportPDF()">⬇ PDF रिपोर्ट</button><button class="btn soft" onclick="downloadBackup()">Backup घ्या</button>
+<button class="btn soft" onclick="exportCSV()">CSV रिपोर्ट</button><button class="btn soft" onclick="exportExcel()">Excel रिपोर्ट</button>
+<button class="btn soft" onclick="exportPDF()">PDF रिपोर्ट</button><button class="btn soft" onclick="downloadBackup()">Backup घ्या</button>
 </div>
 <label class="btn soft" style="display:block;text-align:center;cursor:pointer">Backup Restore निवडा<input id="restoreFile" type="file" accept="application/json,.json" style="display:none" onchange="restoreBackup(event)"></label><button class="btn red" onclick="resetDay()">आजचा हिशोब रीसेट</button>
 </section>
 
 <section class="card page-panel" data-page="insights">
-<h2>⏱️ कामाचे तास आणि Break Timer</h2>
+<h2>कामाचे तास आणि Break Timer</h2>
 <div class="stats">
  <div class="stat"><b id="workClock">00:00:00</b><span>कामाचे तास</span></div>
  <div class="stat"><b id="breakClock">00:00:00</b><span>ब्रेक वेळ</span></div>
@@ -198,7 +235,7 @@ body.dark{background:#080f14;color:#e8f4f2}body.dark .card{background:linear-gra
 </div>
 <div class="tools" style="margin-top:10px">
  <button class="btn" onclick="startWork()">▶ काम सुरू</button>
- <button class="btn soft" onclick="startBreak()">☕ ब्रेक सुरू</button>
+ <button class="btn soft" onclick="startBreak()">ब्रेक सुरू</button>
  <button class="btn soft" onclick="endBreak()">↩️ ब्रेक संपवा</button>
  <button class="btn red" onclick="stopWork()">■ शिफ्ट थांबवा</button>
 </div>
@@ -206,59 +243,43 @@ body.dark{background:#080f14;color:#e8f4f2}body.dark .card{background:linear-gra
 <p class="hint">टाइमर बंद केल्यावर वेळ सेव्ह होतो. फोन रीस्टार्ट झाला तरी सेव्ह केलेली वेळ पुन्हा मिळते.</p>
 </section>
 <section class="card page-panel" data-page="assistant">
-<h2>🤖 Rider Saathi Smart Assistant</h2>
+<h2>Rider Saathi Smart Assistant</h2>
 <p class="hint">मराठी / हिंदी / English मध्ये प्रश्न टाइप करा किंवा माइक वापरून बोला. उत्तर तुमच्या या डिव्हाइसवरील नोंदींवर आधारित असेल.</p>
 <div id="chatLog" class="order" aria-live="polite"><b>नमस्कार रायडर! 👋</b><p>उदा. “आजची कमाई किती?”, “पेट्रोल खर्च किती?”, “कंपनी तुलना दाखव”.</p></div>
 <div class="field" style="margin-top:10px"><label for="assistantInput">तुमचा प्रश्न</label><input id="assistantInput" type="text" placeholder="उदा. आजचा निव्वळ नफा किती?" onkeydown="if(event.key==='Enter')askAssistant()"></div>
-<div class="tools"><button class="btn" onclick="askAssistant()">➤ विचारा</button><button class="btn soft" onclick="startVoiceInput()">🎙️ बोलून विचारा</button><button class="btn soft" onclick="clearAssistant()">चॅट साफ करा</button><button class="btn soft" onclick="exportAssistantChat()">⬇ चॅट बॅकअप</button><button class="btn soft" onclick="shareTodayReport()">📲 आजचा रिपोर्ट शेअर करा</button></div>
+<div class="tools"><button class="btn" onclick="askAssistant()">विचारा</button><button class="btn soft" onclick="startVoiceInput()">बोलून विचारा</button><button class="btn soft" onclick="clearAssistant()">चॅट साफ करा</button><button class="btn soft" onclick="exportAssistantChat()">चॅट बॅकअप</button><button class="btn soft" onclick="shareTodayReport()">आजचा रिपोर्ट शेअर करा</button></div>
 <p class="hint" id="voiceStatus">Voice input साठी ब्राउझरची microphone परवानगी आवश्यक आहे. सर्व डिव्हाइसवर Speech Recognition उपलब्ध असेलच असे नाही.</p>
 <div class="chips"><button class="tiny" onclick="quickAsk('आजची कमाई किती?')">आजची कमाई</button><button class="tiny" onclick="quickAsk('माझा निव्वळ नफा किती?')">निव्वळ नफा</button><button class="tiny" onclick="quickAsk('कंपनी तुलना दाखव')">कंपनी तुलना</button><button class="tiny" onclick="quickAsk('मासिक रिपोर्ट दाखव')">मासिक रिपोर्ट</button></div>
 </section>
 
 <section class="card page-panel" data-page="insights">
-<h2>🏢 कंपनीनुसार आजची तुलना</h2>
+<h2>कंपनीनुसार आजची तुलना</h2>
 <div class="stats" id="companyCompare"></div>
 <div id="hourCompare" class="hint" style="margin-top:12px"></div>
 </section>
+<section class="card page-panel" data-page="settings"> <h2>Backup / Restore</h2> <p class="hint">तुमचा डेटा फक्त या फोनमध्ये साठवला जातो. आठवड्यातून एकदा Backup घ्या आणि ती .json फाईल WhatsApp किंवा Google Drive मध्ये ठेवा. फोन बदलला किंवा डेटा गेला तर Restore मधून परत टाका.</p> <button class="btn soft" onclick="downloadBackup()">Backup घ्या</button> <label class="btn soft" style="display:block;text-align:center;cursor:pointer;margin-top:8px">Backup Restore निवडा<input id="restoreFile2" type="file" accept="application/json,.json" style="display:none" onchange="restoreBackup(event)"></label> </section>
 <section class="card page-panel" data-page="settings">
-<h2>☁️ Hybrid Cloud Sync</h2>
-<p class="hint">डेटा आधी या डिव्हाइसवर सेव्ह होतो. Firebase Realtime Database जोडल्यावर तुम्ही स्वतः Sync करू शकता. Cloud URL आणि वैयक्तिक सुरक्षा नियम कॉन्फिगर केल्याशिवाय क्लाउड Sync सुरू होणार नाही.</p>
-<div class="field"><label for="cloudUrl">Firebase Database URL</label><input id="cloudUrl" type="url" placeholder="https://your-project-default-rtdb.firebaseio.com"></div>
-<div class="field" style="margin-top:9px"><label for="cloudPath">वैयक्तिक डेटा Path (उदा. riders/my-rider-id)</label><input id="cloudPath" type="text" maxlength="120" placeholder="riders/my-rider-id"></div>
-<div class="field" style="margin-top:9px"><label for="cloudToken">Database Auth Token (ऐच्छिक / तुमच्या नियमांनुसार)</label><input id="cloudToken" type="password" autocomplete="off" placeholder="Token येथे टाका"></div>
-<button class="btn soft" onclick="saveCloudConfig()">☁️ Cloud सेटिंग सेव्ह करा</button>
-<div class="tools"><button class="btn" onclick="cloudPush()">⬆ Cloud वर पाठवा</button><button class="btn soft" onclick="cloudPull()">⬇ Cloud मधून आणा</button></div>
-<p class="hint" id="cloudStatus" aria-live="polite">Cloud Sync कॉन्फिगर केलेले नाही. स्थानिक डेटा नेहमीप्रमाणे काम करतो.</p>
-<p class="notice">सुरक्षा: Firebase मध्ये प्रत्येक रायडरसाठी स्वतंत्र Path आणि Authentication / Database Rules ठेवा. सार्वजनिक Read/Write नियम वापरू नका. Token या ब्राउझरमध्येच सेव्ह होतो; सामायिक फोनवर तो सेव्ह करू नका. Sync करताना Push क्लाउडमधील निवडलेल्या Path वरील डेटा बदलतो; Pull केल्यास सध्याचा स्थानिक डेटा बदलतो.</p>
-</section>
-<section class="card page-panel" data-page="settings">
-<h2>🔐 V8 Rider Login & PIN Lock</h2>
-<p class="hint">हा PIN या डिव्हाइसवरील स्थानिक लॉक आहे. तो Firebase खाते किंवा सर्व्हर-आधारित ओळख पडताळणीचा पर्याय नाही. PIN विसरल्यास स्थानिक डेटा reset/restore करावा लागू शकतो.</p>
+<h2>V8 Rider Login & PIN Lock</h2>
+<p class="hint">हा PIN या डिव्हाइसवरील स्थानिक लॉक आहे. तो फक्त या फोनवरचा लॉक आहे. PIN विसरल्यास स्थानिक डेटा reset/restore करावा लागू शकतो.</p>
 <div class="field"><label>Rider नाव / ओळख</label><input id="rsRiderName" maxlength="50" placeholder="उदा. माझे Rider खाते"></div>
 <div class="tools"><button class="btn soft" onclick="rsChangePin()">PIN बदला</button><button class="btn red" onclick="rsLockNow()">आता लॉक करा</button></div>
 <p class="hint" id="rsSecurityStatus">PIN लॉक स्थिती तपासत आहे…</p>
 </section>
+
 <section class="card page-panel" data-page="settings">
-<h2>☁️ V8 Auto Cloud Sync</h2>
-<p class="hint">Auto Sync साठी Firebase Realtime Database URL, rider-specific path आणि वैध Firebase ID token किंवा सुरक्षित Rules आवश्यक. Conflict आल्यास रेकॉर्ड ID नुसार merge करण्याचा प्रयत्न होतो; अंतिम सुरक्षा Firebase Rules ठरवतात.</p>
-<label class="chip"><input id="rsAutoSync" type="checkbox" style="width:auto;vertical-align:middle"> Auto Sync सुरू करा</label>
-<p class="hint" id="rsSyncMeta">Auto Sync बंद आहे.</p>
-<button class="btn soft" onclick="rsSyncNow().catch(e=>rsSetSyncStatus('Sync अयशस्वी: '+e.message))">🔄 आत्ताच Sync करा</button>
-</section>
-<section class="card page-panel" data-page="settings">
-<h2>🔔 Daily Target Alert</h2>
+<h2>Daily Target Alert</h2>
 <p class="hint">दैनिक लक्ष्य पूर्ण झाल्यावर ब्राउझर सूचना पाठवण्याची परवानगी द्या.</p>
-<button class="btn" onclick="enableTargetAlert()">🔔 सूचना सुरू करा</button>
+<button class="btn" onclick="enableTargetAlert()">सूचना सुरू करा</button>
 </section>
 <section class="card page-panel" data-page="settings">
-<div class="headrow"><h2>🌙 App सेटिंग आणि GPS</h2><button class="tiny" id="darkToggle" onclick="toggleDark()">Dark Mode</button></div>
+<div class="headrow"><h2>App सेटिंग आणि GPS</h2><button class="tiny" id="darkToggle" onclick="toggleDark()">Dark Mode</button></div>
 <div class="hint">GPS वापरण्यासाठी Location परवानगी द्या. HTTPS किंवा localhost आवश्यक असू शकते.</div>
 <div class="gps-readout" id="gpsStatus">GPS बंद आहे • 0.00 KM</div>
 <div class="tools"><button class="btn soft" onclick="startGPS()">▶ GPS सुरू</button><button class="btn soft" onclick="stopGPS()">■ GPS थांबवा</button><button class="btn" onclick="useGPSDistance()">GPS KM वापरा</button><button class="btn soft" onclick="clearGPS()">GPS रीसेट</button></div>
 <p class="hint" id="gpsCoords">लोकेशन उपलब्ध नाही.</p>
 </section>
 <section class="card page-panel" data-page="insights">
-<h2>🧠 V8 Advanced Analytics</h2>
+<h2>V8 Advanced Analytics</h2>
 <div class="v8-kpis">
  <div class="v8-kpi"><b id="v8AvgOrder">₹0</b><span>सरासरी पे / ऑर्डर</span></div>
  <div class="v8-kpi"><b id="v8NetKm">₹0</b><span>निव्वळ / KM</span></div>
@@ -267,14 +288,14 @@ body.dark{background:#080f14;color:#e8f4f2}body.dark .card{background:linear-gra
 </div><p class="hint" id="v8AnalyticsNote">नोंदींवर आधारित अंदाज; अधिक ऑर्डर्सनंतर तुलना अधिक उपयुक्त होईल.</p>
 </section>
 <section class="card page-panel" data-page="insights">
-<h2>📈 मासिक कमाईचा ग्राफ</h2><div class="hint" id="monthLabel">या महिन्यातील ऑर्डर कमाई</div>
+<h2>मासिक कमाईचा ग्राफ</h2><div class="hint" id="monthLabel">या महिन्यातील ऑर्डर कमाई</div>
 <div class="graph-wrap"><canvas id="monthlyGraph" width="700" height="220" aria-label="Monthly income graph"></canvas></div>
 <div class="stats"><div class="stat"><b id="monthOrders">0</b><span>या महिन्यातील ऑर्डर</span></div><div class="stat"><b id="monthIncome">₹0</b><span>एकूण ऑर्डर पे</span></div><div class="stat"><b id="monthKm">0</b><span>एकूण KM</span></div></div>
 </section>
-<footer>Rider Saathi Pro V8.2 BugFix Edition • अधिकृत Swiggy / Zomato / Shadowfax ॲप नाही. अंदाज प्रत्यक्ष पेमेंटची हमी देत नाही.</footer>
+<footer>Rider Saathi Pro V8.4 BugFix Edition • अधिकृत Swiggy / Zomato / Shadowfax ॲप नाही. अंदाज प्रत्यक्ष पेमेंटची हमी देत नाही.</footer>
 </main>
 <div id="rsAuthOverlay" role="dialog" aria-modal="true" aria-labelledby="rsAuthTitle">
- <div id="rsAuthCard"><div style="font-size:12px;letter-spacing:2px;color:#8df6db;font-weight:900">RIDER SAATHI PRO • V8.2</div>
+ <div id="rsAuthCard"><div style="font-size:12px;letter-spacing:2px;color:#8df6db;font-weight:900">RIDER SAATHI PRO • V8.4</div>
  <h2 id="rsAuthTitle">रायडर PIN लॉक</h2><p id="rsAuthDesc">तुमचा स्थानिक डेटा सुरक्षित ठेवण्यासाठी PIN सेट करा.</p>
  <input id="rsPin1" type="password" inputmode="numeric" autocomplete="new-password" maxlength="8" placeholder="6 अंकी PIN">
  <input id="rsPin2" type="password" inputmode="numeric" autocomplete="new-password" maxlength="8" placeholder="PIN पुन्हा टाका">
@@ -284,8 +305,8 @@ body.dark{background:#080f14;color:#e8f4f2}body.dark .card{background:linear-gra
 <script>
 'use strict';
 const translations={
- hi:{'🛵 KM टाका, कमाई आणि नफा बघा!':'🛵 KM डालें, कमाई और मुनाफ़ा देखें!','Pickup + Drop एकत्र • खर्च वजा करून निव्वळ कमाई':'Pickup + Drop जोड़ें • खर्च घटाकर शुद्ध कमाई','🌐 भाषा / Language':'🌐 भाषा','🧮 ऑर्डर कमाई कॅल्क्युलेटर':'🧮 ऑर्डर कमाई कैलकुलेटर','Pickup पर्यंतचे अंतर (KM)':'Pickup तक की दूरी (KM)','Pickup ते Drop (KM)':'Pickup से Drop (KM)','ऑर्डरची वेळ':'ऑर्डर का समय','दिवस (6 AM – 7 PM)':'दिन (6 AM – 7 PM)','पीक वेळ (7 PM – 10 PM)':'पीक समय (7 PM – 10 PM)','रात्र (10 PM – 6 AM)':'रात (10 PM – 6 AM)','Peak Surge / बोनस (₹)':'Peak Surge / बोनस (₹)','अतिरिक्त टिप (₹)':'अतिरिक्त टिप (₹)','Pickup + Drop = एकूण अंतर':'Pickup + Drop = कुल दूरी','अंदाजे एकूण ऑर्डर पे':'अनुमानित कुल ऑर्डर पे','＋ आजच्या हिशोबात ऑर्डर जोडा':'＋ आज के हिसाब में ऑर्डर जोड़ें','⚙️ कंपनीनुसार रेट सेटिंग':'⚙️ कंपनी के अनुसार रेट सेटिंग','Default करा':'डिफ़ॉल्ट करें','सर्व कंपन्यांसाठी बेस पे ₹25 ठेवला आहे. KM रेट नमुना आहेत; प्रत्यक्ष रेटनुसार बदला.':'सभी कंपनियों के लिए बेस पे ₹25 है। KM रेट नमूना हैं; वास्तविक रेट के अनुसार बदलें।','बेस पे ₹':'बेस पे ₹','बेसमध्ये समाविष्ट KM':'बेस में शामिल KM','दिवस ₹ / अतिरिक्त KM':'दिन ₹ / अतिरिक्त KM','पीक ₹ / अतिरिक्त KM':'पीक ₹ / अतिरिक्त KM','रात्र ₹ / अतिरिक्त KM':'रात ₹ / अतिरिक्त KM','रेट सेव्ह करा':'रेट सेव करें','रेट या डिव्हाइसच्या ब्राउझरमध्ये सेव्ह होतील.':'रेट इस डिवाइस के ब्राउज़र में सेव होंगे।','⛽ पेट्रोल खर्च आणि निव्वळ नफा':'⛽ पेट्रोल खर्च और शुद्ध मुनाफ़ा','मायलेज (KM / लिटर)':'माइलेज (KM / लीटर)','पेट्रोल दर (₹ / लिटर)':'पेट्रोल रेट (₹ / लीटर)','आजचा इतर खर्च (₹) — पार्किंग / देखभाल इ.':'अन्य खर्च (₹) — पार्किंग / रखरखाव आदि','प्रति ऑर्डर अंदाजे पेट्रोल खर्च':'प्रति ऑर्डर अनुमानित पेट्रोल खर्च','🎯 Dinner Peak Incentive':'🎯 डिनर पीक इंसेंटिव','7 PM ते 11 PM पूर्ण ऑर्डर्स':'7 PM से 11 PM तक पूरी ऑर्डर','स्क्रीनशॉटनुसार इन्सेंटिव्ह':'स्क्रीनशॉट के अनुसार इंसेंटिव','＋ इन्सेंटिव्ह आजच्या हिशोबात जोडा':'＋ इंसेंटिव आज के हिसाब में जोड़ें','📊 आजचा हिशोब':'📊 आज का हिसाब','ऑर्डर्स':'ऑर्डर','एकूण KM':'कुल KM','एकूण पे':'कुल पे','पेट्रोल खर्च':'पेट्रोल खर्च','पेट्रोल + इतर खर्च':'पेट्रोल + अन्य खर्च','निव्वळ कमाई':'शुद्ध कमाई','इन्सेंटिव्ह':'इंसेंटिव','आजचे कमाईचे लक्ष्य ₹':'आज की कमाई का लक्ष्य ₹','⬇ CSV रिपोर्ट डाउनलोड':'⬇ CSV रिपोर्ट डाउनलोड','आजचा हिशोब रीसेट':'आज का हिसाब रीसेट','अधिकृत Swiggy / Zomato / Shadowfax ॲप नाही. अंदाज प्रत्यक्ष पेमेंटची हमी देत नाही.':'यह आधिकारिक Swiggy / Zomato / Shadowfax ऐप नहीं है। अनुमान वास्तविक भुगतान की गारंटी नहीं देता।'},
- en:{'🛵 KM टाका, कमाई आणि नफा बघा!':'🛵 Enter KM, see earnings and profit!','Pickup + Drop एकत्र • खर्च वजा करून निव्वळ कमाई':'Pickup + Drop combined • expenses deducted for net earnings','🌐 भाषा / Language':'🌐 Language','🧮 ऑर्डर कमाई कॅल्क्युलेटर':'🧮 Order Earnings Calculator','Pickup पर्यंतचे अंतर (KM)':'Distance to Pickup (KM)','Pickup ते Drop (KM)':'Pickup to Drop (KM)','ऑर्डरची वेळ':'Order Time','दिवस (6 AM – 7 PM)':'Day (6 AM – 7 PM)','पीक वेळ (7 PM – 10 PM)':'Peak (7 PM – 10 PM)','रात्र (10 PM – 6 AM)':'Night (10 PM – 6 AM)','Peak Surge / बोनस (₹)':'Peak Surge / Bonus (₹)','अतिरिक्त टिप (₹)':'Extra Tip (₹)','Pickup + Drop = एकूण अंतर':'Pickup + Drop = Total Distance','अंदाजे एकूण ऑर्डर पे':'Estimated Total Order Pay','＋ आजच्या हिशोबात ऑर्डर जोडा':'＋ Add Order to Today’s Total','⚙️ कंपनीनुसार रेट सेटिंग':'⚙️ Platform Rate Settings','Default करा':'Reset Defaults','सर्व कंपन्यांसाठी बेस पे ₹25 ठेवला आहे. KM रेट नमुना आहेत; प्रत्यक्ष रेटनुसार बदला.':'Base pay is set to ₹25 for all platforms. Per-KM rates are samples; adjust to your actual rates.','बेस पे ₹':'Base Pay ₹','बेसमध्ये समाविष्ट KM':'KM Included in Base','दिवस ₹ / अतिरिक्त KM':'Day ₹ / Extra KM','पीक ₹ / अतिरिक्त KM':'Peak ₹ / Extra KM','रात्र ₹ / अतिरिक्त KM':'Night ₹ / Extra KM','रेट सेव्ह करा':'Save Rates','रेट या डिव्हाइसच्या ब्राउझरमध्ये सेव्ह होतील.':'Rates are saved in this device’s browser.','⛽ पेट्रोल खर्च आणि निव्वळ नफा':'⛽ Fuel Cost & Net Profit','मायलेज (KM / लिटर)':'Mileage (KM / Litre)','पेट्रोल दर (₹ / लिटर)':'Petrol Price (₹ / Litre)','आजचा इतर खर्च (₹) — पार्किंग / देखभाल इ.':'Other Costs (₹) — Parking / Maintenance etc.','प्रति ऑर्डर अंदाजे पेट्रोल खर्च':'Estimated Fuel Cost per Order','🎯 Dinner Peak Incentive':'🎯 Dinner Peak Incentive','7 PM ते 11 PM पूर्ण ऑर्डर्स':'Completed Orders from 7 PM to 11 PM','स्क्रीनशॉटनुसार इन्सेंटिव्ह':'Incentive Based on Shared Screenshot','＋ इन्सेंटिव्ह आजच्या हिशोबात जोडा':'＋ Add Incentive to Today’s Total','📊 आजचा हिशोब':'📊 Today’s Summary','ऑर्डर्स':'Orders','एकूण KM':'Total KM','एकूण पे':'Total Pay','पेट्रोल खर्च':'Fuel Cost','निव्वळ कमाई':'Net Earnings','इन्सेंटिव्ह':'Incentive','आजचे कमाईचे लक्ष्य ₹':'Today’s Earnings Goal ₹','⬇ CSV रिपोर्ट डाउनलोड':'⬇ Download CSV Report','आजचा हिशोब रीसेट':'Reset Today’s Summary','अधिकृत Swiggy / Zomato / Shadowfax ॲप नाही. अंदाज प्रत्यक्ष पेमेंटची हमी देत नाही.':'Not an official Swiggy / Zomato / Shadowfax app. Estimates do not guarantee actual payouts.'}
+ hi:{'KM टाका, कमाई आणि नफा बघा!':'KM डालें, कमाई और मुनाफ़ा देखें!','Pickup + Drop एकत्र • खर्च वजा करून निव्वळ कमाई':'Pickup + Drop जोड़ें • खर्च घटाकर शुद्ध कमाई','भाषा / Language':'भाषा','ऑर्डर कमाई कॅल्क्युलेटर':'ऑर्डर कमाई कैलकुलेटर','Pickup पर्यंतचे अंतर (KM)':'Pickup तक की दूरी (KM)','Pickup ते Drop (KM)':'Pickup से Drop (KM)','ऑर्डरची वेळ':'ऑर्डर का समय','दिवस (6 AM – 7 PM)':'दिन (6 AM – 7 PM)','पीक वेळ (7 PM – 10 PM)':'पीक समय (7 PM – 10 PM)','रात्र (10 PM – 6 AM)':'रात (10 PM – 6 AM)','Peak Surge / बोनस (₹)':'Peak Surge / बोनस (₹)','अतिरिक्त टिप (₹)':'अतिरिक्त टिप (₹)','Pickup + Drop = एकूण अंतर':'Pickup + Drop = कुल दूरी','अंदाजे एकूण ऑर्डर पे':'अनुमानित कुल ऑर्डर पे','＋ आजच्या हिशोबात ऑर्डर जोडा':'＋ आज के हिसाब में ऑर्डर जोड़ें','कंपनीनुसार रेट सेटिंग':'कंपनी के अनुसार रेट सेटिंग','Default करा':'डिफ़ॉल्ट करें','सर्व कंपन्यांसाठी बेस पे ₹25 ठेवला आहे. KM रेट नमुना आहेत; प्रत्यक्ष रेटनुसार बदला.':'सभी कंपनियों के लिए बेस पे ₹25 है। KM रेट नमूना हैं; वास्तविक रेट के अनुसार बदलें।','बेस पे ₹':'बेस पे ₹','बेसमध्ये समाविष्ट KM':'बेस में शामिल KM','दिवस ₹ / अतिरिक्त KM':'दिन ₹ / अतिरिक्त KM','पीक ₹ / अतिरिक्त KM':'पीक ₹ / अतिरिक्त KM','रात्र ₹ / अतिरिक्त KM':'रात ₹ / अतिरिक्त KM','रेट सेव्ह करा':'रेट सेव करें','रेट या डिव्हाइसच्या ब्राउझरमध्ये सेव्ह होतील.':'रेट इस डिवाइस के ब्राउज़र में सेव होंगे।','पेट्रोल खर्च आणि निव्वळ नफा':'पेट्रोल खर्च और शुद्ध मुनाफ़ा','मायलेज (KM / लिटर)':'माइलेज (KM / लीटर)','पेट्रोल दर (₹ / लिटर)':'पेट्रोल रेट (₹ / लीटर)','आजचा इतर खर्च (₹) — पार्किंग / देखभाल इ.':'अन्य खर्च (₹) — पार्किंग / रखरखाव आदि','प्रति ऑर्डर अंदाजे पेट्रोल खर्च':'प्रति ऑर्डर अनुमानित पेट्रोल खर्च','Dinner Peak Incentive':'डिनर पीक इंसेंटिव','7 PM ते 11 PM पूर्ण ऑर्डर्स':'7 PM से 11 PM तक पूरी ऑर्डर','स्क्रीनशॉटनुसार इन्सेंटिव्ह':'स्क्रीनशॉट के अनुसार इंसेंटिव','＋ इन्सेंटिव्ह आजच्या हिशोबात जोडा':'＋ इंसेंटिव आज के हिसाब में जोड़ें','आजचा हिशोब':'आज का हिसाब','ऑर्डर्स':'ऑर्डर','एकूण KM':'कुल KM','एकूण पे':'कुल पे','पेट्रोल खर्च':'पेट्रोल खर्च','पेट्रोल + इतर खर्च':'पेट्रोल + अन्य खर्च','निव्वळ कमाई':'शुद्ध कमाई','इन्सेंटिव्ह':'इंसेंटिव','आजचे कमाईचे लक्ष्य ₹':'आज की कमाई का लक्ष्य ₹','CSV रिपोर्ट डाउनलोड':'CSV रिपोर्ट डाउनलोड','आजचा हिशोब रीसेट':'आज का हिसाब रीसेट','अधिकृत Swiggy / Zomato / Shadowfax ॲप नाही. अंदाज प्रत्यक्ष पेमेंटची हमी देत नाही.':'यह आधिकारिक Swiggy / Zomato / Shadowfax ऐप नहीं है। अनुमान वास्तविक भुगतान की गारंटी नहीं देता।'},
+ en:{'KM टाका, कमाई आणि नफा बघा!':'Enter KM, see earnings and profit!','Pickup + Drop एकत्र • खर्च वजा करून निव्वळ कमाई':'Pickup + Drop combined • expenses deducted for net earnings','भाषा / Language':'Language','ऑर्डर कमाई कॅल्क्युलेटर':'Order Earnings Calculator','Pickup पर्यंतचे अंतर (KM)':'Distance to Pickup (KM)','Pickup ते Drop (KM)':'Pickup to Drop (KM)','ऑर्डरची वेळ':'Order Time','दिवस (6 AM – 7 PM)':'Day (6 AM – 7 PM)','पीक वेळ (7 PM – 10 PM)':'Peak (7 PM – 10 PM)','रात्र (10 PM – 6 AM)':'Night (10 PM – 6 AM)','Peak Surge / बोनस (₹)':'Peak Surge / Bonus (₹)','अतिरिक्त टिप (₹)':'Extra Tip (₹)','Pickup + Drop = एकूण अंतर':'Pickup + Drop = Total Distance','अंदाजे एकूण ऑर्डर पे':'Estimated Total Order Pay','＋ आजच्या हिशोबात ऑर्डर जोडा':'＋ Add Order to Today’s Total','कंपनीनुसार रेट सेटिंग':'Platform Rate Settings','Default करा':'Reset Defaults','सर्व कंपन्यांसाठी बेस पे ₹25 ठेवला आहे. KM रेट नमुना आहेत; प्रत्यक्ष रेटनुसार बदला.':'Base pay is set to ₹25 for all platforms. Per-KM rates are samples; adjust to your actual rates.','बेस पे ₹':'Base Pay ₹','बेसमध्ये समाविष्ट KM':'KM Included in Base','दिवस ₹ / अतिरिक्त KM':'Day ₹ / Extra KM','पीक ₹ / अतिरिक्त KM':'Peak ₹ / Extra KM','रात्र ₹ / अतिरिक्त KM':'Night ₹ / Extra KM','रेट सेव्ह करा':'Save Rates','रेट या डिव्हाइसच्या ब्राउझरमध्ये सेव्ह होतील.':'Rates are saved in this device’s browser.','पेट्रोल खर्च आणि निव्वळ नफा':'Fuel Cost & Net Profit','मायलेज (KM / लिटर)':'Mileage (KM / Litre)','पेट्रोल दर (₹ / लिटर)':'Petrol Price (₹ / Litre)','आजचा इतर खर्च (₹) — पार्किंग / देखभाल इ.':'Other Costs (₹) — Parking / Maintenance etc.','प्रति ऑर्डर अंदाजे पेट्रोल खर्च':'Estimated Fuel Cost per Order','Dinner Peak Incentive':'Dinner Peak Incentive','7 PM ते 11 PM पूर्ण ऑर्डर्स':'Completed Orders from 7 PM to 11 PM','स्क्रीनशॉटनुसार इन्सेंटिव्ह':'Incentive Based on Shared Screenshot','＋ इन्सेंटिव्ह आजच्या हिशोबात जोडा':'＋ Add Incentive to Today’s Total','आजचा हिशोब':'Today’s Summary','ऑर्डर्स':'Orders','एकूण KM':'Total KM','एकूण पे':'Total Pay','पेट्रोल खर्च':'Fuel Cost','निव्वळ कमाई':'Net Earnings','इन्सेंटिव्ह':'Incentive','आजचे कमाईचे लक्ष्य ₹':'Today’s Earnings Goal ₹','CSV रिपोर्ट डाउनलोड':'Download CSV Report','आजचा हिशोब रीसेट':'Reset Today’s Summary','अधिकृत Swiggy / Zomato / Shadowfax ॲप नाही. अंदाज प्रत्यक्ष पेमेंटची हमी देत नाही.':'Not an official Swiggy / Zomato / Shadowfax app. Estimates do not guarantee actual payouts.'}
 };
 let currentLang='mr';
 const originalText=new WeakMap();
@@ -364,8 +385,8 @@ function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&l
 function renderHistory(){
  const q=($('historySearch')?.value||'').toLowerCase().trim();
  const source=monthlyRecords.length?monthlyRecords:orders;const filtered=source.filter(o=>(o.app+' '+o.date+' '+o.time).toLowerCase().includes(q));
- const orderHtml=filtered.map(o=>`<div class="order"><div class="orderTop"><span>${esc(o.app.toUpperCase())} • ${Number(o.km).toFixed(2)} KM</span><span>${rupees(o.gross)}</span></div><small>${esc(o.date||'')} • Fuel ${rupees(o.fuel)} • Net ${rupees(o.net)} • ${esc(o.time)}</small>${o.date===localDateKey()?`<div class="chips"><button class="tiny" onclick="editOrder('${esc(o.id||'')}')">✏️ Edit</button><button class="tiny" onclick="deleteOrder('${esc(o.id||'')}')">🗑 Delete</button></div>`:''}</div>`).join('');
- const bonusHtml=bonuses.map(b=>`<div class="order"><div class="orderTop"><span>🎯 ${esc(b.label)}</span><span>${rupees(b.amount)}</span></div><small>${esc(b.time)}</small></div>`).join('');
+ const orderHtml=filtered.map(o=>`<div class="order"><div class="orderTop"><span>${esc(o.app.toUpperCase())} • ${Number(o.km).toFixed(2)} KM</span><span>${rupees(o.gross)}</span></div><small>${esc(o.date||'')} • Fuel ${rupees(o.fuel)} • Net ${rupees(o.net)} • ${esc(o.time)}</small>${o.date===localDateKey()?`<div class="chips"><button class="tiny" onclick="editOrder('${esc(o.id||'')}')">Edit</button><button class="tiny" onclick="deleteOrder('${esc(o.id||'')}')">Delete</button></div>`:''}</div>`).join('');
+ const bonusHtml=bonuses.map(b=>`<div class="order"><div class="orderTop"><span>${esc(b.label)}</span><span>${rupees(b.amount)}</span></div><small>${esc(b.time)}</small></div>`).join('');
  $('history').innerHTML=orderHtml+bonusHtml||(q?'<p class="hint">शोधाशी जुळणाऱ्या नोंदी नाहीत.</p>':'<p class="hint">अजून ऑर्डर नोंदवलेली नाही.</p>');
 }
 function monthRows(){const ym=localDateKey().slice(0,7);return monthlyRecords.filter(o=>(o.date||'').startsWith(ym))}
@@ -393,7 +414,7 @@ function downloadBlob(blob,name){const url=URL.createObjectURL(blob),a=document.
 function reportRows(){const source=monthlyRecords.length?monthlyRecords:orders;return [['Date','Time','Platform','KM','Gross INR','Fuel INR','Net INR'],...source.map(o=>[o.date||localDateKey(),o.time,o.app,o.km,o.gross,o.fuel,o.net]),...monthlyExpenses.map(e=>[e.date,e.time,'Expense: '+e.type,'',0,e.amount,-e.amount]),...((monthlyBonuses.length?monthlyBonuses:bonuses).map(b=>[b.date||localDateKey(),b.time,'Bonus: '+(b.label||'Incentive'),'',b.amount,0,b.amount]))]}
 function exportExcel(){const rows=reportRows();const table='<table>'+rows.map((r,i)=>'<tr>'+r.map(v=>'<'+(i?'td':'th')+'>'+esc(v)+'</'+(i?'td':'th')+'>').join('')+'</tr>').join('')+'</table>';downloadBlob(new Blob(['<html><meta charset="utf-8">'+table+'</html>'],{type:'application/vnd.ms-excel'}),'rider-saathi-report.xls')}
 function exportPDF(){const orderRows=(monthlyRecords.length?monthlyRecords:orders).map(o=>`<tr><td>${esc(o.date||'')}</td><td>${esc(o.time)}</td><td>${esc(o.app)}</td><td>${Number(o.km).toFixed(2)}</td><td>${rupees(o.gross)}</td><td>${rupees(o.fuel)}</td><td>${rupees(o.net)}</td></tr>`);const expenseRows=monthlyExpenses.map(e=>`<tr><td>${esc(e.date)}</td><td>${esc(e.time)}</td><td>Expense: ${esc(e.type)}</td><td>—</td><td>₹0.00</td><td>${rupees(e.amount)}</td><td>${rupees(-e.amount)}</td></tr>`);const rows=orderRows.concat(expenseRows).join('');const w=window.open('','_blank');if(!w){alert('PDF साठी popup परवानगी द्या.');return}w.document.write('<html><head><meta charset="utf-8"><title>Rider Saathi Report</title><style>body{font-family:Arial;padding:20px}table{border-collapse:collapse;width:100%}td,th{border:1px solid #aaa;padding:7px;text-align:left}h2{color:#087f63}</style></head><body><h2>Rider Saathi Report</h2><p>'+localDateKey()+'</p><table><tr><th>Date</th><th>Time</th><th>App</th><th>KM</th><th>Gross</th><th>Fuel</th><th>Net</th></tr>'+rows+'</table><script>window.onload=()=>window.print()<\/script></body></html>');w.document.close()}
-function downloadBackup(){const data={appVersion:8.2,createdAt:new Date().toISOString(),rsData:safeLoad('rsData',{}),rsRates:safeLoad('rsRates',{}),rsDark:safeLoad('rsDark','0')};downloadBlob(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),'rider-saathi-backup.json')}
+function downloadBackup(){const data={appVersion:8.4,createdAt:new Date().toISOString(),rsData:safeLoad('rsData',{}),rsRates:safeLoad('rsRates',{}),rsDark:safeLoad('rsDark','0')};downloadBlob(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),'rider-saathi-backup.json')}
 function restoreBackup(ev){const file=ev.target.files?.[0];if(!file)return;if(file.size>5*1024*1024){alert('Backup फाईल 5 MB पेक्षा मोठी आहे.');ev.target.value='';return}const reader=new FileReader();reader.onload=()=>{try{const b=JSON.parse(reader.result);if(!b||typeof b!=='object'||!b.rsData||typeof b.rsData!=='object'||Array.isArray(b.rsData))throw Error('Backup format चुकीचा आहे');const d=b.rsData;if(d.orders!==undefined&&!Array.isArray(d.orders))throw Error('Orders डेटा चुकीचा आहे');if(d.monthlyRecords!==undefined&&!Array.isArray(d.monthlyRecords))throw Error('Monthly डेटा चुकीचा आहे');if(d.monthlyBonuses!==undefined&&!Array.isArray(d.monthlyBonuses))throw Error('Monthly bonus डेटा चुकीचा आहे');if(d.expenses!==undefined&&!Array.isArray(d.expenses))throw Error('Expenses डेटा चुकीचा आहे');if(d.deletedRecords!==undefined&&!Array.isArray(d.deletedRecords))throw Error('Deleted records डेटा चुकीचा आहे');if(b.rsRates!==undefined&&(!b.rsRates||typeof b.rsRates!=='object'||Array.isArray(b.rsRates)))throw Error('Rates डेटा चुकीचा आहे');if(!confirm('Backup मध्ये '+(Array.isArray(d.orders)?d.orders.length:0)+' आजच्या ऑर्डर्स आणि '+(Array.isArray(d.monthlyRecords)?d.monthlyRecords.length:0)+' ऐतिहासिक नोंदी आहेत. सध्याचा डेटा बदलून Restore करायचा?'))return;rsKeepAutoBackup();localStorage.setItem('rsData',JSON.stringify(d));if(b.rsRates)localStorage.setItem('rsRates',JSON.stringify(b.rsRates));if(b.rsDark!==undefined)localStorage.setItem('rsDark',String(b.rsDark)==='1'?'1':'0');location.reload()}catch(e){alert('Backup Restore अयशस्वी: '+e.message)}finally{ev.target.value=''}};reader.onerror=()=>{alert('Backup फाईल वाचता आली नाही.');ev.target.value=''};reader.readAsText(file)}
 
 
@@ -431,22 +452,22 @@ function renderComparisons(){
 ['pickup','drop','surge','tip','slot','mileage','fuelPrice','goal','trips'].forEach(id=>$(id).addEventListener('input',()=>{calc();incentiveAmount();render()}));
 $('otherCost').addEventListener('input',()=>{calc();render();persist()});
 Object.keys(defaults).forEach(id=>$(id).addEventListener('input',calc));
-load();loadCloudFields();workTicker=setInterval(updateTimers,1000);if(safeLoad('rsDark','0')==='1')document.body.classList.add('dark');$('darkToggle').textContent=document.body.classList.contains('dark')?'☀️ Light Mode':'🌙 Dark Mode';calc();incentiveAmount();render();setLanguage('mr');
+load();workTicker=setInterval(updateTimers,1000);if(safeLoad('rsDark','0')==='1')document.body.classList.add('dark');$('darkToggle').textContent=document.body.classList.contains('dark')?'Light Mode':'Dark Mode';calc();incentiveAmount();render();setLanguage('mr');
 if('serviceWorker'in navigator&&location.protocol==='https:'){addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}))}
-// V6: local-first assistant, browser voice input and optional Firebase RTDB sync.
+// V6: local-first assistant and browser voice input.
 function todayTotals(){const gross=orders.reduce((a,o)=>a+Number(o.gross||0),0)+bonuses.reduce((a,b)=>a+Number(b.amount||0),0);const fuel=orders.reduce((a,o)=>a+Number(o.fuel||0),0);const exp=expenses.reduce((a,e)=>a+Number(e.amount||0),0);const net=gross-fuel-exp-numeric('otherCost');const km=orders.reduce((a,o)=>a+Number(o.km||0),0);return {gross,fuel,exp,net,km,count:orders.length,bonus:bonuses.reduce((a,b)=>a+Number(b.amount||0),0)}}
 function assistantReply(q){const t=q.toLowerCase(),d=todayTotals();const money=n=>rupees(n);if(/मासिक|month/.test(t)){const ym=localDateKey().slice(0,7),rs=monthlyRecords.filter(o=>(o.date||'').startsWith(ym)),es=monthlyExpenses.filter(e=>(e.date||'').startsWith(ym)),bs=monthlyBonuses.filter(b=>(b.date||'').startsWith(ym)),g=rs.reduce((a,o)=>a+Number(o.gross||0),0)+bs.reduce((a,b)=>a+Number(b.amount||0),0),n=rs.reduce((a,o)=>a+Number(o.net||0),0)+bs.reduce((a,b)=>a+Number(b.amount||0),0),x=es.reduce((a,e)=>a+Number(e.amount||0),0);return `या महिन्यातील नोंदी: ${rs.length} ऑर्डर्स • बोनससह एकूण पे ${money(g)} • बोनससह ऑर्डर नेट ${money(n)} • स्वतंत्र नोंदवलेले खर्च ${money(x)}. ऐतिहासिक 'इतर खर्च' प्रत्येक दिवशी स्वतंत्र जतन होत नाही; त्यामुळे हा पूर्ण अंतिम नफा समजू नका.`}if(/कंपनी|तुलना|platform|compare/.test(t)){return ['swiggy','zomato','shadowfax'].map(a=>{const r=monthlyRecords.filter(o=>o.date===localDateKey()&&o.app===a);return `${a}: ${r.length} ऑर्डर्स, निव्वळ ${money(r.reduce((s,o)=>s+Number(o.net||0),0))}`}).join('\n')}if(/पेट्रोल|fuel/.test(t))return `आजचा नोंदवलेला ऑर्डर पेट्रोल खर्च ${money(d.fuel)}. स्वतंत्र खर्च नोंदी ${money(d.exp)} आहेत.`;if(/नफा|निव्वळ|net/.test(t))return `आजचा अंदाजे निव्वळ नफा ${money(d.net)}. यात ऑर्डर पे ${money(d.gross)}, ऑर्डर इंधन ${money(d.fuel)}, स्वतंत्र खर्च ${money(d.exp)} आणि इतर खर्च ${money(numeric('otherCost'))} धरले आहेत.`;if(/किमी|किलोमीटर|अंतर|\bkm\b/.test(t))return `आजच्या नोंदवलेल्या ऑर्डर्सचे एकूण अंतर ${d.km.toFixed(2)} KM आहे.`;if(/ऑर्डर|orders/.test(t))return `आज ${d.count} ऑर्डर्स नोंदवल्या आहेत. एकूण पे ${money(d.gross)}.`;if(/कमाई|मिळकत|earning|income|आज/.test(t))return `आजची नोंद: ${d.count} ऑर्डर्स • एकूण पे ${money(d.gross)} • इंधन ${money(d.fuel)} • इतर खर्च ${money(d.exp+numeric('otherCost'))} • अंदाजे निव्वळ ${money(d.net)}.`;return 'मी आजची कमाई, निव्वळ नफा, पेट्रोल खर्च, KM, ऑर्डर्स, मासिक रिपोर्ट आणि कंपनी तुलना सांगू शकतो. यापैकी नेमके काय पाहायचे?'}
 function appendChat(who,msg){const log=$('chatLog');if(!log)return;const el=document.createElement('div');el.className='order';const b=document.createElement('b');b.textContent=who;const p=document.createElement('p');p.style.whiteSpace='pre-line';p.textContent=msg;el.append(b,p);log.appendChild(el);log.scrollTop=log.scrollHeight}
 function askAssistant(){const q=$('assistantInput').value.trim();if(!q)return;appendChat('तुम्ही',q);appendChat('Rider Saathi',assistantReply(q));$('assistantInput').value=''}function quickAsk(q){$('assistantInput').value=q;askAssistant()}function clearAssistant(){$('chatLog').innerHTML='<b>चॅट साफ केले.</b><p>नवा प्रश्न विचारा.</p>'}
-function exportAssistantChat(){const log=$('chatLog');if(!log)return;const lines=[...log.querySelectorAll('.order')].map(el=>{const who=el.querySelector('b')?.textContent||'Rider Saathi';const msg=el.querySelector('p')?.textContent||'';return who+':\n'+msg});const body='Rider Saathi Pro V8.2 — Assistant Chat Backup\nExported: '+new Date().toISOString()+'\n\n'+lines.join('\n\n');downloadBlob(new Blob([body],{type:'text/plain;charset=utf-8'}),'rider-saathi-assistant-chat.txt')}
-function shareTodayReport(){const d=todayTotals(),msg=`Rider Saathi Pro V8.2 — ${localDateKey()}\nऑर्डर्स: ${d.count}\nएकूण पे: ${rupees(d.gross)}\nपेट्रोल: ${rupees(d.fuel)}\nइतर खर्च: ${rupees(d.exp+numeric('otherCost'))}\nनिव्वळ कमाई: ${rupees(d.net)}\nअंतर: ${d.km.toFixed(2)} KM`;const url='https://wa.me/?text='+encodeURIComponent(msg);window.open(url,'_blank','noopener')}
+function exportAssistantChat(){const log=$('chatLog');if(!log)return;const lines=[...log.querySelectorAll('.order')].map(el=>{const who=el.querySelector('b')?.textContent||'Rider Saathi';const msg=el.querySelector('p')?.textContent||'';return who+':\n'+msg});const body='Rider Saathi Pro V8.4 — Assistant Chat Backup\nExported: '+new Date().toISOString()+'\n\n'+lines.join('\n\n');downloadBlob(new Blob([body],{type:'text/plain;charset=utf-8'}),'rider-saathi-assistant-chat.txt')}
+function shareTodayReport(){const d=todayTotals(),msg=`Rider Saathi Pro V8.4 — ${localDateKey()}\nऑर्डर्स: ${d.count}\nएकूण पे: ${rupees(d.gross)}\nपेट्रोल: ${rupees(d.fuel)}\nइतर खर्च: ${rupees(d.exp+numeric('otherCost'))}\nनिव्वळ कमाई: ${rupees(d.net)}\nअंतर: ${d.km.toFixed(2)} KM`;const url='https://wa.me/?text='+encodeURIComponent(msg);window.open(url,'_blank','noopener')}
 function startVoiceInput(){const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){$('voiceStatus').textContent='या ब्राउझरमध्ये Voice Recognition उपलब्ध नाही. कृपया प्रश्न टाइप करा.';return}const rec=new SR();rec.lang=currentLang==='en'?'en-IN':'mr-IN';rec.interimResults=false;rec.maxAlternatives=1;$('voiceStatus').textContent='ऐकत आहे… बोला.';rec.onresult=e=>{$('assistantInput').value=e.results[0][0].transcript;$('voiceStatus').textContent='आवाज मजकुरात बदलला.';askAssistant()};rec.onerror=e=>$('voiceStatus').textContent='Voice input अयशस्वी: '+e.error+'. प्रश्न टाइप करून पाहा.';rec.onend=()=>{};rec.start()}
-function cloudConfig(){return safeLoad('rsCloudConfig',{})}
-function cloudEndpoint(){const c=cloudConfig();if(!c.url||!c.path)throw Error('आधी Cloud URL आणि वैयक्तिक Path सेव्ह करा.');return c.url+'/'+c.path+'.json'+(c.token?'?auth='+encodeURIComponent(c.token):'')}
 
-async function cloudPush(){try{if(!rsUnlocked)throw Error('आधी PIN ने अनलॉक करा.');await rsSyncNow();rsSetSyncStatus('Cloud Merge Backup पूर्ण • '+new Date().toLocaleString('mr-IN'))}catch(e){rsSetSyncStatus('Cloud Sync अयशस्वी: '+e.message)}}
-function validateCloudBackup(b){if(!b||typeof b!=='object'||Array.isArray(b)||!b.rsData||typeof b.rsData!=='object'||Array.isArray(b.rsData))throw Error('Cloud Backup संरचना चुकीची आहे');const d=b.rsData;for(const k of ['orders','bonuses','monthlyBonuses','monthlyRecords','expenses','monthlyExpenses','deletedRecords'])if(d[k]!==undefined&&!Array.isArray(d[k]))throw Error(k+' डेटा चुकीचा आहे');if(d.timer!==undefined&&(!d.timer||typeof d.timer!=='object'||Array.isArray(d.timer)))throw Error('Timer डेटा चुकीचा आहे');if(b.rsRates!==undefined&&(!b.rsRates||typeof b.rsRates!=='object'||Array.isArray(b.rsRates)))throw Error('Rates डेटा चुकीचा आहे');return d}
-async function cloudPull(){try{const ep=cloudEndpoint();if(!confirm('Cloud मधील बॅकअप सध्याचा स्थानिक डेटा बदलू शकतो. आधी स्थानिक Backup डाउनलोड करा. Pull करायचे?'))return;$('cloudStatus').textContent='Cloud मधून डेटा आणत आहे…';const res=await fetch(ep,{method:'GET',headers:{'Accept':'application/json'}});if(!res.ok)throw Error('Cloud प्रतिसाद '+res.status);const raw=await res.text();if(raw.length>5*1024*1024)throw Error('Cloud Backup 5 MB मर्यादेपेक्षा मोठा आहे');let b;try{b=JSON.parse(raw)}catch{throw Error('Cloud कडून वैध JSON मिळाले नाही')}const d=validateCloudBackup(b);if(!confirm('Cloud Backup मध्ये '+(Array.isArray(d.orders)?d.orders.length:0)+' आजच्या ऑर्डर्स आणि '+(Array.isArray(d.monthlyRecords)?d.monthlyRecords.length:0)+' ऐतिहासिक ऑर्डर्स आहेत. स्थानिक डेटा बदलून Restore करायचा?'))return;rsKeepAutoBackup();localStorage.setItem('rsData',JSON.stringify(d));if(b.rsRates)localStorage.setItem('rsRates',JSON.stringify(b.rsRates));if(b.rsDark!==undefined)localStorage.setItem('rsDark',String(b.rsDark)==='1'?'1':'0');$('cloudStatus').textContent='Cloud मधून Restore पूर्ण. App पुन्हा लोड होत आहे…';setTimeout(()=>location.reload(),700)}catch(e){$('cloudStatus').textContent='Pull अयशस्वी: '+e.message}}
+
+
+
+
+
 
 
 function switchTab(tab){
@@ -457,15 +478,15 @@ function switchTab(tab){
 }
 switchTab('calculate');
 
-// ===== V8: local PIN gate, resilient backups, merge sync, duplicate guard =====
-let rsAuthMode='setup', rsUnlocked=false, rsSyncTimer=null, rsLastActivity=Date.now(), rsGpsSamples=0;
-const RS_AUTH_KEY='rsLocalAuthV8', RS_BACKUPS_KEY='rsAutoBackupsV8', RS_SYNC_KEY='rsSyncMetaV8';
+// ===== V8: local PIN gate, resilient backups, duplicate guard =====
+let rsAuthMode='setup', rsUnlocked=false, rsLastActivity=Date.now(), rsGpsSamples=0;
+const RS_AUTH_KEY='rsLocalAuthV8', RS_BACKUPS_KEY='rsAutoBackupsV8';
 function rsB64(bytes){return btoa(String.fromCharCode(...new Uint8Array(bytes)))}
 async function rsHash(pin,salt,iterations=150000){if(!crypto.subtle)throw Error('या ब्राउझरमध्ये सुरक्षित PIN hashing उपलब्ध नाही. अद्ययावत Chrome वापरा.');const key=await crypto.subtle.importKey('raw',new TextEncoder().encode(pin),'PBKDF2',false,['deriveBits']);const bits=await crypto.subtle.deriveBits({name:'PBKDF2',salt:new TextEncoder().encode(salt),iterations,hash:'SHA-256'},key,256);return rsB64(bits)}
 async function rsLegacyHash(pin,salt){const data=new TextEncoder().encode(salt+':'+pin);return rsB64(await crypto.subtle.digest('SHA-256',data))}
 async function rsVerifyPin(pin,record){if(record.algorithm==='PBKDF2-SHA256')return (await rsHash(pin,record.salt,Number(record.iterations)||150000))===record.hash;return (await rsLegacyHash(pin,record.salt))===record.hash}
 function rsShowAuth(mode){rsAuthMode=mode;const ov=$('rsAuthOverlay');if(!ov)return;ov.style.display='flex';$('rsPin1').value='';$('rsPin2').value='';$('rsAuthMsg').textContent='';$('rsPin2').style.display=['setup','change'].includes(mode)?'block':'none';$('rsPin1').placeholder=mode==='verifyChange'?'सध्याचा PIN टाका':'6 ते 8 अंकी PIN';$('rsAuthTitle').textContent=mode==='setup'?'नवीन PIN सेट करा':mode==='verifyChange'?'सध्याचा PIN तपासा':mode==='change'?'नवीन PIN निवडा':'रायडर PIN लॉक';$('rsAuthDesc').textContent=mode==='setup'?'6 ते 8 अंकी PIN दोनदा टाका.':mode==='verifyChange'?'PIN बदलण्यापूर्वी सध्याचा PIN टाका.':mode==='change'?'नवीन 6 ते 8 अंकी PIN दोनदा टाका.':'अ‍ॅप उघडण्यासाठी तुमचा PIN टाका.';$('rsAuthAction').textContent=mode==='setup'?'PIN सेट करा':mode==='verifyChange'?'पडताळा':mode==='change'?'PIN बदला':'अनलॉक करा';$('rsAuthCancel').style.display=mode==='change'?'block':'none';setTimeout(()=>$('rsPin1').focus(),80)}
-function rsHideAuth(){ $('rsAuthOverlay').style.display='none'; rsUnlocked=true;rsLastActivity=Date.now();$('rsSecurityStatus').textContent='PIN लॉक सक्रिय • अ‍ॅप अनलॉक आहे';rsQueueSync(); }
+function rsHideAuth(){ $('rsAuthOverlay').style.display='none'; rsUnlocked=true;rsLastActivity=Date.now();$('rsSecurityStatus').textContent='PIN लॉक सक्रिय • अ‍ॅप अनलॉक आहे'; }
 async function rsAuthSubmit(){try{const a=$('rsPin1').value.trim(),b=$('rsPin2').value.trim(),old=safeLoad(RS_AUTH_KEY,null);if(rsAuthMode==='unlock'){if(!old){rsShowAuth('setup');return}if(!await rsVerifyPin(a,old)){$('rsAuthMsg').textContent='PIN चुकीचा आहे.';return}if(old.algorithm!=='PBKDF2-SHA256'){const salt=rsB64(crypto.getRandomValues(new Uint8Array(16)));localStorage.setItem(RS_AUTH_KEY,JSON.stringify({salt,hash:await rsHash(a,salt),algorithm:'PBKDF2-SHA256',iterations:150000,updatedAt:Date.now()}))}rsHideAuth();return}if(rsAuthMode==='verifyChange'){if(!old||!await rsVerifyPin(a,old)){$('rsAuthMsg').textContent='सध्याचा PIN चुकीचा आहे.';return}rsShowAuth('change');return}if(!/^\d{6,8}$/.test(a)){$('rsAuthMsg').textContent='6 ते 8 अंकी अंकांचा PIN आवश्यक आहे.';return}if(a!==b){$('rsAuthMsg').textContent='दोन्ही PIN जुळत नाहीत.';return}const salt=rsB64(crypto.getRandomValues(new Uint8Array(16))),hash=await rsHash(a,salt);localStorage.setItem(RS_AUTH_KEY,JSON.stringify({salt,hash,algorithm:'PBKDF2-SHA256',iterations:150000,updatedAt:Date.now()}));rsHideAuth()}catch(e){$('rsAuthMsg').textContent='PIN सेट/तपासता आला नाही: '+e.message}}
 function rsAuthCancel(){rsShowAuth('unlock')}
 function rsChangePin(){if(!rsUnlocked)return rsLockNow();rsShowAuth('verifyChange')}
@@ -475,19 +496,19 @@ function rsBackupSnapshot(){return {savedAt:new Date().toISOString(),rsData:safe
 function rsKeepAutoBackup(){try{const list=safeLoad(RS_BACKUPS_KEY,[]);list.unshift(rsBackupSnapshot());localStorage.setItem(RS_BACKUPS_KEY,JSON.stringify(list.slice(0,5)))}catch(e){console.warn('Auto backup skipped',e)}}
 function rsRecoverIfNeeded(){try{const raw=localStorage.getItem('rsData');if(raw){JSON.parse(raw);return}const backups=safeLoad(RS_BACKUPS_KEY,[]);if(backups.length&&confirm('मुख्य स्थानिक डेटा उपलब्ध नाही. शेवटच्या Auto Backup मधून Restore करायचा?')){localStorage.setItem('rsData',JSON.stringify(backups[0].rsData||{}));if(backups[0].rsRates)localStorage.setItem('rsRates',JSON.stringify(backups[0].rsRates));location.reload()}}catch(e){const backups=safeLoad(RS_BACKUPS_KEY,[]);if(backups.length&&confirm('स्थानिक डेटा वाचता येत नाही. शेवटच्या Auto Backup मधून Restore करायचा?')){localStorage.setItem('rsData',JSON.stringify(backups[0].rsData||{}));location.reload()}}}
 function rsStamp(){return Date.now()}
-function persist(){try{savedOtherCost=numeric('otherCost');const d={date:localDateKey(),orders,bonuses,monthlyBonuses:monthlyBonuses.slice(-1000),otherCost:savedOtherCost,monthlyRecords:monthlyRecords.slice(-3000),expenses,monthlyExpenses:monthlyExpenses.slice(-4000),deletedRecords:deletedRecords.slice(-5000),timer:{workStartedAt,workElapsed,breakStartedAt,breakElapsed},targetAlertSent,updatedAt:rsStamp()};localStorage.setItem('rsData',JSON.stringify(d));rsKeepAutoBackup();rsQueueSync()}catch(e){console.warn('Save failed',e);const el=$('cloudStatus');if(el)el.textContent='स्थानिक सेव्ह अयशस्वी: '+e.message}}
-function rsRecordKey(x){if(x&&x.id)return String(x.id);return [x?.date||'',x?.time||'',x?.app||x?.type||'',x?.km??'',x?.gross??'',x?.amount??''].join('|')}
-function rsMergeArray(a,b){const m=new Map();[...(Array.isArray(a)?a:[]),...(Array.isArray(b)?b:[])].forEach(x=>{if(!x||typeof x!=='object')return;const k=rsRecordKey(x),old=m.get(k);if(!old||(Number(x.updatedAt||x.editedAt||0)>=Number(old.updatedAt||old.editedAt||0)))m.set(k,x)});return [...m.values()]}
-function rsMergeBackup(local,remote){const ld=local.rsData||{},rd=remote.rsData||{};const merged={...ld,...rd};for(const k of ['orders','bonuses','monthlyBonuses','monthlyRecords','expenses','monthlyExpenses'])merged[k]=rsMergeArray(ld[k],rd[k]);merged.deletedRecords=rsMergeArray(ld.deletedRecords,rd.deletedRecords).slice(-5000);const deletedIds=new Set(merged.deletedRecords.map(x=>String(x.id)));for(const k of ['orders','monthlyRecords','expenses','monthlyExpenses'])merged[k]=merged[k].filter(x=>!deletedIds.has(String(x.id)));merged.updatedAt=Math.max(Number(ld.updatedAt||0),Number(rd.updatedAt||0));merged.date=(ld.updatedAt||0)>=(rd.updatedAt||0)?ld.date:rd.date;merged.timer=(Number(ld.updatedAt||0)>=Number(rd.updatedAt||0)?ld.timer:rd.timer)||ld.timer||rd.timer;return {appVersion:8.2,createdAt:new Date().toISOString(),rsData:merged,rsRates:(Object.keys(local.rsRates||{}).length?local.rsRates:(remote.rsRates||{})),rsDark:local.rsDark??remote.rsDark??'0',mergeInfo:{mergedAt:new Date().toISOString(),strategy:'record-id-union'}}}
+function persist(){try{savedOtherCost=numeric('otherCost');const d={date:localDateKey(),orders,bonuses,monthlyBonuses:monthlyBonuses.slice(-1000),otherCost:savedOtherCost,monthlyRecords:monthlyRecords.slice(-3000),expenses,monthlyExpenses:monthlyExpenses.slice(-4000),deletedRecords:deletedRecords.slice(-5000),timer:{workStartedAt,workElapsed,breakStartedAt,breakElapsed},targetAlertSent,updatedAt:rsStamp()};localStorage.setItem('rsData',JSON.stringify(d));rsKeepAutoBackup();}catch(e){console.warn('Save failed',e);if(!window.rsSaveWarned){window.rsSaveWarned=1;alert('फोनमध्ये सेव्ह करता आले नाही: '+e.message+'. आधी Backup घ्या.')}}}
 
-function rsQueueSync(){if(!rsUnlocked||!rsSyncEnabled()||!cloudConfig().url||!cloudConfig().path)return;clearTimeout(rsSyncTimer);rsSyncTimer=setTimeout(()=>rsSyncNow().catch(e=>{const el=$('rsSyncMeta');if(el)el.textContent='Auto Sync अयशस्वी: '+e.message}),1800)}
-function rsSetSyncStatus(t){if($('rsSyncMeta'))$('rsSyncMeta').textContent=t;if($('cloudStatus'))$('cloudStatus').textContent=t}
-function rsEndpoint(){const c=cloudConfig();if(!c.url||!c.path)throw Error('Firebase URL आणि वैयक्तिक Path कॉन्फिगर करा.');return c.url+'/'+c.path+'.json'+(c.token?'?auth='+encodeURIComponent(c.token):'')}
-function rsApplyMerged(backup){const d=backup.rsData||{};localStorage.setItem('rsData',JSON.stringify(d));if(backup.rsRates){localStorage.setItem('rsRates',JSON.stringify(backup.rsRates));Object.keys(defaults).forEach(k=>{if(backup.rsRates[k]!==undefined&&$(k))$(k).value=backup.rsRates[k]})}orders=d.date===localDateKey()&&Array.isArray(d.orders)?d.orders:[];bonuses=d.date===localDateKey()&&Array.isArray(d.bonuses)?d.bonuses:[];monthlyBonuses=Array.isArray(d.monthlyBonuses)?d.monthlyBonuses:[];monthlyRecords=Array.isArray(d.monthlyRecords)?d.monthlyRecords:[];expenses=d.date===localDateKey()&&Array.isArray(d.expenses)?d.expenses:[];monthlyExpenses=Array.isArray(d.monthlyExpenses)?d.monthlyExpenses:[];deletedRecords=Array.isArray(d.deletedRecords)?d.deletedRecords:[];const deletedIds=new Set(deletedRecords.map(x=>String(x.id)));orders=orders.filter(x=>!deletedIds.has(String(x.id)));monthlyRecords=monthlyRecords.filter(x=>!deletedIds.has(String(x.id)));expenses=expenses.filter(x=>!deletedIds.has(String(x.id)));monthlyExpenses=monthlyExpenses.filter(x=>!deletedIds.has(String(x.id)));savedOtherCost=Number(d.otherCost)||0;if($('otherCost'))$('otherCost').value=savedOtherCost;if(d.timer){workStartedAt=Number(d.timer.workStartedAt)||0;workElapsed=Number(d.timer.workElapsed)||0;breakStartedAt=Number(d.timer.breakStartedAt)||0;breakElapsed=Number(d.timer.breakElapsed)||0}render();calc();rsKeepAutoBackup()}
-async function rsSyncNow(){if(!rsUnlocked)throw Error('पहिले PIN ने अनलॉक करा.');const ep=rsEndpoint(),headers={'Content-Type':'application/json','Accept':'application/json','X-Firebase-ETag':'true'};for(let attempt=1;attempt<=4;attempt++){rsSetSyncStatus('Cloud मधील आवृत्ती तपासत आहे… ('+attempt+'/4)');const get=await fetch(ep,{method:'GET',headers,cache:'no-store'});if(!get.ok)throw Error('Firebase GET '+get.status+'; Auth/Rules तपासा');const etag=get.headers.get('ETag');if(!etag)throw Error('Firebase ETag मिळाला नाही. Realtime Database REST conditional request support तपासा.');const raw=await get.text();if(raw.length>5*1024*1024)throw Error('Cloud डेटा 5 MB पेक्षा मोठा आहे');let remote=null;if(raw&&raw!=='null'){remote=JSON.parse(raw);validateCloudBackup(remote)}const local=currentBackup(),merged=remote?rsMergeBackup(local,remote):{...local,appVersion:8.2};const put=await fetch(ep,{method:'PUT',headers:{...headers,'if-match':etag},body:JSON.stringify(merged)});if(put.status===412){if(attempt===4)throw Error('इतर डिव्हाइसने वारंवार डेटा बदलला. थोड्या वेळाने पुन्हा Sync करा.');continue}if(!put.ok)throw Error('Firebase PUT '+put.status+'; Auth/Rules तपासा');rsApplyMerged(merged);const meta={lastSync:new Date().toISOString(),mode:remote?'etag-merge':'initial-upload'};localStorage.setItem(RS_SYNC_KEY,JSON.stringify(meta));rsSetSyncStatus((remote?'Version-checked merge पूर्ण':'पहिला Cloud Backup पूर्ण')+' • '+new Date().toLocaleString('mr-IN'));return merged}throw Error('Sync पूर्ण झाले नाही.')}
-function rsInitSync(){const c=cloudConfig();if($('rsAutoSync'))$('rsAutoSync').checked=!!safeLoad('rsAutoSyncV8',false);const m=safeLoad(RS_SYNC_KEY,{});rsSetSyncStatus((m.lastSync?'शेवटचा Sync: '+new Date(m.lastSync).toLocaleString('mr-IN'):'Auto Sync तयार; पहिला Sync बाकी.')+(!c.url?' Firebase सेटिंग आवश्यक.':''));$('rsAutoSync')?.addEventListener('change',e=>{localStorage.setItem('rsAutoSyncV8',e.target.checked?'1':'0');rsSetSyncStatus(e.target.checked?'Auto Sync सुरू. Firebase कॉन्फिगर करा.':'Auto Sync बंद.');if(e.target.checked)rsQueueSync()})}
-function rsAutoSyncChecked(){return !!safeLoad('rsAutoSyncV8',false)}
-function rsSyncEnabled(){return !!rsAutoSyncChecked()}
+
+
+
+
+
+
+
+
+
+
+
 function addOrder(){const d=calc();if(d.km<=0){alert('Pickup किंवा Drop KM टाका.');return}const now=Date.now(),time=new Date().toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'});const dup=orders.find(o=>o.app===app&&Math.abs(Number(o.km)-d.km)<0.005&&Math.abs(Number(o.gross)-d.gross)<0.01&&Math.abs(Number(o.fuel)-d.fuel)<0.01&&(Number(o.createdAt)?now-Number(o.createdAt):(o.date===localDateKey()&&o.time===time?0:Infinity))<120000);if(dup&&!confirm('याच तपशीलाची ऑर्डर अलीकडे जोडलेली दिसते. तरीही नवीन ऑर्डर जोडायची?'))return;const item={id:crypto.randomUUID?crypto.randomUUID():String(now)+Math.random(),app,km:d.km,gross:d.gross,fuel:d.fuel,net:d.net,date:localDateKey(),time,hour:new Date().getHours(),createdAt:now,updatedAt:now};orders.unshift(item);monthlyRecords.push(item);persist();render()}
 function addExpense(){const amount=Number($('expenseAmount').value);if(!Number.isFinite(amount)||amount<=0){alert('कृपया शून्यापेक्षा मोठी योग्य रक्कम भरा.');return}const now=Date.now(),item={id:crypto.randomUUID?crypto.randomUUID():String(now)+Math.random(),type:$('expenseType').value,amount,note:$('expenseNote').value.trim(),date:localDateKey(),time:new Date().toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'}),createdAt:now,updatedAt:now};expenses.unshift(item);monthlyExpenses.push(item);$('expenseAmount').value='';$('expenseNote').value='';persist();render()}
 function renderAdvancedAnalytics(){const rows=monthlyRecords.filter(o=>(o.date||'').startsWith(localDateKey().slice(0,7)));const ym=localDateKey().slice(0,7),bonusRows=monthlyBonuses.filter(b=>(b.date||'').startsWith(ym)),bonusTotal=bonusRows.reduce((a,b)=>a+Number(b.amount||0),0),orderGross=rows.reduce((a,o)=>a+Number(o.gross||0),0),gross=orderGross+bonusTotal,net=rows.reduce((a,o)=>a+Number(o.net||0),0)+bonusTotal,km=rows.reduce((a,o)=>a+Number(o.km||0),0);$('v8AvgOrder').textContent=rupees(rows.length?orderGross/rows.length:0);$('v8NetKm').textContent=rupees(km?net/km:0);const sums=['swiggy','zomato','shadowfax'].map(a=>({a,n:rows.filter(o=>o.app===a).reduce((x,o)=>x+Number(o.net||0),0)})).sort((a,b)=>b.n-a.n);$('v8BestPlatform').textContent=sums[0]?.n>0?sums[0].a.toUpperCase():'—';const hrs=Array(24).fill(0);rows.forEach(o=>{const h=Number(o.hour);if(h>=0&&h<24)hrs[h]+=Number(o.net||0)});const best=Math.max(...hrs);$('v8BestHour').textContent=best>0?String(hrs.indexOf(best)).padStart(2,'0')+':00':'—';$('v8AnalyticsNote').textContent=`या महिन्यात ${rows.length} ऑर्डर्स • एकूण पे ${rupees(gross)} • बोनससह ऑर्डर नेट ${rupees(net)} • ${km.toFixed(1)} KM. खर्च नोंदी वेगळ्या दाखवल्या आहेत.`}
@@ -495,20 +516,20 @@ const rsOldRender=render;render=function(){rsOldRender();renderAdvancedAnalytics
 // Improve GPS filtering: ignore poor accuracy, implausible jumps and stationary jitter.
 const rsOldStartGPS=startGPS;startGPS=function(){if(!navigator.geolocation){alert('या ब्राउझरमध्ये GPS उपलब्ध नाही.');return}if(gpsWatch!==null)return;$('gpsStatus').textContent='GPS सुरू होत आहे…';gpsWatch=navigator.geolocation.watchPosition(pos=>{const c=pos.coords,accuracy=Number(c.accuracy)||999;if(!Number.isFinite(c.latitude)||!Number.isFinite(c.longitude)||Math.abs(c.latitude)>90||Math.abs(c.longitude)>180){$('gpsStatus').textContent='GPS कडून अवैध लोकेशन मिळाले.';return}if(accuracy>35){$('gpsStatus').textContent='GPS अचूकता कमी ('+Math.round(accuracy)+'m); चांगल्या सिग्नलची प्रतीक्षा';return}const p={lat:c.latitude,lon:c.longitude,timestamp:pos.timestamp||Date.now(),accuracy};if(gpsLast){const rad=x=>x*Math.PI/180,dl=rad(p.lat-gpsLast.lat),dn=rad(p.lon-gpsLast.lon),a=Math.sin(dl/2)**2+Math.cos(rad(gpsLast.lat))*Math.cos(rad(p.lat))*Math.sin(dn/2)**2,dist=6371*2*Math.atan2(Math.sqrt(a),Math.sqrt(1-a)),sec=Math.max(.5,(p.timestamp-gpsLast.timestamp)/1000),speed=dist/(sec/3600),noise=(accuracy+gpsLast.accuracy)/2000;if(dist>noise&&speed<110&&dist<2){gpsKm+=Math.max(0,dist-noise*.35);rsGpsSamples++}}gpsLast=p;$('gpsStatus').textContent='GPS चालू • '+gpsKm.toFixed(2)+' KM • ±'+Math.round(accuracy)+'m';$('gpsCoords').textContent='Lat '+p.lat.toFixed(5)+' • Lon '+p.lon.toFixed(5)+' • स्वीकारलेले पॉइंट '+rsGpsSamples;},err=>{const messages={1:'लोकेशन परवानगी नाकारली.',2:'लोकेशन उपलब्ध नाही. GPS सुरू आहे का तपासा.',3:'GPS वेळेत प्रतिसाद देत नाही. पुन्हा प्रयत्न करा.'};$('gpsStatus').textContent='GPS त्रुटी: '+(messages[err.code]||err.message||'अज्ञात त्रुटी');if(gpsWatch!==null)navigator.geolocation.clearWatch(gpsWatch);gpsWatch=null;gpsLast=null;},{enableHighAccuracy:true,maximumAge:5000,timeout:20000})};
 function clearGPS(){stopGPS();gpsKm=0;rsGpsSamples=0;$('gpsStatus').textContent='GPS बंद आहे • 0.00 KM';$('gpsCoords').textContent='लोकेशन उपलब्ध नाही.'}
-function currentBackup(){return {appVersion:8.2,createdAt:new Date().toISOString(),rsData:safeLoad('rsData',{}),rsRates:safeLoad('rsRates',{}),rsDark:safeLoad('rsDark','0')}}
-function saveCloudConfig(){const url=$('cloudUrl').value.trim().replace(/\/$/,''),path=$('cloudPath').value.trim().replace(/^\/+|\/+$/g,''),token=$('cloudToken').value.trim();if(!/^https:\/\/[a-z0-9-]+(?:\.[a-z0-9-]+)*(?::\d+)?$/i.test(url)){alert('वैध HTTPS Firebase Database URL भरा.');return}if(!path||! /^[a-zA-Z0-9_-]+(?:\/[a-zA-Z0-9_-]+)*$/.test(path)){alert('वैयक्तिक Path भरा.');return}try{localStorage.setItem('rsCloudConfig',JSON.stringify({url,path,token}));rsSetSyncStatus('Cloud सेटिंग सेव्ह झाली. Firebase Rules/Auth तपासा.');rsQueueSync();}catch(e){rsSetSyncStatus('Cloud सेटिंग सेव्ह अयशस्वी: '+e.message)}}
-function loadCloudFields(){const c=cloudConfig();if($('cloudUrl'))$('cloudUrl').value=c.url||'';if($('cloudPath'))$('cloudPath').value=c.path||'';if($('cloudToken'))$('cloudToken').value=c.token||''}
-// Persist profile and keep settings changes eligible for auto-sync.
+function currentBackup(){return {appVersion:8.4,createdAt:new Date().toISOString(),rsData:safeLoad('rsData',{}),rsRates:safeLoad('rsRates',{}),rsDark:safeLoad('rsDark','0')}}
+
+
+// Persist profile and keep settings changes.
 function rsInitProfile(){const n=localStorage.getItem('rsRiderNameV8')||'';if($('rsRiderName'))$('rsRiderName').value=n;$('rsRiderName')?.addEventListener('change',e=>localStorage.setItem('rsRiderNameV8',e.target.value.trim().slice(0,50)));if($('rsSecurityStatus'))$('rsSecurityStatus').textContent=safeLoad(RS_AUTH_KEY,null)?'या डिव्हाइसवर PIN सेट आहे.':'पहिल्यांदा अ‍ॅप उघडताना PIN सेट करा.'}
-function saveRates(){const obj={};Object.keys(defaults).forEach(k=>obj[k]=numeric(k));try{localStorage.setItem('rsRates',JSON.stringify(obj));alert('रेट सेव्ह झाले!');rsQueueSync()}catch{alert('या ब्राउझरमध्ये रेट सेव्ह करता आले नाहीत.')}render()}
-function resetRates(){if(!confirm('कंपनीचे सर्व रेट Default करायचे?'))return;Object.keys(defaults).forEach(k=>$(k).value=defaults[k]);try{localStorage.removeItem('rsRates')}catch{}rsQueueSync();render()}
-function toggleDark(){document.body.classList.toggle('dark');const on=document.body.classList.contains('dark');try{localStorage.setItem('rsDark',on?'1':'0')}catch{}$('darkToggle').textContent=on?'☀️ Light Mode':'🌙 Dark Mode';renderMonthlyGraph();rsQueueSync()}
+function saveRates(){const obj={};Object.keys(defaults).forEach(k=>obj[k]=numeric(k));try{localStorage.setItem('rsRates',JSON.stringify(obj));alert('रेट सेव्ह झाले!');}catch{alert('या ब्राउझरमध्ये रेट सेव्ह करता आले नाहीत.')}render()}
+function resetRates(){if(!confirm('कंपनीचे सर्व रेट Default करायचे?'))return;Object.keys(defaults).forEach(k=>$(k).value=defaults[k]);try{localStorage.removeItem('rsRates')}catch{}render()}
+function toggleDark(){document.body.classList.toggle('dark');const on=document.body.classList.contains('dark');try{localStorage.setItem('rsDark',on?'1':'0')}catch{}$('darkToggle').textContent=on?'Light Mode':'Dark Mode';renderMonthlyGraph();}
 // Start auth after the existing V7 startup has hydrated local state.
-rsRecoverIfNeeded();rsInitSync();rsInitProfile();rsInitAuth();
+rsRecoverIfNeeded();rsInitProfile();rsInitAuth();
 
 
 
-/* V8.2 — midnight rollover, screen wake lock */
+/* V8.4 — midnight rollover, screen wake lock */
 let rsDay=localDateKey(),rsWake=null;
 function rsCheckRollover(){
  const t=localDateKey();if(t===rsDay)return false;
