@@ -1,5 +1,5 @@
-/* Rider Saathi Pro V8.4 — safe offline cache */
-const CACHE_NAME = "rider-saathi-v8-4-pro-1";
+/* Rider Saathi Pro X — safe offline cache */
+const CACHE_NAME = "rider-saathi-x-extreme-1";
 const APP_SHELL = ["./", "./index.html", "./manifest.webmanifest", "./icon.svg"];
 self.addEventListener("install", event => {
   event.waitUntil((async () => {

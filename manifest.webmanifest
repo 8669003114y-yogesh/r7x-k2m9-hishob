@@ -1,13 +1,13 @@
 {
-  "name": "Rider Saathi Pro V8.4",
-  "short_name": "Rider Saathi",
-  "description": "Neon rider cockpit with earnings, expenses, GPS, PIN lock, local backups and analytics",
+  "name": "Rider Saathi Pro X",
+  "short_name": "Rider Saathi X",
+  "description": "Extreme rider intelligence, earnings, expenses, GPS and analytics",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#0e1418",
-  "theme_color": "#161e24",
+  "background_color": "#071d22",
+  "theme_color": "#071d22",
   "icons": [
     {
       "src": "./icon.svg",
