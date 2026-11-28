@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#080f14">
-<meta name="description" content="Rider Saathi Pro X - Extreme rider intelligence, planning, earnings, expenses, GPS and analytics.">
+<meta name="description" content="Rider Saathi Pro - Simple rider tracking, earnings, expenses, GPS and analytics.">
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="icon" href="./icon.svg" type="image/svg+xml">
 <meta name="color-scheme" content="dark light">
-<title>Rider Saathi Pro X • Extreme Rider System</title>
+<title>Rider Saathi Pro • Simple Rider Edition</title>
 <style>
 :root{--g:#087f63;--gd:#064b3e;--bg:#f2f6f4;--ink:#17231f;--mut:#687670;--line:#e1e9e5;--gold:#ffca4d;--red:#b83240}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans Devanagari",sans-serif}
@@ -165,18 +165,29 @@ input,select{background:#09151c;border:1px solid #2b424c;border-radius:12px;min-
 @media(prefers-reduced-motion:no-preference){.rs9-command{animation:rs9in .45s ease-out both}.rs9-insight{animation:rs9in .55s ease-out both}@keyframes rs9in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}}
 
 
-/* V10 X — Extreme Rider Intelligence add-on */
-.rsx-wrap{margin:14px 0 18px;background:linear-gradient(145deg,#071d22,#102e32 58%,#123c35);color:#eafff8;border:1px solid #28665a;border-radius:22px;padding:16px;box-shadow:0 14px 36px #09251d22;overflow:hidden;position:relative}
-.rsx-wrap:before{content:"";position:absolute;width:210px;height:210px;border-radius:50%;border:1px solid #7cf5ce22;right:-100px;top:-115px;box-shadow:0 0 0 22px #7cf5ce08,0 0 0 48px #7cf5ce06;pointer-events:none}
-.rsx-head{display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative}.rsx-kicker{font-size:10px;letter-spacing:1.8px;color:#83e8ca;font-weight:950}.rsx-title{font-size:20px;font-weight:950;margin:4px 0}.rsx-sub{font-size:11px;color:#a8c9c2;line-height:1.5}.rsx-pill{border:1px solid #347c6d;background:#143d36;color:#aaffdf;padding:6px 9px;border-radius:30px;font-size:10px;font-weight:850;white-space:nowrap}
-.rsx-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:14px;position:relative}.rsx-tile{background:#07171c99;border:1px solid #2a514d;border-radius:14px;padding:11px;min-width:0}.rsx-tile b{display:block;font-size:18px;color:#b4ffe5;overflow-wrap:anywhere}.rsx-tile span{font-size:10px;color:#a6c2bd}.rsx-section{margin-top:14px;padding-top:13px;border-top:1px solid #2a514d;position:relative}.rsx-section h3{font-size:13px;margin:0 0 9px;color:#cffff0}.rsx-inputs{display:grid;grid-template-columns:1fr 1fr;gap:8px}.rsx-field label{display:block;font-size:10px;color:#a6c8bf;margin:0 0 5px;font-weight:800}.rsx-field input,.rsx-field select{background:#0a2024;border:1px solid #326159;color:#effff9;border-radius:10px;padding:10px;font-size:14px;width:100%;min-width:0}.rsx-result{font-size:12px;color:#baffdf;background:#10382f;border:1px solid #286c5a;padding:10px;border-radius:11px;margin-top:9px;line-height:1.5}.rsx-actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}.rsx-actions button{margin:0;flex:1;min-width:115px}.rsx-list{display:grid;grid-template-columns:1fr 1fr;gap:7px}.rsx-feature{font-size:11px;line-height:1.45;padding:9px;border-radius:10px;background:#0a2427;border:1px solid #234c48;color:#c5e7dc}.rsx-feature strong{display:block;color:#9ef5d2;font-size:11px;margin-bottom:2px}.rsx-foot{font-size:10px;color:#9bbcb5;line-height:1.55;margin-top:12px}
-@media(max-width:390px){.rsx-wrap{padding:13px}.rsx-title{font-size:18px}.rsx-grid{gap:7px}.rsx-tile{padding:9px}.rsx-tile b{font-size:16px}.rsx-list{grid-template-columns:1fr}}
+/* Simple Rider mode: one clear action, advanced features stay behind the scenes */
+.rs9-command{border-radius:22px;padding:19px;background:linear-gradient(145deg,#10272d,#0d3d37);border:1px solid #2b7768;box-shadow:0 12px 34px #001a1a55}
+.rs9-duty-btn{width:100%;min-height:64px;font-size:21px;letter-spacing:.3px;border-radius:17px;margin-top:8px}
+.rs9-duty-btn.is-active{background:linear-gradient(135deg,#ffb4a9,#ff6d65);color:#35100d;box-shadow:0 6px 20px #ff6d6533}
+.rs9-duty-help{font-size:12px;text-align:center;color:#a9c7c4;margin-top:9px;line-height:1.5}
+.rs9-quick{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:11px}
+.rs9-quick .btn{min-height:43px;font-size:13px}
+.rs9-kpis{gap:8px}.rs9-kpi{border-radius:13px}
+@media(max-width:390px){.rs9-earn{font-size:32px}.rs9-command{padding:15px}}
+
+.rs9-delivery-btn{display:none;width:100%;min-height:54px;margin-top:10px;background:linear-gradient(135deg,#a4ffe3,#43d6ae);color:#063c31;font-size:17px;font-weight:950;border-radius:15px}
+.rs9-modal{display:none;position:fixed;inset:0;z-index:1000;background:#020b0bd9;padding:18px;align-items:center;justify-content:center}
+.rs9-modal.open{display:flex}.rs9-modal-card{width:min(100%,430px);background:#10252a;border:1px solid #35645d;border-radius:22px;padding:18px;color:#effff9;box-shadow:0 22px 70px #0009}
+.rs9-choice{width:100%;text-align:left;padding:15px;border:1px solid #35645d;border-radius:15px;background:#17363a;color:#effff9;margin:7px 0;font:inherit}
+.rs9-choice b{display:block;font-size:15px;margin-bottom:4px}.rs9-choice small{color:#a8c7c0;line-height:1.45}
+.rs9-manual{display:none;margin-top:12px;padding:13px;border:1px solid #35645d;border-radius:15px;background:#0b1d21}.rs9-manual.show{display:block}.rs9-manual label{display:block;font-size:12px;margin:9px 0 5px;color:#b7d4cd}.rs9-manual input{width:100%;padding:12px;border-radius:10px;border:1px solid #41645f;background:#f7fffc;color:#10252a;font-size:17px}
+.rs9-modal-actions{display:flex;gap:8px;margin-top:12px}.rs9-modal-actions button{flex:1}
 
 </style></head>
 <body>
-<header><div class="head"><div class="brand">Rider Saathi Pro</div><div class="hero">KM टाका, कमाई आणि नफा बघा!</div><div class="tag">Pickup + Drop एकत्र • खर्च वजा करून निव्वळ कमाई</div><div class="lang-wrap"><label for="language">भाषा / Language</label><select id="language" onchange="setLanguage(this.value)"><option value="mr">मराठी</option><option value="en">English</option></select></div></div></header>
+<header><div class="head"><div class="brand">Rider Saathi Pro</div><div class="hero">दोन बटणं • बाकी सर्व ऑटोमॅटिक</div><div class="tag">तुझा वैयक्तिक Rider Intelligence सिस्टम</div><div class="lang-wrap"><label for="language">भाषा / Language</label><select id="language" onchange="setLanguage(this.value)"><option value="mr">मराठी</option><option value="en">English</option></select></div></div></header>
 <main>
-<div class="apps"><button class="app active" data-app="swiggy" onclick="selectApp('swiggy')">Swiggy</button><button class="app" data-app="zomato" onclick="selectApp('zomato')">Zomato</button><button class="app" data-app="shadowfax" onclick="selectApp('shadowfax')">Shadowfax</button></div>
+
 <nav class="bottom-tabs" aria-label="मुख्य टॅब">
  <button class="tab-btn active" data-tab="calculate" onclick="switchTab('calculate')"><span><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 12h2M14 12h2M8 16h2M14 16h2"/></svg></span><small>हिशोब</small></button>
  <button class="tab-btn" data-tab="orders" onclick="switchTab('orders')"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg></span><small>ऑर्डर्स</small></button>
@@ -187,10 +198,10 @@ input,select{background:#09151c;border:1px solid #2b424c;border-radius:12px;min-
 
 <section class="page-panel" data-page="calculate" style="padding:0;margin:0">
 <div class="rs9-command">
- <div class="rs9-top"><div><div class="rs9-eyebrow">RIDER SAATHI • COMMAND CENTER</div><div style="font-size:15px;font-weight:850;margin-top:4px">आजचा परफॉर्मन्स</div></div><span class="rs9-live" id="rs9ShiftState">● READY TO RIDE</span></div>
+ <div class="rs9-top"><div><div class="rs9-eyebrow">RIDER SAATHI • PRO INTELLIGENCE</div><div style="font-size:15px;font-weight:850;margin-top:4px">आजचा परफॉर्मन्स</div></div><span class="rs9-live" id="rs9ShiftState">● READY TO RIDE</span></div>
  <div class="rs9-earn" id="rs9Net">₹0</div><div class="rs9-sub">आजची अंदाजे निव्वळ कमाई • ऑर्डर आणि नोंदवलेल्या खर्चावर आधारित</div>
  <div class="rs9-kpis"><div class="rs9-kpi"><b id="rs9Orders">0</b><span>ऑर्डर्स</span></div><div class="rs9-kpi"><b id="rs9Km">0.0</b><span>एकूण KM</span></div><div class="rs9-kpi"><b id="rs9Hourly">₹0</b><span>नेट / तास</span></div></div>
- <div class="rs9-actions"><button class="btn" onclick="rs9StartShift()">▶ शिफ्ट सुरू</button><button class="btn soft" onclick="rs9StopShift()">■ शिफ्ट थांबवा</button></div>
+ <div class="rs9-actions"><button class="btn rs9-duty-btn" id="rs9DutyBtn" onclick="rs9ToggleShift()">▶ START DUTY</button></div><div class="rs9-duty-help" id="rs9DutyHelp">ड्युटी सुरू करण्यासाठी एकदाच बटण दाबा. GPS परवानगी मागितल्यास Allow करा.</div>
 </div>
 <div class="card" style="margin-top:10px"><div class="rs9-minihead"><strong style="font-size:13px">🎯 आजचे लक्ष्य</strong><span id="rs9GoalText">₹0 / ₹1,000</span></div><div class="rs9-progress"><i id="rs9GoalBar"></i></div><div class="rs9-insight"><div class="bulb">✦</div><div><b>Rider Smart Insight</b><p id="rs9Insight">ऑर्डर्स जोडताच तुमच्या कामाच्या डेटावर आधारित सूचना येथे दिसतील.</p></div></div></div>
 </section>
@@ -209,6 +220,7 @@ input,select{background:#09151c;border:1px solid #2b424c;border-radius:12px;min-
 <button class="btn" onclick="addOrder()">＋ आजच्या हिशोबात ऑर्डर जोडा</button>
 </section>
 
+<section class="card page-panel" data-page="settings"><h2>कामासाठी प्लॅटफॉर्म निवडा</h2><div class="apps" id="platformPicker"><button class="app active" data-app="swiggy" onclick="selectApp('swiggy')">Swiggy</button><button class="app" data-app="zomato" onclick="selectApp('zomato')">Zomato</button><button class="app" data-app="shadowfax" onclick="selectApp('shadowfax')">Shadowfax</button></div><p class="hint">येथील निवड कमाईच्या कॅल्क्युलेटरसाठी वापरली जाईल.</p></section>
 <section class="card page-panel" data-page="settings"><div class="headrow"><h2>कंपनीनुसार रेट सेटिंग</h2><button class="tiny" onclick="resetRates()">Default करा</button></div>
 <div class="hint">सर्व कंपन्यांसाठी बेस पे ₹25 ठेवला आहे. KM रेट नमुना आहेत; प्रत्यक्ष रेटनुसार बदला.</div>
 <div class="settings show" data-settings="swiggy"><strong>Swiggy</strong><div class="rategrid">
@@ -257,20 +269,28 @@ input,select{background:#09151c;border:1px solid #2b424c;border-radius:12px;min-
 </section>
 
 <section class="card page-panel" data-page="insights">
+<h2>🧠 Pro Intelligence Center</h2>
+<p class="hint">तुझ्या फोनमध्ये सेव्ह झालेल्या ड्युटी, GPS आणि कमाईच्या नोंदींचे ऑटोमॅटिक विश्लेषण. हे क्लाउड AI नाही; स्थानिक डेटावर चालणारे स्मार्ट नियम आणि तपासणी आहे.</p>
+<div class="stats">
+ <div class="stat"><b id="piShiftCount">0</b><span>एकूण ड्युटी</span></div>
+ <div class="stat"><b id="piTotalHours">0h</b><span>नोंदवलेले तास</span></div>
+ <div class="stat"><b id="piTotalKm">0</b><span>GPS KM</span></div>
+</div>
+<div class="card" style="margin-top:10px"><h3>✦ AI Performance Insight</h3><p id="piInsight" class="hint">डेटा जमा होत आहे. ड्युटी सुरू आणि बंद केल्यानंतर विश्लेषण दिसेल.</p></div>
+<div class="card" style="margin-top:10px"><h3>🛡️ Auto Data Audit</h3><p id="piAudit" class="hint">डेटा तपासणी सुरू आहे…</p><button class="btn soft" onclick="piRunAudit(true)">आता तपासणी करा</button></div>
+<div class="card" style="margin-top:10px"><h3>📅 Duty History</h3><div id="piHistory" class="hint">अजून ड्युटी हिस्ट्री नाही.</div></div>
+<div class="tools" style="margin-top:10px"><button class="btn soft" onclick="piExportHistory()">Duty History Export</button><button class="btn soft" onclick="downloadBackup()">Full Backup</button></div>
+</section>
+
+<section class="card page-panel" data-page="insights">
 <h2>कामाचे तास आणि Break Timer</h2>
 <div class="stats">
  <div class="stat"><b id="workClock">00:00:00</b><span>कामाचे तास</span></div>
  <div class="stat"><b id="breakClock">00:00:00</b><span>ब्रेक वेळ</span></div>
  <div class="stat"><b id="hourlyNet">₹0.00</b><span>निव्वळ / कामाचा तास</span></div>
 </div>
-<div class="tools" style="margin-top:10px">
- <button class="btn" onclick="startWork()">▶ काम सुरू</button>
- <button class="btn soft" onclick="startBreak()">ब्रेक सुरू</button>
- <button class="btn soft" onclick="endBreak()">↩️ ब्रेक संपवा</button>
- <button class="btn red" onclick="stopWork()">■ शिफ्ट थांबवा</button>
-</div>
-<p class="hint" id="timerStatus">कामाचा टाइमर सुरू केलेला नाही.</p>
-<p class="hint">टाइमर बंद केल्यावर वेळ सेव्ह होतो. फोन रीस्टार्ट झाला तरी सेव्ह केलेली वेळ पुन्हा मिळते.</p>
+<p class="hint" id="timerStatus">हा टाइमर मुख्य स्क्रीनवरील START DUTY / END DUTY बटणाशी जोडलेला आहे. वेगळे बटण दाबण्याची गरज नाही.</p>
+<p class="hint">ड्युटी सुरू आणि संपण्याची वेळ आपोआप सेव्ह होते. ब्रेक वेळ सध्या स्वतंत्रपणे मोजलेली नाही.</p>
 </section>
 <section class="card page-panel" data-page="assistant">
 <h2>Rider Saathi Smart Assistant</h2>
@@ -322,57 +342,20 @@ input,select{background:#09151c;border:1px solid #2b424c;border-radius:12px;min-
 <div class="graph-wrap"><canvas id="monthlyGraph" width="700" height="220" aria-label="Monthly income graph"></canvas></div>
 <div class="stats"><div class="stat"><b id="monthOrders">0</b><span>या महिन्यातील ऑर्डर</span></div><div class="stat"><b id="monthIncome">₹0</b><span>एकूण ऑर्डर पे</span></div><div class="stat"><b id="monthKm">0</b><span>एकूण KM</span></div></div>
 </section>
-
-<section class="rsx-wrap" id="rsxExtreme">
- <div class="rsx-head"><div><div class="rsx-kicker">RIDER SAATHI • NEXT-GEN INTELLIGENCE</div><div class="rsx-title">Rider Saathi Pro X</div><div class="rsx-sub">तुझ्या राइडिंगचा स्मार्ट कंट्रोल रूम • स्थानिक डेटावर आधारित विश्लेषण</div></div><span class="rsx-pill" id="rsxNetwork">● DEVICE READY</span></div>
- <div class="rsx-grid">
-  <div class="rsx-tile"><b id="rsxProfitKm">₹0</b><span>खर्च वजा दैनिक नेट / KM</span></div>
-  <div class="rsx-tile"><b id="rsxProfitOrder">₹0</b><span>खर्च वजा दैनिक नेट / ऑर्डर</span></div>
-  <div class="rsx-tile"><b id="rsxTripCount">0</b><span>आजच्या नोंदी</span></div>
-  <div class="rsx-tile"><b id="rsxDataHealth">तपासत आहे</b><span>डुप्लिकेट नोंद तपासणी</span></div>
+<footer>Rider Saathi Pro • Simple Rider Edition • अधिकृत Swiggy / Zomato / Shadowfax ॲप नाही. अंदाज प्रत्यक्ष पेमेंटची हमी देत नाही.</footer>
+<div class="rs9-modal" id="rs9DeliveryModal" role="dialog" aria-modal="true" aria-labelledby="rs9DeliveryTitle">
+ <div class="rs9-modal-card">
+  <div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><h2 id="rs9DeliveryTitle" style="margin:0">डिलिव्हरी पूर्ण झाली?</h2><button class="tiny" onclick="rs9CloseDelivery()">✕</button></div>
+  <p class="hint" style="color:#a8c7c0">नोंद करण्याचा सोपा मार्ग निवडा.</p>
+  <button class="rs9-choice" onclick="rs9ShowManual()"><b>✍️ स्वतः रक्कम टाका</b><small>मिळालेली पेमेंट रक्कम आणि KM टाका.</small></button>
+  <button class="rs9-choice" onclick="rs9SmartDelivery()"><b>⚡ स्मार्ट नोंद</b><small>मागील डिलिव्हरीनंतरचे GPS अंतर + प्लॅटफॉर्म रेटवर अंदाज काढेल. सेव्ह करण्याआधी तपासा.</small></button>
+  <div class="rs9-manual" id="rs9ManualEntry"><label for="rs9ManualPay">मिळालेली रक्कम (₹)</label><input id="rs9ManualPay" type="number" min="0" step="0.5" inputmode="decimal" placeholder="उदा. 45"><label for="rs9ManualKm">या ऑर्डरचे एकूण अंतर (KM)</label><input id="rs9ManualKm" type="number" min="0" step="0.01" inputmode="decimal" placeholder="उदा. 4.5"><div class="rs9-modal-actions"><button class="btn soft" onclick="rs9CloseDelivery()">रद्द</button><button class="btn" onclick="rs9SaveManual()">नोंद सेव्ह करा</button></div></div>
+  <p class="hint" style="color:#a8c7c0;margin:12px 0 0">टीप: Swiggy / Zomato मधील ऑर्डर माहिती हे वेब ॲप थेट वाचू शकत नाही. स्मार्ट नोंद अंदाज देते; पेमेंट तपासूनच सेव्ह करा.</p>
  </div>
- <div class="rsx-section">
-  <h3>🎯 AI Daily Goal Simulator</h3>
-  <div class="rsx-inputs">
-   <div class="rsx-field"><label for="rsxTarget">आजचे निव्वळ लक्ष्य (₹)</label><input id="rsxTarget" type="number" min="0" step="50" value="1500" inputmode="decimal"></div>
-   <div class="rsx-field"><label for="rsxHours">उरलेले कामाचे तास</label><input id="rsxHours" type="number" min="0.5" max="18" step="0.5" value="5" inputmode="decimal"></div>
-  </div>
-  <div class="rsx-result" id="rsxPlanResult">लक्ष्याचा तासागणिक वेग मोजण्यासाठी माहिती भरा.</div>
- </div>
- <div class="rsx-section">
-  <h3>🧠 Rider Intelligence Scan</h3>
-  <div class="rsx-result" id="rsxInsight">तुझ्या नोंदी तपासत आहे…</div>
-  <div class="rsx-actions"><button class="btn soft" type="button" onclick="rsxRefresh()">↻ पुन्हा विश्लेषण</button><button class="btn soft" type="button" onclick="downloadBackup()">⬇ सुरक्षित Backup</button></div>
- </div>
- <div class="rsx-section">
-  <h3>🔧 Bike Care Reminder</h3>
-  <div class="rsx-inputs">
-   <div class="rsx-field"><label for="rsxServiceKm">पुढील सर्व्हिस KM</label><input id="rsxServiceKm" type="number" min="0" step="100" placeholder="उदा. 15000" inputmode="numeric"></div>
-   <div class="rsx-field"><label for="rsxServiceNote">नोंद</label><input id="rsxServiceNote" maxlength="70" placeholder="ऑइल / ब्रेक / टायर"></div>
-  </div>
-  <div class="rsx-actions"><button class="btn soft" type="button" onclick="rsxSaveBike()">रिमाइंडर सेव्ह</button></div>
-  <div class="rsx-result" id="rsxBikeResult">सर्व्हिस रिमाइंडर सेट केलेला नाही.</div>
- </div>
- <div class="rsx-section">
-  <h3>⚡ Extreme Feature Stack</h3>
-  <div class="rsx-list">
-   <div class="rsx-feature"><strong>Digital Twin</strong>ट्रिप, वेळ, KM आणि कमाईचा डिजिटल इतिहास</div>
-   <div class="rsx-feature"><strong>Dead KM Detector</strong>नोंदवलेल्या ऑर्डर KM आणि GPS KM मधील फरक</div>
-   <div class="rsx-feature"><strong>Multi-App Hub</strong>Swiggy, Zomato आणि इतर प्लॅटफॉर्मचा एकत्रित हिशेब</div>
-   <div class="rsx-feature"><strong>Offline-First</strong>फोनमध्ये स्थानिक सेव्हिंग आणि नंतर बॅकअप</div>
-   <div class="rsx-feature"><strong>Smart Data Audit</strong>डुप्लिकेट किंवा संशयास्पद नोंदींची तपासणी</div>
-   <div class="rsx-feature"><strong>Voice Assistant</strong>उपलब्ध Assistant मधून बोलून प्रश्न विचारणे</div>
-   <div class="rsx-feature"><strong>Wealth Tracker</strong>कमाई, खर्च आणि बचतीचा दीर्घकालीन हिशेब</div>
-   <div class="rsx-feature"><strong>Safety Center</strong>इमर्जन्सी संपर्क आणि सुरक्षितता नियोजन</div>
-  </div>
- </div>
- <div class="rsx-foot">टीप: या आवृत्तीतील Intelligence स्थानिक नोंदींवर आधारित आहे; ती Cloud AI किंवा खात्रीशीर ऑर्डर/कमाईचा अंदाज नाही. स्क्रीन बंद असताना सातत्यपूर्ण GPS, इतर ॲपमधील डेटा वाचन आणि खरे Background Automation यासाठी स्वतंत्र Native Android सेवा व स्पष्ट परवानग्या आवश्यक आहेत.</div>
-</section>
-
-<footer>Rider Saathi Pro X • Extreme Edition • अधिकृत Swiggy / Zomato / Shadowfax ॲप नाही. अंदाज प्रत्यक्ष पेमेंटची हमी देत नाही.</footer>
+</div>
 </main>
 <div id="rsAuthOverlay" role="dialog" aria-modal="true" aria-labelledby="rsAuthTitle">
- <div id="rsAuthCard"><div style="font-size:12px;letter-spacing:2px;color:#8df6db;font-weight:900">RIDER SAATHI PRO • X</div>
+ <div id="rsAuthCard"><div style="font-size:12px;letter-spacing:2px;color:#8df6db;font-weight:900">RIDER SAATHI PRO • V9</div>
  <h2 id="rsAuthTitle">रायडर PIN लॉक</h2><p id="rsAuthDesc">तुमचा स्थानिक डेटा सुरक्षित ठेवण्यासाठी PIN सेट करा.</p>
  <input id="rsPin1" type="password" inputmode="numeric" autocomplete="new-password" maxlength="8" placeholder="6 अंकी PIN">
  <input id="rsPin2" type="password" inputmode="numeric" autocomplete="new-password" maxlength="8" placeholder="PIN पुन्हा टाका">
@@ -382,8 +365,8 @@ input,select{background:#09151c;border:1px solid #2b424c;border-radius:12px;min-
 <script>
 'use strict';
 const translations={
- hi:{'KM टाका, कमाई आणि नफा बघा!':'KM डालें, कमाई और मुनाफ़ा देखें!','Pickup + Drop एकत्र • खर्च वजा करून निव्वळ कमाई':'Pickup + Drop जोड़ें • खर्च घटाकर शुद्ध कमाई','भाषा / Language':'भाषा','ऑर्डर कमाई कॅल्क्युलेटर':'ऑर्डर कमाई कैलकुलेटर','Pickup पर्यंतचे अंतर (KM)':'Pickup तक की दूरी (KM)','Pickup ते Drop (KM)':'Pickup से Drop (KM)','ऑर्डरची वेळ':'ऑर्डर का समय','दिवस (6 AM – 7 PM)':'दिन (6 AM – 7 PM)','पीक वेळ (7 PM – 10 PM)':'पीक समय (7 PM – 10 PM)','रात्र (10 PM – 6 AM)':'रात (10 PM – 6 AM)','Peak Surge / बोनस (₹)':'Peak Surge / बोनस (₹)','अतिरिक्त टिप (₹)':'अतिरिक्त टिप (₹)','Pickup + Drop = एकूण अंतर':'Pickup + Drop = कुल दूरी','अंदाजे एकूण ऑर्डर पे':'अनुमानित कुल ऑर्डर पे','＋ आजच्या हिशोबात ऑर्डर जोडा':'＋ आज के हिसाब में ऑर्डर जोड़ें','कंपनीनुसार रेट सेटिंग':'कंपनी के अनुसार रेट सेटिंग','Default करा':'डिफ़ॉल्ट करें','सर्व कंपन्यांसाठी बेस पे ₹25 ठेवला आहे. KM रेट नमुना आहेत; प्रत्यक्ष रेटनुसार बदला.':'सभी कंपनियों के लिए बेस पे ₹25 है। KM रेट नमूना हैं; वास्तविक रेट के अनुसार बदलें।','बेस पे ₹':'बेस पे ₹','बेसमध्ये समाविष्ट KM':'बेस में शामिल KM','दिवस ₹ / अतिरिक्त KM':'दिन ₹ / अतिरिक्त KM','पीक ₹ / अतिरिक्त KM':'पीक ₹ / अतिरिक्त KM','रात्र ₹ / अतिरिक्त KM':'रात ₹ / अतिरिक्त KM','रेट सेव्ह करा':'रेट सेव करें','रेट या डिव्हाइसच्या ब्राउझरमध्ये सेव्ह होतील.':'रेट इस डिवाइस के ब्राउज़र में सेव होंगे।','पेट्रोल खर्च आणि निव्वळ नफा':'पेट्रोल खर्च और शुद्ध मुनाफ़ा','मायलेज (KM / लिटर)':'माइलेज (KM / लीटर)','पेट्रोल दर (₹ / लिटर)':'पेट्रोल रेट (₹ / लीटर)','आजचा इतर खर्च (₹) — पार्किंग / देखभाल इ.':'अन्य खर्च (₹) — पार्किंग / रखरखाव आदि','प्रति ऑर्डर अंदाजे पेट्रोल खर्च':'प्रति ऑर्डर अनुमानित पेट्रोल खर्च','Dinner Peak Incentive':'डिनर पीक इंसेंटिव','7 PM ते 11 PM पूर्ण ऑर्डर्स':'7 PM से 11 PM तक पूरी ऑर्डर','स्क्रीनशॉटनुसार इन्सेंटिव्ह':'स्क्रीनशॉट के अनुसार इंसेंटिव','＋ इन्सेंटिव्ह आजच्या हिशोबात जोडा':'＋ इंसेंटिव आज के हिसाब में जोड़ें','आजचा हिशोब':'आज का हिसाब','ऑर्डर्स':'ऑर्डर','एकूण KM':'कुल KM','एकूण पे':'कुल पे','पेट्रोल खर्च':'पेट्रोल खर्च','पेट्रोल + इतर खर्च':'पेट्रोल + अन्य खर्च','निव्वळ कमाई':'शुद्ध कमाई','इन्सेंटिव्ह':'इंसेंटिव','आजचे कमाईचे लक्ष्य ₹':'आज की कमाई का लक्ष्य ₹','CSV रिपोर्ट डाउनलोड':'CSV रिपोर्ट डाउनलोड','आजचा हिशोब रीसेट':'आज का हिसाब रीसेट','अधिकृत Swiggy / Zomato / Shadowfax ॲप नाही. अंदाज प्रत्यक्ष पेमेंटची हमी देत नाही.':'यह आधिकारिक Swiggy / Zomato / Shadowfax ऐप नहीं है। अनुमान वास्तविक भुगतान की गारंटी नहीं देता।'},
- en:{'KM टाका, कमाई आणि नफा बघा!':'Enter KM, see earnings and profit!','Pickup + Drop एकत्र • खर्च वजा करून निव्वळ कमाई':'Pickup + Drop combined • expenses deducted for net earnings','भाषा / Language':'Language','ऑर्डर कमाई कॅल्क्युलेटर':'Order Earnings Calculator','Pickup पर्यंतचे अंतर (KM)':'Distance to Pickup (KM)','Pickup ते Drop (KM)':'Pickup to Drop (KM)','ऑर्डरची वेळ':'Order Time','दिवस (6 AM – 7 PM)':'Day (6 AM – 7 PM)','पीक वेळ (7 PM – 10 PM)':'Peak (7 PM – 10 PM)','रात्र (10 PM – 6 AM)':'Night (10 PM – 6 AM)','Peak Surge / बोनस (₹)':'Peak Surge / Bonus (₹)','अतिरिक्त टिप (₹)':'Extra Tip (₹)','Pickup + Drop = एकूण अंतर':'Pickup + Drop = Total Distance','अंदाजे एकूण ऑर्डर पे':'Estimated Total Order Pay','＋ आजच्या हिशोबात ऑर्डर जोडा':'＋ Add Order to Today’s Total','कंपनीनुसार रेट सेटिंग':'Platform Rate Settings','Default करा':'Reset Defaults','सर्व कंपन्यांसाठी बेस पे ₹25 ठेवला आहे. KM रेट नमुना आहेत; प्रत्यक्ष रेटनुसार बदला.':'Base pay is set to ₹25 for all platforms. Per-KM rates are samples; adjust to your actual rates.','बेस पे ₹':'Base Pay ₹','बेसमध्ये समाविष्ट KM':'KM Included in Base','दिवस ₹ / अतिरिक्त KM':'Day ₹ / Extra KM','पीक ₹ / अतिरिक्त KM':'Peak ₹ / Extra KM','रात्र ₹ / अतिरिक्त KM':'Night ₹ / Extra KM','रेट सेव्ह करा':'Save Rates','रेट या डिव्हाइसच्या ब्राउझरमध्ये सेव्ह होतील.':'Rates are saved in this device’s browser.','पेट्रोल खर्च आणि निव्वळ नफा':'Fuel Cost & Net Profit','मायलेज (KM / लिटर)':'Mileage (KM / Litre)','पेट्रोल दर (₹ / लिटर)':'Petrol Price (₹ / Litre)','आजचा इतर खर्च (₹) — पार्किंग / देखभाल इ.':'Other Costs (₹) — Parking / Maintenance etc.','प्रति ऑर्डर अंदाजे पेट्रोल खर्च':'Estimated Fuel Cost per Order','Dinner Peak Incentive':'Dinner Peak Incentive','7 PM ते 11 PM पूर्ण ऑर्डर्स':'Completed Orders from 7 PM to 11 PM','स्क्रीनशॉटनुसार इन्सेंटिव्ह':'Incentive Based on Shared Screenshot','＋ इन्सेंटिव्ह आजच्या हिशोबात जोडा':'＋ Add Incentive to Today’s Total','आजचा हिशोब':'Today’s Summary','ऑर्डर्स':'Orders','एकूण KM':'Total KM','एकूण पे':'Total Pay','पेट्रोल खर्च':'Fuel Cost','निव्वळ कमाई':'Net Earnings','इन्सेंटिव्ह':'Incentive','आजचे कमाईचे लक्ष्य ₹':'Today’s Earnings Goal ₹','CSV रिपोर्ट डाउनलोड':'Download CSV Report','आजचा हिशोब रीसेट':'Reset Today’s Summary','अधिकृत Swiggy / Zomato / Shadowfax ॲप नाही. अंदाज प्रत्यक्ष पेमेंटची हमी देत नाही.':'Not an official Swiggy / Zomato / Shadowfax app. Estimates do not guarantee actual payouts.'}
+ hi:{'दोन बटणं • बाकी सर्व ऑटोमॅटिक':'KM डालें, कमाई और मुनाफ़ा देखें!','तुझा वैयक्तिक Rider Intelligence सिस्टम':'Pickup + Drop जोड़ें • खर्च घटाकर शुद्ध कमाई','भाषा / Language':'भाषा','ऑर्डर कमाई कॅल्क्युलेटर':'ऑर्डर कमाई कैलकुलेटर','Pickup पर्यंतचे अंतर (KM)':'Pickup तक की दूरी (KM)','Pickup ते Drop (KM)':'Pickup से Drop (KM)','ऑर्डरची वेळ':'ऑर्डर का समय','दिवस (6 AM – 7 PM)':'दिन (6 AM – 7 PM)','पीक वेळ (7 PM – 10 PM)':'पीक समय (7 PM – 10 PM)','रात्र (10 PM – 6 AM)':'रात (10 PM – 6 AM)','Peak Surge / बोनस (₹)':'Peak Surge / बोनस (₹)','अतिरिक्त टिप (₹)':'अतिरिक्त टिप (₹)','Pickup + Drop = एकूण अंतर':'Pickup + Drop = कुल दूरी','अंदाजे एकूण ऑर्डर पे':'अनुमानित कुल ऑर्डर पे','＋ आजच्या हिशोबात ऑर्डर जोडा':'＋ आज के हिसाब में ऑर्डर जोड़ें','कंपनीनुसार रेट सेटिंग':'कंपनी के अनुसार रेट सेटिंग','Default करा':'डिफ़ॉल्ट करें','सर्व कंपन्यांसाठी बेस पे ₹25 ठेवला आहे. KM रेट नमुना आहेत; प्रत्यक्ष रेटनुसार बदला.':'सभी कंपनियों के लिए बेस पे ₹25 है। KM रेट नमूना हैं; वास्तविक रेट के अनुसार बदलें।','बेस पे ₹':'बेस पे ₹','बेसमध्ये समाविष्ट KM':'बेस में शामिल KM','दिवस ₹ / अतिरिक्त KM':'दिन ₹ / अतिरिक्त KM','पीक ₹ / अतिरिक्त KM':'पीक ₹ / अतिरिक्त KM','रात्र ₹ / अतिरिक्त KM':'रात ₹ / अतिरिक्त KM','रेट सेव्ह करा':'रेट सेव करें','रेट या डिव्हाइसच्या ब्राउझरमध्ये सेव्ह होतील.':'रेट इस डिवाइस के ब्राउज़र में सेव होंगे।','पेट्रोल खर्च आणि निव्वळ नफा':'पेट्रोल खर्च और शुद्ध मुनाफ़ा','मायलेज (KM / लिटर)':'माइलेज (KM / लीटर)','पेट्रोल दर (₹ / लिटर)':'पेट्रोल रेट (₹ / लीटर)','आजचा इतर खर्च (₹) — पार्किंग / देखभाल इ.':'अन्य खर्च (₹) — पार्किंग / रखरखाव आदि','प्रति ऑर्डर अंदाजे पेट्रोल खर्च':'प्रति ऑर्डर अनुमानित पेट्रोल खर्च','Dinner Peak Incentive':'डिनर पीक इंसेंटिव','7 PM ते 11 PM पूर्ण ऑर्डर्स':'7 PM से 11 PM तक पूरी ऑर्डर','स्क्रीनशॉटनुसार इन्सेंटिव्ह':'स्क्रीनशॉट के अनुसार इंसेंटिव','＋ इन्सेंटिव्ह आजच्या हिशोबात जोडा':'＋ इंसेंटिव आज के हिसाब में जोड़ें','आजचा हिशोब':'आज का हिसाब','ऑर्डर्स':'ऑर्डर','एकूण KM':'कुल KM','एकूण पे':'कुल पे','पेट्रोल खर्च':'पेट्रोल खर्च','पेट्रोल + इतर खर्च':'पेट्रोल + अन्य खर्च','निव्वळ कमाई':'शुद्ध कमाई','इन्सेंटिव्ह':'इंसेंटिव','आजचे कमाईचे लक्ष्य ₹':'आज की कमाई का लक्ष्य ₹','CSV रिपोर्ट डाउनलोड':'CSV रिपोर्ट डाउनलोड','आजचा हिशोब रीसेट':'आज का हिसाब रीसेट','अधिकृत Swiggy / Zomato / Shadowfax ॲप नाही. अंदाज प्रत्यक्ष पेमेंटची हमी देत नाही.':'यह आधिकारिक Swiggy / Zomato / Shadowfax ऐप नहीं है। अनुमान वास्तविक भुगतान की गारंटी नहीं देता।'},
+ en:{'दोन बटणं • बाकी सर्व ऑटोमॅटिक':'Enter KM, see earnings and profit!','तुझा वैयक्तिक Rider Intelligence सिस्टम':'Pickup + Drop combined • expenses deducted for net earnings','भाषा / Language':'Language','ऑर्डर कमाई कॅल्क्युलेटर':'Order Earnings Calculator','Pickup पर्यंतचे अंतर (KM)':'Distance to Pickup (KM)','Pickup ते Drop (KM)':'Pickup to Drop (KM)','ऑर्डरची वेळ':'Order Time','दिवस (6 AM – 7 PM)':'Day (6 AM – 7 PM)','पीक वेळ (7 PM – 10 PM)':'Peak (7 PM – 10 PM)','रात्र (10 PM – 6 AM)':'Night (10 PM – 6 AM)','Peak Surge / बोनस (₹)':'Peak Surge / Bonus (₹)','अतिरिक्त टिप (₹)':'Extra Tip (₹)','Pickup + Drop = एकूण अंतर':'Pickup + Drop = Total Distance','अंदाजे एकूण ऑर्डर पे':'Estimated Total Order Pay','＋ आजच्या हिशोबात ऑर्डर जोडा':'＋ Add Order to Today’s Total','कंपनीनुसार रेट सेटिंग':'Platform Rate Settings','Default करा':'Reset Defaults','सर्व कंपन्यांसाठी बेस पे ₹25 ठेवला आहे. KM रेट नमुना आहेत; प्रत्यक्ष रेटनुसार बदला.':'Base pay is set to ₹25 for all platforms. Per-KM rates are samples; adjust to your actual rates.','बेस पे ₹':'Base Pay ₹','बेसमध्ये समाविष्ट KM':'KM Included in Base','दिवस ₹ / अतिरिक्त KM':'Day ₹ / Extra KM','पीक ₹ / अतिरिक्त KM':'Peak ₹ / Extra KM','रात्र ₹ / अतिरिक्त KM':'Night ₹ / Extra KM','रेट सेव्ह करा':'Save Rates','रेट या डिव्हाइसच्या ब्राउझरमध्ये सेव्ह होतील.':'Rates are saved in this device’s browser.','पेट्रोल खर्च आणि निव्वळ नफा':'Fuel Cost & Net Profit','मायलेज (KM / लिटर)':'Mileage (KM / Litre)','पेट्रोल दर (₹ / लिटर)':'Petrol Price (₹ / Litre)','आजचा इतर खर्च (₹) — पार्किंग / देखभाल इ.':'Other Costs (₹) — Parking / Maintenance etc.','प्रति ऑर्डर अंदाजे पेट्रोल खर्च':'Estimated Fuel Cost per Order','Dinner Peak Incentive':'Dinner Peak Incentive','7 PM ते 11 PM पूर्ण ऑर्डर्स':'Completed Orders from 7 PM to 11 PM','स्क्रीनशॉटनुसार इन्सेंटिव्ह':'Incentive Based on Shared Screenshot','＋ इन्सेंटिव्ह आजच्या हिशोबात जोडा':'＋ Add Incentive to Today’s Total','आजचा हिशोब':'Today’s Summary','ऑर्डर्स':'Orders','एकूण KM':'Total KM','एकूण पे':'Total Pay','पेट्रोल खर्च':'Fuel Cost','निव्वळ कमाई':'Net Earnings','इन्सेंटिव्ह':'Incentive','आजचे कमाईचे लक्ष्य ₹':'Today’s Earnings Goal ₹','CSV रिपोर्ट डाउनलोड':'Download CSV Report','आजचा हिशोब रीसेट':'Reset Today’s Summary','अधिकृत Swiggy / Zomato / Shadowfax ॲप नाही. अंदाज प्रत्यक्ष पेमेंटची हमी देत नाही.':'Not an official Swiggy / Zomato / Shadowfax app. Estimates do not guarantee actual payouts.'}
 };
 let currentLang='mr';
 const originalText=new WeakMap();
@@ -491,8 +474,8 @@ function downloadBlob(blob,name){const url=URL.createObjectURL(blob),a=document.
 function reportRows(){const source=monthlyRecords.length?monthlyRecords:orders;return [['Date','Time','Platform','KM','Gross INR','Fuel INR','Net INR'],...source.map(o=>[o.date||localDateKey(),o.time,o.app,o.km,o.gross,o.fuel,o.net]),...monthlyExpenses.map(e=>[e.date,e.time,'Expense: '+e.type,'',0,e.amount,-e.amount]),...((monthlyBonuses.length?monthlyBonuses:bonuses).map(b=>[b.date||localDateKey(),b.time,'Bonus: '+(b.label||'Incentive'),'',b.amount,0,b.amount]))]}
 function exportExcel(){const rows=reportRows();const table='<table>'+rows.map((r,i)=>'<tr>'+r.map(v=>'<'+(i?'td':'th')+'>'+esc(v)+'</'+(i?'td':'th')+'>').join('')+'</tr>').join('')+'</table>';downloadBlob(new Blob(['<html><meta charset="utf-8">'+table+'</html>'],{type:'application/vnd.ms-excel'}),'rider-saathi-report.xls')}
 function exportPDF(){const orderRows=(monthlyRecords.length?monthlyRecords:orders).map(o=>`<tr><td>${esc(o.date||'')}</td><td>${esc(o.time)}</td><td>${esc(o.app)}</td><td>${Number(o.km).toFixed(2)}</td><td>${rupees(o.gross)}</td><td>${rupees(o.fuel)}</td><td>${rupees(o.net)}</td></tr>`);const expenseRows=monthlyExpenses.map(e=>`<tr><td>${esc(e.date)}</td><td>${esc(e.time)}</td><td>Expense: ${esc(e.type)}</td><td>—</td><td>₹0.00</td><td>${rupees(e.amount)}</td><td>${rupees(-e.amount)}</td></tr>`);const rows=orderRows.concat(expenseRows).join('');const w=window.open('','_blank');if(!w){alert('PDF साठी popup परवानगी द्या.');return}w.document.write('<html><head><meta charset="utf-8"><title>Rider Saathi Report</title><style>body{font-family:Arial;padding:20px}table{border-collapse:collapse;width:100%}td,th{border:1px solid #aaa;padding:7px;text-align:left}h2{color:#087f63}</style></head><body><h2>Rider Saathi Report</h2><p>'+localDateKey()+'</p><table><tr><th>Date</th><th>Time</th><th>App</th><th>KM</th><th>Gross</th><th>Fuel</th><th>Net</th></tr>'+rows+'</table><script>window.onload=()=>window.print()<\/script></body></html>');w.document.close()}
-function downloadBackup(){const data={appVersion:8.4,createdAt:new Date().toISOString(),rsData:safeLoad('rsData',{}),rsRates:safeLoad('rsRates',{}),rsDark:safeLoad('rsDark','0')};downloadBlob(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),'rider-saathi-backup.json')}
-function restoreBackup(ev){const file=ev.target.files?.[0];if(!file)return;if(file.size>5*1024*1024){alert('Backup फाईल 5 MB पेक्षा मोठी आहे.');ev.target.value='';return}const reader=new FileReader();reader.onload=()=>{try{const b=JSON.parse(reader.result);if(!b||typeof b!=='object'||!b.rsData||typeof b.rsData!=='object'||Array.isArray(b.rsData))throw Error('Backup format चुकीचा आहे');const d=b.rsData;if(d.orders!==undefined&&!Array.isArray(d.orders))throw Error('Orders डेटा चुकीचा आहे');if(d.monthlyRecords!==undefined&&!Array.isArray(d.monthlyRecords))throw Error('Monthly डेटा चुकीचा आहे');if(d.monthlyBonuses!==undefined&&!Array.isArray(d.monthlyBonuses))throw Error('Monthly bonus डेटा चुकीचा आहे');if(d.expenses!==undefined&&!Array.isArray(d.expenses))throw Error('Expenses डेटा चुकीचा आहे');if(d.deletedRecords!==undefined&&!Array.isArray(d.deletedRecords))throw Error('Deleted records डेटा चुकीचा आहे');if(b.rsRates!==undefined&&(!b.rsRates||typeof b.rsRates!=='object'||Array.isArray(b.rsRates)))throw Error('Rates डेटा चुकीचा आहे');if(!confirm('Backup मध्ये '+(Array.isArray(d.orders)?d.orders.length:0)+' आजच्या ऑर्डर्स आणि '+(Array.isArray(d.monthlyRecords)?d.monthlyRecords.length:0)+' ऐतिहासिक नोंदी आहेत. सध्याचा डेटा बदलून Restore करायचा?'))return;rsKeepAutoBackup();localStorage.setItem('rsData',JSON.stringify(d));if(b.rsRates)localStorage.setItem('rsRates',JSON.stringify(b.rsRates));if(b.rsDark!==undefined)localStorage.setItem('rsDark',String(b.rsDark)==='1'?'1':'0');location.reload()}catch(e){alert('Backup Restore अयशस्वी: '+e.message)}finally{ev.target.value=''}};reader.onerror=()=>{alert('Backup फाईल वाचता आली नाही.');ev.target.value=''};reader.readAsText(file)}
+function downloadBackup(){const data={appVersion:10,createdAt:new Date().toISOString(),rsData:safeLoad('rsData',{}),rsRates:safeLoad('rsRates',{}),rsDark:safeLoad('rsDark','0'),rsDutyHistory:safeLoad('rsProShiftHistoryV10',[]),rsActiveShift:safeLoad('rsProActiveShiftV10',null)};downloadBlob(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),'rider-saathi-backup.json')}
+function restoreBackup(ev){const file=ev.target.files?.[0];if(!file)return;if(file.size>5*1024*1024){alert('Backup फाईल 5 MB पेक्षा मोठी आहे.');ev.target.value='';return}const reader=new FileReader();reader.onload=()=>{try{const b=JSON.parse(reader.result);if(!b||typeof b!=='object'||!b.rsData||typeof b.rsData!=='object'||Array.isArray(b.rsData))throw Error('Backup format चुकीचा आहे');const d=b.rsData;if(d.orders!==undefined&&!Array.isArray(d.orders))throw Error('Orders डेटा चुकीचा आहे');if(d.monthlyRecords!==undefined&&!Array.isArray(d.monthlyRecords))throw Error('Monthly डेटा चुकीचा आहे');if(d.monthlyBonuses!==undefined&&!Array.isArray(d.monthlyBonuses))throw Error('Monthly bonus डेटा चुकीचा आहे');if(d.expenses!==undefined&&!Array.isArray(d.expenses))throw Error('Expenses डेटा चुकीचा आहे');if(d.deletedRecords!==undefined&&!Array.isArray(d.deletedRecords))throw Error('Deleted records डेटा चुकीचा आहे');if(b.rsRates!==undefined&&(!b.rsRates||typeof b.rsRates!=='object'||Array.isArray(b.rsRates)))throw Error('Rates डेटा चुकीचा आहे');if(!confirm('Backup मध्ये '+(Array.isArray(d.orders)?d.orders.length:0)+' आजच्या ऑर्डर्स आणि '+(Array.isArray(d.monthlyRecords)?d.monthlyRecords.length:0)+' ऐतिहासिक नोंदी आहेत. सध्याचा डेटा बदलून Restore करायचा?'))return;rsKeepAutoBackup();localStorage.setItem('rsData',JSON.stringify(d));if(b.rsRates)localStorage.setItem('rsRates',JSON.stringify(b.rsRates));if(b.rsDark!==undefined)localStorage.setItem('rsDark',String(b.rsDark)==='1'?'1':'0');if(Array.isArray(b.rsDutyHistory))localStorage.setItem('rsProShiftHistoryV10',JSON.stringify(b.rsDutyHistory));if(b.rsActiveShift)localStorage.setItem('rsProActiveShiftV10',JSON.stringify(b.rsActiveShift));location.reload()}catch(e){alert('Backup Restore अयशस्वी: '+e.message)}finally{ev.target.value=''}};reader.onerror=()=>{alert('Backup फाईल वाचता आली नाही.');ev.target.value=''};reader.readAsText(file)}
 
 
 function editOrder(id){
@@ -568,10 +551,10 @@ async function rsAuthSubmit(){try{const a=$('rsPin1').value.trim(),b=$('rsPin2')
 function rsAuthCancel(){rsShowAuth('unlock')}
 function rsChangePin(){if(!rsUnlocked)return rsLockNow();rsShowAuth('verifyChange')}
 function rsLockNow(){rsUnlocked=false;rsShowAuth('unlock')}
-function rsInitAuth(){const a=safeLoad(RS_AUTH_KEY,null);rsShowAuth(a?'unlock':'setup');document.addEventListener('pointerdown',()=>{if(rsUnlocked)rsLastActivity=Date.now()},{passive:true});document.addEventListener('keydown',()=>{if(rsUnlocked)rsLastActivity=Date.now()});setInterval(()=>{if(rsUnlocked&&Date.now()-rsLastActivity>10*60*1000)rsLockNow()},15000);}
-function rsBackupSnapshot(){return {savedAt:new Date().toISOString(),rsData:safeLoad('rsData',{}),rsRates:safeLoad('rsRates',{}),rsDark:safeLoad('rsDark','0')}}
+function rsInitAuth(){const a=safeLoad(RS_AUTH_KEY,null);if(a){rsShowAuth('unlock')}else{rsUnlocked=true;if($('rsAuthOverlay'))$('rsAuthOverlay').style.display='none';if($('rsSecurityStatus'))$('rsSecurityStatus').textContent='PIN लॉक सेट केलेला नाही. हवे असल्यास सेटिंगमध्ये PIN सुरू करा.'}document.addEventListener('pointerdown',()=>{if(rsUnlocked)rsLastActivity=Date.now()},{passive:true});document.addEventListener('keydown',()=>{if(rsUnlocked)rsLastActivity=Date.now()});setInterval(()=>{if(rsUnlocked&&safeLoad(RS_AUTH_KEY,null)&&Date.now()-rsLastActivity>10*60*1000)rsLockNow()},15000);}
+function rsBackupSnapshot(){return {savedAt:new Date().toISOString(),rsData:safeLoad('rsData',{}),rsRates:safeLoad('rsRates',{}),rsDark:safeLoad('rsDark','0'),rsDutyHistory:safeLoad('rsProShiftHistoryV10',[]).slice(-100).map(x=>({...x,route:(x.route||[]).slice(-100)})),rsActiveShift:safeLoad('rsProActiveShiftV10',null)}}
 function rsKeepAutoBackup(){try{const list=safeLoad(RS_BACKUPS_KEY,[]);list.unshift(rsBackupSnapshot());localStorage.setItem(RS_BACKUPS_KEY,JSON.stringify(list.slice(0,5)))}catch(e){console.warn('Auto backup skipped',e)}}
-function rsRecoverIfNeeded(){try{const raw=localStorage.getItem('rsData');if(raw){JSON.parse(raw);return}const backups=safeLoad(RS_BACKUPS_KEY,[]);if(backups.length&&confirm('मुख्य स्थानिक डेटा उपलब्ध नाही. शेवटच्या Auto Backup मधून Restore करायचा?')){localStorage.setItem('rsData',JSON.stringify(backups[0].rsData||{}));if(backups[0].rsRates)localStorage.setItem('rsRates',JSON.stringify(backups[0].rsRates));location.reload()}}catch(e){const backups=safeLoad(RS_BACKUPS_KEY,[]);if(backups.length&&confirm('स्थानिक डेटा वाचता येत नाही. शेवटच्या Auto Backup मधून Restore करायचा?')){localStorage.setItem('rsData',JSON.stringify(backups[0].rsData||{}));location.reload()}}}
+function rsRecoverIfNeeded(){try{const raw=localStorage.getItem('rsData');if(raw){JSON.parse(raw);return}const backups=safeLoad(RS_BACKUPS_KEY,[]);if(backups.length&&confirm('मुख्य स्थानिक डेटा उपलब्ध नाही. शेवटच्या Auto Backup मधून Restore करायचा?')){localStorage.setItem('rsData',JSON.stringify(backups[0].rsData||{}));if(backups[0].rsRates)localStorage.setItem('rsRates',JSON.stringify(backups[0].rsRates));if(Array.isArray(backups[0].rsDutyHistory))localStorage.setItem('rsProShiftHistoryV10',JSON.stringify(backups[0].rsDutyHistory));if(backups[0].rsActiveShift)localStorage.setItem('rsProActiveShiftV10',JSON.stringify(backups[0].rsActiveShift));location.reload()}}catch(e){const backups=safeLoad(RS_BACKUPS_KEY,[]);if(backups.length&&confirm('स्थानिक डेटा वाचता येत नाही. शेवटच्या Auto Backup मधून Restore करायचा?')){localStorage.setItem('rsData',JSON.stringify(backups[0].rsData||{}));location.reload()}}}
 function rsStamp(){return Date.now()}
 function persist(){try{savedOtherCost=numeric('otherCost');const d={date:localDateKey(),orders,bonuses,monthlyBonuses:monthlyBonuses.slice(-1000),otherCost:savedOtherCost,monthlyRecords:monthlyRecords.slice(-3000),expenses,monthlyExpenses:monthlyExpenses.slice(-4000),deletedRecords:deletedRecords.slice(-5000),timer:{workStartedAt,workElapsed,breakStartedAt,breakElapsed},targetAlertSent,updatedAt:rsStamp()};localStorage.setItem('rsData',JSON.stringify(d));rsKeepAutoBackup();}catch(e){console.warn('Save failed',e);if(!window.rsSaveWarned){window.rsSaveWarned=1;alert('फोनमध्ये सेव्ह करता आले नाही: '+e.message+'. आधी Backup घ्या.')}}}
 
@@ -621,8 +604,19 @@ function rsWakeOff(){try{if(rsWake)rsWake.release()}catch(e){}rsWake=null}
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'){rsCheckRollover();if(gpsWatch!==null)rsWakeOn()}});
 
 // V9 Command Center — insights are local rule-based summaries, not cloud AI.
-function rs9StartShift(){try{startWork()}catch(e){}try{startGPS()}catch(e){alert('GPS सुरू करता आला नाही: '+e.message)}rs9Refresh()}
-function rs9StopShift(){try{stopGPS()}catch(e){}try{stopWork()}catch(e){}rs9Refresh()}
+function rs9StartShift(){
+ if(workStartedAt){rs9Refresh();return}
+ try{startWork()}catch(e){alert('ड्युटी सुरू करता आली नाही: '+e.message);return}
+ try{startGPS()}catch(e){alert('ड्युटी सुरू झाली; मात्र GPS सुरू झाला नाही. लोकेशन परवानगी तपासा. '+e.message)}
+ rs9Refresh();
+}
+function rs9StopShift(){
+ if(!workStartedAt){rs9Refresh();return}
+ try{stopGPS()}catch(e){}
+ try{stopWork()}catch(e){alert('ड्युटी थांबवताना अडचण: '+e.message)}
+ rs9Refresh();
+}
+function rs9ToggleShift(){if(workStartedAt)rs9StopShift();else rs9StartShift()}
 function rs9Refresh(){
  const ord=Array.isArray(orders)?orders:[], exp=Array.isArray(expenses)?expenses:[], bon=Array.isArray(bonuses)?bonuses:[];
  const gross=ord.reduce((a,o)=>a+Number(o.gross||0),0)+bon.reduce((a,b)=>a+Number(b.amount||0),0);
@@ -636,6 +630,7 @@ function rs9Refresh(){
  const goal=Math.max(0,numeric('goal')||1000),pct=goal?Math.min(100,Math.max(0,net/goal*100)):0;
  put('rs9GoalText',rupees(net)+' / '+rupees(goal));const bar=document.getElementById('rs9GoalBar');if(bar)bar.style.width=pct+'%';
  const state=document.getElementById('rs9ShiftState');if(state){const active=!!(typeof workStartedAt!=='undefined'&&workStartedAt);state.textContent=active?'● SHIFT ACTIVE':'● READY TO RIDE';state.style.color=active?'#a4ffe3':'#b9d9d4'}
+ const active=!!(typeof workStartedAt!=='undefined'&&workStartedAt);const dutyBtn=document.getElementById('rs9DutyBtn');if(dutyBtn){dutyBtn.textContent=active?'■ END DUTY':'▶ START DUTY';dutyBtn.classList.toggle('is-active',active);dutyBtn.setAttribute('aria-pressed',String(active))}const dutyHelp=document.getElementById('rs9DutyHelp');if(dutyHelp)dutyHelp.textContent=active?'ड्युटी सुरू आहे. काम पूर्ण झाल्यावर END DUTY दाबा.':'ड्युटी सुरू करण्यासाठी एकदाच बटण दाबा. GPS परवानगी मागितल्यास Allow करा.';
  let insight='छान! पहिली ऑर्डर जोडा. काही ऑर्डर्सनंतर कमाई/KM आणि सर्वोत्तम प्लॅटफॉर्मचे संकेत दिसतील.';
  if(ord.length){const per=km?net/km:0;const avg=net/ord.length;insight=`आतापर्यंत ${ord.length} ऑर्डर्स. सरासरी निव्वळ ${rupees(avg)} प्रति ऑर्डर आणि ${rupees(per)} प्रति KM. `+(pct>=100?'आजचे लक्ष्य पूर्ण! आता सुरक्षितपणे काम सुरू ठेवा.':`लक्ष्य पूर्ण करण्यासाठी अजून ${rupees(Math.max(0,goal-net))} निव्वळ कमाई आवश्यक.`)}
  if(km>0&&net<0)insight='आजचा खर्च कमाईपेक्षा जास्त दिसतोय. इंधन, अंतर आणि इतर खर्चाच्या नोंदी तपासा.';
@@ -648,27 +643,97 @@ document.addEventListener('visibilitychange',()=>{if(!document.hidden)rs9Refresh
 setInterval(()=>{try{rs9Refresh()}catch(e){}},15000);
 
 
-
-// V10 X — local intelligence tools. No cloud-AI claims; all calculations use on-device records.
-function rsxMoney(n){try{return new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',maximumFractionDigits:0}).format(Number(n)||0)}catch(e){return '₹'+Math.round(Number(n)||0)}}
-function rsxRefresh(){
- try{
-  const list=Array.isArray(orders)?orders:[];const km=list.reduce((a,o)=>a+Math.max(0,Number(o.km)||0),0);const orderNet=list.reduce((a,o)=>a+(Number(o.net)||0),0);const bonusTotal=(Array.isArray(bonuses)?bonuses:[]).reduce((a,b)=>a+(Number(b.amount)||0),0);const expenseTotal=(Array.isArray(expenses)?expenses:[]).reduce((a,e)=>a+(Number(e.amount)||0),0)+numeric('otherCost');const net=orderNet+bonusTotal-expenseTotal;const n=list.length;
-  const put=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v};
-  put('rsxProfitKm',rsxMoney(km?net/km:0));put('rsxProfitOrder',rsxMoney(n?net/n:0));put('rsxTripCount',String(n));
-  const dup=[];for(let i=0;i<list.length;i++){for(let j=i+1;j<list.length;j++){const a=list[i],b=list[j];if(a.app===b.app&&a.date===b.date&&Math.abs(Number(a.km||0)-Number(b.km||0))<.01&&Math.abs(Number(a.gross||0)-Number(b.gross||0))<.01){dup.push(a);break}}}
-  put('rsxDataHealth',dup.length?'तपासा: '+dup.length:'डुप्लिकेट नाही');
-  const target=Math.max(0,Number(document.getElementById('rsxTarget')?.value)||0),hours=Math.min(18,Math.max(.5,Number(document.getElementById('rsxHours')?.value)||.5)),remaining=Math.max(0,target-net);
-  put('rsxPlanResult',`आजच्या नोंदींनुसार बोनस आणि नोंदवलेले खर्च वजा केल्यानंतर अंदाजे निव्वळ ${rsxMoney(net)}. लक्ष्य गाठण्यासाठी अजून ${rsxMoney(remaining)} आवश्यक. पुढील ${hours} तासांत सरासरी ${rsxMoney(remaining/hours)} प्रति तास कमवावे लागतील.`);
-  let msg='अजून पुरेशा ऑर्डर नोंदी नाहीत. काही ट्रिप्स जोडा; मग प्रति KM आणि प्रति ऑर्डर विश्लेषण दिसेल.';
-  if(n){const perKm=km?net/km:0;const avg=net/n;msg=`${n} ऑर्डर नोंदी तपासल्या. नोंदवलेले खर्च व बोनस धरून अंदाजे ${rsxMoney(avg)} प्रति ऑर्डर आणि ${rsxMoney(perKm)} प्रति KM. `+(dup.length?`${dup.length} संभाव्य डुप्लिकेट नोंदी तपासा.`:'डुप्लिकेट नोंदी आढळल्या नाहीत.')+(km>0&&perKm<0?' खर्च/कमाई पुन्हा तपासा.':'');}
-  put('rsxInsight',msg);
-  const netState=document.getElementById('rsxNetwork');if(netState)netState.textContent=navigator.onLine?'● DEVICE + ONLINE':'● OFFLINE MODE';
-  rsxLoadBike();
- }catch(e){const el=document.getElementById('rsxInsight');if(el)el.textContent='विश्लेषण सध्या उपलब्ध नाही. नोंदी तपासा.';console.warn('RSX scan',e)}
+// Simple 2-way delivery completion: manual amount or GPS + configured-rate estimate.
+function rs9OpenDelivery(){if(!workStartedAt){alert('आधी START DUTY दाबा.');return}const m=document.getElementById('rs9DeliveryModal');if(m)m.classList.add('open');const km=document.getElementById('rs9ManualKm');if(km&&typeof gpsKm!=='undefined'&&gpsKm>0)km.value=gpsKm.toFixed(2);}
+function rs9CloseDelivery(){const m=document.getElementById('rs9DeliveryModal');if(m)m.classList.remove('open');}
+function rs9ShowManual(){const p=document.getElementById('rs9ManualEntry');if(p)p.classList.add('show');const a=document.getElementById('rs9ManualPay');if(a)a.focus();}
+function rs9SaveDeliveryRecord(gross,km,source){
+ gross=Number(gross);km=Number(km);
+ if(!Number.isFinite(gross)||gross<0||!Number.isFinite(km)||km<=0){alert('योग्य पेमेंट आणि शून्यापेक्षा जास्त KM भरा.');return false}
+ const mileage=Math.max(1,numeric('mileage')||45),fuelPrice=Math.max(0,numeric('fuelPrice')||0),fuel=km/mileage*fuelPrice,now=Date.now(),time=new Date().toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'});
+ const item={id:crypto.randomUUID?crypto.randomUUID():String(now)+Math.random(),app:typeof app!=='undefined'?app:'swiggy',km,gross,fuel,net:gross-fuel,date:localDateKey(),time,hour:new Date().getHours(),createdAt:now,updatedAt:now,entrySource:source};
+ orders.unshift(item);monthlyRecords.push(item);if(typeof gpsKm!=='undefined'){gpsKm=0;gpsLast=null;if(typeof rsGpsSamples!=='undefined')rsGpsSamples=0;if(document.getElementById('gpsStatus'))document.getElementById('gpsStatus').textContent='GPS चालू • पुढील डिलिव्हरीचे अंतर मोजत आहे.';}persist();render();calc();rs9Refresh();rs9CloseDelivery();
+ const manual=document.getElementById('rs9ManualEntry');if(manual)manual.classList.remove('show');const pay=document.getElementById('rs9ManualPay');if(pay)pay.value='';alert('डिलिव्हरीची नोंद सेव्ह झाली!');return true;
 }
-function rsxSaveBike(){const km=Math.max(0,Number(document.getElementById('rsxServiceKm')?.value)||0),note=(document.getElementById('rsxServiceNote')?.value||'').trim().slice(0,70);if(!km){alert('पुढील सर्व्हिसचे KM भरा.');return}try{localStorage.setItem('rsxBikeReminder',JSON.stringify({km,note,savedAt:new Date().toISOString()}));rsxLoadBike();alert('Bike Care Reminder सेव्ह झाला.')}catch(e){alert('रिमाइंडर सेव्ह करता आला नाही.') }}
-function rsxLoadBike(){const out=document.getElementById('rsxBikeResult');if(!out)return;try{const d=JSON.parse(localStorage.getItem('rsxBikeReminder')||'null');if(!d){out.textContent='सर्व्हिस रिमाइंडर सेट केलेला नाही.';return}const km=Number(d.km)||0;const current=Number(gpsKm)||0;out.textContent=`पुढील सर्व्हिस लक्ष्य: ${km.toLocaleString('en-IN')} KM • नोंद: ${d.note||'नाही'} • GPS या शिफ्टमध्ये ${current.toFixed(1)} KM. हा रिमाइंडर मॅन्युअली अपडेट करा.`;document.getElementById('rsxServiceKm').value=km;document.getElementById('rsxServiceNote').value=d.note||''}catch(e){out.textContent='रिमाइंडर डेटा वाचता आला नाही.'}}
-document.addEventListener('input',e=>{if(e.target?.id==='rsxTarget'||e.target?.id==='rsxHours')rsxRefresh()});window.addEventListener('online',rsxRefresh);window.addEventListener('offline',rsxRefresh);document.addEventListener('DOMContentLoaded',rsxRefresh);setTimeout(rsxRefresh,500);
+function rs9SaveManual(){const gross=document.getElementById('rs9ManualPay')?.value,km=document.getElementById('rs9ManualKm')?.value;rs9SaveDeliveryRecord(gross,km,'manual')}
+function rs9SmartDelivery(){
+ let estimate;try{estimate=calc()}catch(e){alert('अंदाज काढता आला नाही.');return}
+ const km=(typeof gpsKm!=='undefined'&&gpsKm>0)?gpsKm:Number(estimate?.km||0);
+ const rate=currentRate(),extra=Math.max(0,km-rate.free),gross=km>0?rate.base+extra*rate.rate+numeric('surge')+numeric('tip'):0;
+ if(!(km>0)){alert('GPS अंतर मिळाले नाही. आधी GPS चालू करा किंवा स्वतः रक्कम टाका आणि KM भरा.');rs9ShowManual();return}
+ if(!Number.isFinite(gross)||gross<0){alert('अंदाज उपलब्ध नाही. स्वतः रक्कम टाका.');rs9ShowManual();return}
+ const confirmed=confirm('स्मार्ट अंदाज तपासा:\nप्लॅटफॉर्म: '+String(typeof app!=='undefined'?app:'swiggy').toUpperCase()+'\nअंतर: '+km.toFixed(2)+' KM\nअंदाजे पेमेंट: '+rupees(gross)+'\n\nहा अंदाज योग्य असल्यास सेव्ह करा. पेमेंट वेगळे असल्यास रद्द करून स्वतः रक्कम टाका.');
+ if(confirmed)rs9SaveDeliveryRecord(gross,km,'smart-estimate');
+}
 
+
+
+// ===== V10 PRO INTELLIGENCE: personal shift ledger, audit, insights =====
+const PI_HISTORY_KEY='rsProShiftHistoryV10';
+const PI_ACTIVE_KEY='rsProActiveShiftV10';
+let piActiveShift=safeLoad(PI_ACTIVE_KEY,null);
+let piLastRouteSave=0;
+if(piActiveShift){gpsKm=Math.max(Number(gpsKm)||0,Number(piActiveShift.gpsKm)||0)}
+function piHistory(){const h=safeLoad(PI_HISTORY_KEY,[]);return Array.isArray(h)?h:[]}
+function piSaveHistory(h){try{localStorage.setItem(PI_HISTORY_KEY,JSON.stringify(h.slice(-1500)))}catch(e){console.warn('Duty history save failed',e)}}
+function piPersistActive(){try{if(piActiveShift)localStorage.setItem(PI_ACTIVE_KEY,JSON.stringify(piActiveShift));else localStorage.removeItem(PI_ACTIVE_KEY)}catch(e){console.warn('Active shift save failed',e)}}
+function piBeginShift(){
+ if(piActiveShift && !piActiveShift.endedAt)return;
+ piActiveShift={id:(crypto.randomUUID?crypto.randomUUID():String(Date.now())+Math.random()),startedAt:Date.now(),date:localDateKey(),endedAt:0,platform:typeof app!=='undefined'?app:'swiggy',startGpsKm:Number(gpsKm)||0,gpsKm:0,route:[],orderCountAtStart:Array.isArray(orders)?orders.length:0, grossAtStart:(orders||[]).reduce((a,o)=>a+Number(o.gross||0),0),status:'active'};
+ piPersistActive();piRender();
+}
+function piCapturePoint(p){
+ if(!piActiveShift||piActiveShift.endedAt||!p)return;
+ const route=piActiveShift.route||(piActiveShift.route=[]),last=route[route.length-1];
+ if(!last || p.timestamp-last.t>=30000){route.push({lat:Number(p.lat),lon:Number(p.lon),t:Number(p.timestamp)});if(route.length>1200)route.splice(0,route.length-1200);piActiveShift.gpsKm=Math.max(0,(Number(gpsKm)||0)-Number(piActiveShift.startGpsKm||0));piPersistActive();}
+}
+function piEndShift(){
+ if(!piActiveShift||piActiveShift.endedAt)return;
+ const end=Date.now(),start=Number(piActiveShift.startedAt)||end;
+ const totalMs=Math.max(0,end-start),shiftOrders=(orders||[]).length-Number(piActiveShift.orderCountAtStart||0);
+ const grossNow=(orders||[]).reduce((a,o)=>a+Number(o.gross||0),0),grossDelta=Math.max(0,grossNow-Number(piActiveShift.grossAtStart||0));
+ const km=Math.max(0,(Number(gpsKm)||0)-Number(piActiveShift.startGpsKm||0));
+ const row={...piActiveShift,endedAt:end,durationMs:totalMs,durationHours:totalMs/3600000,gpsKm:km,ordersAdded:Math.max(0,shiftOrders),grossAdded:grossDelta,status:'completed',route:piActiveShift.route||[]};
+ const h=piHistory();h.push(row);piSaveHistory(h);piActiveShift=null;piPersistActive();piRunAudit(false);piRender();
+ try{const msg=`ड्युटी पूर्ण! वेळ ${(totalMs/3600000).toFixed(2)} तास • GPS ${km.toFixed(2)} KM • नव्या नोंदवलेल्या ऑर्डर्स ${row.ordersAdded}.`;if('Notification'in window&&Notification.permission==='granted')new Notification('Rider Saathi Pro',{body:msg});}catch(e){}
+}
+function piFmtDuration(ms){const m=Math.max(0,Math.floor((Number(ms)||0)/60000)),h=Math.floor(m/60),mm=m%60;return h+'h '+String(mm).padStart(2,'0')+'m'}
+function piRunAudit(showAlert){
+ const h=piHistory(),all=Array.isArray(monthlyRecords)?monthlyRecords:[],ids=new Set(),issues=[];
+ let duplicate=0,invalid=0;
+ for(const o of all){if(o?.id){if(ids.has(String(o.id)))duplicate++;ids.add(String(o.id))}if(!o||!Number.isFinite(Number(o.km))||Number(o.km)<0||!Number.isFinite(Number(o.gross))||Number(o.gross)<0)invalid++}
+ if(duplicate)issues.push(duplicate+' duplicate order IDs');if(invalid)issues.push(invalid+' invalid order records');
+ const activeMismatch=!!(workStartedAt && (!piActiveShift||piActiveShift.endedAt));if(activeMismatch)issues.push('active duty session record missing');
+ const badSessions=h.filter(x=>!x.startedAt||!x.endedAt||x.endedAt<x.startedAt).length;if(badSessions)issues.push(badSessions+' invalid duty sessions');
+ const text=issues.length?'तपासणीमध्ये लक्ष द्यायच्या गोष्टी: '+issues.join(' • '):'सर्व ठीक! '+all.length+' ऑर्डर नोंदी आणि '+h.length+' ड्युटी सेशन्स तपासले. गंभीर डेटा विसंगती आढळली नाही.';
+ const el=document.getElementById('piAudit');if(el)el.textContent=text;
+ if(showAlert)alert(text);
+ return {issues,orders:all.length,sessions:h.length};
+}
+function piRender(){
+ const h=piHistory(),completed=h.filter(x=>x.status==='completed'),allKm=completed.reduce((a,x)=>a+Number(x.gpsKm||0),0),allMs=completed.reduce((a,x)=>a+Number(x.durationMs||0),0);
+ const put=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v};
+ put('piShiftCount',String(completed.length+(piActiveShift?1:0)));put('piTotalHours',(allMs/3600000+(piActiveShift?(Date.now()-piActiveShift.startedAt)/3600000:0)).toFixed(1)+'h');put('piTotalKm',(allKm+(piActiveShift?Number(gpsKm||0)-Number(piActiveShift.startGpsKm||0):0)).toFixed(1));
+ const el=document.getElementById('piHistory');if(el){const rows=h.slice().reverse().slice(0,30);el.innerHTML=rows.map(x=>`<div class="order"><div class="orderTop"><b>${esc(x.date||new Date(x.startedAt).toLocaleDateString('en-CA'))} • ${esc(String(x.platform||'').toUpperCase())}</b><b>${piFmtDuration(x.durationMs)}</b></div><small>${new Date(x.startedAt).toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'})} – ${new Date(x.endedAt).toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'})} • GPS ${Number(x.gpsKm||0).toFixed(2)} KM • ${Number(x.ordersAdded||0)} नोंदवलेल्या ऑर्डर्स</small>${(x.route||[]).length>1?`<button class="tiny" onclick="piOpenRoute('${esc(x.id)}')">GPS नकाशा</button>`:''}</div>`).join('')||'<p class="hint">ड्युटी पूर्ण झाल्यावर इतिहास आपोआप इथे सेव्ह होईल.</p>'}
+ const insight=document.getElementById('piInsight');if(insight){const recent=completed.slice(-7),avg=recent.length?recent.reduce((a,x)=>a+Number(x.durationHours||0),0)/recent.length:0,kmh=allMs?allKm/(allMs/3600000):0;let msg=completed.length?`आतापर्यंत ${completed.length} ड्युटी सेशन्स नोंदले. सरासरी ड्युटी वेळ ${avg.toFixed(1)} तास. GPS नोंदीनुसार सरासरी वेग ${kmh.toFixed(1)} KM/तास.`:'अजून पूर्ण ड्युटी नोंद नाही. START DUTY आणि END DUTY वापरल्यानंतर इथे विश्लेषण तयार होईल.';if(piActiveShift)msg+=' सध्या ड्युटी सुरू आहे; चालू सेशन अपडेट होत आहे.';if(completed.length>=3){const last3=completed.slice(-3),prev=completed.slice(-6,-3);if(prev.length){const a=last3.reduce((v,x)=>v+Number(x.durationHours||0),0)/last3.length,b=prev.reduce((v,x)=>v+Number(x.durationHours||0),0)/prev.length;msg+=a>b?' अलीकडील ड्युटीचा वेळ आधीपेक्षा वाढला आहे.':' अलीकडील ड्युटीचा वेळ स्थिर किंवा कमी आहे.'}}insight.textContent=msg;}
+}
+function piOpenRoute(id){const x=piHistory().find(v=>String(v.id)===String(id));const pts=x?.route||[];if(pts.length<2){alert('या ड्युटीसाठी पुरेसे GPS पॉइंट्स सेव्ह झालेले नाहीत.');return}const a=pts[0],b=pts[pts.length-1],mid=pts.slice(1,-1).filter((_,i)=>i%Math.max(1,Math.ceil((pts.length-2)/8))===0).slice(0,8);const url='https://www.google.com/maps/dir/?api=1&origin='+a.lat+','+a.lon+'&destination='+b.lat+','+b.lon+(mid.length?'&waypoints='+mid.map(p=>p.lat+','+p.lon).join('%7C'):'')+'&travelmode=driving';window.open(url,'_blank','noopener')}
+function piExportHistory(){const rows=[['Date','Platform','Start','End','Duration hours','GPS KM','Orders added','Gross added'],...piHistory().map(x=>[new Date(x.startedAt).toLocaleDateString('en-CA'),x.platform,new Date(x.startedAt).toISOString(),new Date(x.endedAt).toISOString(),Number(x.durationHours||0).toFixed(2),Number(x.gpsKm||0).toFixed(2),x.ordersAdded||0,x.grossAdded||0])];const csv=rows.map(r=>r.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(',')).join('\n');downloadBlob(new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8'}),'rider-saathi-duty-history.csv')}
+// Hook duty buttons to create a durable personal shift ledger.
+const piOldStart=rs9StartShift,piOldStop=rs9StopShift;
+rs9StartShift=function(){const was=!!workStartedAt;piOldStart();if(!was&&workStartedAt)piBeginShift();piRender()};
+rs9StopShift=function(){const was=!!workStartedAt;piOldStop();if(was&&!workStartedAt)piEndShift();piRender()};
+// Recover an in-progress session after reopening the app; never fabricate an end time.
+if(workStartedAt&&!piActiveShift){piBeginShift();}
+// Capture coarse route breadcrumbs only while duty is active; points stay on this device.
+const piOldGpsStart=startGPS;
+startGPS=function(){const before=gpsWatch;piOldGpsStart();if(before===null&&gpsWatch!==null){/* original GPS watcher remains the source of coordinates */}};
+// The V9 GPS callback updates gpsLast; sample the latest accepted point periodically while active.
+setInterval(()=>{try{if(workStartedAt&&gpsLast){piCapturePoint(gpsLast);piRender()} }catch(e){}},30000);
+// Auto audit and insight refresh. No network calls or cloud AI are used.
+setInterval(()=>{try{piRunAudit(false);piRender()}catch(e){}},60000);
+const piOldPersist=persist;
+persist=function(){piOldPersist();try{if(piActiveShift){piActiveShift.gpsKm=Math.max(0,(Number(gpsKm)||0)-Number(piActiveShift.startGpsKm||0));piPersistActive()} }catch(e){}};
+window.addEventListener('beforeunload',()=>{try{if(piActiveShift)piPersistActive()}catch(e){}});
+setTimeout(()=>{try{piRunAudit(false);piRender()}catch(e){}},500);
 </script></body></html>

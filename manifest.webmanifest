@@ -1,19 +1,10 @@
 {
-  "name": "Rider Saathi Pro X",
-  "short_name": "Rider Saathi X",
-  "description": "Extreme rider intelligence, earnings, expenses, GPS and analytics",
-  "start_url": "./",
-  "scope": "./",
+  "name": "Rider Saathi Pro - Simple Rider Edition",
+  "short_name": "Rider Saathi",
+  "start_url": "./index.html",
   "display": "standalone",
-  "orientation": "portrait",
-  "background_color": "#071d22",
-  "theme_color": "#071d22",
-  "icons": [
-    {
-      "src": "./icon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
-    }
-  ]
+  "background_color": "#080f14",
+  "theme_color": "#080f14",
+  "description": "Simple delivery duty, distance, earnings and expense tracker",
+  "icons": [{"src":"./icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
 }
